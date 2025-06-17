@@ -6,30 +6,35 @@ number-sections: false
 
 ## Overview 
 
-Include a one-paragraph summary of the course here. 
+This course is an python programming course for beginners. It introduces students to the fundamentals of python, one of the most widely used, syntactically easy, and versatile programming languages. The course is designed for learners with no prior programming experience in any language and covers coding basics principles as well as python syntax, data types, operators, control structures (if, elif, else, for, while, try, except), and simple functions. We will also briefly cover working with files, software management, object oriented programming and context managers. Do not worry if you do not know what these terms mean - you will learn in this course! The course is taught in an interactive way with exercises and working examples throughout. 
+
 
 ::: {.callout-tip}
 ### Learning Objectives
 
-- List course learning objectives here.
-- These describe concepts the learners should grasp and techniques they should be able to use by the end of the course.
-- You can think of these as completing the phrase "after this course, the participant should be able to..."
-- They are not supposed to be as detailed as the learning objectives of each section, but more high-level.
+- Understand why coding using python can be useful both for every day tasks and for work related tasks.
+- Be familiar with python syntax, data types, operators, control structures, functions and be able to utilise them when coding
+- Have awareness of how to work with files and install libraries
+- Have an awareness and basic understanding of the object oriented programming paradigm
+- Leave the course with a working python setup on your local machine and/or be comfortable starting to use an online platform e.g. google colab for personal use
+- Leave the course with a cheat sheet and examples which you are comfortable adapting for your own use cases
 :::
 
 
 ### Target Audience
 
-Brief description of target audience here.
+The target audience is beginners to coding and those who want to get started learning python.
 
 
 ### Prerequisites
 
-Detail any prerequisite skills needed to attend this course, with links to other relevant materials/courses if possible.
+No coding prerequisits are needed. Please follow the data and setup page instructions to install the required software
 
 
 <!-- Training Developer note: comment the following section out if you did not assign levels to your exercises -->
 ### Exercises
+
+The majority of exercises here are simple and doable for all participants. there are however some stretch exercises that can be completed by those more competent, or at a later date to test yourself.
 
 Exercises in these materials are labelled according to their level of difficulty:
 

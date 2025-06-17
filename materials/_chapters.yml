@@ -1,5 +1,13 @@
 book:
   chapters:
-    - part: "Section title"
+    - materials/01_introducing_python.md
+    - part: "python_basics"
       chapters:
-        - materials/00-template.md
+        - materials/02_python_basics.md
+        #- materials/03_python_syntax.md
+        #- materials/04_python_operators.md
+        #- materials/05_python_data_types.md
+        #- materials/06_python_
+        #- materials/06_python_functions.md
+        #- materials/02.md
+        #- 
