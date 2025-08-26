@@ -5,8 +5,23 @@ title: Introducing Python
 ::: {.callout-tip}
 #### Learning Objectives
 
-- 
+- Understand what a programming language is
+- Gain a broad introduction to Python  
+- Explore the advantages and disadvantages of Python as a programming language for data science  
+- Examine various examples of Python's common applications and evaluate when to use python
 :::
+
+## What is a programming language
+
+A programming language is a formal way of giving instructions to a computer so it can perform specific tasks. Just as people use spoken languages to communicate with each other, programmers use programming languages to communicate with computers, telling them step by step what to do.
+
+At the base of a computer is the physical hardware. The code written in a programming language is translated into machine instructions, which control the hardware’s operations. In this way, abstract commands written by humans can directly influence how the computer’s circuits, processors, and memory behave.
+
+Programming languages work in layers:
+
+High-level code (written by humans) is translated by a compiler or interpreter into low-level machine code (binary instructions). The machine code then directly controls the hardware.
+
+In between, there can be layers like assembly language, operating systems, and libraries, each helping bridge human-friendly instructions down to hardware-level execution.
 
 
 ## Let's test what python can do!
@@ -36,7 +51,7 @@ Q4. Now you have seen a small snapshot of what can be done with very basic pytho
 
 **High-Level, General-Purpose Language:**
 
-Python is a versatile programming language created in the late 1980s by Guido van Rossum, emphasising code readability and simplicity. It is widely used for tasks like web development, machine learning, and automa$
+Python is a versatile programming language created in the late 1980s by Guido van Rossum, emphasising code readability and simplicity.
 
 **Named After:** “Monty Python’s Flying Circus” (not the reptile).
 
@@ -62,9 +77,48 @@ CPython is the most widely used implementation of Python. It is itself written i
 
 ## What can python be used for?
 
+Python can is very widely used for a whole range of tasks from web development, data science, machine learning and AI, automation including with microcontrollers, cybersecurity, game development, IoT, and business applications.
+
+**Why is Python a good language to start learning?**
+
+**Simple Syntax and Readability:**
+
+- Python is a high level language and has an easy-to-understand syntax helps you focus on solving problems rather than dealing with complex code, making it accessible for both beginners and experts.
+
+**Large Ecosystem of Libraries:**
+
+Python is very widely used in many fields, therefore it has a large variety of libraries. We will learn more about libraries later - but in essense libraries are collections of pre-written code that youcan easily import in so that you don't have to write the code yourself. The code in a library is all collected with a specific type of task. Some examples are:
+
+- NumPy: For numerical computations and array handling.
+
+- *Pandas: For data manipulation and analysis.
+
+- *Matplotlib & Seaborn: Data visualization tools.
+
+- *Scikit-learn: Machine learning algorithms.
+
+- *TensorFlow & PyTorch: For deep learning and neural networks.
+
+We will demonstrate use of NumPy in this course.
+
+*not covered in this intro course - but other courses available e.g. Python for data analysis, and machine learning
+
+**Active Community and Support:**
+
+- Python has a large supportive community, offering tutorials, open-source contributions, and plenty of resources.
+
+* For a more detailed look at the pros and cons of python as a coding language please see the following materials: 
+
+https://kavihshah.github.io/Intro-to-Python/
+Shah, K. H. (2025, January 15). Intro to Python, Part III Systems Biology, University of Cambridge. Zenodo. https://doi.org/10.5281/zenodo.14651795
+
+https://www.netguru.com/blog/python-pros-and-cons
+https://www.linode.com/docs/guides/pros-and-cons-of-python/
+
 ## Summary
 
 ::: {.callout-tip}
+
 #### Key Points
 
 - Last section of the page is a bulleted summary of the key points

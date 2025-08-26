@@ -1,11 +1,12 @@
 book:
   chapters:
     - materials/01_introducing_python.md
-    - part: "python_basics"
+    - part: "Session 1"
       chapters:
+        - materials/01_introducing_python.md
         - materials/02_python_basics.md
-        #- materials/03_python_syntax.md
-        #- materials/04_python_operators.md
+        - materials/03_python_data_types_summary.md
+        - materials/04_python_operators_summary.md
         #- materials/05_python_data_types.md
         #- materials/06_python_
         #- materials/06_python_functions.md
