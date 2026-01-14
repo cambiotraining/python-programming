@@ -1,0 +1,252 @@
+---
+title: Data Types and Operators
+---
+
+::: {.callout-tip}
+#### Learning Objectives
+
+- Learn about python data types and operators
+- Learn when to use different data types
+
+:::
+
+## Python Data types
+
+In programming, **data types** define the kind of data a variable can hold, such as numbers, text, or more complex structures, and they determine what operations can be performed on that data. 
+
+In **Python**, common data types include `int` for integers, `float` for decimal numbers, `str` for strings of text, `bool` for true/false values, `list` for ordered collections, `tuple` for immutable collections, `set` for unique items, and `dict` for key-value pairs. 
+
+Using data types in Python is straightforward: you assign a value to a variable, and Python automatically recognizes the type. 
+
+For example, `x = 10` creates an integer, whereas `x = 10.3` creates a float.
+A float in a decimal placed number and is stored in python in a 64 bit format.
+
+For an overview of data types use the cheat sheet.
+
+### Primitive Data Types
+
+Primitive data types contain single values e.g. numbers and words
+
+The main thing to remember is that sequences of letters like words are called strings and require quotation marks around them:
+
+```name = "Alice"``` creates a string. 
+
+The boolean data types use the key words ```True``` and ```False```
+
+```None``` can also be used as a placeholder for a variable has no meaningful value yet.
+
+Understanding data types is essential for writing correct programs, performing calculations, and managing data efficiently.
+Data types behave slightly differently in different languages for example the way numbers a rounded.
+
+
+::: {.callout-exercise}
+#### Primitive data types
+
+What are the different primitive data types in expenses_calculator.py
+Why were they chosen?
+Are there any other data types you recognise?
+
+:::
+
+## Python operators
+
+**operators** are symbols or keywords used to perform operations on data and variables, like calculations or comparisons. 
+This of mathematical singles like ```+``` 0r ```<```.
+
+Most of the operators in python make sense. Use the cheat sheet table to look them up if you need.
+
+::: {.callout-exercise}
+#### Using operators
+
+Use the console to test different operators from the tables. 
+Try adjusting the operators in the expenses_calculator.py script and seeing how the behaviour of the script changes.
+
+:::
+
+
+## Composite Data Types - The exciting stuff!
+
+Complex data types is where things really become interesting and the basis for more complex programming
+
+In Python, composite data types allow you to store multiple values in a single variable. They can hold a collection of items, which can be of different data types. The main composite data types in Python are:
+
+**Lists**
+
+- **Definition**: Ordered, mutable collections that allow duplicate items.
+
+- **Syntax**: Defined using square brackets `[]`.
+
+**Tuples**
+
+- **Definition**: Ordered, immutable collections that can also contain duplicates.
+
+- **Syntax**: Defined using parentheses `()`.
+
+**Dictionaries**
+
+- **Definition**: Unordered collections of key-value pairs, where each key is unique and must be immutable.
+
+- **Syntax**: Defined using curly braces `{}` and using a colon `:` to separate keys from values.
+
+**Sets**
+
+- **Definition**: Unordered collections of unique items.
+
+- **Syntax**: Defined using curly braces `{}` or the `set()` function.
+
+**Example Initialization and Differences:**
+
+Let's initialize one of each composite data type with a list of 10 animals, and then demonstrate some of the main differences.
+
+```
+# Initialize a list of animals
+animal_list = ["Dog", "Cat", "Elephant", "Lion", "Tiger", "Giraffe", "Zebra", "Monkey", "Snake", "Rabbit"]
+
+# Initialize a tuple of animals
+animal_tuple = ("Dog", "Cat", "Elephant", "Lion", "Tiger", "Giraffe", "Zebra", "Monkey", "Snake", "Rabbit")
+
+# Initialize a dictionary of animals with their classifications
+animal_dict = {
+    "Dog": "Mammal",
+    "Cat": "Mammal",
+    "Elephant": "Mammal",
+    "Lion": "Mammal",
+    "Tiger": "Mammal",
+    "Giraffe": "Mammal",
+    "Zebra": "Mammal",
+    "Monkey": "Mammal",
+    "Snake": "Reptile",
+    "Rabbit": "Mammal"
+}
+
+# Initialize a set of animals
+animal_set = {"Dog", "Cat", "Elephant", "Lion", "Tiger", "Giraffe", "Zebra", "Monkey", "Bear", "Rabbit"}
+
+# Show differences between data types
+print("Original List:", animal_list)
+print("Original Tuple:", animal_tuple)
+print("Original Dictionary:", animal_dict)
+print("Original Set:", animal_set)
+
+# Mutability Demonstration
+# Modifying the list (mutable)
+animal_list[0] = "Wolf"  # Change "Dog" to "Wolf"
+print("Modified List:", animal_list)
+
+# Attempting to modify the tuple (immutable)
+animal_tuple[0] = "Wolf"  
+# This will raise an error
+
+# Adding a new key-value pair to the dictionary (mutable)
+animal_dict["Fox"] = "Mammal"
+print("Modified Dictionary:", animal_dict)
+
+# Attempting to add a duplicate to the set (will be ignored)
+animal_set.add("Dog")  # This will not change the set
+print("Modified Set (after trying to add 'Dog'):", animal_set)
+```
+
+Remember the key differences - use the summary cheat sheet if you need help
+
+**Mutability** - which data types are mutable?
+
+**Order** - which are ordered?
+
+**Duplicates** - which allow duplicates?
+
+
+## Working with Lists in Python
+
+Lists in Python are versatile and support various operations that allow you to manipulate and interact with the data they contain. Below are some common operations you can perform on lists.
+
+**Accessing Elements**
+
+You can access list elements using indexing (zero-based).
+
+`first_element = my_list[0]  # 1`  
+`last_element = my_list[-1]   # 5`
+
+**Slicing a List**
+
+You can retrieve a portion of a list using slicing.
+
+`sub_list = my_list[1:4]  # [2, 3, 4]`
+
+**Adding Elements**
+
+Append: Add an element to the end of the list.
+
+`my_list.append(6)  # [1, 2, 3, 4, 5, 6]`
+
+Insert: Insert an element at a specific index.
+
+`my_list.insert(2, 2.5)  # [1, 2, 2.5, 3, 4, 5, 6]`
+
+**Removing Elements**
+
+Remove: Remove the first occurrence of a specified value.
+
+`my_list.remove(2.5)  # [1, 2, 3, 4, 5, 6]`
+
+Pop: Remove and return an element at a specified index (default is the last element).
+
+`last_item = my_list.pop()  # list is now [1, 2, 3, 4, 5]`
+
+**Modifying Elements**
+
+You can change the value of an element using its index.
+
+`my_list[1] = 20  # [1, 20, 3, 4, 5]`
+
+**Extending a List**
+
+You can add multiple elements to the end of the list using `extend()`.
+
+`my_list.extend([6, 7, 8])  # [1, 20, 3, 4, 5, 6, 7, 8]`
+
+
+**Sorting a List**
+
+Sort the list in ascending order.
+
+`my_list.sort()  # [1, 3, 4, 5, 6, 7, 8, 20]`
+
+**Reversing a List**
+
+You can reverse the order of elements in a list.
+
+`my_list.reverse()  # [20, 8, 7, 6, 5, 4, 3, 1]`
+
+**Finding the Length**
+
+Get the number of elements in the list.
+
+`length = len(my_list)  # 8`
+
+**Numeric operators e.g. Append multiple repeats**
+
+`my_list * 2  # [20, 8, 7, 6, 5, 4, 3, 1, 20, 8, 7, 6, 5, 4, 3, 1]`
+
+
+::: {.callout-exercise}
+#### Composite data types
+
+What are the composite data types in the expense_calculator.py script?
+
+Why are these data types used?
+
+Can you try using a set to identify expense type - what is the advantage/disadvantage?
+
+:::
+
+
+## Summary
+
+::: {.callout-tip}
+#### Key Points
+
+- Variables are words used to reference and access a value
+- Be clear an concise following guidelines when naming variables
+- Comment your code for clarity
+
+:::

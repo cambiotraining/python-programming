@@ -1,23 +1,98 @@
 ---
-title: Python Basics - Writing your ownscript
+title: Getting Started
 ---
 
 ::: {.callout-tip}
 #### Learning Objectives
 
+- Get started with the python console
 - Learn the basic python syntax
-- Build up towards a fully functional python script
+
 :::
 
 
 ## Overview
 
-This page will roughly follow along with the live coding session. The next sections in the course materials are for reference, for you to look back at when you need. In the session, most of the information will be taught to you within the live coding and using the exercises, however in some cases the course materials will have more information which could be useful in certain situations. In particular, there are reference tables for operators, data types and templates for functions.
+This page and the next few pages will roughly follow along with the live coding session. We will use the expense calculator script as a basis. The next sections in the course materials are for reference and contain cheat sheets and notes, for you to look back at when you need. In the session, most of the information will be taught to you within the live coding and using the exercises, however in some cases the course materials will have more information which could be useful in certain situations. In particular, there are reference tables for operators, data types and templates for functions.
+
+## Getting Started The Terminal and python console
+
+### What is the terminal?
+
+The terminal is a text-based interface that lets you type commands directly to your computer’s operating system. Instead of clicking buttons or menus, you write commands for opening files, running programs, or installing software.
+
+### The terminal in VS Code
+
+In Visual Studio Code (VS Code), the terminal is built-in. You can open it from the menu (View → Terminal) or by pressing a shortcut (often <kbd>Ctrl</kbd>+<kbd>`</kbd>). It appears at the bottom of the editor and works just like your computer’s command line, but directly inside VS Code.
+
+### Using the terminal to run a script
+
+To run a python script from the terminal use:
+
+```python script_name.py```
+
+* Note  1 You need to be in the correct directory to run a python script from the terminal. 
+It should automatically open into the current directory in VSCode - e.g. where the expense_calculator.py is located
+
+* note that you likely do not want to use your system python to run scripts as this is used by the operating system
+- You should have installed python in the setup. sometimes it can be python3
+
+::: {.callout-exercise}
+#### Terminal
+
+Run the expense calculator through a command from the terminal
+
+:::
 
 
-## Writing a variable
+### Using the terminal to open the python Console
 
-### Assigning variables
+A console is a text-based interface that allows a user to interact directly with a computer system or software by entering commands and receiving text-based output.
+
+The Python console, also known as the Python interpreter or REPL (Read–Evaluate–Print Loop), is an interactive environment that allows users to write and execute Python code one statement at a time. It is particularly useful for testing small code snippets, exploring language features, debugging, and learning Python syntax. When a line of code is entered, the interpreter immediately evaluates it and displays the result, enabling rapid feedback and experimentation.
+In the Python console, users can execute expressions, define variables and functions, and import modules. However, code written in the console is not saved automatically; for reusable or larger programs, Python scripts (.py files) are preferred.
+
+To open python interactively in the terminal, in the terminal window type: 
+```python```
+It will offer a prompt:
+
+```
+Python 3.9.6 (default, Oct  4 2024, 08:01:31) 
+[Clang 16.0.0 (clang-1600.0.26.4)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+
+::: {.callout-exercise}
+#### Python console
+
+Open the python console in VSCode. Type ```print("hello world")``` . 
+What happens?
+
+::: {.callout-answer}
+
+When the command print("hello world") is entered into the Python console and executed, Python immediately evaluates the statement and displays the text:
+
+hello world
+:::
+:::
+
+#### Attend our course on unix command line
+
+*If you're interested in using the terminal more, for example to navigate file systems and automate tasks - attend the training facilities unix course*
+
+## Assigning variables
+
+A variable is a named reference used to store and access a value in a program.
+
+::: {.callout-exercise}
+#### Python variables
+
+What are the variables in the ```expense_calculator.py``` script? 
+
+What are they used for?
+
+:::
 
 In Python initialising variables is easy:
 
@@ -35,7 +110,9 @@ my_name = "Kavi"
 ```
 <br>
 
-### Variable Naming Conventions in Python
+### Variable Naming Conventions in Python - Making your life easy!
+
+*One of the worst things in particular when looking at other peoples code is variable names that make no sense to anybody but the writer*
 
 When naming variables, it's important to follow Python's guidelines for consistency and readability. Here are some key rules to remember:
 
@@ -72,8 +149,10 @@ my_height = 176
 ```
 The above would produce an error
 
-## Commenting your codes
+## Commenting your code
+
 Commenting your code, and using lines liberally, are key to making your code easily understandable for both yourself and others.
+These comments are ignored by python and do not result in any output - check for yourself in the console!
 
 - A **```#```** (Hash) is used for single line comments 
 
@@ -83,62 +162,13 @@ Commenting your code, and using lines liberally, are key to making your code eas
 
 - Lines can be implicitly continued in some cases, for example when in brackets. We will see this later. 
 
-## The Terminal
-
-### What is the terminal?
-
-The terminal is a text-based interface that lets you type commands directly to your computer’s operating system. Instead of clicking buttons or menus, you write commands for opening files, running programs, or installing software.
-
-### The terminal in VS Code
-
-In Visual Studio Code (VS Code), the terminal is built-in. You can open it from the menu (View → Terminal) or by pressing a shortcut (often <kbd>Ctrl</kbd>+<kbd>`</kbd>). It appears at the bottom of the editor and works just like your computer’s command line, but directly inside VS Code.
-
-### Using the terminal to run a script
-
-To run a python script from the terminal use:
-
-```python script_name.py```
-
-* note that you likely do not want to use your system python to run scripts as this is used by the operating system
-- You should have installed python in the setup. sometimes it can be python3
-
-
-### Using the terminal to open the python Console
-
-To open python interactively in the terminal, in the terminal window type: 
-```python```
-It will offer a prompt:
-
-```
-Python 3.9.6 (default, Oct  4 2024, 08:01:31) 
-[Clang 16.0.0 (clang-1600.0.26.4)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
->>> 
-```
-Here you can type for example:
-```
-My_name = "Kavi"
-print(My_name)
-```
-What happens if you put "My_name" in quotes?
-
-
-
-
-
-### Attend our course on unix command line
-
-If you're interested in using the terminal more, for example to navigate file systems and automate tasks - attend the training facilities unix course
-
-## What is it's 
-
-## 
-
-
 ## Summary
 
 ::: {.callout-tip}
 #### Key Points
 
-- Last section of the page is a bulleted summary of the key points
+- Variables are words used to reference and access a value
+- Be clear an concise following guidelines when naming variables
+- Comment your code for clarity
+
 :::
