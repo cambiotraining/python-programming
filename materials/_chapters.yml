@@ -39,7 +39,7 @@ book:
 
     - part: "Session 6: Help Session"
       chapters:
-        - materials/01_introducing_python.md
+        - materials/20_Help_Session.md
         #-Exercise - instructors help participants with their setup for specific use cases
         #-Optional activity for those who want it/extra
 

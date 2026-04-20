@@ -124,7 +124,7 @@ class BudgetManager:
             spent = spending.get(category, 0)
 
             if spent > limit:
-                results[category.name] = f"⚠️ {spent}/{limit} (OVER)"
+                results[category.name] = f" {spent}/{limit} (OVER)"
             else:
                 results[category.name] = f"{spent}/{limit} (OK)"
 
