@@ -178,7 +178,7 @@ while infected < population:
 :::
 
 ::: {.callout-exercise}
-#### Code Legibility
+#### Interpreting a while loop
 {{< level 2 >}}
 
 What does the while statement in the expense_calculator.py code do?
@@ -192,6 +192,42 @@ You can also add an extra break statement to stop if a user has exceeded a limit
 :::
 
 :::
+
+::: {.callout-exercise}
+#### Writing your own while loop
+{{< level 2 >}}
+
+Either write a while loop of your own choice,
+
+or 
+
+Write a script that asks customers repeatedly for the drinks they would like to order.
+If it is not recognised from a set of your choice, then respond accordingly
+If they input "stop" or order more than 10 items, complete the order.
+Tell the customer the total cost.
+
+:::
+
+<!--
+count = 0
+
+while True:
+    drink = input("Enter drink (tea / coffee / water / stop): ").strip().lower()
+
+    if drink == "stop":
+        print("Orders closed")
+        break
+
+    if drink == "tea" or drink == "coffee" or drink == "water":
+        print("Order recorded")
+        count += 1
+        continue
+
+    print("Unknown drink")
+    continue
+
+print("Total drinks ordered:", count)
+-->
 
 ## Summary
 

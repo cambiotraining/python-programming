@@ -113,7 +113,7 @@ Animal 3: elephant
 - **Convenience:** Automatically handles the index tracking for you, reducing the risk of errors.
 
 ::: {.callout-exercise}
-#### Count Nucleotide Occurrences
+#### Modify the expense calculator
 {{< level 2 >}}
 
 Using conditional statements, for loops and the functions we have seen, 
@@ -131,7 +131,7 @@ Look at eachothers code - how might it be improved?
 Exercise:  Make your on loop which iterates through a task of your own choosing - it needs to use enumerate.
 Use your impagination to come up with scenarios.
 
-Write code to deal with edge cases that might appear: 
+Write code to deal with edge cases that might appear.
 :::
 
 ## Extra: List Comprehensions

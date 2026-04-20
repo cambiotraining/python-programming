@@ -239,6 +239,56 @@ Can you try using a set to identify expense type - what is the advantage/disadva
 
 :::
 
+::: {.callout-exercise}
+#### Which Data type to use
+{{< level 1 >}}
+
+State the best data type to use in Python:
+
+1. You want to store a sequence of names that may change (e.g., adding or removing names).
+
+2. You need to check if certain items (e.g., unique user IDs) exist in a collection and don't care about the order.
+
+3. You need to store an unchanging sequence of geographic coordinates (latitude, longitude).
+
+4. You are counting the number of items in stock in an inventory system (whole numbers only).
+
+5. You are dealing with financial calculations and need decimal values for prices and quantities.
+
+6. You need to store data about a person (e.g., name, age, occupation) and retrieve the data by key.
+
+7. You are processing binary data from an image file and need to modify the data.
+
+8. You want to represent a logical condition (True or False) to check user login status.
+
+9. You want to ensure a set of elements stays constant and cannot be modified after creation.
+
+10. A function you are writing returns nothing (i.e., no meaningful value to return).
+
+11. You need to handle a collection of scientific data points with floating-point precision (e.g. temperature readings).
+
+12. You are working with text that may need to be split, joined, or manipulated.
+
+
+::: {.callout-answer}
+1. list — Ordered and mutable collection of names.
+2. set — For fast membership tests with unique elements, order is irrelevant.
+3. tuple — Immutable sequence, perfect for storing fixed data like geographic coordinates.
+4. int — Used for counting and working with whole numbers.
+5. float — If precision is required, consider decimal.Decimal, but float for most cases.
+6. dict — For key-value pairs (e.g., storing data about a person).
+7. bytearray — Mutable sequence of bytes, useful for modifying binary data.
+8. bool — Represents binary conditions (True or False).
+9. frozenset — Immutable version of a set.
+10. None — Represents the absence of a value, useful for functions that don’t return anything.
+11. float — Floating-point numbers are used for measurements and continuous values.
+12. str — For handling textual data with built-in manipulation methods.
+
+Which data type you use effects memory useage and speed of computations which may be important in larger programs.
+For further reading you can investigate why sets are generally faster to find unordered elements (membership tests) than lists or tuples
+:::
+:::
+
 
 ## Summary
 

@@ -222,3 +222,139 @@ Modify your expense calculator or your own function to use NumPy to load and pro
 ## Summary
 
 Numpy is very useful for numerical calculations, that are common in many fields.
+
+<!--
+1. Foundations: Why NumPy Exists
+Goals
+Understand what problems NumPy solves
+Learn to think in arrays instead of loops
+Topics
+Limitations of Python lists for numerical work
+What an ndarray is (homogeneous, fixed-type, contiguous memory)
+Vectorization vs Python loops
+When NumPy should and should not be used
+Key ideas
+NumPy is about performance and expressiveness
+Operations apply to entire arrays at once
+2. Creating Arrays
+Goals
+Learn common ways to create arrays
+Understand shape and dimensionality
+Topics
+Creating arrays from lists and tuples
+Common constructors (zeros, ones, arange, linspace)
+Data types (dtype)
+Shape, size, and number of dimensions
+Key ideas
+Shape controls how data is interpreted
+dtype matters for performance and correctness
+3. Indexing, Slicing, and Views
+Goals
+Access and modify data correctly
+Avoid common memory mistakes
+Topics
+Basic indexing and slicing
+Multidimensional indexing
+Views vs copies
+Modifying arrays in place
+Key ideas
+Slicing usually returns views, not copies
+Changes to views affect the original array
+4. Array Operations and Broadcasting
+Goals
+Replace loops with vectorized operations
+Understand broadcasting rules
+Topics
+Element-wise arithmetic
+Comparison and logical operations
+Broadcasting mechanics
+Shape compatibility rules
+Key ideas
+Broadcasting is not “magic”; it follows strict rules
+Most NumPy code should avoid explicit loops
+5. Aggregations and Statistics
+Goals
+Summarize data efficiently
+Topics
+Sum, mean, min, max, std
+Axis-based operations
+Cumulative operations
+Handling missing values (NaNs)
+Key ideas
+The axis argument is critical
+Aggregations reduce dimensions
+6. Boolean Arrays and Masking
+Goals
+Filter and conditionally modify data
+Topics
+Boolean comparisons
+Boolean indexing
+Combining conditions
+Conditional replacement
+Key ideas
+Boolean masks are arrays themselves
+Masking is faster and clearer than loops
+7. Reshaping and Manipulating Arrays
+Goals
+Change how data is structured without copying
+Topics
+reshape, ravel, flatten
+Transpose and swapping axes
+Stacking and splitting arrays
+Understanding memory layout
+Key ideas
+Reshaping does not change data, only interpretation
+Copies vs views matter for performance
+8. Linear Algebra Essentials
+Goals
+Perform core mathematical operations
+Topics
+Dot products and matrix multiplication
+Transpose and inverses
+Solving linear systems
+Eigenvalues (conceptual level)
+Key ideas
+* vs matrix multiplication
+NumPy is foundational for ML and scientific computing
+9. Random Numbers and Simulation
+Goals
+Generate reproducible random data
+Topics
+Random number generators
+Common distributions
+Seeding for reproducibility
+Monte Carlo simulation concepts
+Key ideas
+Randomness must be controlled in scientific code
+NumPy underpins simulation workflows
+10. Performance and Best Practices
+Goals
+Write fast, memory-efficient NumPy code
+Topics
+Vectorization vs loops
+In-place operations
+Avoiding unnecessary copies
+When to use NumPy vs Python vs libraries like pandas
+Key ideas
+Performance comes from how you think, not just syntax
+Clarity and correctness come before micro-optimizations
+11. NumPy in the Ecosystem
+Goals
+Understand NumPy’s role in Python’s data stack
+Topics
+Relationship to pandas, SciPy, Matplotlib
+NumPy as the foundation for ML libraries
+Interoperability with other tools
+12. Capstone / Applied Section
+Goals
+Reinforce learning through real problems
+Example projects
+Numerical simulation
+Image manipulation
+Simple data analysis pipeline
+Scientific computation example
+Key ideas
+Think in arrays
+Avoid loops
+Use the right abstraction
+-->

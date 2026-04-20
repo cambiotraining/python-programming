@@ -23,7 +23,7 @@ In reality managing packages is one of the more difficult parts of coding in pyt
  There are specific package managers that deal with this. We won't go into them in as much detail until the end of the course. For now we need to know how to be able to download and import a very common package -> numpy. 
 
 
- ## Installing Packages with `pip`
+## Installing Packages with `pip`
 
 `pip` (Python's default package installer) is used to install packages from the **Python Package Index (PyPI)**, a repository of software for Python.
 
@@ -264,10 +264,9 @@ Example: Using `conda` and `pip` together:
 | **Best For**                     | Pure Python projects              | Data science, scientific computing|
 
 
-## Extra: if __name__ = "__main___"
+## Extra: `if __name__ = "__main___"`
 
-In Python, __name__ is a special variable that indicates how a file is being used. When a file is run directly, Python sets __name__ to "__main__", whereas when the file is imported as a module, __name__ is set to the module’s name. The common pattern if __name__ == "__main__": allows code to run only when the file is executed as the main program and not when it is imported, which helps separate reusable definitions from script-level execution logic and prevents unintended side effects during import.
-
+In Python, `__name__` is a special variable that indicates how a file is being used. When a file is run directly, Python sets `__name__` to `"__main__"`, whereas when the file is imported as a module, `__name__` is set to the module’s name. The common pattern if `__name__ == "__main__":` allows code to run only when the file is executed as the main program and not when it is imported, which helps separate reusable definitions from script-level execution logic and prevents unintended side effects during import.
 
 
 ## Summary
