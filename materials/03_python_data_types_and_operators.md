@@ -46,6 +46,33 @@ What are the different primitive data types in expenses_calculator.py
 Why were they chosen?
 Are there any other data types you recognise?
 
+<!--
+::: {.callout-answer}
+1. 
+Strings (str)
+
+Examples: "food", "expenses.csv", "done".
+
+Why they were chosen: Strings are used for any textual data. In your script, they handle category names, filenames, and user input. Since Python treats strings as sequences of characters, they are perfect for labels and messages.
+
+Floats (float)
+
+Examples: 100.0, amount = float(parts[1]).
+
+Why they were chosen: Floats represent real numbers with decimal points. In a financial calculator, you need precision for cents (e.g., 10.50). If you used integers, you wouldn't be able to track partial currency units.
+
+Booleans (bool)
+
+Examples: True (in while True:), and the result of category == "done".
+
+Why they were chosen: Booleans represent truth values. They are the backbone of your script's logic, controlling the loop and the if/else validation checks.
+
+2. 
+
+Dictionaries (dict) and Lists (list)
+:::
+-->
+
 :::
 
 ## Python operators
@@ -237,6 +264,35 @@ Why are these data types used?
 
 Can you try using a set to identify expense type - what is the advantage/disadvantage?
 
+<!--
+::: {.callout-answer}
+1, 2. 
+Dictionaries (dict)
+
+Example: thresholds = {"food": 100.0, ...}
+
+Why it's used: Dictionaries allow for key-value mapping. In your script, the category name is the "key" and the budget limit is the "value." This is chosen because it allows for quick lookup. Instead of searching through a list to find the limit for "food," Python jumps straight to it.
+
+Lists (list)
+
+Example: expenses = [] and [category, amount]
+
+Why it's used: Lists are ordered and mutable. You use a list of lists (a nested structure) to keep a running history of transactions. Since you don't know how many expenses a user will enter, the list’s ability to grow dynamically is essential.
+
+2. Using a set to Identify Expense Types
+A set is an unordered collection of unique elements. The script could define valid categories using a set like this:
+
+valid_categories = {"food", "transport", "entertainment", "other"}
+
+Yes, you could use a set to identify the expense type.
+This is fast - faster than a list. You cannot store duplicate values in a set. This is not an issue and instead beneficial for category types.
+
+Unlike the dictionary used for thresholds, a set cannot hold an associated value. It can store the word "food," but it cannot link it to the numerical value 100.0.
+The Verdict:
+While the script could incorporate a set to validate category names, the Dictionary (thresholds) remains the most effective choice. It functions similarly to a set by allowing for fast membership checks of category names (the keys), but it provides the added necessity of storing the specific budget limits (the values) required for the script's calculations.
+:::
+-->
+
 :::
 
 ::: {.callout-exercise}
@@ -269,7 +325,7 @@ State the best data type to use in Python:
 
 12. You are working with text that may need to be split, joined, or manipulated.
 
-
+<!--
 ::: {.callout-answer}
 1. list — Ordered and mutable collection of names.
 2. set — For fast membership tests with unique elements, order is irrelevant.
@@ -287,6 +343,7 @@ State the best data type to use in Python:
 Which data type you use effects memory useage and speed of computations which may be important in larger programs.
 For further reading you can investigate why sets are generally faster to find unordered elements (membership tests) than lists or tuples
 :::
+-->
 :::
 
 

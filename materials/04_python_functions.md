@@ -197,6 +197,89 @@ Functions can have default parameters, accept multiple arguments, and return mul
 Can you remove some of the code in the expense_calculator script into new functions that are used later in the script?
 Are there any other functions you might want to write and use in the script?
 
+<!--
+::: {.callout-answer}
+```
+import os
+
+# Configuration
+THRESHOLDS = {
+    "food": 100.0,
+    "transport": 50.0,
+    "entertainment": 80.0,
+    "other": 70.0
+}
+FILENAME = "expenses.csv"
+
+def load_expenses(filename):
+    """Loads expenses from a CSV file into a list."""
+    expenses = []
+    if not os.path.exists(filename):
+        return expenses
+    
+    with open(filename, "r") as file:
+        for line in file:
+            parts = line.strip().split(",")
+            if len(parts) == 2:
+                expenses.append([parts[0].lower(), float(parts[1])])
+    return expenses
+
+def save_expenses(filename, expenses):
+    """Saves the current list of expenses to a CSV file."""
+    with open(filename, "w") as file:
+        for cat, amt in expenses:
+            file.write(f"{cat},{amt}\n")
+
+def get_category_total(expenses, category):
+    """Calculates the sum of expenses for a specific category."""
+    return sum(amt for cat, amt in expenses if cat == category)
+
+def check_budget(category, total_spent):
+    """Prints status messages based on the spending threshold."""
+    limit = THRESHOLDS.get(category, 0)
+    if total_spent > limit:
+        print(f"Warning: You have exceeded the {category} threshold!")
+        print(f"Total spent: {total_spent}")
+    else:
+        remaining = limit - total_spent
+        print(f"Total spent in {category}: {total_spent}")
+        print(f"Amount left for {category}: {remaining}")
+
+def main():
+    expenses = load_expenses(FILENAME)
+    
+    print("--- Expense Tracker ---")
+    print("Type 'done' as the category to finish.\n")
+
+    while True:
+        category = input("Category (food, transport, entertainment, other): ").lower()
+        if category == "done":
+            break
+        
+        if category not in THRESHOLDS:
+            print("Invalid category. Please try again.")
+            continue
+
+        try:
+            amount = float(input("Amount: "))
+            expenses.append([category, amount])
+            
+            current_total = get_category_total(expenses, category)
+            check_budget(category, current_total)
+            print()
+            
+        except ValueError:
+            print("Invalid amount. Please enter a number.\n")
+
+    save_expenses(FILENAME, expenses)
+    print("All expenses saved successfully.")
+
+if __name__ == "__main__":
+    main()
+```
+:::
+-->
+
 :::
 
 ::: {.callout-exercise}

@@ -117,10 +117,110 @@ Animal 3: elephant
 {{< level 2 >}}
 
 Using conditional statements, for loops and the functions we have seen, 
-Modify the expense calculator to also allow the input of a dictionary rather than a file.
+Modify the expense calculator to allow the input of a dictionary specified at the top of the script rather than a file.
+The dictionary should look like the following:
+```
+pre_existing_expenses = {
+    "food": [20.50, 15.00],
+    "transport": [10.00],
+    "entertainment": [90.00]
+}
+```
 Write code such that the calculator correctly loops through the dictionary to correctly load in pre-existing expenses and test your script.
 
 Look at eachothers code - how might it be improved?
+
+<!--
+::: {.callout-answer}
+```
+# --- Inputs ---
+# Thresholds
+thresholds = {
+    "food": 100.0,
+    "transport": 50.0,
+    "entertainment": 80.0,
+    "other": 70.0
+}
+
+# Example input dictionary simulating pre-existing data
+pre_existing_expenses = {
+    "food": [20.50, 15.00],
+    "transport": [10.00],
+    "entertainment": [90.00]
+}
+
+expenses = []
+
+# --- Functions ---
+
+def load_from_dict(data_dict):
+    """Loops through a dictionary to load pre-existing expenses."""
+    keys = list(data_dict.keys())
+    
+    # Using range and len to iterate through the dictionary keys
+    for i in range(len(keys)):
+        category = keys[i]
+        amounts = data_dict[category]
+        
+        # Using enumerate to process individual amounts
+        for index, amt in enumerate(amounts):
+            if category in thresholds:
+                expenses.append([category, float(amt)])
+            else:
+                print(f"Skipping unknown category: {category}")
+
+def get_total(category):
+    """Calculates total spent for a specific category."""
+    total = 0.0
+    for item in expenses:
+        if item[0] == category:
+            total += item[1]
+    return total
+
+def process_expense(category, amount):
+    """Handles the logic for adding an expense and checking thresholds."""
+    expenses.append([category, amount])
+    current_total = get_total(category)
+    limit = thresholds[category]
+    
+    print(f"\n--- Update for {category.upper()} ---")
+    if current_total > limit:
+        over_by = current_total - limit
+        print(f"ALERT: Threshold exceeded by {over_by}!")
+    else:
+        print(f"Added {amount}. Total: {current_total}")
+        print(f"Remaining budget: {limit - current_total}")
+
+# --- Execution part ---
+
+# 1. Load the initial data
+load_from_dict(pre_existing_expenses)
+print(f"Loaded {len(expenses)} existing records.\n")
+
+# 2. User Input Loop
+while True:
+    cat_input = input("Enter category (food, transport, entertainment, other) or 'done': ").lower()
+    
+    if cat_input == "done":
+        break
+        
+    if cat_input in thresholds:
+        amt_input = input(f"Enter amount for {cat_input}: ")
+        
+        # Simple validation
+        if amt_input.replace('.', '', 1).isdigit():
+            process_expense(cat_input, float(amt_input))
+        else:
+            print("Invalid numeric amount.")
+    else:
+        print("Invalid category. Please choose from the list.")
+
+print("\nFinal Expense List:", expenses)
+
+```
+:::
+
+-->
 
 :::
 

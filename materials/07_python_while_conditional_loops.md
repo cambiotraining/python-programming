@@ -187,7 +187,7 @@ Improve the code, by adressing these limitations
 
 ::: {.callout-answer}
 
-Add code introducing a maximum number of iterations or a global valuse cap to force exit and stop an infinite loop
+Add code introducing a maximum number of iterations or a global value cap to force exit and stop an infinite loop
 You can also add an extra break statement to stop if a user has exceeded a limit
 :::
 
@@ -206,9 +206,9 @@ If it is not recognised from a set of your choice, then respond accordingly
 If they input "stop" or order more than 10 items, complete the order.
 Tell the customer the total cost.
 
-:::
-
 <!--
+::: {.callout-answer}
+```
 count = 0
 
 while True:
@@ -227,7 +227,13 @@ while True:
     continue
 
 print("Total drinks ordered:", count)
+```
+:::
 -->
+
+:::
+
+
 
 ## Summary
 

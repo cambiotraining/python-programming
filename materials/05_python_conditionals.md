@@ -145,6 +145,47 @@ What is the different indentation doing?
 Can you add an extra condition that you would like to your expense calculator?
 
 What are the limitations of conditional statements?
+
+<!--
+::: {.callout-answer}
+1. What do the conditional statements do?
+
+In the script, the if, elif (implied by the logic flow), and else blocks act as filters and triggers:
+
+Flow Control: The if category == "done": break statement monitors user input to decide exactly when to stop the loop and move to the saving phase.
+
+Validation: The line if category in thresholds and amount_str... ensures the program doesn't crash if someone types "pizza" as a category or "a lot" as an amount. It acts as a gatekeeper for clean data.
+
+Threshold Monitoring: The if current_total > thresholds[category]: block compares actual spending against set goals to trigger a specific warning message.
+
+2. What is the different indentation doing?
+
+In Python, indentation isn't just for neatness; it defines scope. It tells the computer which lines of code "belong" to a specific condition or loop.
+
+Level 1 (No indent): Code that runs globally (like setting the initial thresholds).
+
+Level 2 (One indent): Code that lives inside the while loop or the try block.
+
+Level 3 (Two indents): Code that only runs if a specific condition is met (like the code that processes an expense only if the input was validated).
+
+The "Nesting" Logic: You can only reach the "Total spent" calculation if you have already successfully passed through the "Is the input valid?" door. If that condition isn't met, the indented code is skipped entirely.
+
+3. Adding a "Savings Milestone" Condition
+
+A great addition would be an Overall Budget check. This warns the user if total spending across all categories exceeds a certain limit, even if individual categories are still under their specific thresholds.
+
+Add:
+
+```
+# Add this near the bottom of the while loop logic
+total_all_categories = sum(e[1] for e in expenses)
+overall_limit = 300.0
+
+if total_all_categories > overall_limit:
+    print(" CAUTION: You are over your budget!!!")
+```
+:::
+-->
 :::
 
 

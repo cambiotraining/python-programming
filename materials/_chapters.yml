@@ -1,6 +1,6 @@
 book:
   chapters:
-    - materials/00_course_structure.md
+    #- materials/00_course_structure.md
     - part: "Session 1: Python basics"
       chapters:
         - materials/01_introducing_python.md
