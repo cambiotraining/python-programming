@@ -1,0 +1,1406 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Programming with Python",
+    "section": "",
+    "text": "Overview\nThis course is an python programming course for beginners. It introduces students to the fundamentals of python, one of the most widely used, syntactically easy, and versatile programming languages. The course is designed for learners with no prior programming experience in any language and covers coding basics principles as well as python syntax, data types, operators, control structures (if, elif, else, for, while, try, except), and simple functions. We will also briefly cover working with files, software management, object oriented programming and context managers. Do not worry if you do not know what these terms mean - you will learn in this course! The course is taught in an interactive way with exercises and working examples throughout.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Programming with Python",
+    "section": "",
+    "text": "TipLearning Objectives\n\n\n\n\nUnderstand why coding using python can be useful both for every day tasks and for work related tasks.\nBe familiar with python syntax, data types, operators, control structures, functions and be able to utilise them when coding\nHave awareness of how to work with files and install libraries\nHave an awareness and basic understanding of the object oriented programming paradigm\nLeave the course with a working python setup on your local machine and/or be comfortable starting to use an online platform e.g. google colab for personal use\nLeave the course with a cheat sheet and examples which you are comfortable adapting for your own use cases\n\n\n\n\nTarget Audience\nThe target audience is beginners to coding and those who want to get started learning python.\n\n\nPrerequisites\nNo coding prerequisits are needed. Please follow the data and setup page instructions to install the required software\n\n\n\nExercises\nThe majority of exercises here are simple and doable for all participants. there are however some stretch exercises that can be completed by those more competent, or at a later date to test yourself.\nExercises in these materials are labelled according to their level of difficulty:\n\n\n\n\n\n\n\nLevel\nDescription\n\n\n\n\n  \nExercises in level 1 are simpler and designed to get you familiar with the concepts and syntax covered in the course.\n\n\n  \nExercises in level 2 combine different concepts together and apply it to a given task.\n\n\n  \nExercises in level 3 require going beyond the concepts and syntax introduced to solve new problems.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#citation-authors",
+    "href": "index.html#citation-authors",
+    "title": "Programming with Python",
+    "section": "Citation & Authors",
+    "text": "Citation & Authors\nPlease cite these materials if:\n\nYou adapted or used any of them in your own teaching.\nThese materials were useful for your research work. For example, you can cite us in the methods section of your paper: “We carried our analyses based on the recommendations in YourReferenceHere”.\n\n\nYou can cite these materials as:\n\n\"Shah\", \"., Tavares, H. (2025). \"Programming with Python\". \"https://cambiotraining.github.io/python-programming/\"\n\nOr in BibTeX format:\n@misc{YourReferenceHere,\n  author = {\"Shah\", \"Kavi\" and Tavares, Hugo},\n  month = {4},\n  title = {\"Programming with Python\"},\n  url = {\"https://cambiotraining.github.io/python-programming/\"},\n  year = {2025}\n}\nAbout the authors:\n\"Kavi\" \"Shah\"  \nAffiliation: \"Department of Genetics, University of Cambridge\" Roles: \"conceptualisation; primary author; data curation; coding; software\"\n\nHugo Tavares  \nAffiliation: Cambridge Centre for Research Informatics Training Roles: conceptualisation; editing",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#acknowledgements",
+    "href": "index.html#acknowledgements",
+    "title": "Programming with Python",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\n\n\nList any other sources of materials that were used.\nOr other people that may have advised during the material development (but are not authors).",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Data & Setup",
+    "section": "",
+    "text": "Data\nThe data used in these materials is provided as a zip file. Download and unzip the folder to your Desktop to follow along with the materials.\nDownload",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data & Setup</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#software",
+    "href": "setup.html#software",
+    "title": "Data & Setup",
+    "section": "Software",
+    "text": "Software\n\nVisual Studio Code\nVisual Studio Code is a popular text editor with many useful extensions to make programming easier. You can use it with many different coding languages, one of which is python.\n\nWindows 10/11macOSLinux\n\n\n\nGo to the Visual Studio Code download page and download the installer for your operating system.\nDouble-click the downloaded file to install the software, accepting all the default options.\nAfter completing the installation, search for “Visual Studio Code” and launch the application.\nGo to “File &gt; Preferences &gt; Settings”, then select “Text Editor &gt; Files” on the drop-down menu on the left. Scroll down to the section named “EOL” and choose “\\n” (this will ensure that the files you edit on Windows are compatible with the Linux operating system).  does not work because wsl.md does not resolve - copied from github software.\nYou can now close VS Code.\n\n\n\n\nDetermine the type of processor on your Mac. On the top-left of your toolbar click “ apple” &gt; “About this Mac”.\n\nIf you see “Intel” on your processor/chip information, then you have an Intel processor.\nIf you see “M[1,2,3,4]”, then you have an M-series chip.\n\nGo to the Visual Studio Code download page and download the correct installer based on the previous step.\nFollow the installation instructions on the VS Code documentation page\n\n\n\n\nOpen a terminal and run the command uname -m. This will help you determine the installer you should download in the next step:\n\nx86_64 = “x64”\naarch64 or arm64 = “ARM64”\narmv7l or armhf = “ARM32”\n\nGo to the Visual Studio Code download page and download the correct installer based on the previous step.\nInstall the software using your usual package manager.\n\n\n\n\n\n\nmamba\nWe recommend that you manage your Python environment using the Mamba package manager. Below you can find links to our software installation instructions:\n\nMamba setup instructions\nPython setup instructions\n\nOnce you follow those instructions, confirm you have an environment called pycourse. From your terminal run:\nmamba env list\nYou should see an environment called pycourse on the list.\nFinally, install some further packages we will use specifically on this course:\nmamba install -n pycourse numpy",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data & Setup</span>"
+    ]
+  },
+  {
+    "objectID": "materials/01_introducing_python.html",
+    "href": "materials/01_introducing_python.html",
+    "title": "3  Introducing Python",
+    "section": "",
+    "text": "3.1 What is a programming language\nA programming language is a formal way of giving instructions to a computer so it can perform specific tasks. Just as people use spoken languages to communicate with each other, programmers use programming languages to communicate with computers, telling them step by step what to do.\nAt the base of a computer is the physical hardware. The code written in a programming language is translated into machine instructions, which control the hardware’s operations. In this way, abstract commands written by humans can directly influence how the computer’s circuits, processors, and memory behave.\nProgramming languages work in layers:\nHigh-level code (written by humans) is translated by a compiler or interpreter into low-level machine code (binary instructions). The machine code then directly controls the hardware.\nIn between, there can be layers like assembly language, operating systems, and libraries, each helping bridge human-friendly instructions down to hardware-level execution.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introducing Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/01_introducing_python.html#lets-test-what-python-can-do",
+    "href": "materials/01_introducing_python.html#lets-test-what-python-can-do",
+    "title": "3  Introducing Python",
+    "section": "3.2 Let’s test what python can do!",
+    "text": "3.2 Let’s test what python can do!\nBefore discussing python in more detail and trying to write any code, the best way of showing python’s capabilities is to show what it can do, by running a script! Have a go at the exercise below, and answer the questions. By the end of this course you will be able understand how this script works and be able to write the equivalent script yourself!\n\n\n\n\n\n\nExerciseExercise 1 - Running a Python Script\n\n\n\n\n\n\nTo do this exercise, you will need to have followed the setup instructions, including installing VSCode and Python. They can be found in these course materials.\nOpen Visual Studio Code. Open the Scripts folder and open “expense_calculator.py”. Press the play button (triangle) to run the script.\nQ1. What does the script do?\nQ2. When looking at the script are there any keywords or symbols that you notice?\nQ3. What logic is involved? - Can yu create a flow chart reflecting what is done?\nQ4. Now you have seen a small snapshot of what can be done with very basic python - can you think of any scripts you might want to write in Python?\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\nQ1. Do not worry if you cannot work out exactly what this script does at this stage. As you can see, python is a language where simple statements reflect what the code does (high level). This makes it easy to red even with little coding background and an approachable language to start learning coding.\nThis script is a simple expense tracker that lets users record spending in four categories: food, transport, entertainment, and other. It first tries to load any existing expenses from a CSV file and stores them in a list. Users can then input new expenses, which are validated for category and numeric amount before being added. Finally, all expenses are saved back to the CSV file, overwriting previous contents.\nQ2. Some key words you will notice in the script are: - try - except - for - if - else - break - while - in - pass\n\nopen\nclose\nappend\n\nThese are basic python logical tools/ functions\nSome symbols are: - =\n- ==\n- &gt;\n- -\n- .\n- ,\n- :\n- []\n- ()\n- \"\" / '' - \\n\n- #\nSome of these special symbols are called operators - they provide simple arithmetic like operations Others reflect the rules of the language - and are grammar.\nBy the end of this course you will be able to use all these key words and symbols when writing python code\nQ3. A flow chart representing the python expense calculator:\nQ4. There are many different scripts you may wish to write in python. Everyday tasks: - Organising/renaming files - Checking the weather - Accounting\nResearch tasks: - Data Analysis - Data visualisation\nSome of the reason we write a scripts for something are: - if it has to be done many times - If it needs to be reproducible and the flow from inputs to outputs recorded exactly - There are coding tools that can help with the task",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introducing Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/01_introducing_python.html#so-what-is-python",
+    "href": "materials/01_introducing_python.html#so-what-is-python",
+    "title": "3  Introducing Python",
+    "section": "3.3 So what is python?",
+    "text": "3.3 So what is python?\nHigh-Level, General-Purpose Language:\nPython is a versatile programming language created in the late 1980s by Guido van Rossum, emphasising code readability and simplicity. This makes it great for beginners!\nNamed After: “Monty Python’s Flying Circus” (not the reptile).\nKey Features:\n\nInterpreted: In most implementations Python is usually interpreted - This means it executes code line-by-line (making debugging easier compared to compiled languages) - see below\nObject-Oriented Programming (OOP): Supports the OOP paradigm through classes and objects, enabling structured, reusable, and scalable code for larger projects. - we will see examples of this later, but for now you do not need to worry too much about this.\nVery High-Level Language (VHLL): Allows complex operations to be expressed in simple, single statements. You can think of programming languages forming layers built atop one another.\n\nWhat is a high level language\nAt the very low level you have binary machine code (1s and 0s) that the hardware interprets. When you start with python a high level programming language it is very simple to write. It abstracts away lots of things that need to be instructed like how to manage memory etc. This is then converted into a lower representation (e.g. ususally bytecode in the case of python), which is then eventually converted into the final binary machine code. In these conversions, the specifics are added. Lower level coding languages deal with more of the specifics (which if you are very very good can make your code more efficient, but are cumbersome to write code in). That is why most people only write code in high level languages.\nInterpreters/compilers sit between to convert one coding language to the lower level. Interpreters run line by line, whereas compilers often generally deal with the whole code or whole chunks of code at once. Interpreted languages are therefore usually easier to debug (find out where the faults are). It will usually tell you the line which failed in the error message.\nThe syntax is one of the main things that defines a coding language. The syntax refers to the grammar and punctuation of the language. i.e. how the language is structured and written. We will learn the basic syntax for python in this course.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introducing Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/01_introducing_python.html#what-can-python-be-used-for",
+    "href": "materials/01_introducing_python.html#what-can-python-be-used-for",
+    "title": "3  Introducing Python",
+    "section": "3.4 What can python be used for?",
+    "text": "3.4 What can python be used for?\nAs we saw above in the exercise, Python can be used for a whole range of tasks. It is a very common programming language found in a range of fields from web development, data science, machine learning and AI, automation including with microcontrollers, cybersecurity, game development, IoT, and business applications.\nWhy is Python a good language to start learning?\nSimple Syntax and Readability:\n\nPython is a high level language and has an easy-to-understand syntax helps you focus on solving problems rather than dealing with complex code, making it accessible for both beginners and experts.\n\nLarge Ecosystem of Libraries:\nPython is very widely used in many fields, therefore it has a large variety of libraries. We will learn more about libraries later - but in essense libraries are collections of pre-written code that youcan easily import in so that you don’t have to write the code yourself. The code in a library is all collected with a specific type of task in mind. Some examples are:\n\nNumPy: For numerical computations and array handling.\n*Pandas: For data manipulation and analysis.\n*Matplotlib & Seaborn: Data visualization tools.\n*Scikit-learn: Machine learning algorithms.\n*TensorFlow & PyTorch: For deep learning and neural networks.\n\nWe will demonstrate use of NumPy in this course.\n*not covered in this intro course - but other courses available e.g. Python for data analysis, and machine learning\nActive Community and Support:\n\nPython has a large supportive community, offering tutorials, open-source contributions, and plenty of resources. We will look at some of the places you can go to for help.\nFor a more detailed look at the pros and cons of python as a coding language please see the following materials:\n\nhttps://kavihshah.github.io/Intro-to-Python/ Shah, K. H. (2025, January 15). Intro to Python, Part III Systems Biology, University of Cambridge. Zenodo. https://doi.org/10.5281/zenodo.14651795\nhttps://www.netguru.com/blog/python-pros-and-cons https://www.linode.com/docs/guides/pros-and-cons-of-python/",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introducing Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/01_introducing_python.html#summary",
+    "href": "materials/01_introducing_python.html#summary",
+    "title": "3  Introducing Python",
+    "section": "3.5 Summary",
+    "text": "3.5 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nA coding language is used to instruct computers so they can perform desired tasks\nPython is a beginner friendly codin language, commonly used in data science and other applications\nPython is defined by its syntax (it’s grammatical rules)\nPython code is run(interpreted) line by line\nLibraries/packages give pre-written code that performs specific functions",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introducing Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/02_python_basics.html",
+    "href": "materials/02_python_basics.html",
+    "title": "4  Getting Started",
+    "section": "",
+    "text": "4.1 Overview\nThis page and the next few pages will roughly follow along with the live coding session. We will use the expense calculator script as a basis. The next sections in the course materials are for reference and contain cheat sheets and notes, for you to look back at when you need. In the session, most of the information will be taught to you within the live coding and using the exercises, however in some cases the course materials will have more information which could be useful in certain situations. In particular, there are reference tables for operators, data types and templates for functions.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/02_python_basics.html#getting-started-the-terminal-and-python-console",
+    "href": "materials/02_python_basics.html#getting-started-the-terminal-and-python-console",
+    "title": "4  Getting Started",
+    "section": "4.2 Getting Started The Terminal and python console",
+    "text": "4.2 Getting Started The Terminal and python console\n\n4.2.1 What is the terminal?\nThe terminal is a text-based interface that lets you type commands directly to your computer’s operating system. Instead of clicking buttons or menus, you write commands for opening files, running programs, or installing software.\n\n\n4.2.2 The terminal in VS Code\nIn Visual Studio Code (VS Code), the terminal is built-in. You can open it from the menu (View → Terminal) or by pressing a shortcut (often Ctrl+`). It appears at the bottom of the editor and works just like your computer’s command line, but directly inside VS Code.\n\n\n4.2.3 Using the terminal to run a script\nTo run a python script from the terminal use:\npython script_name.py\n\nNote 1 You need to be in the correct directory to run a python script from the terminal. It should automatically open into the current directory in VSCode - e.g. where the expense_calculator.py is located\nnote that you likely do not want to use your system python to run scripts as this is used by the operating system\nYou should have installed python in the setup. sometimes it can be python3\n\n\n\n\n\n\n\nExerciseExercise 1 - Terminal\n\n\n\n\n\n\nRun the expense calculator through a command from the terminal\n\n\n\n\n\n\n4.2.4 Using the terminal to open the python Console\nA console is a text-based interface that allows a user to interact directly with a computer system or software by entering commands and receiving text-based output.\nThe Python console, also known as the Python interpreter or REPL (Read–Evaluate–Print Loop), is an interactive environment that allows users to write and execute Python code one statement at a time. It is particularly useful for testing small code snippets, exploring language features, debugging, and learning Python syntax. When a line of code is entered, the interpreter immediately evaluates it and displays the result, enabling rapid feedback and experimentation. In the Python console, users can execute expressions, define variables and functions, and import modules. However, code written in the console is not saved automatically; for reusable or larger programs, Python scripts (.py files) are preferred.\nTo open python interactively in the terminal, in the terminal window type: python It will offer a prompt:\nPython 3.9.6 (default, Oct  4 2024, 08:01:31) \n[Clang 16.0.0 (clang-1600.0.26.4)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; \n\n\n\n\n\n\nExerciseExercise 2 - Python console\n\n\n\n\n\n\nOpen the python console in VSCode. Type print(\"hello world\") . What happens?\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\nWhen the command print(“hello world”) is entered into the Python console and executed, Python immediately evaluates the statement and displays the text:\nhello world\n\n\n\n\n\n\n\n\n\nAttend our course on unix command line\nIf you’re interested in using the terminal more, for example to navigate file systems and automate tasks - attend the training facilities unix course",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/02_python_basics.html#assigning-variables",
+    "href": "materials/02_python_basics.html#assigning-variables",
+    "title": "4  Getting Started",
+    "section": "4.3 Assigning variables",
+    "text": "4.3 Assigning variables\nA variable is a named reference used to store and access a value in a program.\n\n\n\n\n\n\nExerciseExercise 3 - Python variables\n\n\n\n\n\n\nWhat are the variables in the expense_calculator.py script?\nWhat are they used for?\n\n\n\n\nIn Python initialising variables is easy:\n\nVariables are assigned using the = sign\nCase sensitive\nNo need to declare the type explicitly (dynamic typing)\n\n# Initialising my_height in cm \nmy_height = 176\nmy_name = \"Kavi\"\n\n\n### Variable Naming Conventions in Python - Making your life easy!\nOne of the worst things in particular when looking at other peoples code is variable names that make no sense to anybody but the writer\nWhen naming variables, it’s important to follow Python’s guidelines for consistency and readability. Here are some key rules to remember:\n\nCase-sensitive: weight and Weight are different variables.\nUse lowercase: Separate words with underscores, e.g., weight_kg.\nDon’t start with numbers: Variable names cannot begin with a digit.\nStick to letters: Use only letters, underscores, and digits (when needed).\nBe descriptive: Choose clear, meaningful names (e.g., asdjks is not helpful).\nAvoid overly long names: For example ‘this_is_my_height_in_cm’ is too long.\nDon’t use keywords: Avoid using Python function names, class names, or data types as variable names.\n\nFor more detailed guidelines, refer to PEP 8 or the Google Python Style Guide.\n\n\n4.3.1 Indentation\nIn python indentation is used to define code blocks. We will see more of this later when we get to conditional statements and loops. - Unexpected indents will result in errors. - indents are 4 spaces according to PEP 8 standards, however commonly also two spaces on web interfaces. Be consistent. - Using spaces is preferable to using tabs\n# Initialising my_height in cm \nmy_height = 176\n my_name = \"Kavi\"\n \nThe above would produce an error",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/02_python_basics.html#commenting-your-code",
+    "href": "materials/02_python_basics.html#commenting-your-code",
+    "title": "4  Getting Started",
+    "section": "4.4 Commenting your code",
+    "text": "4.4 Commenting your code\nCommenting your code, and using lines liberally, are key to making your code easily understandable for both yourself and others. These comments are ignored by python and do not result in any output - check for yourself in the console!\n\nA # (Hash) is used for single line comments\nA \"\"\" (triple quotes) is used around multiline comments or strings\nA \\ (backslash) is used to explicitly break a line\nLines can be implicitly continued in some cases, for example when in brackets. We will see this later.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/02_python_basics.html#summary",
+    "href": "materials/02_python_basics.html#summary",
+    "title": "4  Getting Started",
+    "section": "4.5 Summary",
+    "text": "4.5 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nVariables are words used to reference and access a value\nBe clear an concise following guidelines when naming variables\nComment your code for clarity",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Getting Started</span>"
+    ]
+  },
+  {
+    "objectID": "materials/03_python_data_types_and_operators.html",
+    "href": "materials/03_python_data_types_and_operators.html",
+    "title": "5  Data Types and Operators",
+    "section": "",
+    "text": "5.1 Python Data types\nIn programming, data types define the kind of data a variable can hold, such as numbers, text, or more complex structures, and they determine what operations can be performed on that data.\nIn Python, common data types include int for integers, float for decimal numbers, str for strings of text, bool for true/false values, list for ordered collections, tuple for immutable collections, set for unique items, and dict for key-value pairs.\nUsing data types in Python is straightforward: you assign a value to a variable, and Python automatically recognizes the type.\nFor example, x = 10 creates an integer, whereas x = 10.3 creates a float. A float in a decimal placed number and is stored in python in a 64 bit format.\nFor an overview of data types use the cheat sheet.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "materials/03_python_data_types_and_operators.html#python-data-types",
+    "href": "materials/03_python_data_types_and_operators.html#python-data-types",
+    "title": "5  Data Types and Operators",
+    "section": "",
+    "text": "5.1.1 Primitive Data Types\nPrimitive data types contain single values e.g. numbers and words\nThe main thing to remember is that sequences of letters like words are called strings and require quotation marks around them:\nname = \"Alice\" creates a string.\nThe boolean data types use the key words True and False\nNone can also be used as a placeholder for a variable has no meaningful value yet.\nUnderstanding data types is essential for writing correct programs, performing calculations, and managing data efficiently. Data types behave slightly differently in different languages for example the way numbers a rounded.\n\n\n\n\n\n\nExerciseExercise 1 - Primitive data types\n\n\n\n\n\n\nWhat are the different primitive data types in expenses_calculator.py Why were they chosen? Are there any other data types you recognise?",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "materials/03_python_data_types_and_operators.html#python-operators",
+    "href": "materials/03_python_data_types_and_operators.html#python-operators",
+    "title": "5  Data Types and Operators",
+    "section": "5.2 Python operators",
+    "text": "5.2 Python operators\noperators are symbols or keywords used to perform operations on data and variables, like calculations or comparisons. This of mathematical singles like + 0r &lt;.\nMost of the operators in python make sense. Use the cheat sheet table to look them up if you need.\n\n\n\n\n\n\nExerciseExercise 2 - Using operators\n\n\n\n\n\n\nUse the console to test different operators from the tables. Try adjusting the operators in the expenses_calculator.py script and seeing how the behaviour of the script changes.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "materials/03_python_data_types_and_operators.html#composite-data-types---the-exciting-stuff",
+    "href": "materials/03_python_data_types_and_operators.html#composite-data-types---the-exciting-stuff",
+    "title": "5  Data Types and Operators",
+    "section": "5.3 Composite Data Types - The exciting stuff!",
+    "text": "5.3 Composite Data Types - The exciting stuff!\nComplex data types is where things really become interesting and the basis for more complex programming\nIn Python, composite data types allow you to store multiple values in a single variable. They can hold a collection of items, which can be of different data types. The main composite data types in Python are:\nLists\n\nDefinition: Ordered, mutable collections that allow duplicate items.\nSyntax: Defined using square brackets [].\n\nTuples\n\nDefinition: Ordered, immutable collections that can also contain duplicates.\nSyntax: Defined using parentheses ().\n\nDictionaries\n\nDefinition: Unordered collections of key-value pairs, where each key is unique and must be immutable.\nSyntax: Defined using curly braces {} and using a colon : to separate keys from values.\n\nSets\n\nDefinition: Unordered collections of unique items.\nSyntax: Defined using curly braces {} or the set() function.\n\nExample Initialization and Differences:\nLet’s initialize one of each composite data type with a list of 10 animals, and then demonstrate some of the main differences.\n# Initialize a list of animals\nanimal_list = [\"Dog\", \"Cat\", \"Elephant\", \"Lion\", \"Tiger\", \"Giraffe\", \"Zebra\", \"Monkey\", \"Snake\", \"Rabbit\"]\n\n# Initialize a tuple of animals\nanimal_tuple = (\"Dog\", \"Cat\", \"Elephant\", \"Lion\", \"Tiger\", \"Giraffe\", \"Zebra\", \"Monkey\", \"Snake\", \"Rabbit\")\n\n# Initialize a dictionary of animals with their classifications\nanimal_dict = {\n    \"Dog\": \"Mammal\",\n    \"Cat\": \"Mammal\",\n    \"Elephant\": \"Mammal\",\n    \"Lion\": \"Mammal\",\n    \"Tiger\": \"Mammal\",\n    \"Giraffe\": \"Mammal\",\n    \"Zebra\": \"Mammal\",\n    \"Monkey\": \"Mammal\",\n    \"Snake\": \"Reptile\",\n    \"Rabbit\": \"Mammal\"\n}\n\n# Initialize a set of animals\nanimal_set = {\"Dog\", \"Cat\", \"Elephant\", \"Lion\", \"Tiger\", \"Giraffe\", \"Zebra\", \"Monkey\", \"Bear\", \"Rabbit\"}\n\n# Show differences between data types\nprint(\"Original List:\", animal_list)\nprint(\"Original Tuple:\", animal_tuple)\nprint(\"Original Dictionary:\", animal_dict)\nprint(\"Original Set:\", animal_set)\n\n# Mutability Demonstration\n# Modifying the list (mutable)\nanimal_list[0] = \"Wolf\"  # Change \"Dog\" to \"Wolf\"\nprint(\"Modified List:\", animal_list)\n\n# Attempting to modify the tuple (immutable)\nanimal_tuple[0] = \"Wolf\"  \n# This will raise an error\n\n# Adding a new key-value pair to the dictionary (mutable)\nanimal_dict[\"Fox\"] = \"Mammal\"\nprint(\"Modified Dictionary:\", animal_dict)\n\n# Attempting to add a duplicate to the set (will be ignored)\nanimal_set.add(\"Dog\")  # This will not change the set\nprint(\"Modified Set (after trying to add 'Dog'):\", animal_set)\nRemember the key differences - use the summary cheat sheet if you need help\nMutability - which data types are mutable?\nOrder - which are ordered?\nDuplicates - which allow duplicates?",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "materials/03_python_data_types_and_operators.html#working-with-lists-in-python",
+    "href": "materials/03_python_data_types_and_operators.html#working-with-lists-in-python",
+    "title": "5  Data Types and Operators",
+    "section": "5.4 Working with Lists in Python",
+    "text": "5.4 Working with Lists in Python\nLists in Python are versatile and support various operations that allow you to manipulate and interact with the data they contain. Below are some common operations you can perform on lists.\nAccessing Elements\nYou can access list elements using indexing (zero-based).\nfirst_element = my_list[0]  # 1\nlast_element = my_list[-1]   # 5\nSlicing a List\nYou can retrieve a portion of a list using slicing.\nsub_list = my_list[1:4]  # [2, 3, 4]\nAdding Elements\nAppend: Add an element to the end of the list.\nmy_list.append(6)  # [1, 2, 3, 4, 5, 6]\nInsert: Insert an element at a specific index.\nmy_list.insert(2, 2.5)  # [1, 2, 2.5, 3, 4, 5, 6]\nRemoving Elements\nRemove: Remove the first occurrence of a specified value.\nmy_list.remove(2.5)  # [1, 2, 3, 4, 5, 6]\nPop: Remove and return an element at a specified index (default is the last element).\nlast_item = my_list.pop()  # list is now [1, 2, 3, 4, 5]\nModifying Elements\nYou can change the value of an element using its index.\nmy_list[1] = 20  # [1, 20, 3, 4, 5]\nExtending a List\nYou can add multiple elements to the end of the list using extend().\nmy_list.extend([6, 7, 8])  # [1, 20, 3, 4, 5, 6, 7, 8]\nSorting a List\nSort the list in ascending order.\nmy_list.sort()  # [1, 3, 4, 5, 6, 7, 8, 20]\nReversing a List\nYou can reverse the order of elements in a list.\nmy_list.reverse()  # [20, 8, 7, 6, 5, 4, 3, 1]\nFinding the Length\nGet the number of elements in the list.\nlength = len(my_list)  # 8\nNumeric operators e.g. Append multiple repeats\nmy_list * 2  # [20, 8, 7, 6, 5, 4, 3, 1, 20, 8, 7, 6, 5, 4, 3, 1]\n\n\n\n\n\n\nExerciseExercise 3 - Composite data types\n\n\n\n\n\n\nWhat are the composite data types in the expense_calculator.py script?\nWhy are these data types used?\nCan you try using a set to identify expense type - what is the advantage/disadvantage?\n\n\n\n\n\n\n\n\n\n\n\nExerciseExercise 4 - Which Data type to use\n\n\n\n\n\n\nLevel: \nState the best data type to use in Python:\n\nYou want to store a sequence of names that may change (e.g., adding or removing names).\nYou need to check if certain items (e.g., unique user IDs) exist in a collection and don’t care about the order.\nYou need to store an unchanging sequence of geographic coordinates (latitude, longitude).\nYou are counting the number of items in stock in an inventory system (whole numbers only).\nYou are dealing with financial calculations and need decimal values for prices and quantities.\nYou need to store data about a person (e.g., name, age, occupation) and retrieve the data by key.\nYou are processing binary data from an image file and need to modify the data.\nYou want to represent a logical condition (True or False) to check user login status.\nYou want to ensure a set of elements stays constant and cannot be modified after creation.\nA function you are writing returns nothing (i.e., no meaningful value to return).\nYou need to handle a collection of scientific data points with floating-point precision (e.g. temperature readings).\nYou are working with text that may need to be split, joined, or manipulated.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "materials/03_python_data_types_and_operators.html#summary",
+    "href": "materials/03_python_data_types_and_operators.html#summary",
+    "title": "5  Data Types and Operators",
+    "section": "5.5 Summary",
+    "text": "5.5 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nVariables are words used to reference and access a value\nBe clear an concise following guidelines when naming variables\nComment your code for clarity",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Data Types and Operators</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04_python_functions.html",
+    "href": "materials/04_python_functions.html",
+    "title": "6  Python Functions",
+    "section": "",
+    "text": "6.1 Functions in Python\nFunctions in Python are blocks of reusable code designed to perform a specific task. They help organise code, promote reusability, and make programs more readable. Functions just like in maths can take inputs and return outputs\nPython ships with many in built functions. See: https://docs.python.org/3/library/functions.html\nAs we have seen already to call a function, simply use the function name followed by parentheses. If the function takes parameters, provide the arguments inside the parentheses. - functions may take arguments in an order separated by a comma:",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Python Functions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04_python_functions.html#functions-in-python",
+    "href": "materials/04_python_functions.html#functions-in-python",
+    "title": "6  Python Functions",
+    "section": "",
+    "text": "function(a, b) \n\nalternatively functions may use assignment for inputs:\n\nfunction(a, type = b)\n\nvariable inputs into functions can defined globally\n\nb = number\nfunction(a, type = b)\n\nFunctions can have default inputs if none specified (we will see this when defining functions)\nfunctions can be nested although this can make code less readable\n\nfunction_two(function_one(a))\n\n\n\n\n\n\nExerciseExercise 1 - Function\n\n\n\n\n\n\nLevel: \n\nList some of the functions used so far and in the expenses_calculator.pyscript. What do they do?",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Python Functions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04_python_functions.html#using-the-type-function",
+    "href": "materials/04_python_functions.html#using-the-type-function",
+    "title": "6  Python Functions",
+    "section": "6.2 Using the type() function",
+    "text": "6.2 Using the type() function\nAs mentioned python uses dynamic typing. The type() function can output the datatype assigned to a variable\n\n\n\n\n\n\nExerciseExercise 2 - Find the data type\n\n\n\n\n\n\nLevel: \nWhat is the data type of the message variable? Print it to Standard output\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\nprint(type(message))\noutput:\n&lt;class 'str'&gt;\nIt is a string",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Python Functions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04_python_functions.html#defining-your-own-functions-in-python",
+    "href": "materials/04_python_functions.html#defining-your-own-functions-in-python",
+    "title": "6  Python Functions",
+    "section": "6.3 Defining your own Functions in Python",
+    "text": "6.3 Defining your own Functions in Python\nSyntax for defining a Function\nThe basic syntax for defining a function in Python is:\ndef function_name(parameters):\n    \"\"\"Docstring explaining the function\"\"\"\n    # Function body\n    value = 1\n    return value\n\ndef: This keyword is used to define a function.\nfunction_name: The name you choose for the function.\nparameters: Optional. Values that the function accepts as inputs. If there are multiple, they are separated by commas.\nreturn: Optional. The function can return a value using the return statement.\n\nExample 1: Function with No Parameters\ndef welcome():\n    print(\"Hello, World!\")\nExample 2: Function with Parameters\ndef welcome_person(name):\n    print(f\"Hello, {name}!\")\nThis function accepts a single parameter, name.\nIt uses that parameter to personalize the greeting. Calling the function:\nwelcome_person(\"Kavi\")\nOutput:\nHello, Kavi!\nExample 3: Function with Multiple Parameters and a Return Value\ndef add_numbers(a, b):\n    return a + b\nThis function takes two parameters, a and b. It returns the sum of the two numbers. Calling the function:\nresult = add_numbers(5, 10)\nprint(result)\nOutput:\n15\nExample 4: Function with Default Parameters\nYou can set default values for parameters so that a function can be called with fewer arguments than defined.\ndef welcome_person(name=\"Guest\"):\n    print(f\"Hello {name}, nice to meet you!\")\n\nCalling the function with and without the parameter:\nwelcome_person(\"Tom\")  # Uses the provided argument\nwelcome_person()         # Uses the default value\n\noutput\nHello Tom, nice to meet you!\nHello Guest, nice to meet you!\nExample 5: Function with Multiple Outputs\nA function can return more than one value using tuples or other data structures.\ndef calculate(a, b):\n    sum_val = a + b\n    product_val = a * b\n    return sum_val, product_val\nCalling the function and unpacking values:\nsum_1, product_1 = calculate(3, 4)\nprint(sum_1, product_1)\nOutput:\n7 12\n\nFunctions Summary\nFunctions in Python are defined using the def keyword. Inputs (parameters) can be passed into functions, and outputs can be returned using the return statement. Functions can have default parameters, accept multiple arguments, and return multiple values.\n\n\n\n\n\n\nExerciseExercise 3 - Writing Functions Exercise\n\n\n\n\n\n\nCan you remove some of the code in the expense_calculator script into new functions that are used later in the script? Are there any other functions you might want to write and use in the script?\n\n\n\n\n\n\n\n\n\n\n\nExerciseExercise 4 - Discussion\n\n\n\n\n\n\nLevel: \nWhat have I not added in many of these examples above, that I should have?\nTry and run the help() function on a built in python function. What is returned. e.g. help(print) How do you return similar for your own functions?\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\nDocstring comments. While this may not be super important here, when you start using your own written functions as modules they are important!",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Python Functions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04_python_functions.html#summary",
+    "href": "materials/04_python_functions.html#summary",
+    "title": "6  Python Functions",
+    "section": "6.4 Summary",
+    "text": "6.4 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nPython has many functions that can be used\nyou can write your own functions using the set syntax",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 1: Python basics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Python Functions</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05_python_conditionals.html",
+    "href": "materials/05_python_conditionals.html",
+    "title": "7  Python Conditional statements",
+    "section": "",
+    "text": "7.1 Conditionals\nConditional statements are important because they let a program make decisions. The program can evaluate the conditions and use them to choose what action to take. The conditiones can be based on user input or data values for example. This makes programs flexible and able to respond to different situations instead of doing the same thing every time.\nConditionals in Python allow you to execute different blocks of code based on conditions with boolean outputs. By boolean outputs, it means that the condition must be true or false.\nThis is mainly done using if, elif, and else statements. These are read from top to bottom. You do not always need to have elif and else statements, but they are good to have and can be used to catch unexpected values.\nif Statement:\nThe if statement evaluates a condition which has returned a boolean (True or False). If the condition is True, the block of code inside the if statement is executed.\nelif Statement:\nThe elif (short for “else if”) statement allows you to check multiple conditions. It follows an if statement and is executed if the previous conditions were False and its own condition is True.\nelse Statement:\nThe else statement is used to execute a block of code if none of the preceding if or elif conditions were True.\nSyntax\nNote the colon and indentation used in the above example\nHere is a very simple example of using conditionals:\nWith very simple conditions, python has a shorthand that is useful. You can do things like:\nTernary expressions are best kept simple. Nesting them can reduce readability, so regular if/elif/else statements are often clearer.\nOperators\nThe operators are a key tool when using conditional statements in python. Remind yourself about them and their order of precedence.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Python Conditional statements</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05_python_conditionals.html#conditionals",
+    "href": "materials/05_python_conditionals.html#conditionals",
+    "title": "7  Python Conditional statements",
+    "section": "",
+    "text": "if condition:\n    print(x) # Code to execute if condition is True\nelif another_condition:\n    print(y) # Code to execute if first condition is False and another_condition is True\nelse:\n    print(z) # Code to execute if all conditions are False\n\n\n\nIndentation is also used to nest conditionals and loops in python, and incorrect indentation is a common cause for errors.\n\n\ntemperature = 25\n\nif temperature &gt; 30:\n    print(\"It's a hot day.\")\n    #The program checks if the temperature is greater than 30. If it is, it prints \"It's a hot day.\"\nelif temperature &lt; 10:\n    print(\"It's a cold day.\")\n    #If the first condition is False, it checks if the temperature is less than 10. If this condition is True, it prints \"It's a cold day.\"\nelse:\n    print(\"It's a pleasant day.\")\n    #If both conditions are False, the else block executes and prints \"It's a pleasant day.\"\n\nprint(\"it's a hotday\") if temperature &gt; 30 else (print(\"it's a cold day\") if temperature &lt; 10 else print(\"it's a pleasent day\"))\n# these are known as ternary operators - there is no elif\n\n\n\n\n\n\n\n\n\nExerciseExercise 1 - Discussion: Operators with conditionals\n\n\n\n\n\n\nLevel: \nWhich types of operators are most useful when using conditional statements in Python?\n\n\n\n\n\n\n\n\n\n\nExerciseExercise 2 - Mini conditionals extercise\n\n\n\n\n\n\nQ1. Look at the following code:\nx = 7\n\nif x &gt; 10:\n    print(\"A\")\nelif x &gt; 5:\n    print(\"B\")\nelif x &gt; 3:\n    print(\"C\")\nelse:\n    print(\"D\")\n\nWhat would the output be?\nRewrite the statement to check the conditions independently\n\n\n\n\n\n\n\n\n\n\nExerciseExercise 3 - examining conditional statements\n\n\n\n\n\n\nLevel: \n\nWhat do the following if statements do?\nHow can you write complex conditions and make your code legible?\n\nSome actual examples from my (not perfect) code:\nif (len(x[0]) == 2) and not any(x % 10 in {0, 9} for x in x[0]):\n    if (\n        (coordcolumnchoice[0] == (1,1) and coordinateM[0,0] in x[0] and coordinateM[1,1] in x[0]) or\n        (coordcolumnchoice[0] == (1,1) and coordinateM[1,0] in x[0] and coordinateM[0,1] in x[0]) or\n        (coordcolumnchoice[0] == (1,0) and coordinateM[1,0] in x[0] and coordinateM[0,0] in x[0]) or\n        (coordcolumnchoice[0] == (1,0) and coordinateM[1,1] in x[0] and coordinateM[0,1] in x[0])\n      ):\nHow might the second example be clearer if I was writing it again?\n\n\n\n\n\n\n\n\n\n\nExerciseExercise 4 - Conditionals in expense_calculator\n\n\n\n\n\n\nLook at the conditional statements in the expense calculator script.\nWhat do they do?\nWhat is the different indentation doing?\nCan you add an extra condition that you would like to your expense calculator?\nWhat are the limitations of conditional statements?",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Python Conditional statements</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05_python_conditionals.html#summary",
+    "href": "materials/05_python_conditionals.html#summary",
+    "title": "7  Python Conditional statements",
+    "section": "7.2 Summary",
+    "text": "7.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nConditional statements allow complex decision making\nConditions use if, elif and else statements\nUnlike other languages python only uses indentation no curly brackets etc. when nesting conditions\nConditionals are evaluated linearly starting with if then the multiple elif and finally the else with the following conditions ignored once a preceding condition is met",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Python Conditional statements</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06_python_for_loops.html",
+    "href": "materials/06_python_for_loops.html",
+    "title": "8  Python for Loops",
+    "section": "",
+    "text": "8.1 for Loops in Python\nfor loops iterate over a sequence (list, tuple, string, dictionary, set, or range) and perform processes. The syntax of a for loop is simple but must be carefully followed, especially with respect to the colon (:) and indentation.\nSyntax\nExample:\nOutput",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Python for Loops</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06_python_for_loops.html#for-loops-in-python",
+    "href": "materials/06_python_for_loops.html#for-loops-in-python",
+    "title": "8  Python for Loops",
+    "section": "",
+    "text": "The for keyword is followed by a variable name (e.g., item) that will take on the value of each element in the sequence.\n\nThe sequence can be a list, tuple, string, or any iterable object.\n\nThe colon (:) indicates the start of the loop block.\n\nThe indented lines that follow the colon are the code that will be executed.\n\nfor item in sequence:\n    print(x) # Code block to execute\n\nanimals = [\"dog\", \"cat\", \"rabbit\", \"elephant\", \"tiger\"]\n\nfor animal in animals:\n    print(f'I have a {animal}.')\n\nI have a dog.\nI have a cat.\nI have a rabbit.\nI have an elephant.\nI have a tiger.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Python for Loops</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06_python_for_loops.html#using-len-and-range-in-for-loops",
+    "href": "materials/06_python_for_loops.html#using-len-and-range-in-for-loops",
+    "title": "8  Python for Loops",
+    "section": "8.2 Using len() and range() in for loops",
+    "text": "8.2 Using len() and range() in for loops\nIn Python, len() and range() are often used with for loops to control iterations and access elements by their index.\nUsing len()\nThe len() function returns the number of items in an iterable (like a list, tuple, or string). This is useful when you need to loop through each element of a sequence without manually specifying the length.\nUsing range\nThe range() function generates a sequence of numbers, which can be useful for iterating over a sequence with a specified start and end. The syntax is range(start, stop[, step])\n# Loop through the first five integers\nfor num in range(5):\n    print(num)\n\nExamples:\nanimals = [\"dog\", \"cat\", \"rabbit\", \"elephant\"]\n\nfor i in range(len(animals)):            # only 1 value - stop\n    print(f\"Animal at index {i}: {animals[i]}\")\n\nfor i in range(0,len(animals),2):        #start, stop, step\n    print(f\"Animal at index {i}: {animals[i]}\")",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Python for Loops</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06_python_for_loops.html#using-enumerate-in-for-loops",
+    "href": "materials/06_python_for_loops.html#using-enumerate-in-for-loops",
+    "title": "8  Python for Loops",
+    "section": "8.3 Using enumerate() in for Loops",
+    "text": "8.3 Using enumerate() in for Loops\nThe enumerate() function in Python adds a counter to an iterable and returns it as an enumerate object. This is particularly useful when you want to loop through a sequence and keep track of the index of each item without using range().\nSyntax\nThe syntax of enumerate() is as follows:\nenumerate(iterable, start=0)\n\niterable: The sequence (like a list, tuple, or string) you want to iterate over.\nstart: The starting index (default is 0).\n\nExample of enumerate() Here’s a simple example demonstrating how to use enumerate() with a list of animals:\nanimals = [\"dog\", \"cat\", \"rabbit\", \"elephant\"]\n\nfor index, animal in enumerate(animals):\n    print(f\"Animal {index}: {animal}\")\noutput:\nAnimal 0: dog\nAnimal 1: cat\nAnimal 2: rabbit\nAnimal 3: elephant\nBenefits of Using enumerate()\n\nClarity: It makes the code cleaner and more readable by eliminating the need to manually manage the index.\nConvenience: Automatically handles the index tracking for you, reducing the risk of errors.\n\n\n\n\n\n\n\nExerciseExercise 1 - Modify the expense calculator\n\n\n\n\n\n\nLevel: \nUsing conditional statements, for loops and the functions we have seen, Modify the expense calculator to allow the input of a dictionary specified at the top of the script rather than a file. The dictionary should look like the following:\npre_existing_expenses = {\n    \"food\": [20.50, 15.00],\n    \"transport\": [10.00],\n    \"entertainment\": [90.00]\n}\nWrite code such that the calculator correctly loops through the dictionary to correctly load in pre-existing expenses and test your script.\nLook at eachothers code - how might it be improved?\n\n\n\n\n\n\n\n\n\n\n\nExerciseExercise 2 - Make your own for loop\n\n\n\n\n\n\nLevel: \nExercise: Make your on loop which iterates through a task of your own choosing - it needs to use enumerate. Use your impagination to come up with scenarios.\nWrite code to deal with edge cases that might appear.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Python for Loops</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06_python_for_loops.html#extra-list-comprehensions",
+    "href": "materials/06_python_for_loops.html#extra-list-comprehensions",
+    "title": "8  Python for Loops",
+    "section": "8.4 Extra: List Comprehensions",
+    "text": "8.4 Extra: List Comprehensions\nList comprehensions in python enable you to write shorter and sometimes faster code than standard loops. The syntax is:\n[expression for item in iterable if condition]\nSimilar tools occur for dictionaries (Dictionary comprehension)\n\n\n\n\n\n\nExerciseExercise 3 - Use list Comprehensions\n\n\n\n\n\n\nLevel: \nprint the animals list in upper case using list comprehensions\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\nAnswer:\nanimals = [\"dog\", \"cat\", \"rabbit\", \"elephant\"]\nprint([animal.upper() for animal in animals])\noutput:\n['DOG', 'CAT', 'RABBIT', 'ELEPHANT']",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Python for Loops</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06_python_for_loops.html#summary",
+    "href": "materials/06_python_for_loops.html#summary",
+    "title": "8  Python for Loops",
+    "section": "8.5 Summary",
+    "text": "8.5 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nfor loops can be used to repeatedly use the same logic in scripts\nconditionls can easily be embedded within for loops",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Python for Loops</span>"
+    ]
+  },
+  {
+    "objectID": "materials/07_python_while_conditional_loops.html",
+    "href": "materials/07_python_while_conditional_loops.html",
+    "title": "9  Python conditional loops with while",
+    "section": "",
+    "text": "9.1 while Loops in Python\nA while loop in Python is a control flow statement that allows code to be executed repeatedly based on a boolean condition. The loop continues to execute as long as the condition remains True. Here’s a breakdown of how while loops work:\nKey Components\nSyntax\nExample\nHere’s a simple example to illustrate how a while loop works:\nExplanation of the Example\nThis can be incredibly useful in simulations. Or when interacting in the environment. Here the number of iterations is not known beforehand and depend on a certain condition being met. They provide a way to repeat actions and process data dynamically within a program.\nHowever\nAn example is:",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Python conditional loops with `while`</span>"
+    ]
+  },
+  {
+    "objectID": "materials/07_python_while_conditional_loops.html#while-loops-in-python",
+    "href": "materials/07_python_while_conditional_loops.html#while-loops-in-python",
+    "title": "9  Python conditional loops with while",
+    "section": "",
+    "text": "Condition: The loop starts with a condition that is evaluated before each iteration. If the condition is True, the code block within the loop is executed.\nCode Block: The statements inside the loop are indented, and these will run repeatedly as long as the condition remains True.\nIncrement/Decrement: It’s crucial to modify the variable used in the condition within the loop; otherwise, you may create an infinite loop.\nExit: Once the condition evaluates to False, the loop stops, and the program continues with the next line of code following the loop.\n\n\nwhile condition:\n    # Code block to execute\n    # Update condition variable\n\n\ncount = 0\n\nwhile count &lt; 5:\n    print(\"Count is:\", count)\n    count += 1  # Increment count\n\n\nInitialization: The variable count is initialized to 0.\nCondition: The while loop checks if count is less than 5.\nCode Execution: If the condition is True, it prints the current value of count.\nIncrement: The line count += 1 increments the value of count by 1 after each iteration.\nTermination: Once count reaches 5, the condition becomes False, and the loop exits.\n\n\n\n\nInfinite Loops: Ensure the condition will eventually evaluate to False to avoid infinite loops.\nBreak Statement: You can use the break statement to exit a loop prematurely if needed.\nContinue Statement: The continue statement can skip the current iteration and proceed to the next one based on a condition.\n\n\nimport random\n\npopulation = 1000\ninfected = 1\ndays = 0\ninfection_rate = 1.5\nmax_days = 30\n\nwhile infected &lt; population:\n    days += 1\n\n    if random.random() &gt; 0.9:\n        print(f\"Day {days}: Lockdown in effect, no new infections today.\")\n        continue\n    \n    new_infections = int(infected * infection_rate)\n\n    if new_infections + infected &gt; population:\n        new_infections = population - infected\n    \n    infected += new_infections\n\n    print(f\"Day {days}: {infected} infected.\")\n\n    if infected &gt;= population:\n        print(f\"Day {days}: The entire population is infected.\")\n        break\n\n    if random.random() &gt; 0.8:\n        print(f\"Day {days}: Health measures implemented, slowing infection.\")\n        infection_rate -= 0.3\n    \n    if infection_rate &lt;= 0.1:\n        print(f\"Day {days}: The infection has nearly stopped spreading.\")\n        break\n    \n    if days &gt;= max_days:\n        print(\"The simulation has reached its time limit.\")\n        break\n\n\n\n\n\n\n\nExerciseExercise 1 - Code Legibility\n\n\n\n\n\n\nLevel: \nDiscussion: What does the above code do? Is it legibly written? What can be done to improve this?\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\n\n# Commenting the code appropriately is important!\nimport random\n\n# Parameters of the simulation\npopulation = 1000       # Total population\ninfected = 1            # Initially 1 person is infected\ndays = 0                # Start at day 0\ninfection_rate = 1.5    # Rate of infection: how many people one infected person can infect per day\nmax_days = 30           # Maximum number of days to simulate\n\nwhile infected &lt; population:\n    days += 1\n\n    # Simulate random events like lockdown or vaccines\n    if random.random() &gt; 0.9:  # 10% chance of stopping the spread for the day\n        print(f\"Day {days}: Lockdown in effect, no new infections today.\")\n        continue  # Skip the infection calculation for this day and move to the next\n\n    # Simulate daily infections\n    new_infections = int(infected * infection_rate)\n\n    # If new infections exceed the remaining healthy population, adjust them\n    if new_infections + infected &gt; population:\n        new_infections = population - infected\n\n    infected += new_infections\n\n    # Display day-by-day status\n    print(f\"Day {days}: {infected} infected.\")\n\n    # Continue if there are still people to infect\n    if infected &gt;= population:\n        print(f\"Day {days}: The entire population is infected.\")\n        break\n\n    # Random chance to reduce the infection rate due to interventions\n    if random.random() &gt; 0.8:  # 20% chance to reduce infection rate\n        print(f\"Day {days}: Health measures implemented, slowing infection.\")\n        infection_rate -= 0.3  # Decrease the infection rate\n\n    # If the infection rate gets too low, break out of the loop (end of epidemic)\n    if infection_rate &lt;= 0.1:\n        print(f\"Day {days}: The infection has nearly stopped spreading.\")\n        break\n\n    # Stop the simulation after a max number of days to avoid infinite loops\n    if days &gt;= max_days:\n        print(\"The simulation has reached its time limit.\")\n        break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExerciseExercise 2 - Interpreting a while loop\n\n\n\n\n\n\nLevel: \nWhat does the while statement in the expense_calculator.py code do? What are its limitations? Improve the code, by adressing these limitations\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\nAdd code introducing a maximum number of iterations or a global value cap to force exit and stop an infinite loop You can also add an extra break statement to stop if a user has exceeded a limit\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExerciseExercise 3 - Writing your own while loop\n\n\n\n\n\n\nLevel: \nEither write a while loop of your own choice,\nor\nWrite a script that asks customers repeatedly for the drinks they would like to order. If it is not recognised from a set of your choice, then respond accordingly If they input “stop” or order more than 10 items, complete the order. Tell the customer the total cost.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Python conditional loops with `while`</span>"
+    ]
+  },
+  {
+    "objectID": "materials/07_python_while_conditional_loops.html#summary",
+    "href": "materials/07_python_while_conditional_loops.html#summary",
+    "title": "9  Python conditional loops with while",
+    "section": "9.2 Summary",
+    "text": "9.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nwhile loops can be very useful for tasks that do not have a set number of loops allowing simulation and user input\nIt is important you do not get infinite loops in your code",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Python conditional loops with `while`</span>"
+    ]
+  },
+  {
+    "objectID": "materials/08_python_try-except.html",
+    "href": "materials/08_python_try-except.html",
+    "title": "10  Python try and except statements",
+    "section": "",
+    "text": "10.1 try and except in Python\nIn Python, try and except blocks are used for handling exceptions, which are errors that can occur during program execution. This mechanism allows developers to anticipate potential errors, provide alternate code to handle them, and prevent the program from crashing. Here’s how it works:\ntry Block:\nThe code that might raise an exception is placed inside the try block. If an exception occurs during execution of this block, the rest of the block is skipped, and control is passed to the except block.\nexcept Block:\nThis block contains code that handles the exception. You can specify which exception to catch, or leave it blank to catch any exception. If the exception type matches the one specified in the except block, the code inside it is executed.\nMultiple except Blocks:\nYou can have multiple except blocks to handle different types of exceptions.\nelse Block:\nYou can add an else block after the except block. This block runs if the try block executes without raising an exception.\nfinally Block:\nThe finally block runs regardless of whether an exception was raised or not. It is often used for cleanup actions, like closing files or releasing resources.\nExample\nHere’s a simple example demonstrating the use of try and except:\nExplanation of the Example:\ntry:\nexcept:\nelse:\nfinally:\nIn this case I might not use the else or finally\nBenefits of Using try and except:",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Python try and except statements</span>"
+    ]
+  },
+  {
+    "objectID": "materials/08_python_try-except.html#try-and-except-in-python",
+    "href": "materials/08_python_try-except.html#try-and-except-in-python",
+    "title": "10  Python try and except statements",
+    "section": "",
+    "text": "try:\n    # Code that may raise an exception\n    numerator = 10\n    denominator = 0\n    result = numerator / denominator\nexcept ZeroDivisionError:\n    # Handling a specific exception\n    print(\"Error: You cannot divide by zero.\")\nexcept Exception as e:\n    # Handling any other exception\n    print(f\"An unexpected error occurred: {e}\")\nelse:\n    # Executes if no exception occurred\n    print(\"The result is:\", result)\nfinally:\n    # This block runs no matter what\n    print(\"Execution completed.\")\n\n\n\nAttempts to divide numerator by denominator. Since denominator is zero, this raises a ZeroDivisionError.\n\n\n\nThe first except catches the ZeroDivisionError and prints an error message.\nThe second except would catch any other unexpected exceptions, but it won’t run in this case because the first except handles the error.\n\n\n\nIf there were no exceptions, the else block would print the result.\n\n\n\nThis block runs at the end of the try/except structure, regardless of whether an exception occurred or not. It’s useful for cleanup actions.\n\n\n\n\nPrevents Crashes: By handling exceptions, you can prevent your program from crashing due to unforeseen errors.\nCleaner Code: It allows for clearer separation of normal code and error handling.\nMore Robust Programs: By anticipating and handling potential errors, your programs can handle unexpected situations better.\n\n\n\n\n\n\n\nExerciseExercise 1 - Count Nucleotide Occurrences\n\n\n\n\n\n\nLevel: \nGiven a DNA sequence, write a loop to count the occurrences of each DNA base out of the four options (A, T, C, G).\nDNA Sequence:\ndna_sequence = \"ATCGATCGATCGATCG\"\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\n# Given DNA sequence\ndna_sequence = \"ATCGATCGATCGATCG\"\n\nInitial Answer\n# Initialize counts\ncount_A = 0\ncount_T = 0\ncount_C = 0\ncount_G = 0\n\n# Count nucleotides\nfor nucleotide in dna_sequence:\n    if nucleotide == 'A':\n        count_A += 1\n    elif nucleotide == 'T':\n        count_T += 1\n    elif nucleotide == 'C':\n        count_C += 1\n    elif nucleotide == 'G':\n        count_G += 1\n\nprint(f\"A: {count_A}, T: {count_T}, C: {count_C}, G: {count_G}\")\n\n\n\n\nWhat exceptions might be generated? - Add an else statement to deal with other characters - Use try and except - what exception cases would this allow you to handle? Remember to follow the indentation pattern\n\n\n\n\n\n\n\n\n\n\nExerciseExercise 2 - if statements vs try except\n\n\n\n\n\n\nLevel: \nDiscussion: Can if statements statements replace try except?\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\nNO! - if statements can reduce the errors and deal with edge casees, but errors can arise within the code blocks that cannot be handled.\n\nEdge cases can be different to errors - the code runs without throwing errors but the output does not behave as expected\nYou should always inspect data first and check things make sense.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExerciseExercise 3 - improving the expense_calculator code\n\n\n\n\n\n\nLevel: \nWhere else might you add try except statement to the expense_calculator script? Have a go at adding these statements into the script. When might you prefer not to use try except ?",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Python try and except statements</span>"
+    ]
+  },
+  {
+    "objectID": "materials/08_python_try-except.html#summary",
+    "href": "materials/08_python_try-except.html#summary",
+    "title": "10  Python try and except statements",
+    "section": "10.2 Summary",
+    "text": "10.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nPython try except statements catch errors and enable code to continue despite some errors\nThey are simple to add to scripts where this is important",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 2: Core Programming",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Python try and except statements</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09_importing_libraries.html",
+    "href": "materials/09_importing_libraries.html",
+    "title": "11  Importing Packages in Python",
+    "section": "",
+    "text": "11.1 Introduction\nImporting packages with functions is essential in programming because it allows developers to reuse well-tested code instead of writing everything from scratch in every script! It also allows you to partition code into different scripts - otherwise they would get super long and unreadable. As mentioned packages contain collections of functions that can be used for specific types of task.\nPackages/Libraries from different online repositories provide ready-made tools that make programs shorter, clearer, and more reliable, while also helping programmers focus on solving problems rather than reimplementing common functionality. You can download and import packages and libraries written by others as well as write your own and import them into the script.\nIn reality managing packages is one of the more difficult parts of coding in python. You can imagine that importing many packages from different sources with different library requirements of their own (dependencies) can cause conflicts.\nThere are specific package managers that deal with this. We won’t go into them in as much detail until the end of the course. For now we need to know how to be able to download and import a very common package -&gt; numpy.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Importing Packages in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09_importing_libraries.html#installing-packages-with-pip",
+    "href": "materials/09_importing_libraries.html#installing-packages-with-pip",
+    "title": "11  Importing Packages in Python",
+    "section": "11.2 Installing Packages with pip",
+    "text": "11.2 Installing Packages with pip\npip (Python’s default package installer) is used to install packages from the Python Package Index (PyPI), a repository of software for Python.\nYou can install packages by running the following command in your terminal or command prompt:\npip install package_name\nFor example, to install the numpy library:\npip install numpy\nYou can install a specific version of a package by specifying the version number:\npip install numpy==1.21.0\nTo update a package to the latest version:\npip install --upgrade package_name\nPros of Using pip:\n\nWide range of packages: Since pip installs from PyPI, it gives access to a vast collection of Python libraries.\nLightweight: Pip is small and fast, suitable for installing Python-only packages.\nFlexible: Pip works well with virtual environments (e.g., venv or virtualenv) to isolate dependencies.\n\nCons of Using pip:\n\nDependency management: Pip doesn’t handle package dependencies as robustly as other tools like conda. This can result in conflicts or missing dependencies. By this we mean packages may not have the correct packages they require or wrong versions of packages.\nPython-only: Pip is mainly designed for Python packages. If a package has non-Python dependencies, you may have to install them manually. Many packages used in python may actually use other languages under the hood, resulting in them requiring non-python tools to be installed.\n\n\n\n\n\n\n\nExerciseExercise 1 - Install numpy\n\n\n\n\n\n\nLevel: \nNumPy is a Python library for fast numerical computing that provides powerful support for arrays, matrices, and mathematical operations. We will be using it later on in this course. Please try to install it with pip.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Importing Packages in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09_importing_libraries.html#importing-packages",
+    "href": "materials/09_importing_libraries.html#importing-packages",
+    "title": "11  Importing Packages in Python",
+    "section": "11.3 Importing Packages",
+    "text": "11.3 Importing Packages\nOnce you have installed the package/library with pip importing it into a python script is easy. sys.path is the list of directories that Python searches, in order, to find modules and packages when you import them.\nPackages installed with pip are automatically added to Python’s sys.path (as long as you’re using the same Python environment).\nThis means that once installed, all you have to do is use the command:\nimport package_name\nyou will see extra parts like\nfrom package_name import function_name\nwhich specifies the function for clarity\nor\nfrom package_name import function_name as new_name\nwhich renames the function when used in your new script",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Importing Packages in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09_importing_libraries.html#creating-your-own-reusable-code",
+    "href": "materials/09_importing_libraries.html#creating-your-own-reusable-code",
+    "title": "11  Importing Packages in Python",
+    "section": "11.4 Creating your own reusable code",
+    "text": "11.4 Creating your own reusable code\n\n11.4.1 Importing a single script in the same repository\nSay you start with a single Python script that contains some reusable functions.\nIf you have two files in the same directory, Python can import one directly from the other:\nproject_folder/\n    utils.py        # contains helper functions\n    main_script.py        # main script\nIn main_script.py, you can write:\nimport utils\nor\nfrom utils import some_function\n\n\n\n\n\n\nExerciseExercise 2 - Importing functions\n\n\n\n\n\n\nLevel: \nto make your own separate function containing module, remove the functions from the expense_calculator script and put them into a separate script. Import them into the main script. Demonstrate the script still works",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Importing Packages in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09_importing_libraries.html#extra-turning-scripts-into-a-package",
+    "href": "materials/09_importing_libraries.html#extra-turning-scripts-into-a-package",
+    "title": "11  Importing Packages in Python",
+    "section": "11.5 Extra: Turning scripts into a package",
+    "text": "11.5 Extra: Turning scripts into a package\nAs your code grows, you may want to group multiple scripts into a package. A package is simply a directory that Python treats as a module namespace.\nproject/\n    mypackage/\n        __init__.py\n        utils.py\n        model.py\n    train.py\n\nThe presence of init.py tells Python that mypackage is a package. You can now import modules like this:\nfrom mypackage import utils\nor to import a function\nfrom mypackage.model import my_function\n\n11.5.1 Making the package discoverable\nDuring development, placing train.py in the same parent directory as mypackage is enough. Python automatically adds that directory to sys.path, so the package can be imported by name.\nFor more robust usage—especially when importing from anywhere on your system—add a minimal pyproject.toml or setup.py and install the package in editable mode:\npip install -e .\nThis registers the package with Python while keeping it linked to your local source code, so changes take effect immediately.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Importing Packages in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09_importing_libraries.html#extra-installing-packages-with-conda",
+    "href": "materials/09_importing_libraries.html#extra-installing-packages-with-conda",
+    "title": "11  Importing Packages in Python",
+    "section": "11.6 Extra: Installing Packages with conda",
+    "text": "11.6 Extra: Installing Packages with conda\nconda is a package manager included with the Anaconda distribution, which is widely used for data science, scientific computing, and machine learning. It manages both Python and non-Python dependencies, making it a more versatile option in certain environments.\nRather than using the Anaconda distribution, (which though good comes with a lot unnecessary packages) install conda directly. New lightweight faster alternatives to conda, mamba and micromamba are now widely used. They work in the same way with the same commands.\nHow to Install a Package with conda\nTo install a package using conda, you would use:\nconda install package_name\nFor example, to install numpy:\nconda install numpy\nTo install a specific version of a package using conda:\nconda install numpy=1.21.0\nTo update an installed package to the latest version:\nconda update package_name\nGenerally, you would create an specific environment for example to python projects, with the packages you need:\nconda create --name env_name\nconda env list\nconda activate env_name\nconda install -c conda-forge package_name \n#conda-forge is a channel with generally more up to date packages\nconda deactivate\nPros of Using conda:\n\nCross-language package management: conda can install packages, libraries, and software, that are written in Python, C, C++, R, or other languages.\nHandles non-Python dependencies: Unlike pip, conda can install non-Python dependencies such as libc, OpenBLAS, or other compiled libraries.\nRobust dependency resolution: conda provides more sophisticated dependency resolution, reducing the risk of package conflicts.\nEnvironment management: conda simplifies creating isolated environments, allowing you to easily manage multiple versions of Python, or other libraries, on the same system.\n\nCons of Using conda:\n\nLimited packages: Although conda has its own package repository, it doesn’t have access to all Python packages in PyPI. Sometimes, you might need to fall back on pip.\nSlower: Conda can be slower and heavier than pip, especially when solving complex package dependencies.\nLarger installation: The Anaconda distribution is large, as it comes with many pre-installed libraries. This might be unnecessary if you only need specific packages.\nMultiple environments use more space: Having multiple different environments with different software versions can take up a lot of space (though unfortunately it is often necessary)\n\nOverview of using conda:\n\n\n\n\n\n\n\nFeature\nDescription\n\n\n\n\nIsolation\nEach environment has its own packages and dependencies, avoiding conflicts between projects\n\n\nReproducibility\nEnvironments can be exported to environment.yml files, ensuring consistent setups across systems\n\n\nPackage Management\nConda manages not just Python packages, but also dependencies for languages like R, C++, etc\n\n\nMultiple Environments\nSupports creating and switching between environments for different projects with different setups\n\n\nCreating an Environment\nconda create --name myenv python=3.9 – Creates a new environment with a specific Python version\n\n\nActivating an Environment\nconda activate myenv – Activates the environment for use\n\n\nInstalling Packages\nconda install numpy pandas – Installs packages into the active environment\n\n\nListing Environments\nconda env list – Lists all environments\n\n\nExporting an Environment\nconda env export &gt; environment.yml – Exports environment setup to a file\n\n\nCreating from yml File\nconda env create -f environment.yml – Recreates environment from a .yml file\n\n\nRemoving an Environment\nconda env remove --name myenv – Deletes an environment\n\n\n\nNote that conda and other environment and package managers DO NOT isolate files on the filesystem. You can access and work with files irrespective of the conda environment it was created in.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Importing Packages in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09_importing_libraries.html#combining-pip-and-conda",
+    "href": "materials/09_importing_libraries.html#combining-pip-and-conda",
+    "title": "11  Importing Packages in Python",
+    "section": "11.7 Combining pip and conda",
+    "text": "11.7 Combining pip and conda\nIn some cases, you may need to use both pip and conda in the same environment. For example, if a package isn’t available via conda, you can use pip to install it.\nExample: Using conda and pip together:\n\nCreate a new conda environment:\n\nconda create -n myenv python=3.9\n\nActivate the environment:\n\nconda activate myenv\n\nInstall a package with conda:\n\nconda install numpy\n\nInstall a package with pip:\n\npip install some_package_not_in_conda\nImportant Note:\n\nInstall with conda first: It’s generally recommended to install packages with conda first. If the package is not available, then use pip as a fallback to minimize conflicts.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Importing Packages in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09_importing_libraries.html#summary-when-to-use-pip-or-conda",
+    "href": "materials/09_importing_libraries.html#summary-when-to-use-pip-or-conda",
+    "title": "11  Importing Packages in Python",
+    "section": "11.8 Summary: When to Use pip or conda",
+    "text": "11.8 Summary: When to Use pip or conda\n\n\n\n\n\n\n\n\nCriteria\npip\nconda\n\n\n\n\nPrimary Use\nPython packages from PyPI\nCross-language package management\n\n\nDependency Resolution\nBasic (manual at times)\nAdvanced (automatic)\n\n\nNon-Python Dependencies\nNot handled\nHandled\n\n\nSpeed and Performance\nLightweight and fast\nSlower, but more robust\n\n\nAccess to Packages\nVast library via PyPI\nLimited to conda channels\n\n\nEnvironments\nWorks with venv or virtualenv\nBuilt-in environment management\n\n\nBest For\nPure Python projects\nData science, scientific computing",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Importing Packages in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09_importing_libraries.html#extra-if-__name__-__main___",
+    "href": "materials/09_importing_libraries.html#extra-if-__name__-__main___",
+    "title": "11  Importing Packages in Python",
+    "section": "11.9 Extra: if __name__ = \"__main___\"",
+    "text": "11.9 Extra: if __name__ = \"__main___\"\nIn Python, __name__ is a special variable that indicates how a file is being used. When a file is run directly, Python sets __name__ to \"__main__\", whereas when the file is imported as a module, __name__ is set to the module’s name. The common pattern if __name__ == \"__main__\": allows code to run only when the file is executed as the main program and not when it is imported, which helps separate reusable definitions from script-level execution logic and prevents unintended side effects during import.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Importing Packages in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09_importing_libraries.html#summary",
+    "href": "materials/09_importing_libraries.html#summary",
+    "title": "11  Importing Packages in Python",
+    "section": "11.10 Summary",
+    "text": "11.10 Summary\nIt is important to be able to import libraries in python There are many libraries for different functions.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Importing Packages in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/10_working_with_files.html",
+    "href": "materials/10_working_with_files.html",
+    "title": "12  Working with Files in Python",
+    "section": "",
+    "text": "12.1 Introduction\nWorking with files is essential in coding because it allows programs to store, read, and process data beyond a single run of the program. Files make it possible to handle real-world data such as user input, logs, and datasets, enabling programs to be more useful, persistent, and scalable. Imagine if you could not store information with files?",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Working with Files in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/10_working_with_files.html#working-directory",
+    "href": "materials/10_working_with_files.html#working-directory",
+    "title": "12  Working with Files in Python",
+    "section": "12.2 Working Directory",
+    "text": "12.2 Working Directory\nA working directory is the directory within the file system where your program will use as a default to look for and read files or output files. It easier than always defining absolute file paths and can allow code to be transferred.\nWhen running python scripts from the console, the working directory is the one where you launched the script from.\nThe os module is a library - a collection of functions - that can be used to work with files. It is a standard python library - so you do not need to install anything extra to use it, however, you need to import it to allow your current script to access the functions.\nThe os module can be used to check the working directory and change it.\nGet working Directory:\nimport os\nprint(os.getcwd())  #current working directory\nChange working Directory:\nos.chdir('/path/to/directory')\nLike in this course setup, it is recommended to have scripts and data in the same directory, or a subdirectory of the project directory. My common setup might be:\n/home/user/project/\n    ├── data/\n    │   └── dataset.csv\n    ├── scripts/\n    |   └── analysis.py\n    ├── logs/\n    │   └── error-log.log\n    │   └── output-log.log\n    └── output/\n        └── output.csv",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Working with Files in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/10_working_with_files.html#opening-and-closing-files-in-python",
+    "href": "materials/10_working_with_files.html#opening-and-closing-files-in-python",
+    "title": "12  Working with Files in Python",
+    "section": "12.3 Opening and closing files in python",
+    "text": "12.3 Opening and closing files in python\nYou can open files in different modes using the open() function. The common modes include:\n\n'r': Read (default)\n'w': Write (overwrites the file if it exists)\n'a': Append (adds content to the end of the file)\n'b': Binary mode (for non-text files)\n'x': Exclusive creation (fails if the file already exists)\n\nExample:\n# Open the file in read mode\nfile = open('my_notes.txt', 'r')\n\n# Read the contents of the file into a string\nmy_notes = file.read()\n\n# Close the file\nfile.close()\n\n# The my_notes variable now holds the content of my_notes.txt\nprint(my_notes)  # This will display the content of the file\n\nfile.readlines() will return a list with each line:\nfile = open('dna_sequences.txt', 'r')\ndna_sequences = file.readlines()\nfile.close()\nUsing for loops to iterate line by line:\nfile = open('dna_sequences.txt', 'r')\nfor line in file:\n    # Strip trailing whitespace or newline characters from the end of each line\n    dna_sequence = line.strip()\n    print(dna_sequence)  # Process or print the current line\nfile.close()\nThis method is memory-efficient, especially for large files, since it doesn’t load the entire file into memory at once.\nConsider the problems with working with files this way:\n\n\n\n\n\n\nExerciseExercise 1 - Discussion: Exceptions after open()\n\n\n\n\n\n\nLevel: \nIf an exception occurs after open() what will happen? What have you already learnt as a method to stop this?\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\nThe file will never close properly - you could use try ,except , finally. The with statement presented in the next section is a better way to deal with this.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Working with Files in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/10_working_with_files.html#using-with-when-working-with-files",
+    "href": "materials/10_working_with_files.html#using-with-when-working-with-files",
+    "title": "12  Working with Files in Python",
+    "section": "12.4 Using with when working with files:",
+    "text": "12.4 Using with when working with files:\nUsing the with statement is a better way to work with files in Python as it ensures that files are properly opened and closed.\nExample:\nwith open('dna_sequence.txt', 'r') as file:\n    for line in file:\n        # Strip the newline character from each line and print it\n        dna_sequence = line.strip()\n        print(dna_sequence)\n\nNote it uses the same kind of syntax as for loops and conditionals\nwith does this by working with a context manager. The open() function returns a fileobject which has the .__enter___() and .__exit__() methods. You can read more about this in your own time.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Working with Files in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/10_working_with_files.html#writing-to-a-file",
+    "href": "materials/10_working_with_files.html#writing-to-a-file",
+    "title": "12  Working with Files in Python",
+    "section": "12.5 Writing to a file",
+    "text": "12.5 Writing to a file\nThe same methods are used to write to a file:\nWrite to a new file or replace an existing file\nWriting to a new file or overwriting an existing file is simple:\nwith open('names.txt', 'w') as file:\n    file.write(\"John\\n\")\n    file.write(\"Martin\\n\")\n\nfile.writelines(): Takes an iterable (like a list) and writes each item to the file. You can also use for loops.\n\nthe \\n is needed when manually adding lines.\n\nAppending to an existing file\nThis is exactly the same however you need to replace 'w' with 'a' for append mode.\nbinary files Use the 'wb' for writing binaries for example.\n\n\n\n\n\n\nExerciseExercise 2 - Reading and writing files\n\n\n\n\n\n\nLevel: \nUse the above in python to first write to a file your expenses in the correct format that our expense_calculator expects it. Then read and append to the file some more expenses. Finally test your file with the expense_calculator script.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Working with Files in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/10_working_with_files.html#moving-files",
+    "href": "materials/10_working_with_files.html#moving-files",
+    "title": "12  Working with Files in Python",
+    "section": "12.6 Moving files",
+    "text": "12.6 Moving files\nThe shutil module can be used to move files in python.\nimport shutil\nimport os\n\n# Define paths\nsource_file = 'source_folder/file.txt' \ndestination_file = 'destination_folder/file.txt' \n\n# Create the destination folder if it doesn't exist\nos.makedirs(os.path.dirname(destination_file), exist_ok=True)\n\n# Move the file\nshutil.move(source_file, destination_file)\n\n\nThe same can be used to move directories. If the main task is moving files arount - I would generally avoid using python to move around files, if you can use a bash script instead. Generally python scripts will open, read and create files during for example data analysis. Attend the training facilities unix course to learn more",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Working with Files in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/10_working_with_files.html#summary",
+    "href": "materials/10_working_with_files.html#summary",
+    "title": "12  Working with Files in Python",
+    "section": "12.7 Summary",
+    "text": "12.7 Summary\nIt is important to be able to manipulate files in python. Many packages come with functions to read and write specific file types. This includes for examples pandas, a package often used in data analysis.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Working with Files in Python</span>"
+    ]
+  },
+  {
+    "objectID": "materials/11_create_your_own_script.html",
+    "href": "materials/11_create_your_own_script.html",
+    "title": "13  Create your own Scripts",
+    "section": "",
+    "text": "13.1 Summary\nNow you should already be able to use python to automate simple tasks that you need doing!",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 3: Real World Programming",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Create your own Scripts</span>"
+    ]
+  },
+  {
+    "objectID": "materials/12_working_with_numpy.html",
+    "href": "materials/12_working_with_numpy.html",
+    "title": "14  NumPy",
+    "section": "",
+    "text": "14.1 What Is NumPy?\nNumPy (Numerical Python) is a foundational Python library for numerical and scientific computing. It provides efficient data structures and functions for working with large, multi-dimensional numerical datasets. NumPy is widely used in data science, machine learning, engineering, physics, and finance, and it underpins many other libraries in the Python scientific ecosystem, such as pandas, SciPy, and scikit-learn.\nYou will likely need NumPy in many of the future python courses including in machine learning and data science courses, and therefore we introduce it here.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 4: Testing your ability with NumPy",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "materials/12_working_with_numpy.html#base-data-structure-the-ndarray",
+    "href": "materials/12_working_with_numpy.html#base-data-structure-the-ndarray",
+    "title": "14  NumPy",
+    "section": "14.2 Base Data Structure: The ndarray",
+    "text": "14.2 Base Data Structure: The ndarray\nThe core data structure in NumPy is the ndarray (N-dimensional array).\nKey characteristics:\n\nStores elements of a single data type (e.g., integers, floats)\nSupports one-dimensional (vectors), two-dimensional (matrices), and higher-dimensional arrays\nOptimised for performance and memory efficiency\n\nExample:\nimport numpy as np\n\na = np.array([1, 2, 3])          # 1D array\nb = np.array([[1, 2], [3, 4]])   # 2D array",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 4: Testing your ability with NumPy",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "materials/12_working_with_numpy.html#common-operations",
+    "href": "materials/12_working_with_numpy.html#common-operations",
+    "title": "14  NumPy",
+    "section": "14.3 Common Operations",
+    "text": "14.3 Common Operations\nElement-wise Operations\nx = np.array([1, 2, 3])\ny = np.array([4, 5, 6])\n\nx + y        # array([5, 7, 9])\nx * y        # array([4, 10, 18])\nBroadcasting\nx * 2        # array([2, 4, 6])\nIndexing and Slicing\nx[0]         # 1\nx[1:]        # array([2, 3])\nAggregations\nx.mean()     # 2.0\nx.sum()      # 6\nx.max()      # 3\nLinear Algebra\nA = np.array([[1, 2], [3, 4]])\nnp.linalg.det(A)\nnp.linalg.inv(A)",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 4: Testing your ability with NumPy",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "materials/12_working_with_numpy.html#reading-and-saving-data",
+    "href": "materials/12_working_with_numpy.html#reading-and-saving-data",
+    "title": "14  NumPy",
+    "section": "14.4 Reading and Saving Data",
+    "text": "14.4 Reading and Saving Data\nReading Data\nCommon methods include from text or CSV files:\ndata = np.loadtxt(\"data.csv\", delimiter=\",\")\nor from NumPy’s native binary format:\ndata = np.load(\"data.npy\")\nSaving Data\nnp.savetxt(\"output.csv\", data, delimiter=\",\")\nnp.save(\"output.npy\", data)\nNumPy is often combined with pandas another package for more complex data ingestion tasks.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 4: Testing your ability with NumPy",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "materials/12_working_with_numpy.html#advantages-and-disadvantages",
+    "href": "materials/12_working_with_numpy.html#advantages-and-disadvantages",
+    "title": "14  NumPy",
+    "section": "14.5 Advantages and Disadvantages",
+    "text": "14.5 Advantages and Disadvantages\n\n\n\n\n\n\n\nAdvantages\nDisadvantages\n\n\n\n\nVery fast for numerical operations due to optimized C-based implementation\nLimited support for non-numeric or mixed data\n\n\nMemory-efficient compared to Python lists\nLess intuitive for labeled or relational data\n\n\nExtensive mathematical and linear algebra functionality\nSteeper learning curve than basic Python lists for beginners\n\n\nIntegrates well with the scientific Python ecosystem",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 4: Testing your ability with NumPy",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "materials/12_working_with_numpy.html#common-alternatives-and-their-use-cases",
+    "href": "materials/12_working_with_numpy.html#common-alternatives-and-their-use-cases",
+    "title": "14  NumPy",
+    "section": "14.6 Common Alternatives and Their Use Cases",
+    "text": "14.6 Common Alternatives and Their Use Cases\npandas Used for labeled, tabular data (DataFrames). Builds on NumPy and adds indexing, grouping, and data-cleaning tools.\nSciPy Extends NumPy with advanced scientific algorithms (optimization, signal processing, statistics).\nTensorFlow / PyTorch Used for large-scale numerical computation and machine learning, especially with GPUs and automatic differentiation.\nPython Lists Suitable for small datasets or heterogeneous data, but inefficient for numerical computation.\n‘NumPy’ Documentation\nThe ‘NumPy’ documentation is very good and the modules are very widely used! For this reason I have not given any more examples here. When you start coding more, you must use the resources and documentation to solve your own challenges. Use the both the documentation and what you have learnt so far in the following exercises.\nhttps://numpy.org/doc/\n\n\n\n\n\n\nExerciseExercise 1 - Numpy Exercise\n\n\n\n\n\n\nLevel: \n\n\n\nCreate the following NumPy arrays:\nA 1D array of integers from 0 to 9.\nA 2D array of shape (3, 3) filled with zeros.\nA 2D array of shape (2, 4) filled with ones.\nHint: Use np.arange() and np.zeros() / np.ones().\n\n\n\n\nCompute the element-wise sum of a and b given the arrays:\n\na = np.array([1, 2, 3, 4])\nb = np.array([10, 20, 30, 40])\n\nMultiply each element of a by 3.\nCompute the square of each element in b.\n\n\n\n\n\nExtract the first row given the array:\n\narr = np.array([[1, 2, 3],\n                [4, 5, 6],\n                [7, 8, 9]])\n\nExtract the last column.\nExtract the 2x2 subarray in the bottom-right corner.\n\n\n\n\n\nCreate a random 3x4 array of integers between 0 and 10 (inclusive). Then:\nCompute the sum of all elements.\nCompute the mean of each column.\nFind the maximum element in each row.\n\n\n\n\n\n\n\nHintHint\n\n\n\n\n\n\nUse np.random.randint().\n\n\n\n\n\n\n\nUsing NumPy’s built-in functions:\n\nCreate a 5x5 array with random float values between 0 and 1.\nNormalize the array so that its values are between 0 and 1 using min-max normalization.\nFind the determinant of a 3x3 subarray of your choice.\n\n\n\n\n\nmake an array of student scores with three scores per student. save it to a csv\nLoad from the csv. Print the array.\nCompute the average cost for each catagory and store it in a 1D array called avg.\nFind the student with the highest average score using Numpy\nNormalize the array so that each subject (column) has values between 0 and 1.\nBonus: Create a boolean mask array indicating which scores are above the average for their subject.\n\n\n\n\n\n\n\n\n\n\n\nExerciseExercise 2 - Using Numpy in Expense_calculator\n\n\n\n\n\n\nLevel: \nModify your expense calculator or your own function to use NumPy to load and process the csv.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 4: Testing your ability with NumPy",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "materials/12_working_with_numpy.html#summary",
+    "href": "materials/12_working_with_numpy.html#summary",
+    "title": "14  NumPy",
+    "section": "14.7 Summary",
+    "text": "14.7 Summary\nNumpy is very useful for numerical calculations, that are common in many fields.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 4: Testing your ability with NumPy",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "materials/15_intro_OOP.html",
+    "href": "materials/15_intro_OOP.html",
+    "title": "15  Introduction to Object-Oriented Programming",
+    "section": "",
+    "text": "15.1 Introduction\nIn Python, you have already worked with objects when calling functions like:\nExamples similar to those we have seen so far are:\nIn these examples, my_list and text are objects, and append() and upper() are methods - functions that belong to those objects.\nObject-Oriented Programming (OOP) is the programming approach that explains how objects are created and how data and behavior are grouped together.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Introduction to Object-Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "materials/15_intro_OOP.html#introduction",
+    "href": "materials/15_intro_OOP.html#introduction",
+    "title": "15  Introduction to Object-Oriented Programming",
+    "section": "",
+    "text": "object.function()\n\nFor example:\nmy_list = [1, 2, 3]\nmy_list.append(4)\n\ntext = \"hello\"\ntext = text.upper()",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Introduction to Object-Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "materials/15_intro_OOP.html#why-we-use-oop-in-python",
+    "href": "materials/15_intro_OOP.html#why-we-use-oop-in-python",
+    "title": "15  Introduction to Object-Oriented Programming",
+    "section": "15.2 Why We Use OOP in Python",
+    "text": "15.2 Why We Use OOP in Python\nObject-Oriented Programming (OOP) helps us model real-world entities as objects that combine data and behavior.\nIt can make code more modular, reusable, and easier to maintain, especially in large programs. Compared to functional programming, OOP is useful when managing complex state or hierarchical relationships, while functional programming (focusing on independent functions) can be better in particular for operations that do not depend on changing state and always produce the same output. You can also think of it as object oriented programming being better suited for projects where data and operations are naturally grouped.\nWith OOP, complex programs can be broken into manageable, reusable components through classes, inheritance, and polymorphism, (which we will look at in more detail next) which also helps reduce duplication and improves collaboration on large projects.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Introduction to Object-Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "materials/15_intro_OOP.html#advantages-and-disadvantages-of-oop-vs-functional-programming",
+    "href": "materials/15_intro_OOP.html#advantages-and-disadvantages-of-oop-vs-functional-programming",
+    "title": "15  Introduction to Object-Oriented Programming",
+    "section": "15.3 Advantages and Disadvantages of OOP vs Functional Programming",
+    "text": "15.3 Advantages and Disadvantages of OOP vs Functional Programming\n\n\n\n\n\n\n\n\nAspect\nOOP Advantages\nOOP Disadvantages\n\n\n\n\nModularity\nEncapsulates data and behavior in classes, making code organized\nCan create complex class hierarchies that are hard to manage\n\n\nReusability\nInheritance and polymorphism allow code reuse\nOveruse of inheritance can make code rigid or confusing\n\n\nReadability\nEasier to understand for programs modeling real-world entities\nSometimes more boilerplate (repeated/redundant) code than functional style\n\n\nState Management\nObjects can maintain state over time\nShared state can cause unintended side effects\n\n\nTesting\nMethods can be tested individually\nMutable state makes some tests harder than pure functions\n\n\nSuitability\nGreat for GUI, games, simulations, and systems with evolving state\nLess suited for purely computational pipelines or data transformations with standard input-output relationships\n\n\n\nDo not worry if you do not quite understand it yet - it will become clearer as we actually look at how to define and use a class in python.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Introduction to Object-Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "materials/15_intro_OOP.html#common-examples-where-the-oop-paradigm-is-used",
+    "href": "materials/15_intro_OOP.html#common-examples-where-the-oop-paradigm-is-used",
+    "title": "15  Introduction to Object-Oriented Programming",
+    "section": "15.4 Common examples where the OOP paradigm is used",
+    "text": "15.4 Common examples where the OOP paradigm is used\nMachine Learning\nIn machine learning frameworks like PyTorch or TensorFlow, models and architecture/layers etc. are naturally represented as objects. Each model object stores its parameters (like layers, weights, and biases) and behaviors (such as forward computation or training routines).\nIn machine learning frameworks such as PyTorch or TensorFlow, models are represented as objects that are composed of other objects. A model is built by combining multiple layer objects (e.g., linear layers, convolutional layers, activation functions) into a structured architecture. The model object therefore serves as a container that organizes these layers and manages their parameters (weights and biases) as well as their behavior (such as forward computation and training logic). As data flows through the model, it is passed sequentially through the collection of layers that make up the overall architecture. Each object has it’s own methods and behaviours like forward computation and training routines and different types of layers can be chained together to build models.\nBenefits of OOP in ML:\n\nEncapsulates model structure and behavior in a single object, keeping code organized.\n\nMakes it easy to extend or modify models, for example by adding new layers or custom functions.\n\nSupports reusability, allowing trained models to be saved, loaded, and reused in different projects.\n\nEnables clear separation of concerns, with objects managing their own state independently of other parts of the program.\n\n\nSimulations and Games\nSimulations and games involve entities with states and behaviors, such as players, enemies, vehicles, or particles. Each entity can be modeled as a different type of object, and individual entities are objects with attributes (like position, health, or speed) and methods (like move, attack, or interact).\nBenefits of OOP in simulations and games:\n\nEach object maintains its own state, allowing multiple entities to exist and behave independently.\n\nMethods encapsulate behavior, so objects can act in a controlled, predictable way.\n\nSubclasses allow specialized behavior, such as different types of enemies or vehicles.\n\nOrganizes complex interactions between objects, making large simulations or games easier to design and maintain.\n\n\nCustom Data Types (NumPy, pandas)\nLibraries like NumPy and pandas use OOP to implement custom data types, such as arrays, DataFrames, or Series. These objects store data internally and provide methods for operations like aggregation, transformation, or filtering.\nBenefits of OOP in custom data types:\n\nData is encapsulated in objects, preventing accidental misuse.\n\nObjects provide built-in methods for common operations, reducing the need for manual coding.\n\nEnables consistent behavior across similar objects, such as arrays or tables.\n\nSupports extensibility, allowing users to create specialized data objects with additional functionality.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Introduction to Object-Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "materials/15_intro_OOP.html#summary",
+    "href": "materials/15_intro_OOP.html#summary",
+    "title": "15  Introduction to Object-Oriented Programming",
+    "section": "15.5 Summary",
+    "text": "15.5 Summary\nOOP is best when programs require stateful objects and hierarchical relationships, while functional programming shines in stateless, predictable operations like data processing and mathematical computations.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Introduction to Object-Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "materials/16_classes_and_attributes.html",
+    "href": "materials/16_classes_and_attributes.html",
+    "title": "16  Classes and Attributes",
+    "section": "",
+    "text": "16.1 Classes and Object Instantiation\nA class is a blueprint for creating objects. Once a class is defined, you can instantiate objects (create instances of that class) like this:\nmy_dog and another_dog are two separate objects created from the Dog class.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Classes and Attributes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/16_classes_and_attributes.html#classes-and-object-instantiation",
+    "href": "materials/16_classes_and_attributes.html#classes-and-object-instantiation",
+    "title": "16  Classes and Attributes",
+    "section": "",
+    "text": "class Dog:\n    pass  # placeholder for now\n\n# Instantiate a Dog object\nmy_dog = Dog()\nanother_dog = Dog()",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Classes and Attributes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/16_classes_and_attributes.html#instance-attributes-object-specific",
+    "href": "materials/16_classes_and_attributes.html#instance-attributes-object-specific",
+    "title": "16  Classes and Attributes",
+    "section": "16.2 Instance Attributes (Object-Specific)",
+    "text": "16.2 Instance Attributes (Object-Specific)\nInstance attributes belong to a specific object. They are usually defined in the init method using self:\nclass Dog:\n    def __init__(self, name, age):\n        self.name = name   # instance attribute\n        self.age = age     # instance attribute\n\n\ndog1 = Dog(\"Buddy\", 3)\ndog2 = Dog(\"Max\", 5)\n\nprint(dog1.name, dog1.age)  # Buddy 3\nprint(dog2.name, dog2.age)  # Max 5\nIn the same way as you pass variables to a function, when you instantiate a class to create an object of the class you can pass in variables. You can also set defaults in the same way.\n\n\n\n\n\n\nExerciseExercise 1 - printing class attributes\n\n\n\n\n\n\nLevel:  dir(MyClass) outputs a list of all the attributes. This includes methods, inherited attributes, and special methods - which we will look at next.\nTry print(dir(MyClass)) to see the attributes present.\nYou can also use print(MyClass.__dict__) or vars(MyClass) to look at all those only defined on the class object.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Classes and Attributes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/16_classes_and_attributes.html#modifying-instance-attributes",
+    "href": "materials/16_classes_and_attributes.html#modifying-instance-attributes",
+    "title": "16  Classes and Attributes",
+    "section": "16.3 Modifying Instance Attributes",
+    "text": "16.3 Modifying Instance Attributes\nYou can access and modify instance attributes by using the . directly on the object:\ndog1.age += 1\ndog1.name = \"Buddy Jr.\"\nprint(dog1.name, dog1.age)  # Buddy Jr. 4\nEach object maintains its own copy of instance attributes, so modifying one object does not affect others.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Classes and Attributes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/16_classes_and_attributes.html#class-attributes-shared-across-objects",
+    "href": "materials/16_classes_and_attributes.html#class-attributes-shared-across-objects",
+    "title": "16  Classes and Attributes",
+    "section": "16.4 Class Attributes (Shared Across Objects)",
+    "text": "16.4 Class Attributes (Shared Across Objects)\nClass attributes belong to the class itself and are shared by all objects:\nclass Dog:\n    species = \"Canine\"  # class attribute shared by all instances\n\n    def __init__(self, name):\n        self.name = name\n\ndog1 = Dog(\"Buddy\")\ndog2 = Dog(\"Max\")\n\nprint(dog1.species)  # Canine\nprint(dog2.species)  # Canine",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Classes and Attributes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/16_classes_and_attributes.html#modifying-class-attributes",
+    "href": "materials/16_classes_and_attributes.html#modifying-class-attributes",
+    "title": "16  Classes and Attributes",
+    "section": "16.5 Modifying Class Attributes",
+    "text": "16.5 Modifying Class Attributes\nYou can modify a class attribute either for the whole class or for a specific instance:\nChange for all objects\nDog.species = \"Dog\"\nprint(dog1.species)  # Dog\nprint(dog2.species)  # Dog\nOverride for one instance\ndog1.species = \"Super Dog\"\nprint(dog1.species)  # Super Dog\nprint(dog2.species)  # Dog\nNote: Assigning to dog1.species creates a new instance attribute on that object, leaving the class attribute unchanged for other instances.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Classes and Attributes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/16_classes_and_attributes.html#global-and-local-variables",
+    "href": "materials/16_classes_and_attributes.html#global-and-local-variables",
+    "title": "16  Classes and Attributes",
+    "section": "16.6 Global and Local Variables",
+    "text": "16.6 Global and Local Variables\nGlobal variables are defined outside functions or classes and can be accessed anywhere:\ncount = 0  # global variable\nLocal variables exist only inside a function or method:\ndef example():\n    x = 10  # local variable\n    print(x)\n\nexample()\nRemember: Instance variables (self.name) are specific to an object Class variables (Dog.species) are shared across all instances\n\n\n\nVariable Type\nScope\n\n\n\n\nGlobal\nEntire program\n\n\nLocal\nInside a function/method\n\n\nInstance\nSpecific object\n\n\nClass\nShared by all objects of the same class",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Classes and Attributes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/16_classes_and_attributes.html#summary",
+    "href": "materials/16_classes_and_attributes.html#summary",
+    "title": "16  Classes and Attributes",
+    "section": "16.7 Summary",
+    "text": "16.7 Summary\nYou can straight away see the benefits of OOP in having many objects of a class with different attributes",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Classes and Attributes</span>"
+    ]
+  },
+  {
+    "objectID": "materials/17_class_methods.html",
+    "href": "materials/17_class_methods.html",
+    "title": "17  Class Methods",
+    "section": "",
+    "text": "17.1 Defining Methods of a class\nMethods are functions defined inside a class. They describe what an object can do and typically operate on the object’s internal data (its attributes).\nsee the following example:\nOutput\nKey points:\nWhy self Is Important\nSelf allows each object to behave independently.\nFor example, if you create multiple Dog objects, each one has its own name, but they all share the same speak() method definition. The value of self changes depending on which object is calling the method.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Class Methods</span>"
+    ]
+  },
+  {
+    "objectID": "materials/17_class_methods.html#defining-methods-of-a-class",
+    "href": "materials/17_class_methods.html#defining-methods-of-a-class",
+    "title": "17  Class Methods",
+    "section": "",
+    "text": "class Dog:\n    def __init__(self, name):\n        self.name = name\n\n    def speak(self):\n        print(f\"{self.name} says Woof!\")\n\ndog1 = Dog(\"Buddy\")\ndog1.speak()\n\nBuddy says Woof!\n\n\nMethods are defined inside a class.\nThe first parameter of a method is usually self, which refers to the current object.\nMethods are called using the syntax object.method().\nBecause methods have access to self, they can read and modify object-specific data such as self.name.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Class Methods</span>"
+    ]
+  },
+  {
+    "objectID": "materials/17_class_methods.html#helper-methods",
+    "href": "materials/17_class_methods.html#helper-methods",
+    "title": "17  Class Methods",
+    "section": "17.2 Helper Methods",
+    "text": "17.2 Helper Methods\nSometimes, a method needs a small internal function to perform part of its task. These are called helper methods.\nBy convention, helper methods are prefixed with a single underscore (_) to indicate that they are internal to the class and not part of the public interface.\nSee the following example:\nclass Circle:\n    def __init__(self, radius):\n        self.radius = radius\n\n    def area(self):\n        return self._calculate_area()\n\n    def _calculate_area(self):\n        return 3.14159 * self.radius ** 2\nc = Circle(5)\nprint(c.area())\noutput\n78.53975\nImportant points about helper methods:\n\n_calculate_area() is used only inside the class.\nUsers of the class are expected to call area(), not the helper method.\nThe underscore is a convention, not a strict rule, but it signals “internal use”.\n\nThis helps keep the class interface clean and easy to use.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Class Methods</span>"
+    ]
+  },
+  {
+    "objectID": "materials/17_class_methods.html#methods-can-modify-attributes",
+    "href": "materials/17_class_methods.html#methods-can-modify-attributes",
+    "title": "17  Class Methods",
+    "section": "17.3 Methods Can Modify Attributes",
+    "text": "17.3 Methods Can Modify Attributes\nMethods are the primary way objects change their internal state.\nclass Dog:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n\n    def birthday(self):\n        self.age += 1\n        print(f\"{self.name} is now {self.age} years old!\")\ndog1 = Dog(\"Buddy\", 3)\ndog1.birthday()\noutput:\nBuddy is now 4 years old!\nThe method birthday() modifies the instance attribute self.age. This keeps changes to object data controlled and predictable.\nDirectly modifying attributes is possible, but methods provide a safer, clearer approach.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Class Methods</span>"
+    ]
+  },
+  {
+    "objectID": "materials/17_class_methods.html#class-methods-vs-normal-functions",
+    "href": "materials/17_class_methods.html#class-methods-vs-normal-functions",
+    "title": "17  Class Methods",
+    "section": "17.4 Class Methods vs Normal Functions",
+    "text": "17.4 Class Methods vs Normal Functions\nAlthough methods and functions look similar, they serve different purposes.\nNormal Functions - Defined outside of any class. - Do not automatically receive an object. - Operate only on the data explicitly passed to them. - Best for stateless operations, calculations, or general utilities.\nExample use cases: Mathematical calculations Data transformations Helper utilities used across many parts of a program\nClass Methods (Instance Methods) - Defined inside a class. - Automatically receive the object via self. - Can access and modify the object’s attributes. - Represent behavior that belongs to an object.\nExample use cases: Updating an object’s state Performing actions related to an object’s data Encapsulating logic that depends on internal attributes\n\n\n\n\n\n\n\n\nAspect\nNormal Function\nClass Method\n\n\n\n\nLocation\nOutside a class\nInside a class\n\n\nAccess to object state\nNo\nYes (via self)\n\n\nCalled using\nfunction()\nobject.method()\n\n\nBest suited for\nStateless logic and utility operations\nObject behavior and state changes\n\n\n\nWhy Use Methods Instead of Functions?\nMethods: - Keep data and behavior together - Make code easier to understand and maintain - Reduce errors by controlling how object data is accessed or modified\nIn object-oriented programming, methods define how objects behave, while normal functions are used for logic that does not naturally belong to a specific object.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Class Methods</span>"
+    ]
+  },
+  {
+    "objectID": "materials/17_class_methods.html#polymorphism",
+    "href": "materials/17_class_methods.html#polymorphism",
+    "title": "17  Class Methods",
+    "section": "17.5 Polymorphism",
+    "text": "17.5 Polymorphism\nDifferent class can each have different implementations of a method. This is called polymorphism. Polymorphism is an object-oriented programming principle that allows different objects to respond to the same method call in different ways, depending on their type.\nIn practical terms, it means you can write code that works with multiple object types through a common interface, without needing to know the specific class of each object.\nThe same method name can produce different behavior when invoked on different objects.\nLook at the following example:\nclass Shape:\n    def area(self):\n        raise NotImplementedError\n\nclass Rectangle(Shape):\n    def area(self):\n        return 10 * 5\n\nclass Circle(Shape):\n    def area(self):\n        return 3.14 * 4 * 4\n\nshapes = [Rectangle(), Circle()]\n\nfor shape in shapes:\n    print(shape.area())\n\nEach call to area() executes a different implementation, even though the calling code is identical.\nHow Polymorphism Works in Python\nDynamic typing: Python determines the method to call at runtime.\nMethod overriding: Subclasses redefine behavior.\nDuck typing: Objects do not need a shared base class—only the same method names\nExample:\nclass FileLogger:\n    def write(self, msg):\n        print(msg)\n\nclass SocketLogger:\n    def write(self, msg):\n        print(msg)\n\ndef log(writer):\n    writer.write(\"Hello\")\n\nlog(FileLogger())\nlog(SocketLogger())\nWhy Polymorphism Is Important\n\nReduces conditional logic\nImproves extensibility\nEnables clean APIs and frameworks\nCentral to plugin systems and ML libraries\n\nPolymorphism allows different objects to be used interchangeably as long as they implement the same methods, with behavior determined at runtime.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Class Methods</span>"
+    ]
+  },
+  {
+    "objectID": "materials/17_class_methods.html#extra-classmethod-and-staticmethod",
+    "href": "materials/17_class_methods.html#extra-classmethod-and-staticmethod",
+    "title": "17  Class Methods",
+    "section": "17.6 Extra: @classmethod and @staticmethod",
+    "text": "17.6 Extra: @classmethod and @staticmethod\nSo far, we have discussed instance methods, which use self and operate on individual objects.\nPython also provides class methods and static methods, which serve different purposes.\n@classmethod\nA class method is a method that operates on the class itself, not on a specific object. Instead of receiving self, it receives cls, which refers to the class.\nKey characteristics:\n\nDefined using the @classmethod decorator\nReceives the class as the first argument (cls)\nCan access and modify class attributes\nCannot directly access instance-specific data unless it is passed in\n\nTypical use cases:\n\nFactory methods that create and return new objects\nMethods that need to work with class-level data\nAlternative constructors\n\nConceptual examples:\n\nA class method that keeps track of how many objects have been created\nA method that creates objects with preset or default configurations\n\n@staticmethod\nA static method does not receive self or cls. It behaves like a normal function but is logically grouped inside a class.\nKey characteristics:\n\nDefined using the @staticmethod decorator\nNo automatic access to instance or class data\nIncluded in the class for organizational clarity\n\nTypical use cases:\n\nUtility functions related to the class’s concept\nValidation or formatting logic\nHelper functionality that conceptually belongs to the class but does not depend on object state\n\nConceptual examples:\n\nA method that validates input values before creating an object\nA mathematical helper related to a class’s purpose",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Class Methods</span>"
+    ]
+  },
+  {
+    "objectID": "materials/17_class_methods.html#summary",
+    "href": "materials/17_class_methods.html#summary",
+    "title": "17  Class Methods",
+    "section": "17.7 Summary",
+    "text": "17.7 Summary",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Class Methods</span>"
+    ]
+  },
+  {
+    "objectID": "materials/17_class_methods.html#add-to-references",
+    "href": "materials/17_class_methods.html#add-to-references",
+    "title": "17  Class Methods",
+    "section": "17.8 Add to references",
+    "text": "17.8 Add to references\nhttps://makeschool.org/mediabook/oa/tutorials/superhero-team-dueler/superhero-objects/#:~:text=Make%20a%20Dog%20Class,a%20simple%20class%20called%20Dog%20.&text=Now%20define%20a%20class%20using,(%22dog%20initialized!%22)",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Class Methods</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18_class_inheritance.html",
+    "href": "materials/18_class_inheritance.html",
+    "title": "18  Classes Inheritance and Composition",
+    "section": "",
+    "text": "18.1 Introduction\nObject-Oriented Programming allows classes to relate to one another in structured ways.\nTwo of the most important relationships are inheritance and composition. Understanding when and how to use each is essential for writing maintainable Python code. If you think about the initial examples of where OOP was used, by the end you will understand why inheritance and composition are such benefits.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Classes Inheritance and Composition</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18_class_inheritance.html#inheritance-and-subclasses",
+    "href": "materials/18_class_inheritance.html#inheritance-and-subclasses",
+    "title": "18  Classes Inheritance and Composition",
+    "section": "18.2 Inheritance and Subclasses",
+    "text": "18.2 Inheritance and Subclasses\nInheritance allows a new class (the subclass) to reuse and extend an existing class (the parent or base class). This promotes code reuse and logical organization.\n\n18.2.1 Basic Inheritance\nLet’s say we define a base class with a move function:\nclass Animal:\n    def move(self):\n        print(\"The animal moves\")\nWe can then define a dog class which inherits from it, but also adds the extra speak function\nclass Dog(Animal):\n    def speak(self):\n        print(\"Woof!\")\ndog1 = Dog()\ndog1.move() \ndog1.speak()\nKey ideas:\n\nDog inherits from Animal\nThe subclass automatically gains access to the parent’s methods\nSubclasses can add new behavior",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Classes Inheritance and Composition</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18_class_inheritance.html#instance-attributes-__init__-and-inheritance",
+    "href": "materials/18_class_inheritance.html#instance-attributes-__init__-and-inheritance",
+    "title": "18  Classes Inheritance and Composition",
+    "section": "18.3 Instance attributes, __init__, and inheritance",
+    "text": "18.3 Instance attributes, __init__, and inheritance\nIn the previous example there are no instance attributes at all. Neither Animal nor Dog defines an __init__ method. No attributes are assigned using self.something = ….\nAs a result, dog1 has no instance-specific data. dog1.__dict__ is empty — there is no stored state\nNow look at the following example:\nclass Animal:\n    def __init__(self, name):\n        self.name = name  # instance attribute\n\n    def move(self):\n        print(f\"{self.name} moves\")\nNow every Animal (and every subclass) object will have a name.\nInstance attributes and inheritance\nWhen a subclass does not define its own__init__, it automatically inherits the parent’s __init__. So the following works:\nclass Dog(Animal):\n    def speak(self):\n        print(\"Woof!\")\n\ndog1 = Dog(\"Buddy\")\ndog1.move()    # Buddy moves\ndog1.speak()   # Woof!\ndog1 has a name attribute created by Animal.__init__ Dog inherits both the attribute setup and the methods.\nAdding new instance attributes in the subclass If the subclass needs additional attributes, it defines its own __init__ and calls the parent’s initializer with super().__init__:\nclass Dog(Animal):\n    def __init__(self, name, breed):\n        super().__init__(name)  # initialize Animal part\n        self.breed = breed      # new instance attribute\n\n    def speak(self):\n        print(\"Woof!\")\nNow:\n\nname comes from Animal\nbreed comes from Dog\ndog1 contains both attributes\n\nKey Points:\n\nInstance attributes exist only when you assign to self\nInheritance gives subclasses access to Parent methods through Parent __init__ (if not overridden)\nsuper() ensures parent attributes are properly initialized",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Classes Inheritance and Composition</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18_class_inheritance.html#overriding-methods",
+    "href": "materials/18_class_inheritance.html#overriding-methods",
+    "title": "18  Classes Inheritance and Composition",
+    "section": "18.4 Overriding Methods",
+    "text": "18.4 Overriding Methods\nA subclass can override a method from its parent class to change or specialize behavior.\nclass Dog(Animal):\n    def move(self):\n        print(\"The dog runs swiftly\")\nNow, calling move() on a Dog object uses the subclass version instead of the parent version.\nOverriding is useful when:\n\nThe subclass needs different behavior\nThe method name and purpose remain the same",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Classes Inheritance and Composition</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18_class_inheritance.html#multiple-levels-of-inheritance",
+    "href": "materials/18_class_inheritance.html#multiple-levels-of-inheritance",
+    "title": "18  Classes Inheritance and Composition",
+    "section": "18.5 Multiple Levels of Inheritance",
+    "text": "18.5 Multiple Levels of Inheritance\nInheritance can form a hierarchy with multiple levels:\nclass Puppy(Dog):\n    def play(self):\n        print(\"The puppy is playing\")\nPuppy inherits from Dog.\nDog inherits from Animal.\nPuppy can therefore use methods from both parent classes. This allows complex behavior to be built gradually from simpler classes.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Classes Inheritance and Composition</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18_class_inheritance.html#deleting-attributes-methods-and-objects",
+    "href": "materials/18_class_inheritance.html#deleting-attributes-methods-and-objects",
+    "title": "18  Classes Inheritance and Composition",
+    "section": "18.6 Deleting Attributes, Methods, and Objects",
+    "text": "18.6 Deleting Attributes, Methods, and Objects\nPython provides the del keyword to remove attributes, methods, or object references.\nDeleting Attributes del dog1.age Removes the attribute from the object Accessing it afterward raises an error Rarely used outside debugging or special cases\nDeleting Methods Methods usually belong to the class, not the object.\ndel Dog.speak\nImportant notes:\n\nAffects all instances of the class\n\nGenerally discouraged\nMethods should normally be removed by editing the class definition\nYou can also use del to delete a specific object",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Classes Inheritance and Composition</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18_class_inheritance.html#common-inheritance-mistakes",
+    "href": "materials/18_class_inheritance.html#common-inheritance-mistakes",
+    "title": "18  Classes Inheritance and Composition",
+    "section": "18.7 Common Inheritance Mistakes",
+    "text": "18.7 Common Inheritance Mistakes\n1. Using Inheritance Without an “Is-a” Relationship\nInheritance should represent a true is-a relationship.\nCorrect: A Dog is an Animal Incorrect: A Car is an Engine\nIf the relationship is not “is-a”, inheritance is usually the wrong choice.\n2. Creating Deep or Complex Inheritance Trees\nDeep inheritance hierarchies are hard to understand and increase the risk of unintended behavior They make debugging difficult. Prefer shallow hierarchies with clear responsibilities.\n3. Overriding Methods Incorrectly\nOverridden methods should preserve the original meaning, accept compatible inputs and produce expected outputs. Breaking these assumptions can lead to fragile code.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Classes Inheritance and Composition</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18_class_inheritance.html#composition-an-alternative-to-inheritance",
+    "href": "materials/18_class_inheritance.html#composition-an-alternative-to-inheritance",
+    "title": "18  Classes Inheritance and Composition",
+    "section": "18.8 Composition: An Alternative to Inheritance",
+    "text": "18.8 Composition: An Alternative to Inheritance\nInheritance is not the only way to reuse functionality. Composition is often a better and more flexible choice.\nWhat Is Composition?\nComposition means building a class by including other objects as attributes, rather than inheriting from them.\nInheritance models an ‘is-a relationship’ Composition models a ‘has-a relationship’\nExamples:\n\nA Car has an Engine\nA GameCharacter has a Weapon\nA NeuralNetwork has layers\n\nHow Composition Works Conceptually\nInstead of inheriting behavior, a class:\n\nStores another object internally\nDelegates work to that object\nCan replace or modify the contained object as needed: e.g. a game character can change equipment without changing its class\n\nThis creates loose coupling between components.\nBenefits of Composition; - Increases flexibility - Avoids rigid class hierarchies - Makes behavior easier to change or extend - Encourages reusable, independent components",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Classes Inheritance and Composition</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18_class_inheritance.html#inheritance-vs-composition",
+    "href": "materials/18_class_inheritance.html#inheritance-vs-composition",
+    "title": "18  Classes Inheritance and Composition",
+    "section": "18.9 Inheritance vs Composition",
+    "text": "18.9 Inheritance vs Composition\nUse inheritance when:\n\nThere is a clear is-a relationship\nThe subclass is a specialized version of the parent\nShared behavior makes conceptual sense\n\nUse composition when:\n\nOne object depends on another but is not a subtype\nBehavior should be interchangeable\nFlexibility and maintainability are priorities\n\nComposition is often better than inheritance",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Classes Inheritance and Composition</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18_class_inheritance.html#summary",
+    "href": "materials/18_class_inheritance.html#summary",
+    "title": "18  Classes Inheritance and Composition",
+    "section": "18.10 Summary",
+    "text": "18.10 Summary\n\nInheritance allows classes to reuse and extend behavior\nSubclasses can override and specialize methods\nImproper inheritance can lead to fragile designs\nComposition provides a flexible alternative using “has-a” relationships\nUnderstanding both approaches leads to better object-oriented design\nObject-Oriented Programming helps structure programs in a way that is scalable, maintainable, and aligned with real-world relationships.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Classes Inheritance and Composition</span>"
+    ]
+  },
+  {
+    "objectID": "materials/19_OOP_exercise.html",
+    "href": "materials/19_OOP_exercise.html",
+    "title": "19  Create your own Scripts",
+    "section": "",
+    "text": "19.1 Summary\nNow you should already be able to use python to automate simple tasks that you need doing!",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 5: Object oriented programming",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Create your own Scripts</span>"
+    ]
+  },
+  {
+    "objectID": "materials/20_Help_Session.html",
+    "href": "materials/20_Help_Session.html",
+    "title": "20  Help Session",
+    "section": "",
+    "text": "ExerciseExercise 1 - Help Session\n\n\n\n\n\n\nPlease feel free to reach out to the trainers for any support you need to get started with Python. This may include assistance with installing Python itself, setting up environments such as Conda, or installing any other required packages and tools.\nWe are also available to help you work through the exercises, clarify any concepts that are unclear, and guide you toward additional learning resources that may be useful for your progress.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Session 6: Help Session",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Help Session</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_data_types_cheat-sheet.html",
+    "href": "materials/python_data_types_cheat-sheet.html",
+    "title": "21  Summary - Python Data Types",
+    "section": "",
+    "text": "21.1 Inbuilt Data Types\nIn programming, data type is an important concept. Variables can store data of different types, and different types can do different things.\nPython has the following data types built-in without needing any other libraries:\nSimple/primitive data types:\nComposite Datatypes / data structures\nWe will also look at the numpy arrays and pandas dataframes, you can also use the decimal module for correctly rounded arithmetic\nIn Python, each data type has specific use cases and trade-offs. Let’s look at each category and examine when it might be used, along with its benefits and disadvantages:\nCustom Data types",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Summary - Python Data Types</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_data_types_cheat-sheet.html#inbuilt-data-types",
+    "href": "materials/python_data_types_cheat-sheet.html#inbuilt-data-types",
+    "title": "21  Summary - Python Data Types",
+    "section": "",
+    "text": "None Type: NoneType\nBoolean Type: bool\nText Type: str\nNumeric Types: int, float, complex\nBinary Types: bytes\n\n\n\n\nSequence Types: list, tuple, range\nSet Types: set, frozenset\nMapping Type: dict\nBinary composite type: bytearray, memoryview\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCategory\nType\nCommon Use Case\nBenefits\nDisadvantages\nSyntax\n\n\n\n\nNone Type\nNoneType\nRepresents absence of value\nUseful for optional values and placeholders\nCan cause errors if operations expect a value\nNone\n\n\n\n\n\n\n\n\n\n\nBoolean\nbool\nRepresents True or False\nSimple and efficient for control flow\nLimited to two states (True/False)\nTrue, False\n\n\n\n\n\n\n\n\n\n\nText\nstr\nText representation\nImmutable, Unicode support, rich manipulation methods\nInefficient for heavy modifications\n\"Hello\", 'World'\n\n\n\n\n\n\n\n\n\n\nNumeric\nint\nRepresents whole numbers\nNo precision issues\nLimited to integers\n42, -7\n\n\n\nfloat\nRepresents decimal numbers\nSupports real numbers\nPrecision issues due to storage\n3.14, -0.5\n\n\n\ncomplex\nRepresents complex numbers\nDirect support for complex arithmetic\nRarely needed in general programming\n2+3j\n\n\n\n\n\n\n\n\n\n\nSequence\nlist\nMutable sequence of items\nFlexible, dynamic size, rich methods\nSlower resizing operations\n[1, 2, 3]\n\n\n\ntuple\nImmutable sequence of items\nMemory-efficient, safe\nCannot change values once set\n(1, 2, 3)\n\n\n\nrange\nSequence of numbers\nMemory-efficient\nLess flexible than lists\nrange(5)\n\n\n\n\n\n\n\n\n\n\nMapping\ndict\nKey-value pairs\nFast lookups, flexible types\nHigher memory usage due to hashing\n{\"a\": 1, \"b\": 2}\n\n\n\n\n\n\n\n\n\n\nSet\nset\nUnordered collection of unique items\nFast membership testing\nUnordered in Python; no indexing\n{1, 2, 3}\n\n\n\nfrozenset\nImmutable set\nHashable, can be used as dictionary keys\nCannot modify after creation\nfrozenset([1, 2, 3])\n\n\n\n\n\n\n\n\n\n\nBinary\nbytes\nImmutable binary data\nEfficient, compact for binary data\nNot human-readable, cumbersome for some operations\nb\"hello\"\n\n\n\nbytearray\nMutable binary data\nAllows modification of binary data\nConsumes more memory than bytes\nbytearray([1, 2, 3])\n\n\n\nmemoryview\nEfficient access to binary data without copying\nNo data duplication\nMore complex to use\nmemoryview(b\"data\")\n\n\n\n\n\nIn python it is possible to define custom data types with custom syntax and behaviours. Many of the common desired data types have already been made for you by others.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Summary - Python Data Types</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_data_types_cheat-sheet.html#initialising-and-converting-between-data-types",
+    "href": "materials/python_data_types_cheat-sheet.html#initialising-and-converting-between-data-types",
+    "title": "21  Summary - Python Data Types",
+    "section": "21.2 Initialising and converting between data types",
+    "text": "21.2 Initialising and converting between data types\nDifferent data types have different syntax. You will notice that all inbuilt data types in python have inbuilt functions which can be used to convert to that data type or specify as that data type.\nIt is not possible to convert between all data types; some conversions require additional information and input.\nResources about data types can be found in the python documentation: https://docs.python.org/3/library/functions.html https://docs.python.org/3/library/stdtypes.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Summary - Python Data Types</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_data_types_cheat-sheet.html#data-type-characteristics",
+    "href": "materials/python_data_types_cheat-sheet.html#data-type-characteristics",
+    "title": "21  Summary - Python Data Types",
+    "section": "21.3 Data type Characteristics",
+    "text": "21.3 Data type Characteristics\nMutability\n\nPrimitive Data Types: Immutable - new items are created if the value changes\nLists: Mutable - items can be changed or updated.\nTuples: Immutable - once defined, items cannot be changed.\nDictionaries: Mutable - keys and values can be added or updated.\nSets: Mutable - can add or remove items, but cannot contain duplicates.\n\nOrder\n\nLists and Tuples: Ordered collections (the order of elements matters).\nDictionaries: Maintains insertion order as of Python 3.7.\nSets: Unordered - no guaranteed order of elements\n\nDuplicates\n\nLists and Tuples: Allow duplicates.\nDictionaries: Keys must be unique, but values can be duplicated.\nSets: Do not allow duplicates.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Summary - Python Data Types</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_operators_cheat-sheet.html",
+    "href": "materials/python_operators_cheat-sheet.html",
+    "title": "22  What are Operators?",
+    "section": "",
+    "text": "22.1 Arithmetic Operators\nIn computer science, operators are symbols or keywords used to perform operations on data and variables (operands), like calculations or comparisons. They are essential for building expressions in programming.\nOperators are classified by the type of operation:\nPython has a rich set of operators that are classified into multiple categories\nGood resources for python operators can be found at the following:\nhttps://www.w3schools.com/python/python_operators.asp https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not\nThese operators perform basic arithmetic operations.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>What are Operators?</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_operators_cheat-sheet.html#arithmetic-operators",
+    "href": "materials/python_operators_cheat-sheet.html#arithmetic-operators",
+    "title": "22  What are Operators?",
+    "section": "",
+    "text": "Operator\nDescription\nExample\nApplicable Data Types\n\n\n\n\n+\nAddition\na + b\nint, float, complex, str, list, tuple, byte, bytearray\n\n\n-\nSubtraction\na - b\nint, float, complex\n\n\n*\nMultiplication\na * b\nint, float, complex, str, list, tuple, bytearray\n\n\n/\nDivision\na / b\nint, float, complex\n\n\n%\nModulus (remainder)\na % b\nint, float\n\n\n**\nExponentiation\na ** b\nint, float\n\n\n//\nFloor Division\na // b\nint, float",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>What are Operators?</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_operators_cheat-sheet.html#comparison-relational-operators",
+    "href": "materials/python_operators_cheat-sheet.html#comparison-relational-operators",
+    "title": "22  What are Operators?",
+    "section": "22.2 Comparison (Relational) Operators",
+    "text": "22.2 Comparison (Relational) Operators\nThese operators compare two values and return a boolean (True or False).\n\n\n\n\n\n\n\n\n\nOperator\nDescription\nExample\nApplicable Data Types\n\n\n\n\n==\nEqual to\na == b\nint, float, str, list, tuple, set, frozenset, dict, range\n\n\n!=\nNot equal to\na != b\nint, float, str, list, tuple, set, frozenset, dict, range\n\n\n&gt;\nGreater than\na &gt; b\nint, float, str, range\n\n\n&lt;\nLess than\na &lt; b\nint, float, str, range\n\n\n&gt;=\nGreater than or equal to\na &gt;= b\nint, float, str, range\n\n\n&lt;=\nLess than or equal to\na &lt;= b\nint, float, str, range",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>What are Operators?</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_operators_cheat-sheet.html#logical-operators",
+    "href": "materials/python_operators_cheat-sheet.html#logical-operators",
+    "title": "22  What are Operators?",
+    "section": "22.3 Logical Operators",
+    "text": "22.3 Logical Operators\nUsed to combine conditional statements.\n\n\n\n\n\n\n\n\n\nOperator\nDescription\nExample\nApplicable Data Types\n\n\n\n\nand\nLogical AND (both must be true)\na and b\nbool, int\n\n\nor\nLogical OR (either can be true)\na or b\nbool, int\n\n\nnot\nLogical NOT (negates boolean)\nnot a\nbool, int",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>What are Operators?</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_operators_cheat-sheet.html#assignment-operators",
+    "href": "materials/python_operators_cheat-sheet.html#assignment-operators",
+    "title": "22  What are Operators?",
+    "section": "22.4 Assignment Operators",
+    "text": "22.4 Assignment Operators\nUsed to assign values to variables, sometimes with an operation included.\n\n\n\n\n\n\n\n\n\nOperator\nDescription\nExample\nApplicable Data Types\n\n\n\n\n=\nAssign\na = 5\nAll types\n\n\n+=\nAdd and assign\na += 5\nint, float, str, list, tuple, bytearray\n\n\n-=\nSubtract and assign\na -= 5\nint, float\n\n\n*=\nMultiply and assign\na *= 5\nint, float, str, list, tuple, bytearray\n\n\n/=\nDivide and assign\na /= 5\nint, float\n\n\n%=\nModulus and assign\na %= 5\nint, float\n\n\n**=\nExponentiate and assign\na **= 5\nint, float\n\n\n//=\nFloor-divide and assign\na //= 5\nint, float",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>What are Operators?</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_operators_cheat-sheet.html#bitwise-operators",
+    "href": "materials/python_operators_cheat-sheet.html#bitwise-operators",
+    "title": "22  What are Operators?",
+    "section": "22.5 Bitwise Operators",
+    "text": "22.5 Bitwise Operators\nPerform operations at the bit level.\n\n\n\nOperator\nDescription\nExample\nApplicable Data Types\n\n\n\n\n&\nBitwise AND\na & b\nint, byte, bytearray\n\n\n|\nBitwise OR\na | b\nint, byte, bytearray\n\n\n^\nBitwise XOR\na ^ b\nint, byte, bytearray\n\n\n~\nBitwise NOT\n~a\nint, byte, bytearray\n\n\n&lt;&lt;\nLeft shift\na &lt;&lt; 2\nint, byte, bytearray\n\n\n&gt;&gt;\nRight shift\na &gt;&gt; 2\nint, byte, bytearray",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>What are Operators?</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_operators_cheat-sheet.html#membership-operators",
+    "href": "materials/python_operators_cheat-sheet.html#membership-operators",
+    "title": "22  What are Operators?",
+    "section": "22.6 Membership Operators",
+    "text": "22.6 Membership Operators\nUsed to check membership within sequences (like strings, lists, tuples).\n\n\n\n\n\n\n\n\n\nOperator\nDescription\nExample\nApplicable Data Types\n\n\n\n\nin\nTrue if value is present\n‘a’ in ‘apple’\nstr, list, tuple, set, frozenset, dict, range\n\n\nnot in\nTrue if value is not present\n‘b’ not in ‘apple’\nstr, list, tuple, set, frozenset, dict, range",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>What are Operators?</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_operators_cheat-sheet.html#identity-operators",
+    "href": "materials/python_operators_cheat-sheet.html#identity-operators",
+    "title": "22  What are Operators?",
+    "section": "22.7 Identity Operators",
+    "text": "22.7 Identity Operators\nUsed to compare memory locations of two objects.\n\n\n\n\n\n\n\n\n\nOperator\nDescription\nExample\nApplicable Data Types\n\n\n\n\nis\nTrue if both refer to same object\na is b\nAll types\n\n\nis not\nTrue if not same object\na is not b\nAll types",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>What are Operators?</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_operators_cheat-sheet.html#unary-operators",
+    "href": "materials/python_operators_cheat-sheet.html#unary-operators",
+    "title": "22  What are Operators?",
+    "section": "22.8 Unary Operators",
+    "text": "22.8 Unary Operators\nOperate on a single operand.\n\n\n\n\n\n\n\n\n\nOperator\nDescription\nExample\nApplicable Data Types\n\n\n\n\n-\nNegation (unary minus)\n-a\nint, float, complex\n\n\n+\nUnary plus\n+a\nint, float, complex\n\n\nnot\nLogical NOT\nnot a\nbool, int",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>What are Operators?</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_operators_cheat-sheet.html#set-operators",
+    "href": "materials/python_operators_cheat-sheet.html#set-operators",
+    "title": "22  What are Operators?",
+    "section": "22.9 Set Operators",
+    "text": "22.9 Set Operators\nSet-specific operators.\n\n\n\n\n\n\n\n\n\nOperator\nDescription\nExample\nApplicable Data Types\n\n\n\n\n|\nUnion (combine sets)\na | b\nset, frozenset\n\n\n&\nIntersection (common)\na & b\nset, frozenset\n\n\n-\nDifference (in a not in b)\na - b\nset, frozenset\n\n\n^\nSymmetric difference\na ^ b\nset, frozenset",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>What are Operators?</span>"
+    ]
+  },
+  {
+    "objectID": "materials/python_operators_cheat-sheet.html#order-of-precedence-for-operators",
+    "href": "materials/python_operators_cheat-sheet.html#order-of-precedence-for-operators",
+    "title": "22  What are Operators?",
+    "section": "22.10 Order of Precedence for operators",
+    "text": "22.10 Order of Precedence for operators\nOperators are ordered in precedence in code (think BODMAS). Using parentheses can add clarity to code.\nUse the table below to see the order:\n\n\n\n\n\n\n\n\n\nPrecedence Level\nOperator(s)\nDescription\nExample\n\n\n\n\n1 (Highest)\n()\nParentheses (brackets) for grouping expressions\n(a + b) * c\n\n\n2\n**\nExponentiation\na ** b\n\n\n3\n+x, -x, ~x\nUnary plus, unary minus, bitwise NOT\n+a, -a, ~a\n\n\n4\n*, /, //, %\nMultiplication, division, floor division, modulus\na * b, a / b\n\n\n5\n+, -\nAddition, subtraction\na + b, a - b\n\n\n6\n&lt;&lt;, &gt;&gt;\nBitwise left shift, right shift\na &lt;&lt; b, a &gt;&gt; b\n\n\n7\n&\nBitwise AND\na & b\n\n\n8\n^\nBitwise XOR\na ^ b\n\n\n9\n|\nBitwise OR\na | b\n\n\n10\nin, not in\nMembership operators\n'a' in 'apple'\n\n\n11\n&lt;, &gt;, &lt;=, &gt;=, ==, !=\nComparison operators\na &lt; b, a == b\n\n\n12\nis, is not\nIdentity operators\na is b\n\n\n13\nnot\nLogical NOT\nnot a\n\n\n14\nand\nLogical AND\na and b\n\n\n15\nor\nLogical OR\na or b\n\n\n16 (Lowest)\n=, +=, -=, *=, /=,\nAssignment operators\na = 5\n\n\n\n//=, %=, **=, &=, ^=,\n\na += 5\n\n\n\n\\|=, &lt;&lt;=, &gt;&gt;=",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Cheat Sheets",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>What are Operators?</span>"
+    ]
+  }
+]
