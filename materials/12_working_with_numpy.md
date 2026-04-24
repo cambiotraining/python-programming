@@ -197,11 +197,13 @@ c. Find the determinant of a 3x3 subarray of your choice.
 
 6. 
 
-a. Load in the student scores from expenses.csv. Understand the data
+a. make an array of student scores with three scores per student. save it to a csv
 
-b. Compute the average cost for each catagory and store it in a 1D array called avg.
+b. Load from the csv. Print the array.
 
-c. Find the category with the highest average score.
+c. Compute the average cost for each catagory and store it in a 1D array called avg.
+
+d. Find the student with the highest average score using Numpy
 
 e. Normalize the array so that each subject (column) has values between 0 and 1.
 
