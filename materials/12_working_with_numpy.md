@@ -197,15 +197,13 @@ c. Find the determinant of a 3x3 subarray of your choice.
 
 6. 
 
-a. Load in the student scores from student_scores.csv. Understand the data
+a. Load in the student scores from expenses.csv. Understand the data
 
-b. Compute the average score for each student and store it in a 1D array called student_avg.
+b. Compute the average cost for each catagory and store it in a 1D array called avg.
 
-c. Compute the average score for each subject and store it in a 1D array called subject_avg.
+c. Find the category with the highest average score.
 
-d. Find the student(s) with the highest average score.
-
-e. Normalize the scores array so that each subject (column) has values between 0 and 1.
+e. Normalize the array so that each subject (column) has values between 0 and 1.
 
 f. Bonus: Create a boolean mask array indicating which scores are above the average for their subject.
 

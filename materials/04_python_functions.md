@@ -307,3 +307,7 @@ Docstring comments. While this may not be super important here, when you start u
 - Python has many functions that can be used
 - you can write your own functions using the set syntax
 :::
+
+<!--
+Notes to change - exercise too difficult for participants - simplify - either remove all the code or...
+-->

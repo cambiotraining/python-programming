@@ -51,7 +51,7 @@ To update a package to the latest version:
 
 **Cons of Using `pip`:**
 
-- **Dependency management**: Pip doesn't handle package dependencies as robustly as `other tools like `conda`. This can result in conflicts or missing dependencies.
+- **Dependency management**: Pip doesn't handle package dependencies as robustly as other tools like `conda`. This can result in conflicts or missing dependencies.
 By this we mean packages may not have the correct packages they require or wrong versions of packages.
 
 - **Python-only**: Pip is mainly designed for Python packages. If a package has non-Python dependencies, you may have to install them manually. Many packages used in python may actually use other languages under the hood, resulting in them requiring non-python tools to be installed.

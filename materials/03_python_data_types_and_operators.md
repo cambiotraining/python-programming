@@ -357,3 +357,8 @@ For further reading you can investigate why sets are generally faster to find un
 - Comment your code for clarity
 
 :::
+
+<!--
+
+Notes to change - more very basic exercisees on primitive data types - exercise to add subtract etc....
+--->
