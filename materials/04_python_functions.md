@@ -5,7 +5,7 @@ title: Python Functions
 ::: {.callout-tip}
 #### Learning Objectives
 
-- Learn wha a finction is
+- Learn wha a function is
 - Learn about pythons core functions and how to use them
 - Learn the syntax and be able to write basic python functions
 

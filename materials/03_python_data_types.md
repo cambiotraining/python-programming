@@ -38,43 +38,6 @@ The boolean data types use the key words ```True``` and ```False```
 Understanding data types is essential for writing correct programs, performing calculations, and managing data efficiently.
 Data types behave slightly differently in different languages for example the way numbers a rounded.
 
-
-::: {.callout-exercise}
-#### Primitive data types
-
-What are the different primitive data types in expenses_calculator.py
-Why were they chosen?
-Are there any other data types you recognise?
-
-<!--
-::: {.callout-answer}
-1. 
-Strings (str)
-
-Examples: "food", "expenses.csv", "done".
-
-Why they were chosen: Strings are used for any textual data. In your script, they handle category names, filenames, and user input. Since Python treats strings as sequences of characters, they are perfect for labels and messages.
-
-Floats (float)
-
-Examples: 100.0, amount = float(parts[1]).
-
-Why they were chosen: Floats represent real numbers with decimal points. In a financial calculator, you need precision for cents (e.g., 10.50). If you used integers, you wouldn't be able to track partial currency units.
-
-Booleans (bool)
-
-Examples: True (in while True:), and the result of category == "done".
-
-Why they were chosen: Booleans represent truth values. They are the backbone of your script's logic, controlling the loop and the if/else validation checks.
-
-2. 
-
-Dictionaries (dict) and Lists (list)
-:::
--->
-
-:::
-
 ## Python operators
 
 **operators** are symbols or keywords used to perform operations on data and variables, like calculations or comparisons. 
@@ -253,6 +216,46 @@ Get the number of elements in the list.
 **Numeric operators e.g. Append multiple repeats**
 
 `my_list * 2  # [20, 8, 7, 6, 5, 4, 3, 1, 20, 8, 7, 6, 5, 4, 3, 1]`
+
+
+## Exercises
+
+
+::: {.callout-exercise}
+#### Primitive data types
+
+What are the different primitive data types in expenses_calculator.py
+Why were they chosen?
+Are there any other data types you recognise?
+
+<!--
+::: {.callout-answer}
+1. 
+Strings (str)
+
+Examples: "food", "expenses.csv", "done".
+
+Why they were chosen: Strings are used for any textual data. In your script, they handle category names, filenames, and user input. Since Python treats strings as sequences of characters, they are perfect for labels and messages.
+
+Floats (float)
+
+Examples: 100.0, amount = float(parts[1]).
+
+Why they were chosen: Floats represent real numbers with decimal points. In a financial calculator, you need precision for cents (e.g., 10.50). If you used integers, you wouldn't be able to track partial currency units.
+
+Booleans (bool)
+
+Examples: True (in while True:), and the result of category == "done".
+
+Why they were chosen: Booleans represent truth values. They are the backbone of your script's logic, controlling the loop and the if/else validation checks.
+
+2. 
+
+Dictionaries (dict) and Lists (list)
+:::
+-->
+
+:::
 
 
 ::: {.callout-exercise}

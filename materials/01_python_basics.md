@@ -37,13 +37,6 @@ It should automatically open into the current directory in VSCode - e.g. where t
 * note that you likely do not want to use your system python to run scripts as this is used by the operating system
 - You should have installed python in the setup. sometimes it can be python3
 
-::: {.callout-exercise}
-#### Terminal
-
-Run the expense calculator through a command from the terminal
-
-:::
-
 
 ### Using the terminal to open the python Console
 
@@ -62,20 +55,6 @@ Python 3.9.6 (default, Oct  4 2024, 08:01:31)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
-
-::: {.callout-exercise}
-#### Python console
-
-Open the python console in VSCode. Type ```print("hello world")``` . 
-What happens?
-
-::: {.callout-answer}
-
-When the command print("hello world") is entered into the Python console and executed, Python immediately evaluates the statement and displays the text:
-
-hello world
-:::
-:::
 
 #### Attend our course on unix command line
 
@@ -161,6 +140,34 @@ These comments are ignored by python and do not result in any output - check for
 - A **```\```** (backslash) is used to explicitly break a line
 
 - Lines can be implicitly continued in some cases, for example when in brackets. We will see this later. 
+
+## Exercises
+
+::: {.callout-exercise}
+#### Python console
+
+Open the python console in VSCode. Type ```print("hello world")``` . 
+What happens?
+
+::: {.callout-answer}
+
+When the command print("hello world") is entered into the Python console and executed, Python immediately evaluates the statement and displays the text:
+
+hello world
+:::
+:::
+
+::: {.callout-exercise}
+#### Terminal
+
+Run the expense calculator through a command from the terminal
+
+::: {.callout-answer}
+
+When you type into the terminal window ```python expense_calculator.py```, this will run the expense calculator script. In your terminal, you should receive a prompt asking you to enter the catagory of the expense, followed by the value. Follow the prompts and input catagories followed by values. When you type in done to the catagory prompt, the programme will exit, and a `csv` file (comma separarate values table) will be generated. You can open this file to see what was written. Each time the script is run, the programme will read in pre-existing expenses from the file if it exists, add expenses, and save the file.
+:::
+
+:::
 
 ## Summary
 

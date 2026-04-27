@@ -3,9 +3,10 @@ book:
     #- materials/00_course_structure.md
     - part: "Session 1: Python basics"
       chapters:
-        - materials/01_introducing_python.md
-        - materials/02_python_basics.md
-        - materials/03_python_data_types_and_operators.md
+        - materials/00_introducing_python.md
+        - materials/01_python_basics.md
+        - materials/03_python_data_types.md
+        - materials/04_python_operators.md
         - materials/04_python_functions.md
 
     - part: "Session 2: Core Programming"

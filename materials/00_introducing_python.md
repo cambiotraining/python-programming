@@ -42,74 +42,6 @@ Q3. What logic is involved? - Can yu create a flow chart reflecting what is done
 
 Q4. Now you have seen a small snapshot of what can be done with very basic python - can you think of any scripts you might want to write in Python?
 
-::: {.callout-answer}
-
-Q1. 
-Do not worry if you cannot work out exactly what this script does at this stage. 
-As you can see, python is a language where simple statements reflect what the code does (high level). This makes it easy to red even with little coding background and an approachable language to start learning coding.
-
-This script is a simple expense tracker that lets users record spending in four categories: food, transport, entertainment, and other. It first tries to load any existing expenses from a CSV file and stores them in a list. Users can then input new expenses, which are validated for category and numeric amount before being added. Finally, all expenses are saved back to the CSV file, overwriting previous contents.
-
-Q2.
-Some key words you will notice in the script are:
-- try
-- except
-- for
-- if
-- else
-- break
-- while
-- in
-- pass
-
-- open
-- close
-- append
-
-These are basic python logical tools/ functions
-
-Some symbols are:
-- `=`      
-- `==`      
-- `>`      
-- `-`       
-- `.`      
-- `,`       
-- `:`       
-- `[]`      
-- `()`      
-- `""` / `''` 
-- `\n`        
-- `#`       
-
-Some of these special symbols are called operators - they provide simple arithmetic like operations
-Others reflect the rules of the language - and are grammar.
-
-By the end of this course you will be able to use all these key words and symbols when writing python code
-
-Q3.
-A flow chart representing the python expense calculator: 
-
-
-Q4.
-There are many different scripts you may wish to write in python.
-Everyday tasks:
-- Organising/renaming files
-- Checking the weather
-- Accounting
-
-Research tasks:
-- Data Analysis
-- Data visualisation
-
-Some of the reason we write a scripts for something are:
-- if it has to be done many times
-- If it needs to be reproducible and the flow from inputs to outputs recorded exactly
-- There are coding tools that can help with the task
-
-:::
-:::
-
 
 ## So what is python?
 
@@ -189,4 +121,75 @@ https://www.linode.com/docs/guides/pros-and-cons-of-python/
 - Python is defined by its syntax (it's grammatical rules)
 - Python code is run(interpreted) line by line
 - Libraries/packages give pre-written code that performs specific functions
+:::
+
+
+## Exercises
+
+::: {.callout-answer}
+
+Q1. 
+Do not worry if you cannot work out exactly what this script does at this stage. 
+As you can see, python is a language where simple statements reflect what the code does (high level). This makes it easy to red even with little coding background and an approachable language to start learning coding.
+
+This script is a simple expense tracker that lets users record spending in four categories: food, transport, entertainment, and other. It first tries to load any existing expenses from a CSV file and stores them in a list. Users can then input new expenses, which are validated for category and numeric amount before being added. Finally, all expenses are saved back to the CSV file, overwriting previous contents.
+
+Q2.
+Some key words you will notice in the script are:
+- try
+- except
+- for
+- if
+- else
+- break
+- while
+- in
+- pass
+
+- open
+- close
+- append
+
+These are basic python logical tools/ functions
+
+Some symbols are:
+- `=`      
+- `==`      
+- `>`      
+- `-`       
+- `.`      
+- `,`       
+- `:`       
+- `[]`      
+- `()`      
+- `""` / `''` 
+- `\n`        
+- `#`       
+
+Some of these special symbols are called operators - they provide simple arithmetic like operations
+Others reflect the rules of the language - and are grammar.
+
+By the end of this course you will be able to use all these key words and symbols when writing python code
+
+Q3.
+A flow chart representing the python expense calculator: 
+
+
+Q4.
+There are many different scripts you may wish to write in python.
+Everyday tasks:
+- Organising/renaming files
+- Checking the weather
+- Accounting
+
+Research tasks:
+- Data Analysis
+- Data visualisation
+
+Some of the reason we write a scripts for something are:
+- if it has to be done many times
+- If it needs to be reproducible and the flow from inputs to outputs recorded exactly
+- There are coding tools that can help with the task
+
+:::
 :::
