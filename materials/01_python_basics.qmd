@@ -1,181 +1,261 @@
 ---
-title: Getting Started
+title: "Getting Started: Three Ways of Running Python"
 ---
 
 ::: {.callout-tip}
-#### Learning Objectives
-
-- Get started with the python console
-- Learn the basic python syntax
-
+## Learning Objectives
+- Set up your working folder in VS Code
+- Understand the three main ways of running Python: **Way 1 (Scripts)**, **Way 2 (the Console)**, and **Way 3 (Jupyter Notebooks)**
+- Find out what a terminal actually is
+- See the difference between code cells and text cells in a Jupyter Notebook
+- Try out each of the three ways for yourself
+- Get a simple idea of what a Jupyter "kernel" does
 :::
-
 
 ## Overview
 
-This page and the next few pages will roughly follow along with the live coding session. We will use the expense calculator script as a basis. The next sections in the course materials are for reference and contain cheat sheets and notes, for you to look back at when you need. In the session, most of the information will be taught to you within the live coding and using the exercises, however in some cases the course materials will have more information which could be useful in certain situations. In particular, there are reference tables for operators, data types and templates for functions.
+Before you write any Python code, it helps to know that there are several different ways of actually running it. In this lesson, you will meet three of them. Each one suits a different situation — a bit like how you might send a text message for something quick, write a letter for something you want to keep, or put together a scrapbook when you want words and pictures together. By the end of this lesson, you will have tried all three for yourself.
 
-## Getting Started The Terminal and python console
+## Setting Up Your Working Folder in VS Code
 
-### What is the terminal?
+Before you run any code, VS Code needs to know which folder on your computer you are working in. This is called your **working directory**.
 
-The terminal is a text-based interface that lets you type commands directly to your computer’s operating system. Instead of clicking buttons or menus, you write commands for opening files, running programs, or installing software.
+(These instructions use Linux. If you are using Windows or a Mac, everything will look almost the same.)
 
-### The terminal in VS Code
+1. Open VS Code.
+2. At the top, click **File → Open Folder...**
+3. Find and select the `scripts` folder that came with your course materials.
+4. Click **Open**.
 
-In Visual Studio Code (VS Code), the terminal is built-in. You can open it from the menu (View → Terminal) or by pressing a shortcut (often <kbd>Ctrl</kbd>+<kbd>`</kbd>). It appears at the bottom of the editor and works just like your computer’s command line, but directly inside VS Code.
+This matters because, by default, Python will look for any other files it needs inside this folder, and will save anything it creates back into this folder too. We will go into much more detail about exactly how this works later in the course — for now, just make sure this is the folder you have open.
 
-### Using the terminal to run a script
+## What Is a Terminal?
 
-To run a python script from the terminal use:
+In the last section, you pressed a play button to run a script, and a box appeared at the bottom of your screen asking you to type something in. That box has a name: it is called the **terminal**.
 
-```python script_name.py```
+A terminal is simply a plain text window where you type instructions for your computer, instead of clicking on menus and icons with your mouse. It looks a little old-fashioned, but it is one of the most useful tools you will use as a programmer in particular because it is much quicker than using the mouse.
 
-* Note  1 You need to be in the correct directory to run a python script from the terminal. 
-It should automatically open into the current directory in VSCode - e.g. where the expense_calculator.py is located
+You can open a terminal in VS Code at any time by clicking **Terminal → New Terminal** at the top of the screen (or by pressing **Ctrl + `**). Because you already opened the `scripts` folder, your terminal will start there too.
 
-* note that you likely do not want to use your system python to run scripts as this is used by the operating system
-- You should have installed python in the setup. sometimes it can be python3
+## Way 1: Running Python Using a Script
 
+A **script** is simply a text file with your Python code saved inside it, ending in `.py`. Think of it as a recipe you have written down: you can follow it once, put it away, and come back to run it again whenever you like. This makes scripts the best choice when you want to save your work properly.
 
-### Using the terminal to open the python Console
+There are two equally valid ways to run a script:
 
-A console is a text-based interface that allows a user to interact directly with a computer system or software by entering commands and receiving text-based output.
+- Press the **Play button** in VS Code, just as you did in the last section.
+- Type the command yourself directly into the terminal:
 
-The Python console, also known as the Python interpreter or REPL (Read–Evaluate–Print Loop), is an interactive environment that allows users to write and execute Python code one statement at a time. It is particularly useful for testing small code snippets, exploring language features, debugging, and learning Python syntax. When a line of code is entered, the interpreter immediately evaluates it and displays the result, enabling rapid feedback and experimentation.
-In the Python console, users can execute expressions, define variables and functions, and import modules. However, code written in the console is not saved automatically; for reusable or larger programs, Python scripts (.py files) are preferred.
-
-To open python interactively in the terminal, in the terminal window type: 
-```python```
-It will offer a prompt:
-
-```
-Python 3.9.6 (default, Oct  4 2024, 08:01:31) 
-[Clang 16.0.0 (clang-1600.0.26.4)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
->>> 
+```bash
+python my_script.py
 ```
 
-#### Attend our course on unix command line
+Whichever way you choose, the output appears in the same place: the terminal window at the bottom of your screen. That is the default behaviour of a script — everything it produces shows up there.
 
-*If you're interested in using the terminal more, for example to navigate file systems and automate tasks - attend the training facilities unix course*
+::: {.callout-tip}
+## A note on Python vs Python 3
+Depending on how Python is set up on your computer, you might need to type `python3` instead of `python`. If one does not work, try the other.
 
-## Assigning variables
-
-A variable is a named reference used to store and access a value in a program.
-
-::: {.callout-exercise}
-#### Python variables
-
-What are the variables in the ```expense_calculator.py``` script? 
-
-What are they used for?
-
+Note that on your own machines, you do not want to be running things on the default python that comes pre-installed. This is because you do not want to mess with the setup that many other software including your operating system might use. We will cover more about this later in the environments section.
 :::
 
-In Python initialising variables is easy:
+::: {.callout-tip}
+## Working directory
+If running your script is not working from the terminal check that you are in the correct working directory. You need to be in the correct directory to run a python script from the terminal. 
+As we opened the scripts foldr in VSCode, it should automatically that as the working directory - e.g. where the expense_calculator.py is located
+:::
 
-- Variables are assigned using the = sign
+**Example:** Imagine you saved a file called `hello.py` containing one line of code:
 
-- Case sensitive
-
-- No need to declare the type explicitly (dynamic typing)
-
+```python
+print("This message came from a script!")
 ```
-# Initialising my_height in cm 
-my_height = 176
-my_name = "Kavi"
 
+If you ran this file — either by pressing Play, or by typing `python hello.py` into the terminal — this is what your terminal window might actually look like:
+
+```{=html}
+<div style="background-color:#000000; color:#eaeaea; font-family: 'Courier New', monospace; padding: 12px 16px; border-radius: 6px; white-space: pre;">
+you@scripts % python hello.py
+This message came from a script!
+you@scripts %
+</div>
 ```
-<br>
 
-### Variable Naming Conventions in Python - Making your life easy!
+Notice that the message appears right below the command you typed. That is what "running" a script actually means: Python reads your file from top to bottom, carries out each instruction, and the terminal shows you the result.
 
-*One of the worst things in particular when looking at other peoples code is variable names that make no sense to anybody but the writer*
+## Way 2: Running Python Using the Console (REPL)
 
-When naming variables, it's important to follow Python's guidelines for consistency and readability. Here are some key rules to remember:
+Sometimes you do not want to save anything at all — you just want to try a quick idea and see what happens. That is exactly what the **Python Console** is for.
 
-* **Case-sensitive:** weight and Weight are different variables.
+The console is sometimes called a **REPL**, which is a simple way of describing four things it does, one after another:
 
-* **Use lowercase:** Separate words with underscores, e.g., weight_kg.
+- **R**ead — it reads the line of code you type
+- **E**valuate — it works out the answer straight away
+- **P**rint — it shows you the answer on the screen
+- **L**oop — it waits patiently for your next line
 
-* **Don't start with numbers:** Variable names cannot begin with a digit.
+This instant back-and-forth makes the console brilliant for quick tests. The catch is that nothing you type is saved — as soon as you close it, it is gone, a bit like a chat message that disappears the moment you close the app.
 
-* **Stick to letters:** Use only letters, underscores, and digits (when needed).
+**Opening the console**
 
-* **Be descriptive:** Choose clear, meaningful names (e.g., asdjks is not helpful).
+1. In your VS Code terminal, type `python` (or `python3`) and press Enter.
+2. You will see three arrows, `>>>`, waiting for you.
+3. When you are finished, type `exit()` and press Enter to leave the console and return to your ordinary terminal.
 
-* **Avoid overly long names:** For example 'this_is_my_height_in_cm' is too long.
+**Example:** Here is what it would actually look like if you typed two lines into the console, one after another, and then exited:
 
-* **Don't use keywords:** Avoid using Python function names, class names, or data types as variable names.
-
-For more detailed guidelines, refer to PEP 8 or the Google Python Style Guide.
-
-<br>
-
-### Indentation
-
-In python indentation is used to define code blocks. We will see more of this later when we get to conditional statements and loops. 
-- Unexpected indents will result in errors.
-- indents are 4 spaces according to PEP 8 standards, however commonly also two spaces on web interfaces. Be consistent.
-- Using spaces is preferable to using tabs
-
+```{=html}
+<div style="background-color:#000000; color:#eaeaea; font-family: 'Courier New', monospace; padding: 12px 16px; border-radius: 6px; white-space: pre;">
+you@scripts % python
+Python 3.11.0 (default, Oct 24 2026, 08:01:31)
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; print("Typed straight into the console!")
+Typed straight into the console!
+&gt;&gt;&gt; print("And here is a second line!")
+And here is a second line!
+&gt;&gt;&gt; exit()
+you@scripts %
+</div>
 ```
-# Initialising my_height in cm 
-my_height = 176
- my_name = "Kavi"
- 
+
+Notice how each answer appears immediately after you press Enter, and Python is straight back with `>>>`, ready for your next line. Once you type `exit()`, the `>>>` disappears and you are back in your ordinary terminal.
+
+::: {.callout-tip}
+## Working directory
+*If you're interested in using the terminal more, for example to navigate file systems and automate tasks - attend the training facilities unix/command line course*
+:::
+
+## Way 3: Running Python Using Jupyter Notebooks
+
+When you run a piece of code inside a Jupyter Notebook, the result appears directly underneath it, and both stay together, permanently, in the same file — a record of exactly what you wrote and what it produced. A **Jupyter Notebook** is a file ending in `.ipynb` that mixes code and writing together, split up into separate blocks called **cells** — a bit like a scrapbook, where some pages hold your working and other pages hold your notes.
+
+Don't worry about installing anything — the software and extensions you need have already been set up for you.
+
+**Two kinds of cell**
+
+- **Code cells** hold Python code. When you run one, Python carries out the instructions and shows the result directly underneath — just like the terminal examples above.
+- **Text cells** (also called Markdown cells) hold ordinary writing: titles, explanations, or notes. They do not run any code at all; they are simply there for you to read.
+
+**Example:** If you typed the following into a code cell and ran it:
+
+```python
+print("This is a notebook cell speaking!")
 ```
-The above would produce an error
 
-## Commenting your code
+This is exactly what you would see, with the code and its result kept together in one place:
 
-Commenting your code, and using lines liberally, are key to making your code easily understandable for both yourself and others.
-These comments are ignored by python and do not result in any output - check for yourself in the console!
+```{python}
+print("This is a notebook cell speaking!")
+```
 
-- A **```#```** (Hash) is used for single line comments 
+Unlike the console, this stays exactly where it is when you save the file, so you (or anyone else) can come back later and see both the code and its result side by side.
 
-- A **```"""```** (triple quotes) is used around multiline comments or strings
+**Opening a notebook**
 
-- A **```\```** (backslash) is used to explicitly break a line
+*Option A — Inside VS Code*
 
-- Lines can be implicitly continued in some cases, for example when in brackets. We will see this later. 
+1. Click **File → New File...**
+2. Choose **Jupyter Notebook** (or create a new file and save it as `notebook.ipynb`).
+3. An interactive notebook page will open inside VS Code.
+
+*Option B — In your web browser*
+
+1. Open a terminal in VS Code.
+2. Type the following and press Enter:
+
+```bash
+jupyter notebook
+```
+
+3. A browser tab will open automatically, showing your notebook.
+
+**What is a kernel?**
+
+When you open a notebook, you will be asked to choose a **kernel**. In simple terms, the kernel loads the specific setup you need — including the correct version of Python — and keeps track of the current state of your work: it remembers every variable and every result you have created so far in that notebook. In the top-right corner of your notebook in VS Code, click **Select Kernel** and choose the course option provided.
 
 ## Exercises
 
-::: {.callout-exercise}
-#### Python console
+Now it is your turn to try each way for yourself.
 
-Open the python console in VSCode. Type ```print("hello world")``` . 
+::: {.callout-exercise}
+#### Script
+
+Create a new file in your `scripts` folder named `hello.py`. Inside it, write the line `print("hello world")`, save the file, then run it from the terminal by typing `python hello.py`.
+
 What happens?
 
 ::: {.callout-answer}
 
-When the command print("hello world") is entered into the Python console and executed, Python immediately evaluates the statement and displays the text:
+When you run `hello.py`, Python reads through the file from top to bottom and carries out the `print("hello world")` command. This displays the text:
 
 hello world
+
+directly in your terminal window, underneath the command you typed.
 :::
 :::
 
 ::: {.callout-exercise}
-#### Terminal
+#### Python console
 
-Run the expense calculator through a command from the terminal
+Open the Python console in VS Code. Type `print("hello world")`.
+
+What happens?
 
 ::: {.callout-answer}
 
-When you type into the terminal window ```python expense_calculator.py```, this will run the expense calculator script. In your terminal, you should receive a prompt asking you to enter the catagory of the expense, followed by the value. Follow the prompts and input catagories followed by values. When you type in done to the catagory prompt, the programme will exit, and a `csv` file (comma separarate values table) will be generated. You can open this file to see what was written. Each time the script is run, the programme will read in pre-existing expenses from the file if it exists, add expenses, and save the file.
+When the command `print("hello world")` is entered into the Python console and executed, Python immediately evaluates the statement and displays the text:
+
+hello world
+
+right away, with no file being saved anywhere.
+:::
 :::
 
+::: {.callout-exercise}
+#### Jupyter Notebook
+
+Open a new Jupyter Notebook in VS Code and save it as `practice.ipynb` in your `scripts` folder. In the first code cell, type `print("hello world")`, then run it by clicking the Play button next to the cell (or pressing **Shift + Enter**).
+
+What happens?
+
+::: {.callout-answer}
+
+When you run the cell, Python evaluates `print("hello world")` and displays the text:
+
+hello world
+
+directly beneath the cell. Because it is a notebook, this result is saved alongside your code when you save the file, so it will still be there the next time you open it.
+:::
 :::
 
-## Summary
+::: {.callout-exercise}
+#### Which Way Would You Choose?
+
+For each scenario below, decide whether **Way 1 (Script)**, **Way 2 (Console)**, or **Way 3 (Notebook)** would suit it best.
+
+1. You want to quickly check what `12 * 7` equals before moving on with your work.
+2. You are writing a program that checks tomorrow's weather, and you want to be able to run it again every morning.
+3. You are putting together a piece of coursework that needs to show your code, a chart, and a written explanation of what you found, all in one place.
+4. A friend asks you what a certain line of Python code does, and you want to test it there and then, without saving anything.
+5. You are teaching yourself a new topic, and want to try out several short pieces of code one after another, jotting down a note next to each one so you can revise from it before an exam next week.
+6. You have written a program that needs to run automatically every night at 2am, without anyone there to click a button or type anything.
+
+::: {.callout-answer}
+
+1. **Way 2 (Console)** — a quick, one-off check with nothing you need to save.
+2. **Way 1 (Script)** — something permanent that you will want to run again and again, unattended.
+3. **Way 3 (Notebook)** — your code, its results, and your written explanation all need to sit together.
+4. **Way 2 (Console)** — fast, temporary, and no file required.
+5. **Way 3 (Notebook)** — this is trickier than it first looks: although you are trying things out one after another, the console will not do, because you need to keep both the code and your written notes together for later. That combination of code plus writing, saved for future reference, is exactly what a notebook is for.
+6. **Way 1 (Script)** — this is the hardest one: a notebook needs a kernel and someone to click "run", and the console needs someone typing live, so neither can run unattended. Only a saved script can be triggered automatically, with no one present, which is why scripts are the standard choice for anything that needs to run on its own.
+:::
+:::
+
+## Summary: Three Ways of Running Python
 
 ::: {.callout-tip}
-#### Key Points
-
-- Variables are words used to reference and access a value
-- Be clear an concise following guidelines when naming variables
-- Comment your code for clarity
-
+## Key Takeaways
+- **Way 1 — Scripts (`.py` files):** Saved text files, run either by pressing Play in VS Code or by typing `python script_name.py` in the terminal. Best for programs you want to keep, reuse, or run automatically.
+- **Way 2 — The Console (REPL):** An interactive terminal screen that runs each line instantly. Best for quick, temporary checks.
+- **Way 3 — Jupyter Notebooks (`.ipynb` files):** Interactive pages mixing code cells and text cells, keeping code and results together permanently. Best for step-by-step work, projects, and notes.
 :::

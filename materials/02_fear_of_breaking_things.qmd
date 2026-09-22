@@ -1,0 +1,70 @@
+---
+title: Do not be afraid of breaking things
+---
+
+::: {.callout-tip}
+#### Learning Objectives
+
+- Understand that making mistakes when writing python code is fine, and a method of learning
+- Observe useful python error messages which will often direct users to the source of the problem
+- Understand that in more advanced coding, a proper setup and good practices will prevent irreversible damage, rather than perfect coding
+
+:::
+
+
+## Making Mistakes
+
+One of the main difficulties with beginners to coding including in Python is that beginners are often afraid to make mistakes. This makes learning to code much more difficult. Unlike an laboratory experiment where a mistake can cost many hours and much money down the drain. A mistake in code is usually (not always) caught quickly, and has a low bar. This is particularly true when writing code in order to learn. 
+
+
+## This course does not use your own laptop
+
+In this course you will use our machines. Therefore do not be afraid of breaking things - we will generally be able to rectify it for you and there is no risk to your own computer/data. Use this environment to learn
+
+## Python produces useful debug messages
+
+As python is written line by line - python (in particular pure python without using eatra packages) usually outputs clear error messages that point to the line and state the mistake
+
+An example is: 
+
+
+## Learning from your mistakes
+
+After testing different things, and learning from your mistakes, you will be able to write much better code. You will explore different options for writing the same thing......
+
+## Managing your setup is a better way to ensure that you do not damage other things
+
+We will talk later about this in far more detail, but managing your setup is one of the best ways to ensure their is no damage to your files or system. This includes keeping all the project files in the same folder and only using them.
+
+::: {.callout-tip}
+## Working directory
+Attend our courses on using git etc. to help with this 
+:::
+
+## Exercise
+
+::: {.callout-exercise}
+#### Learning from an error message
+
+type in to the console: 
+
+what did you learn?
+
+::: {.callout-answer}
+
+
+:::
+
+:::
+
+
+## Summary
+
+::: {.callout-tip}
+#### Key Points
+
+- Variables are words used to reference and access a value
+- Be clear an concise following guidelines when naming variables
+- Comment your code for clarity
+
+:::

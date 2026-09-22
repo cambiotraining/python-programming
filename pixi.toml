@@ -1,0 +1,17 @@
+[workspace]
+authors = ["Kavi_Shah <khs37@cam.ac.uk>"]
+channels = ["conda-forge"]
+name = "python-programming"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.11.*"
+jupyterlab = ">=4.6.4,<5"
+ipykernel = ">=7.3.0,<8"
+numpy = ">=2.4.6,<3"
+pandas = ">=3.0.6,<4"
+matplotlib = ">=3.11.2,<4"
+quarto = ">=1.9.38,<2"

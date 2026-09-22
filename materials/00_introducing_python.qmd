@@ -25,22 +25,9 @@ In between, there can be layers like assembly language, operating systems, and l
 
 ## Let's test what python can do!
 
-Before discussing python in more detail and trying to write any code, the best way of showing python's capabilities is to show what it can do, by running a script! Have a go at the exercise below, and answer the questions. By the end of this course you will be able understand how this script works and be able to write the equivalent script yourself!
+Before discussing python in more detail and trying to write any code, the best way of showing python's capabilities is to show what it can do, by running a script! Have a go at the first exercise in the exercises section. 
 
-
-::: {.callout-exercise}
-#### Running a Python Script
-*To do this exercise, you will need to have followed the setup instructions, including installing VSCode and Python. They can be found in these course materials.*
-
-Open Visual Studio Code. Open the Scripts folder and open "expense_calculator.py". Press the play button (triangle) to run the script.
-
-Q1. What does the script do?
-
-Q2. When looking at the script are there any keywords or symbols that you notice?
-
-Q3. What logic is involved? - Can yu create a flow chart reflecting what is done?
-
-Q4. Now you have seen a small snapshot of what can be done with very basic python - can you think of any scripts you might want to write in Python?
+By the end of this course you will be able understand how this script works and be able to write the equivalent script yourself!
 
 
 ## So what is python?
@@ -126,68 +113,302 @@ https://www.linode.com/docs/guides/pros-and-cons-of-python/
 
 ## Exercises
 
-::: {.callout-answer}
+::: {.callout-exercise}
+#### Running a Python Script
+*To do this exercise, you will need to have followed the setup instructions, including installing VSCode and Python. They can be found in these course materials.*
 
-Q1. 
-Do not worry if you cannot work out exactly what this script does at this stage. 
-As you can see, python is a language where simple statements reflect what the code does (high level). This makes it easy to red even with little coding background and an approachable language to start learning coding.
+Open Visual Studio Code. Open the Scripts folder and open "expense_calculator.py". Press the play button (triangle) to run the script.
 
 This script is a simple expense tracker that lets users record spending in four categories: food, transport, entertainment, and other. It first tries to load any existing expenses from a CSV file and stores them in a list. Users can then input new expenses, which are validated for category and numeric amount before being added. Finally, all expenses are saved back to the CSV file, overwriting previous contents.
 
+Q1. When looking at the script are there any keywords or symbols that you notice?
+
+Q2. What logic is involved? - Can you create a flow chart reflecting what is done?
+
+Q3. Now you have seen a small snapshot of what can be done with very basic python - can you think of any scripts you might want to write in Python?
+
+::: {.callout-answer}
+
+Q1. you might notice the use of ```"x"``` quotation marks, ```=``` equals sign, ```{}``` curly brackets, and ```:``` colons.
+
+By the end of this course you will be able to produce a script like this one.
+
 Q2.
-Some key words you will notice in the script are:
-- try
-- except
-- for
-- if
-- else
-- break
-- while
-- in
-- pass
+A flow chart representing the python expense calculator:
+```{python}
+#| echo: false
 
-- open
-- close
-- append
+import matplotlib.patches as patches
+import matplotlib.pyplot as plt
 
-These are basic python logical tools/ functions
+# # Initialize plot figure and canvas bounds
+# fig, ax = plt.subplots(figsize=(8, 10), dpi=100)
+# ax.set_xlim(0, 10)
+# ax.set_ylim(0, 12)
+# ax.set_facecolor("#F8FAFC")
+# fig.patch.set_facecolor("#F8FAFC")
 
-Some symbols are:
-- `=`      
-- `==`      
-- `>`      
-- `-`       
-- `.`      
-- `,`       
-- `:`       
-- `[]`      
-- `()`      
-- `""` / `''` 
-- `\n`        
-- `#`       
+# # Flowchart Node Definition: [x, y, label, node_type]
+# nodes = [
+#     (5, 11.0, "Start Script", "terminal"),
+#     (
+#         5,
+#         9.5,
+#         "1. Variable Assignments\nFILE_NAME & THRESHOLDS",
+#         "process",
+#     ),
+#     (
+#         5,
+#         7.8,
+#         "2. Load Expenses\nfile_reader.load_expenses(FILE_NAME)\n[Try / Except]",
+#         "process",
+#     ),
+#     (
+#         5,
+#         6.0,
+#         "3. Collect Expenses Loop\ninput_handler.collect_expenses(...)\n[While Loop]",
+#         "process",
+#     ),
+#     (
+#         5,
+#         4.2,
+#         "4. Display Summary\nsummary.display_summary(...)\n[For Loop]",
+#         "process",
+#     ),
+#     (
+#         5,
+#         2.4,
+#         "5. Save Expenses\nfile_writer.save_expenses(...)\n['With' Statement]",
+#         "process",
+#     ),
+#     (5, 0.9, "End Script", "terminal"),
+# ]
 
-Some of these special symbols are called operators - they provide simple arithmetic like operations
-Others reflect the rules of the language - and are grammar.
+# # Side annotations showing external module dependencies
+# module_helpers = [
+#     (8, 7.8, "file_reader"),
+#     (8, 6.0, "input_handler\nbasics, logic"),
+#     (8, 4.2, "summary"),
+#     (8, 2.4, "file_writer"),
+# ]
 
-By the end of this course you will be able to use all these key words and symbols when writing python code
+# # Draw Arrows between Nodes
+# for i in range(len(nodes) - 1):
+#     x1, y1 = nodes[i][0], nodes[i][1]
+#     x2, y2 = nodes[i + 1][0], nodes[i + 1][1]
+
+#     # Adjust vertical offset based on block type
+#     offset_top = 0.5 if nodes[i][3] == "process" else 0.3
+#     offset_bottom = 0.5 if nodes[i + 1][3] == "process" else 0.3
+
+#     ax.annotate(
+#         "",
+#         xy=(x2, y2 + offset_bottom),
+#         xytext=(x1, y1 - offset_top),
+#         arrowprops=dict(
+#             arrowstyle="->", color="#334155", lw=2, mutation_scale=15
+#         ),
+#     )
+
+# # Draw Flowchart Nodes
+# for x, y, label, node_type in nodes:
+#     if node_type == "terminal":
+#         bbox = dict(
+#             boxstyle="round,pad=0.5,rounding_size=0.5",
+#             facecolor="#0284C7",
+#             edgecolor="#0369A1",
+#             linewidth=1.5,
+#         )
+#         text_color = "white"
+#         fontweight = "bold"
+#     else:
+#         bbox = dict(
+#             boxstyle="round,pad=0.7,rounding_size=0.2",
+#             facecolor="#FFFFFF",
+#             edgecolor="#64748B",
+#             linewidth=1.5,
+#         )
+#         text_color = "#0F172A"
+#         fontweight = "normal"
+
+#     ax.text(
+#         x,
+#         y,
+#         label,
+#         ha="center",
+#         va="center",
+#         fontsize=9,
+#         fontweight=fontweight,
+#         color=text_color,
+#         bbox=bbox,
+#     )
+
+# # Draw Side Module Badges & Dashed Connectors
+# for x, y, label in module_helpers:
+#     ax.text(
+#         x,
+#         y,
+#         f"Module: {label}",
+#         ha="center",
+#         va="center",
+#         fontsize=8,
+#         color="#475569",
+#         bbox=dict(
+#             boxstyle="round,pad=0.4",
+#             facecolor="#F1F5F9",
+#             edgecolor="#CBD5E1",
+#             linewidth=1,
+#         ),
+#     )
+
+#     # Dashed connector from main node to module box
+#     ax.plot([6.5, x - 0.9], [y, y], linestyle="--", color="#94A3B8", linewidth=1)
+
+# # Polish Axis and Title Layout
+# ax.axis("off")
+# plt.title(
+#     "Expense Script Execution Flow",
+#     fontsize=14,
+#     fontweight="bold",
+#     pad=15,
+#     color="#1E293B",
+# )
+# plt.tight_layout()
+# plt.show()
+
+import matplotlib.pyplot as plt
+
+# 1. Setup the figure and canvas dimensions
+fig, ax = plt.subplots(figsize=(7, 9), dpi=100)
+ax.set_xlim(0, 10)
+ax.set_ylim(0, 10)
+ax.set_facecolor("#F8FAFC")
+fig.patch.set_facecolor("#F8FAFC")
+
+# 2. Define beginner-friendly steps [x, y, simple_title, simple_explanation, block_type]
+steps = [
+    (5, 9.2, "START", "Begin Program", "terminal"),
+    (
+        5,
+        7.8,
+        "Step 1: Set Settings",
+        "Save file name and budget limits",
+        "process",
+    ),
+    (
+        5,
+        6.3,
+        "Step 2: Read Expenses",
+        "Load existing saved expenses",
+        "process",
+    ),
+    (
+        5,
+        4.8,
+        "Step 3: Collect New Input",
+        "Repeat Task: Ask for user expenses",
+        "process",
+    ),
+    (
+        5,
+        3.3,
+        "Step 4: Show Summary",
+        "Go item-by-item through total list",
+        "process",
+    ),
+    (
+        5,
+        1.8,
+        "Step 5: Save File",
+        "Store updated expenses safely",
+        "process",
+    ),
+    (5, 0.6, "END", "Finish Program", "terminal"),
+]
+
+# 3. Draw simple straight connecting arrows
+for i in range(len(steps) - 1):
+    y_start = steps[i][1]
+    y_end = steps[i + 1][1]
+
+    # Adjust vertical arrow offset based on box height
+    offset_top = 0.35 if steps[i][4] == "terminal" else 0.5
+    offset_bottom = 0.35 if steps[i + 1][4] == "terminal" else 0.5
+
+    ax.annotate(
+        "",
+        xy=(5, y_end + offset_bottom),
+        xytext=(5, y_start - offset_top),
+        arrowprops=dict(
+            arrowstyle="->", color="#475569", lw=2, mutation_scale=15
+        ),
+    )
+
+# 4. Draw the flowchart boxes
+for x, y, title, description, block_type in steps:
+    if block_type == "terminal":
+        box_style = dict(
+            boxstyle="round,pad=0.5,rounding_size=0.6",
+            facecolor="#2563EB",
+            edgecolor="#1D4ED8",
+            linewidth=1.5,
+        )
+        text_color = "white"
+        full_text = title
+    else:
+        box_style = dict(
+            boxstyle="round,pad=0.6,rounding_size=0.2",
+            facecolor="#FFFFFF",
+            edgecolor="#94A3B8",
+            linewidth=1.5,
+        )
+        text_color = "#0F172A"
+        full_text = f"{title}\n({description})"
+
+    ax.text(
+        x,
+        y,
+        full_text,
+        ha="center",
+        va="center",
+        fontsize=10,
+        fontweight="bold" if block_type == "terminal" else "normal",
+        color=text_color,
+        bbox=box_style,
+        linespacing=1.4,
+    )
+
+# 5. Clean up axes and show chart
+ax.axis("off")
+plt.title(
+    "How the Expense Script Works",
+    fontsize=14,
+    fontweight="bold",
+    pad=15,
+    color="#0F172A",
+)
+plt.tight_layout()
+plt.show()
+
+```
+
 
 Q3.
-A flow chart representing the python expense calculator: 
-
-
-Q4.
 There are many different scripts you may wish to write in python.
 Everyday tasks:
+
 - Organising/renaming files
 - Checking the weather
 - Accounting
 
 Research tasks:
+
 - Data Analysis
 - Data visualisation
 
 Some of the reason we write a scripts for something are:
-- if it has to be done many times
+
+- If it has to be done many times
 - If it needs to be reproducible and the flow from inputs to outputs recorded exactly
 - There are coding tools that can help with the task
 

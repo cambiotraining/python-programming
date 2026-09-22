@@ -21,3 +21,8 @@ _site
 # Jupyter cache
 .jupyter_cache
 /.luarc.json
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+**/*.quarto_ipynb
