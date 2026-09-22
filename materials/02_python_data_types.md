@@ -5,12 +5,12 @@ title: Data Types and Operators
 ::: {.callout-tip}
 #### Learning Objectives
 
-- Learn about python data types and operators
+- Learn about python data types
 - Learn when to use different data types
 
 :::
 
-## Python Data types
+## Introducing python Data types
 
 In programming, **data types** define the kind of data a variable can hold, such as numbers, text, or more complex structures, and they determine what operations can be performed on that data. 
 
@@ -21,44 +21,87 @@ Using data types in Python is straightforward: you assign a value to a variable,
 For example, `x = 10` creates an integer, whereas `x = 10.3` creates a float.
 A float in a decimal placed number and is stored in python in a 64 bit format.
 
-For an overview of data types use the cheat sheet.
+For an overview of data types use the **cheat sheet**.
 
-### Primitive Data Types
+::: {.callout-note}
 
-Primitive data types contain single values e.g. numbers and words
+To check the data type of a python object use the ```type()``` function.
 
-The main thing to remember is that sequences of letters like words are called strings and require quotation marks around them:
+```{python}
+
+x = 10
+print(type(x))
+
+```
+:::
+
+
+## Primitive Data Types
+
+Primitive data types contain single values e.g. numbers and words.
+
+### Numerical data types
+
+Python has three numerical data types:
+- integers: whole numbers `int`
+- floats: decimal placed numbers which are also known as floating point numbers `float`
+- complex numbers: python has direct support for complex numbers (*a + bi*). These are not used often by most python users and will not be discussed further in this course.
+
+### Words and text
+
+Sequences of letters like words are called strings and require quotation marks around them:
 
 ```name = "Alice"``` creates a string. 
 
+Strings can be single words or paragraphs.
+
+### Boolean: true or false
+
 The boolean data types use the key words ```True``` and ```False```
+
+### The placeholder
 
 ```None``` can also be used as a placeholder for a variable has no meaningful value yet.
 
-Understanding data types is essential for writing correct programs, performing calculations, and managing data efficiently.
-Data types behave slightly differently in different languages for example the way numbers a rounded.
+## The importance of data types
 
-## Python operators
+Python makes working with data types easier than many other programming languages. When you create a variable, Python automatically decides what type of data it is based on the value you give it. In most cases, the correct data type is a straightforward choice. For example, when indexing a table or referring to whole number counts integers are used, whereas measurements often require decimal places and so floats are used.
 
-**operators** are symbols or keywords used to perform operations on data and variables, like calculations or comparisons. 
-This of mathematical singles like ```+``` 0r ```<```.
+That said, Python’s data types each have their own rules and behaviors. As you’ll see in the following exercises, understanding these differences is important for writing correct programs, doing calculations, and working with data effectively. It’s also helpful to know that data types can behave differently in other languages—for example, in how numbers are rounded.
 
-Most of the operators in python make sense. Use the cheat sheet table to look them up if you need.
+## Immutable versus mutable data types
 
-::: {.callout-exercise}
-#### Using operators
+In Python, data types can be either **mutable** or **immutable**, which refers to whether their values can be changed after they are created.
 
-Use the console to test different operators from the tables. 
-Try adjusting the operators in the expenses_calculator.py script and seeing how the behaviour of the script changes.
+Most python primitive data types, such as integers, floats, booleans, and strings, are **immutable**, meaning their values cannot be changed after they are created. If you appear to modify one of these values, Python actually creates a new object instead with the same variable name. This makes primitive types simple and predictable to work with, especially for beginners. 
 
+In contrast, composite data types (like lists, tuples, sets, and dictionaries) can be either **mutable** or **immutable**. Two types that are **mutable**, and so can be changed after they are created are lists and dictionaries. We will look at composite data types in more detail in the next section.
+
+::: {.callout-note}
+
+To demonstrate that the primitive data types are immutable you ca change their value and use the id() function to check where they are located in memory.
+
+```{python}
+
+x = 10
+print("Initial value:", x)
+print("Initial memory location:", id(x))
+
+# "Modify" the integer
+x = 15
+
+print("New value:", x)
+print("New memory location:", id(x))
+
+```
 :::
 
 
 ## Composite Data Types - The exciting stuff!
 
-Complex data types is where things really become interesting and the basis for more complex programming
+Composite data types are where things start to become more interesting and form the foundation for more complex programming.
 
-In Python, composite data types allow you to store multiple values in a single variable. They can hold a collection of items, which can be of different data types. The main composite data types in Python are:
+In Python, composite data types allow you to store multiple values within a single variable. These values are grouped together as a collection, and they can even be of different data types. The main composite data types in Python are:
 
 **Lists**
 
@@ -88,7 +131,7 @@ In Python, composite data types allow you to store multiple values in a single v
 
 Let's initialize one of each composite data type with a list of 10 animals, and then demonstrate some of the main differences.
 
-```
+```python
 # Initialize a list of animals
 animal_list = ["Dog", "Cat", "Elephant", "Lion", "Tiger", "Giraffe", "Zebra", "Monkey", "Snake", "Rabbit"]
 
@@ -213,9 +256,112 @@ Get the number of elements in the list.
 
 `length = len(my_list)  # 8`
 
-**Numeric operators e.g. Append multiple repeats**
+**Numeric operations e.g. Append multiple repeats**
 
 `my_list * 2  # [20, 8, 7, 6, 5, 4, 3, 1, 20, 8, 7, 6, 5, 4, 3, 1]`
+
+
+## Converting between data types
+
+All built-in data types in Python have associated built-in functions that allow you to convert values from one data type to another or explicitly create an object of that type. Examples of converting between data types are presented below.
+
+It is not possible to convert between all data types; some conversions require additional information and input.
+
+Resources about data types can be found in the python documentation: 
+https://docs.python.org/3/library/functions.html
+https://docs.python.org/3/library/stdtypes.html
+ 
+Examples of converting between data types: 
+
+
+
+**1. Converting int to float**
+```
+x = 5  # integer
+y = float(x)  # converting to float
+print(y)  
+```
+Output: 
+```
+5.0
+```
+
+**2. Converting float to int**
+```
+x = 3.23  # float
+y = int(x)  # converting to int
+print(b)
+``` 
+Output: 
+```
+3
+```
+
+**3. Converting int to str**
+```
+x = 10  # integer
+y = str(x)  # converting to string
+print(y)
+```
+Output: 
+```
+'10'
+```
+
+**4. Converting str to int**
+```
+x = "123"  # string
+y = int(x)  # converting to int
+print(y)
+```
+Output: 
+```
+123
+```
+
+**5. Converting str to float**
+```
+x = "45.67"  # string
+y = float(x)  # converting to float
+print(x)  
+```
+Output: 
+```
+45.67
+```
+
+**6. Converting list to tuple**
+```
+my_list = [1, 2, 3]  # list
+my_tuple = tuple(my_list)  # converting to tuple
+print(my_tuple)
+```
+Output: 
+```
+(1, 2, 3)
+```
+
+**7. Converting tuple to list**
+```
+my_tuple2 = (4, 5, 6)  # tuple
+my_list2 = list(my_tuple2)  # converting to list
+print(my_list2)  
+```
+Output: 
+```
+[4, 5, 6]
+```
+
+**8. Converting int to bool**
+```
+num_bool = 0  # integer
+bool_value = bool(num_bool)  # converting to boolean
+print(bool_value)  
+```
+Output: 
+```
+False
+```
 
 
 ## Exercises

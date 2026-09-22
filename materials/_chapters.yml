@@ -5,8 +5,8 @@ book:
       chapters:
         - materials/00_introducing_python.md
         - materials/01_python_basics.md
-        - materials/03_python_data_types.md
-        - materials/04_python_operators.md
+        - materials/02_python_data_types.md
+        - materials/03_python_operators.md
         - materials/04_python_functions.md
 
     - part: "Session 2: Core Programming"
