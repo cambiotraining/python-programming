@@ -3,49 +3,49 @@ book:
     #- materials/00_course_structure.md
     - part: "Session 1: Python basics"
       chapters:
-        - materials/00_introducing_python.md
-        - materials/01_python_basics.md
-        - materials/02_python_data_types.md
-        - materials/03_python_operators.md
-        - materials/04_python_functions.md
+        - materials/00_introducing_python.qmd
+        - materials/01_python_basics.qmd
+        - materials/02_python_data_types.qmd
+        - materials/03_python_operators.qmd
+        - materials/04_python_functions.qmd
 
     - part: "Session 2: Core Programming"
       chapters:
-        - materials/05_python_conditionals.md
-        - materials/06_python_for_loops.md
-        - materials/07_python_while_conditional_loops.md
-        - materials/08_python_try-except.md
+        - materials/05_python_conditionals.qmd
+        - materials/06_python_for_loops.qmd
+        - materials/07_python_while_conditional_loops.qmd
+        - materials/08_python_try-except.qmd
 
     - part: "Session 3: Real World Programming"
       chapters:
-        - materials/09_importing_libraries.md
-        - materials/10_working_with_files.md
-        - materials/11_create_your_own_script.md 
+        - materials/09_importing_libraries.qmd
+        - materials/10_working_with_files.qmd
+        - materials/11_create_your_own_script.qmd 
 
     - part: "Session 4: Testing your ability with NumPy"
       chapters:
         - materials/
-        - materials/12_working_with_numpy.md
+        - materials/12_working_with_numpy.qmd
         #- materials/programming_task
     
     - part: "Session 5: Object oriented programming"
       chapters:
-        - materials/15_intro_OOP.md
-        - materials/16_classes_and_attributes.md
-        - materials/17_class_methods.md
-        - materials/18_class_inheritance.md
-        - materials/19_OOP_exercise.md
+        - materials/15_intro_OOP.qmd
+        - materials/16_classes_and_attributes.qmd
+        - materials/17_class_methods.qmd
+        - materials/18_class_inheritance.qmd
+        - materials/19_OOP_exercise.qmd
         #-the-OOP-syntax
         #-Exercise - main exercise - create your own class
 
     - part: "Session 6: Help Session"
       chapters:
-        - materials/20_Help_Session.md
+        - materials/20_Help_Session.qmd
         #-Exercise - instructors help participants with their setup for specific use cases
         #-Optional activity for those who want it/extra
 
 
     - part: "Cheat Sheets"
       chapters:
-        - materials/python_data_types_cheat-sheet.md
-        - materials/python_operators_cheat-sheet.md
+        - materials/python_data_types_cheat-sheet.qmd
+        - materials/python_operators_cheat-sheet.qmd
