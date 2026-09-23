@@ -1,0 +1,145 @@
+---
+title: Python Syntax
+---
+
+::: {.callout-tip}
+#### Learning Objectives
+
+- Learn the basic python syntax
+- Learn how to create and name variables
+
+:::
+
+## What is the syntax of a Programming language
+
+The syntax of a programming language is...
+
+
+## Assigning variables
+
+A variable is a named reference used to store and access a value in a program.
+
+::: {.callout-exercise}
+#### Python variables
+
+What are the variables in the ```expense_calculator.py``` script? 
+
+What are they used for?
+
+:::
+
+In Python initialising variables is easy:
+
+- Variables are assigned using the = sign
+
+- Case sensitive
+
+- No need to declare the type explicitly (dynamic typing)
+
+```
+# Initialising my_height in cm 
+my_height = 176
+my_name = "Kavi"
+
+```
+<br>
+
+### Variable Naming Conventions in Python - Making your life easy!
+
+*One of the worst things in particular when looking at other peoples code is variable names that make no sense to anybody but the writer*
+
+When naming variables, it's important to follow Python's guidelines for consistency and readability. Here are some key rules to remember:
+
+* **Case-sensitive:** weight and Weight are different variables.
+
+* **Use lowercase:** Separate words with underscores, e.g., weight_kg.
+
+* **Don't start with numbers:** Variable names cannot begin with a digit.
+
+* **Stick to letters:** Use only letters, underscores, and digits (when needed). No quotation marks or brackets
+
+* **Be descriptive:** Choose clear, meaningful names (e.g., asdjks is not helpful).
+
+* **Avoid overly long names:** For example 'this_is_my_height_in_cm' is too long.
+
+* **Don't use keywords:** Avoid using Python function names, class names, or data types as variable names.
+
+For more detailed guidelines, refer to PEP 8 or the Google Python Style Guide.
+
+<br>
+
+### Indentation
+
+In python indentation is used to define code blocks. We will see more of this later in this course. 
+- Unexpected indents will result in errors.
+- indents are 4 spaces according to PEP 8 standards, however commonly also two spaces on web interfaces. Be consistent.
+- Using spaces is preferable to using tabs
+
+```
+# Initialising my_height in cm 
+my_height = 176
+ my_name = "Kavi"
+ 
+```
+The above would produce an error
+
+## Commenting your code
+
+Commenting your code, and using lines liberally, are key to making your code easily understandable for both yourself and others.
+These comments are ignored by python and do not result in any output - check for yourself in the console!
+
+- A **```#```** (Hash) is used for single line comments 
+
+- A **```"""```** (triple quotes) is used around multiline comments or strings
+
+- A **```\```** (backslash) is used to explicitly break a line
+
+- Lines can be implicitly continued in some cases, for example when in brackets. We will see this later. 
+
+## Exercises
+
+
+::: {.callout-exercise}
+#### Python variable evaluation
+
+Decide whether the following are good or bad variable names. If they are bad, what might be a better name and why? 
+
+::: {.callout-answer}
+
+
+:::
+
+:::
+
+::: {.callout-exercise}
+#### Commenting code
+
+
+::: {.callout-answer}
+
+
+:::
+
+:::
+
+::: {.callout-exercise}
+#### Indentation
+
+
+::: {.callout-answer}
+
+
+:::
+
+:::
+
+## Summary
+
+::: {.callout-tip}
+#### Key Points
+
+- Variables are words used to reference and access a value
+- Be clear an concise following guidelines when naming variables
+- Comment your code for clarity
+
+:::

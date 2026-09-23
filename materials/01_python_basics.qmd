@@ -35,7 +35,7 @@ In the last section, you pressed a play button to run a script, and a box appear
 
 A terminal is simply a plain text window where you type instructions for your computer, instead of clicking on menus and icons with your mouse. It looks a little old-fashioned, but it is one of the most useful tools you will use as a programmer in particular because it is much quicker than using the mouse.
 
-You can open a terminal in VS Code at any time by clicking **Terminal → New Terminal** at the top of the screen (or by pressing **Ctrl + `**). Because you already opened the `scripts` folder, your terminal will start there too.
+You can open a terminal in VS Code at any time by clicking **Terminal → New Terminal** at the top of the screen (or by pressing **`Ctrl +`**). Because you already opened the `scripts` folder, your terminal will start there too.
 
 ## Way 1: Running Python Using a Script
 

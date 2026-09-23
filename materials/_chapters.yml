@@ -5,6 +5,7 @@ book:
       chapters:
         - materials/00_introducing_python.qmd
         - materials/01_python_basics.qmd
+        - materials/02_fear_of_breaking_things.qmd
         - materials/02_python_data_types.qmd
         - materials/03_python_operators.qmd
         - materials/04_python_functions.qmd

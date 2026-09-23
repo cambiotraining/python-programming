@@ -1,70 +1,170 @@
 ---
-title: Do not be afraid of breaking things
+title: "Do Not Be Afraid of Breaking Things"
 ---
 
 ::: {.callout-tip}
-#### Learning Objectives
-
-- Understand that making mistakes when writing python code is fine, and a method of learning
-- Observe useful python error messages which will often direct users to the source of the problem
-- Understand that in more advanced coding, a proper setup and good practices will prevent irreversible damage, rather than perfect coding
-
+## Learning Objectives
+- Understand that making mistakes is a normal, healthy part of learning Python
+- Read and interpret basic Python error messages to find and fix bugs
+- Learn how good setup habits protect your computer and files from unintended changes
 :::
 
+## Making Mistakes is Part of Coding
 
-## Making Mistakes
+One of the biggest hurdles when starting out with Python is the fear of breaking something or getting an error. It is completely normal to feel cautious, but coding is very different from doing a physical laboratory experiment. In a lab, a single slip-up can waste hours of effort, ruin expensive materials, or spill chemicals.
 
-One of the main difficulties with beginners to coding including in Python is that beginners are often afraid to make mistakes. This makes learning to code much more difficult. Unlike an laboratory experiment where a mistake can cost many hours and much money down the drain. A mistake in code is usually (not always) caught quickly, and has a low bar. This is particularly true when writing code in order to learn. 
+In Python, making a mistake usually just results in a text message appearing on your screen. Nothing breaks physically, and your computer remains completely safe. In fact, triggering error messages on purpose is one of the fastest ways to learn how code works!
 
+## This Course Uses Our Training Machines
 
-## This course does not use your own laptop
+Throughout this course, you are working on our pre-configured training machines rather than your personal laptop.
 
-In this course you will use our machines. Therefore do not be afraid of breaking things - we will generally be able to rectify it for you and there is no risk to your own computer/data. Use this environment to learn
+This means you have a safe sandbox to experiment in. If you type the wrong command or get stuck, we can easily reset things for you. There is zero risk to your personal computer, files, or photos. Use this freedom to experiment, test new ideas, and type out code without worrying about making a mess.
 
-## Python produces useful debug messages
+## Python Gives Useful Error Messages
 
-As python is written line by line - python (in particular pure python without using eatra packages) usually outputs clear error messages that point to the line and state the mistake
+Python code runs line by line. When Python encounters something it does not understand, it stops running and prints an error message to the screen. Rather than seeing an error message as a failure, think of it as a helpful clue.
 
-An example is: 
+Python tells you three key things:
 
+- Where the problem happened (the line number).
+- What kind of error occurred (the error name).
+- Why it happened (a short explanation).
 
-## Learning from your mistakes
+### Example 1: A Syntax Error (A Typing Mistake)
 
-After testing different things, and learning from your mistakes, you will be able to write much better code. You will explore different options for writing the same thing......
+If you forget to close a pair of quotation marks, Python cannot understand where your text finishes:
 
-## Managing your setup is a better way to ensure that you do not damage other things
+```python
+print("Hello world)
+```
 
-We will talk later about this in far more detail, but managing your setup is one of the best ways to ensure their is no damage to your files or system. This includes keeping all the project files in the same folder and only using them.
+What Python displays:
+
+```
+  File "<stdin>", line 1
+    print("Hello world)
+          ^
+SyntaxError: unterminated string literal
+```
+
+- **Line 1:** Tells you exactly where Python got confused.
+- **The Little Arrow (^):** Points to where the mistake occurred.
+- **SyntaxError:** Means a rule of the Python language was broken (in this case, an unclosed piece of text).
+
+This might sound like complete nonsense right now — and that's fine. Terms like "SyntaxError" and "string literal" will start to make a lot more sense once you've learned a few more of the technical building blocks of Python, so don't worry about memorising them just yet.
+
+### Example 2: A Name Error (A Spelling Mistake)
+
+If you misspell a command name, Python will tell you that it does not recognise the word:
+
+```python
+prnt("Hello world")
+```
+
+What Python displays:
+
+```
+NameError: name 'prnt' is not defined. Did you mean: 'print'?
+```
+
+Notice how friendly this message is—Python even suggests the correct spelling (`Did you mean: 'print'?`)!
+
+## Learning from Your Mistakes
+
+Every programmer, from complete beginners to senior software engineers, writes code that produces errors every single day.
+
+When an error happens:
+
+- Read the bottom line of the error message first.
+- Check the line number Python points to.
+- Look for small typos, missing brackets, or missing quotation marks.
+
+By making mistakes, trying different options, and seeing what happens, you will quickly develop an intuition for writing clean Python code.
+
+## Good Habits Protect Your Files
+
+Later in the course, we will explore how a good workspace setup helps protect your work. Rather than relying on "perfect coding" to avoid problems, programmers use simple rules to keep everything safe:
+
+- **Keep files inside your working directory:** Working inside a single project folder ensures Python only touches files in that specific place.
+- **Never touch system files:** By keeping your project separate from your computer's main operating system files, your broader computer stays completely safe.
 
 ::: {.callout-tip}
-## Working directory
-Attend our courses on using git etc. to help with this 
+## Going Further
+If you want to learn how to save and back up versions of your code so you can undo mistakes at any time, consider attending our course which introduce Git and Version Control.
 :::
 
-## Exercise
+## Exercises
 
 ::: {.callout-exercise}
-#### Learning from an error message
+### Exercise 1: Spotting a Bracket Error
 
-type in to the console: 
+In your `scripts` folder, create a new file called `broken.py`. Type the following three lines exactly as shown, including the missing closing bracket on the second line:
 
-what did you learn?
+```python
+print("Line one")
+print("Welcome to Python"
+print("Line three")
+```
+
+Save the file, then run it from the terminal by typing `python broken.py`.
+
+What error name does Python give you, and which line number does it point to?
 
 ::: {.callout-answer}
+Answer:
 
+Because the opening bracket on line 2 is never closed, Python's parser searches onward through the rest of the file trying to find its matching `)`. This displays:
 
+```
+  File "broken.py", line 2
+    print("Welcome to Python"
+         ^
+SyntaxError: '(' was never closed
+```
+
+Python points straight back to **line 2** — the exact line where the bracket was opened — with a `SyntaxError: '(' was never closed`, rather than leaving you to guess where the problem started. You have learn an important rule in python grammar - brackets must be closed
+:::
 :::
 
+::: {.callout-exercise}
+### Exercise 2: Capitalisation Mistakes
+
+In your Python console, try running this command with a capital 'P':
+
+```python
+Print("hello world")
+```
+
+What error name appears this time?
+
+Why did Python produce this error even though "Print" is spelled correctly?
+
+::: {.callout-answer}
+Answer:
+Python produces a `NameError: name 'Print' is not defined`. This teaches you that Python is case-sensitive, meaning `Print` (with a capital P) and `print` (lowercase) are treated as two completely different words!
+:::
 :::
 
+::: {.callout-exercise}
+### Exercise 3: Conceptual Check — Why Error Messages Help
+
+Why is getting an error message in Python better than a program running silently with incorrect results?
+
+::: {.callout-answer}
+Answer:
+An error message alerts you immediately that something went wrong and points directly to the line of code causing the issue. If code failed silently, you might assume everything worked correctly while producing incorrect outputs or hidden bugs! 
+
+Real code often holds these kinds of errors which fail silently or only sometimes when the code is run. These are much harder to deal with, but later in this course we will look at a way these can be handled.
+:::
+:::
 
 ## Summary
 
 ::: {.callout-tip}
-#### Key Points
-
-- Variables are words used to reference and access a value
-- Be clear an concise following guidelines when naming variables
-- Comment your code for clarity
-
+## Key Takeaways
+- **Mistakes are normal:** Making errors is an essential part of learning how to program.
+- **Low risk:** Writing wrong code on our training machines will not damage your computer or lose personal files.
+- **Read the clues:** Python error messages tell you the line number, the error type, and often suggest how to fix the problem.
+- **Good workspace habits:** Keeping files inside your working directory ensures your projects stay clean, organised, and safe.
 :::
