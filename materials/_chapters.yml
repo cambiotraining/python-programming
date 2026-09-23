@@ -10,6 +10,8 @@ book:
         - materials/04_Python_Data_types.qmd
         # - materials/02_python_data_types.qmd
         - materials/03_python_operators.qmd
+        - materials/05_working_with_numbers_and_strings.qmd
+        - materials/06_working_with_composite_data_types.qmd
         - materials/04_python_functions.qmd
 
     - part: "Session 2: Core Programming"

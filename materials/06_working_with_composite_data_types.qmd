@@ -1,0 +1,432 @@
+---
+title: "Working with Composite Data Types"
+format: html
+---
+
+::: {.callout-tip}
+#### Learning Objectives
+
+- Understand **mutability** and **immutability** across Python composite data types.
+- Access individual elements and slices using positional indexing (`[0]`, `[1:3]`) and key lookups (`["key"]`).
+- Use key built-in list methods (e.g. `.append()`, `.extend()`, `.pop()`, `.sort()`).
+- Use key built-in dictionary methods (e.g. `.get()`, `.keys()`, `.values()`, `.items()`).
+- Store unique and fixed collections using sets and tuples.
+- Solve multi-step problems using composite data structures.
+:::
+
+## Overview of Composite Data Types
+
+In Python, composite data types allow you to group multiple values into a single variable. The four main composite data types behave differently regarding **mutability**, **order**, and **duplicates**:
+
+| Data Type | Mutable? | Ordered? | Allows Duplicates? | Common Use Case |
+| :--- | :--- | :--- | :--- | :--- |
+| **List** | Yes | Yes | Yes | Storing sequential items that change over time |
+| **Tuple** | No | Yes | Yes | Storing fixed groups of values (e.g. coordinates) |
+| **Dictionary** | Yes | Yes (insertion order) | Keys: No, Values: Yes | Looking up values using unique labels |
+| **Set** | Yes | No | No | Tracking unique items and removing duplicates |
+
+### Demonstrating Mutability vs Immutability
+
+**Mutable** objects can have their content altered in place after creation. **Immutable** objects cannot be changed directly and will raise an error if you attempt to modify their elements.
+
+```{python}
+# Lists are mutable: elements can be modified in place
+shopping_list = ["bread", "milk", "butter"]
+shopping_list[0] = "sourdough"
+print("Modified List:", shopping_list)
+
+# Dictionaries are mutable: values can be updated or added
+catalogue = {"laptop": 850, "mouse": 25}
+catalogue["mouse"] = 20
+catalogue["keyboard"] = 45
+print("Modified Dictionary:", catalogue)
+```
+
+
+```python
+# Tuples are immutable: attempting to change an item raises an error
+coordinates = (51.5074, -0.1278)
+coordinates[0] = 52.0
+```
+
+output:
+```python
+TypeError                                 Traceback (most recent call last)
+/tmp/ipykernel_1691/4027946773.py in <cell line: 0>()
+      1 coordinates = (51.5074, -0.1278)
+----> 2 coordinates[0] = 52.0
+
+TypeError: 'tuple' object does not support item assignment
+```
+
+## Working with Lists
+
+Lists are ordered, indexable sequences. You can access individual items using zero-based indexing or retrieve multiple items using slicing.
+
+### Accessing List Elements & Slicing
+
+- **Index `0`**: Retrieves the first element.
+- **Index `-1`**: Retrieves the last element.
+- **Slice `[start:stop_before]`**: Extracts a sub-list.
+
+```{python}
+cities = ["London", "Manchester", "Edinburgh", "Cardiff", "Belfast"]
+
+# Accessing individual elements by index
+first_city = cities[0]
+second_city = cities[1]
+last_city = cities[-1]
+
+print("First city [0]:", first_city)
+print("Second city [1]:", second_city)
+print("Last city [-1]:", last_city)
+
+# Slicing a list [start:stop_before]
+middle_cities = cities[1:4]  # Extracts indices 1, 2, and 3
+first_two = cities[:2]       # Extracts up to (but excluding) index 2
+
+print("Slice [1:4]:", middle_cities)
+print("Slice [:2]:", first_two)
+```
+
+### Useful Built-in List Methods
+
+| Method / Function | Purpose | Example Syntax |
+| :--- | :--- | :--- |
+| `list.append(x)` | Adds item `x` to the end of the list | `items.append("tea")` |
+| `list.extend(iterable)` | Appends all items from a collection to the end | `items.extend(["milk", "sugar"])` |
+| `list.insert(i, x)` | Inserts item `x` at index `i` | `items.insert(0, "coffee")` |
+| `list.remove(x)` | Removes the first occurrence of value `x` | `items.remove("tea")` |
+| `list.pop(i)` | Removes and returns item at index `i` (default: last item) | `last_item = items.pop()` |
+| `list.sort()` | Sorts items in ascending order in place | `items.sort()` |
+| `list.reverse()` | Reverses the order of items in place | `items.reverse()` |
+| `len(list)` | Returns the total number of items | `total = len(items)` |
+
+### Demonstrating List Operations
+
+```{python}
+# Initialise a list
+animals = ["Lion", "Tiger", "Bear"]
+
+# Adding items
+animals.append("Elephant")
+animals.extend(["Giraffe", "Zebra"])
+print("After append & extend:", animals)
+
+# Inserting at index 1
+animals.insert(1, "Monkey")
+print("After inserting at index 1:", animals)
+print("New element at index 1:", animals[1])
+
+# Removing and popping items
+animals.remove("Tiger")
+removed_item = animals.pop()  # Removes last item ("Zebra")
+
+print("Removed via pop():", removed_item)
+print("After removal & pop:", animals)
+
+# Sorting alphabetically
+animals.sort()
+print("Alphabetically sorted:", animals)
+```
+
+---
+
+## Working with Dictionaries
+
+Dictionaries map unique **keys** to **values**. Rather than using numeric positional indices, you access values using their associated keys.
+
+### Accessing Dictionary Elements
+
+```{python}
+book_stock = {
+    "Python Programming": 12,
+    "Data Analytics": 5,
+    "Web Development": 8
+}
+
+# Accessing values using key indexing
+python_copies = book_stock["Python Programming"]
+print("Copies of Python Programming:", python_copies)
+
+# Safely accessing values using .get() (prevents KeyError if key is missing)
+cyber_copies = book_stock.get("Cybersecurity", 0)
+print("Copies of Cybersecurity (defaulted):", cyber_copies)
+```
+
+### Useful Dictionary Methods
+
+| Method / Operation | Description | Example Syntax |
+| :--- | :--- | :--- |
+| `dict[key] = value` | Adds or updates a key-value pair | `stock["pens"] = 50` |
+| `dict.get(key, default)` | Safely retrieves value for `key` without raising an error | `stock.get("paper", 0)` |
+| `dict.keys()` | Returns a view of all dictionary keys | `stock.keys()` |
+| `dict.values()` | Returns a view of all dictionary values | `stock.values()` |
+| `dict.items()` | Returns key-value pairs as tuples | `stock.items()` |
+| `del dict[key]` | Deletes a key-value pair | `del stock["pens"]` |
+
+### Demonstrating Dictionary Operations
+
+```{python}
+# Updating and adding items
+book_stock["Cybersecurity"] = 4
+book_stock["Data Analytics"] = 10  # Updates existing value
+
+print("Updated book stock:", book_stock)
+print("All keys:", list(book_stock.keys()))
+print("All values:", list(book_stock.values()))
+
+# Iterating through key-value pairs using .items()
+print("\nCurrent Inventory:")
+for title, quantity in book_stock.items():
+    print(f"- {title}: {quantity} copies")
+```
+
+---
+
+## Working with Tuples and Sets
+
+### Tuples
+Tuples are ordered and immutable. You access items using positional indexing `tuple[index]` just like lists, but you cannot modify them.
+
+```{python}
+# Storing fixed geographical coordinates (Latitude, Longitude)
+location = (53.4808, -2.2426)
+
+# Accessing elements by index
+latitude = location[0]
+longitude = location[1]
+
+print("Latitude [0]:", latitude)
+print("Longitude [1]:", longitude)
+```
+
+### Sets
+Sets store an unordered collection of **unique** items. Because sets are unordered, they **do not support indexing** (`set[0]` will raise an error). Instead, you add items, check membership with `in`, or convert them to lists.
+
+```{python}
+# Initialising a set with duplicate entries
+customer_ids = {101, 102, 103, 101, 104, 102}
+print("Unique Customer IDs:", customer_ids)
+
+# Adding items
+customer_ids.add(105)
+customer_ids.add(103)  # Duplicate, automatically ignored
+
+print("Updated Customer IDs:", customer_ids)
+
+# Checking membership
+print("Is 102 in customer_ids?", 102 in customer_ids)
+```
+
+
+```python
+#The below will throw an error
+customer_ids = {101, 102, 103, 101, 104, 102}
+print(customer_ids[0])
+```
+output
+```python
+TypeError                                 Traceback (most recent call last)
+/tmp/ipykernel_1691/2197521621.py in <cell line: 0>()
+      1 customer_ids = {101, 102, 103, 101, 104, 102}
+----> 2 print(customer_ids[0])
+
+TypeError: 'set' object is not subscriptable
+```
+
+---
+
+## Exercises
+
+### Exercise 1: List Indexing, Slicing, and Methods
+{{< level 1 >}}
+
+1. Create a list named `attendees` containing: `"Sarah"`, `"Alex"`, `"Ravi"`, `"Elena"`, and `"Marcus"`.
+2. Print the second attendee using index `1` and the last attendee using index `-1`.
+3. Extract a slice containing the middle three attendees (`"Alex"`, `"Ravi"`, `"Elena"`) and assign it to `middle_group`.
+4. Add `"Chloe"` to the end of `attendees` using `.append()`.
+5. Sort `attendees` alphabetically using `.sort()`.
+6. Print the final sorted list and its total length using `len()`.
+
+::: {.callout-answer}
+```{python}
+# 1. Create initial list
+attendees = ["Sarah", "Alex", "Ravi", "Elena", "Marcus"]
+
+# 2. Access elements
+print("Second attendee [1]:", attendees[1])
+print("Last attendee [-1]:", attendees[-1])
+
+# 3. Slice middle three
+middle_group = attendees[1:4]
+print("Middle group [1:4]:", middle_group)
+
+# 4. Append Chloe
+attendees.append("Chloe")
+
+# 5. Sort alphabetically
+attendees.sort()
+
+# 6. Output result and length
+print("Final Attendees List:", attendees)
+print("Total Attendees:", len(attendees))
+```
+:::
+
+### Exercise 2: Working with Tuples and Immutability
+{{< level 1 >}}
+
+1. Create a tuple named `screen_dimensions` containing the width `1920` and height `1080`.
+2. Access and print the width using index `0` and height using index `1`.
+
+::: {.callout-answer}
+```{python}
+# 1. Create tuple
+screen_dimensions = (1920, 1080)
+
+# 2. Access elements
+print("Width [0]:", screen_dimensions[0])
+print("Height [1]:", screen_dimensions[1])
+```
+
+:::
+
+### Exercise 3: Dictionary Access and Key Management
+{{< level 1 >}}
+
+1. Create a dictionary named `office_supplies` with the following key-value pairs:
+   - `"notepads"`: 25
+   - `"pens"`: 100
+   - `"staplers"`: 6
+2. Access and print the quantity of `"pens"` directly using `office_supplies["pens"]`.
+3. Update the quantity of `"notepads"` to `30`.
+4. Add a new item `"highlighters"` with a quantity of `45`.
+5. Use `.get()` to safely check the stock of `"paper clips"`. If missing, default to `0`.
+6. Print all supply names using `.keys()` and total quantities using `.values()`.
+
+::: {.callout-answer}
+```{python}
+# 1. Create dictionary
+office_supplies = {
+    "notepads": 25,
+    "pens": 100,
+    "staplers": 6
+}
+
+# 2. Access value directly by key
+print("Pens quantity:", office_supplies["pens"])
+
+# 3. Update existing key
+office_supplies["notepads"] = 30
+
+# 4. Add new key-value pair
+office_supplies["highlighters"] = 45
+
+# 5. Safe lookup with .get()
+paper_clips_count = office_supplies.get("paper clips", 0)
+print("Paper clips stock:", paper_clips_count)
+
+# 6. Display keys and values
+print("Supply Names:", list(office_supplies.keys()))
+print("Stock Counts:", list(office_supplies.values()))
+```
+:::
+
+### Exercise 4: Filtering Unique Visitor Logs with Sets
+{{< level 2 >}}
+
+A hotel check-in system recorded the following visitor badge numbers throughout a day (including duplicates from repeat entries):
+`badge_log = [104, 201, 104, 305, 201, 402, 104, 501]`
+
+1. Convert `badge_log` into a set named `unique_badges` to eliminate all duplicate numbers.
+2. Add a new visitor badge `602` to `unique_badges` using `.add()`.
+3. Convert `unique_badges` back into a list named `sorted_unique_badges` and sort it in ascending order using `.sort()`.
+4. Print the second item in `sorted_unique_badges` using index `1`.
+5. Print the total count of unique visitors using `len()`.
+
+::: {.callout-answer}
+```{python}
+badge_log = [104, 201, 104, 305, 201, 402, 104, 501]
+
+# 1. Filter duplicates with set()
+unique_badges = set(badge_log)
+
+# 2. Add new visitor
+unique_badges.add(602)
+
+# 3. Convert back to list and sort
+sorted_unique_badges = list(unique_badges)
+sorted_unique_badges.sort()
+
+# 4. Access element by index from sorted list
+print("Second sorted badge [1]:", sorted_unique_badges[1])
+
+# 5. Print results
+print("Sorted Unique Badges:", sorted_unique_badges)
+print("Total Unique Visitors:", len(sorted_unique_badges))
+```
+:::
+
+### Exercise 5: Inventory Update System (Word Problem)
+{{< level 3 >}}
+
+Write a Python script to do the following task:
+
+A store manager in Leeds is updating the store inventory system.
+
+Current inventory dictionary:
+`inventory = {"woollen sweater": 15, "denim jeans": 8, "leather belt": 20}`
+1. Access and print the initial quantity of `"denim jeans"` using key lookup.
+2. A new shipment arrives containing **10 woollen sweaters** and **12 rain jackets**. Update the sweater count and add the rain jackets to the inventory.
+3. A customer buys **3 denim jeans**. Deduct this from the inventory.
+4. Extract all product names from the inventory, sort them alphabetically into a list named `product_catalogue`, and print the first catalogue item using index `0`.
+5. Calculate the total number of physical items remaining across all categories in the store using Python's `sum()` function and `.values()`.
+
+::: {.callout-answer}
+```{python}
+# Baseline inventory
+inventory = {
+    "woollen sweater": 15,
+    "denim jeans": 8,
+    "leather belt": 20
+}
+
+# 1. Access element by key
+print("Initial denim jeans count:", inventory["denim jeans"])
+
+# 2. Process incoming shipment
+inventory["woollen sweater"] += 10
+inventory["rain jacket"] = 12
+
+# 3. Process sale
+inventory["denim jeans"] -= 3
+
+# 4. Extract, sort, and index catalogue
+product_catalogue = list(inventory.keys())
+product_catalogue.sort()
+print("First item in sorted catalogue [0]:", product_catalogue[0])
+
+# 5. Calculate total physical stock
+total_items = sum(inventory.values())
+
+# Summary output
+print("Updated Inventory:", inventory)
+print("Sorted Product Catalogue:", product_catalogue)
+print("Total Physical Stock Count:", total_items)
+```
+:::
+
+---
+
+## Summary
+
+::: {.callout-tip}
+#### Key Points
+
+- **Lists** and **Tuples** are ordered sequences accessed via numeric indices (`[0]`, `[1]`, `[-1]`) and slices (`[1:3]`).
+- **Dictionaries** store key-value pairs accessed via keys (`dict["key"]`) or `.get("key")`.
+- **Sets** store unordered, unique elements and do not support positional indexing.
+- **Lists** and **Dictionaries** are mutable; **Tuples** are immutable.
+- Built-in methods like `.append()`, `.extend()`, `.pop()`, and `.sort()` provide powerful ways to manipulate composite collections.
+:::
