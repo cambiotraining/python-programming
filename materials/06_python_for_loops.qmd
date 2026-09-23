@@ -1,264 +1,334 @@
 ---
-title: Python for Loops
+title: "Python `for` Loops"
 ---
 
 ::: {.callout-tip}
+
 #### Learning Objectives
 
-- Learn what a for loop is
-- Learn the syntax for a for loop
-- Learn the common functions used with for loops
+* Learn what a `for` loop is and its syntax
+* Learn how to iterate over sequences, including lists and dictionaries
+* Understand how helper functions like `range()` and `enumerate()` work
 
 :::
 
-## `for` Loops in Python
+## Syntax of `for` Loops in Python
 
-`for` loops iterate over a sequence (list, tuple, string, dictionary, set, or range) and perform processes. The syntax of a `for` loop is simple but must be carefully followed, especially with respect to the colon (`:`) and indentation.
+`for` loops iterate over a sequence (such as a list, tuple, string, dictionary, set, or range) and execute a block of code for each item in that sequence.
 
 **Syntax**
 
-- The `for` keyword is followed by a variable name (e.g., `item`) that will take on the value of each element in the sequence.  
-- The sequence can be a list, tuple, string, or any iterable object.  
-- The colon (`:`) indicates the start of the loop block.  
-- The indented lines that follow the colon are the code that will be executed.
+* The `for` keyword is followed by a variable name (e.g., `item`) that receives the current element on each iteration.
+* The `in` keyword points to the sequence or iterable object.
+* The colon (`:`) marks the start of the loop body.
+* The code block inside the loop **must be indented** (typically 4 spaces).
 
-
-```
+```python
 for item in sequence:
-    print(x) # Code block to execute
+    print(item)  # Code block executed for each item
 ```
-Example:
 
-```
+**Example:**
+
+```{python}
 animals = ["dog", "cat", "rabbit", "elephant", "tiger"]
 
 for animal in animals:
-    print(f'I have a {animal}.')
-```
-Output
-```
-I have a dog.
-I have a cat.
-I have a rabbit.
-I have an elephant.
-I have a tiger.
+    print(f"I have a {animal}.")
 ```
 
-## Using `len()` and `range()` in `for` loops
 
-In Python, `len()` and `range()` are often used with for loops to control iterations and access elements by their index.
+## Iterating Through a Dictionary
 
-**Using `len()`**
+When you iterate directly over a dictionary, Python defaults to looping through its **keys**. However, you can also iterate over its **values** or both **keys and values** together using dictionary methods.
 
-The `len()` function returns the number of items in an iterable (like a list, tuple, or string). This is useful when you need to loop through each element of a sequence without manually specifying the length.
+```{python}
+student_scores = {
+    "Alice": 85,
+    "Bob": 92,
+    "Charlie": 78
+}
 
-**Using `range`**
+# 1. Loop through keys (default behaviour)
+print("Keys:")
+for name in student_scores:
+    print(name)
 
-The range() function generates a sequence of numbers, which can be useful for iterating over a sequence with a specified start and end. The syntax is range(start, stop[, step])
+# 2. Loop through values using .values()
+print("\nValues:")
+for score in student_scores.values():
+    print(score)
 
+# 3. Loop through key-value pairs using .items()
+print("\nKey-Value Pairs:")
+for name, score in student_scores.items():
+    print(f"{name} scored {score}%")
 ```
-# Loop through the first five integers
+
+
+## Understanding and Using `range()`
+
+The `range()` function generates a sequence of numbers. Beginners often expect `range(5)` to produce a list of numbers directly, but let's test what happens if you print it:
+
+```{python}
+print(range(5))
+```
+
+
+**What is a `range` object?**
+
+Instead of generating all numbers in memory at once, `range()` creates a **`range` object**. This object generates each number on-the-fly as requested (a concept known as *lazy evaluation*).
+
+To inspect the numbers contained inside a `range` object, you can convert it to a `list`:
+
+```{python}
+print(list(range(5)))
+```
+
+
+**How `for` loops use `range()`**
+
+When used in a `for` loop, the loop requests numbers from the `range` object one by one:
+
+```{python}
 for num in range(5):
     print(num)
-
 ```
 
-**Examples:**
 
+**Syntax Options for `range()`**
+
+The syntax for `range()` is `range(start=0, stop, step=1)`:
+
+* `range(stop)`: Starts at `0` by default and goes up to, but **does not include**, `stop`.
+* `range(start, stop)`: Starts at `start` and goes up to, but **does not include**, `stop`.
+* `range(start, stop, step)`: Increments by `step` on each iteration, with the default step being 1.
+
+
+```{python}
+# Range with start and stop
+for i in range(2, 6):
+    print(i, end=" ")  # Output: 2 3 4 5
+    # the end= replaces the default new line with a space
+print()
+
+# Range with start, stop, and step
+for i in range(0, 10, 2):
+    print(i, end=" ")  # Output: 0 2 4 6 8
+print()
 ```
+
+**Combining `range()` and `len()`**
+
+You can combine `range()` and `len()` to loop using index positions:
+
+```{python}
 animals = ["dog", "cat", "rabbit", "elephant"]
 
-for i in range(len(animals)):            # only 1 value - stop
-    print(f"Animal at index {i}: {animals[i]}")
-
-for i in range(0,len(animals),2):        #start, stop, step
-    print(f"Animal at index {i}: {animals[i]}")
-
-
+for i in range(len(animals)):
+    print(f"Index {i}: {animals[i]}")
 ```
 
-## Using `enumerate()` in `for` Loops
+## Understanding and Using `enumerate()`
 
-The `enumerate()` function in Python adds a counter to an iterable and returns it as an `enumerate` object. This is particularly useful when you want to loop through a sequence and keep track of the index of each item without using `range()`.
+While `range(len(...))` works for index-based access, Python provides a cleaner tool called `enumerate()`.
 
-**Syntax**
+If you try printing an `enumerate` call directly:
 
-The syntax of `enumerate()` is as follows:
-
-```python
-enumerate(iterable, start=0)
+```{python}
+animals = ["dog", "cat", "rabbit"]
+print(enumerate(animals))
 ```
-- iterable: The sequence (like a list, tuple, or string) you want to iterate over.
-- start: The starting index (default is 0).
 
-**Example of `enumerate()`**
-Here's a simple example demonstrating how to use enumerate() with a list of animals:
 
+Just like `range()`, `enumerate()` produces an object that yields values on demand. Converting it to a list shows what it generates under the hood:
+
+```{python}
+print(list(enumerate(animals)))
 ```
+
+
+Each element is a tuple containing `(index, item)`.
+
+**Using `enumerate()` in a `for` loop**
+
+In a `for` loop, Python unpacks these two-element tuples directly into two variables:
+
+```{python}
 animals = ["dog", "cat", "rabbit", "elephant"]
 
 for index, animal in enumerate(animals):
     print(f"Animal {index}: {animal}")
 ```
-output:
-```
-Animal 0: dog
-Animal 1: cat
-Animal 2: rabbit
-Animal 3: elephant
-```
-**Benefits of Using `enumerate()`**
 
-- **Clarity:** It makes the code cleaner and more readable by eliminating the need to manually manage the index.
-- **Convenience:** Automatically handles the index tracking for you, reducing the risk of errors.
+
+You can also specify a custom starting index using `start`:
+
+```{python}
+for index, animal in enumerate(animals, start=1):
+    print(f"#{index} - {animal}")
+```
+
+**Benefits of `enumerate()`:**
+
+* Cleaner, more readable code than `range(len(...))`.
+* Automatically tracks indices without manual counter variables.
+
+## Practice Exercises
 
 ::: {.callout-exercise}
-#### Modify the expense calculator
-{{< level 2 >}}
 
-Using conditional statements, for loops and the functions we have seen, 
-Modify the expense calculator to allow the input of a dictionary specified at the top of the script rather than a file.
-The dictionary should look like the following:
-```
-pre_existing_expenses = {
-    "food": [20.50, 15.00],
-    "transport": [10.00],
-    "entertainment": [90.00]
-}
-```
-Write code such that the calculator correctly loops through the dictionary to correctly load in pre-existing expenses and test your script.
+#### Exercise 1: Summing Numbers with `range()`
 
-Look at eachothers code - how might it be improved?
+{{< level 1 >}}
 
-<!--
+Write a `for` loop that calculates the sum of all numbers from `1` to `10` (inclusive) using `range()`. Print the final sum.
+
 ::: {.callout-answer}
+
+```{python}
+total = 0
+for num in range(1, 11):
+    total += num
+
+print(f"The sum is: {total}")  # Output: The sum is: 55
 ```
-# --- Inputs ---
-# Thresholds
-thresholds = {
-    "food": 100.0,
-    "transport": 50.0,
-    "entertainment": 80.0,
-    "other": 70.0
-}
 
-# Example input dictionary simulating pre-existing data
-pre_existing_expenses = {
-    "food": [20.50, 15.00],
-    "transport": [10.00],
-    "entertainment": [90.00]
-}
-
-expenses = []
-
-# --- Functions ---
-
-def load_from_dict(data_dict):
-    """Loops through a dictionary to load pre-existing expenses."""
-    keys = list(data_dict.keys())
-    
-    # Using range and len to iterate through the dictionary keys
-    for i in range(len(keys)):
-        category = keys[i]
-        amounts = data_dict[category]
-        
-        # Using enumerate to process individual amounts
-        for index, amt in enumerate(amounts):
-            if category in thresholds:
-                expenses.append([category, float(amt)])
-            else:
-                print(f"Skipping unknown category: {category}")
-
-def get_total(category):
-    """Calculates total spent for a specific category."""
-    total = 0.0
-    for item in expenses:
-        if item[0] == category:
-            total += item[1]
-    return total
-
-def process_expense(category, amount):
-    """Handles the logic for adding an expense and checking thresholds."""
-    expenses.append([category, amount])
-    current_total = get_total(category)
-    limit = thresholds[category]
-    
-    print(f"\n--- Update for {category.upper()} ---")
-    if current_total > limit:
-        over_by = current_total - limit
-        print(f"ALERT: Threshold exceeded by {over_by}!")
-    else:
-        print(f"Added {amount}. Total: {current_total}")
-        print(f"Remaining budget: {limit - current_total}")
-
-# --- Execution part ---
-
-# 1. Load the initial data
-load_from_dict(pre_existing_expenses)
-print(f"Loaded {len(expenses)} existing records.\n")
-
-# 2. User Input Loop
-while True:
-    cat_input = input("Enter category (food, transport, entertainment, other) or 'done': ").lower()
-    
-    if cat_input == "done":
-        break
-        
-    if cat_input in thresholds:
-        amt_input = input(f"Enter amount for {cat_input}: ")
-        
-        # Simple validation
-        if amt_input.replace('.', '', 1).isdigit():
-            process_expense(cat_input, float(amt_input))
-        else:
-            print("Invalid numeric amount.")
-    else:
-        print("Invalid category. Please choose from the list.")
-
-print("\nFinal Expense List:", expenses)
-
-```
 :::
-
--->
-
 :::
 
 ::: {.callout-exercise}
-#### Make your own `for` loop
-{{< level 2 >}}
 
-Exercise:  Make your on loop which iterates through a task of your own choosing - it needs to use enumerate.
-Use your impagination to come up with scenarios.
+#### Exercise 2: Shopping Cart Total
 
-Write code to deal with edge cases that might appear.
+{{< level 1 >}}
+
+Given a dictionary of shop items and their prices in pounds, write a `for` loop using `.items()` to print each item's price and calculate the total cost of all items.
+
+```python
+cart = {
+    "apple": 0.80,
+    "bread": 2.50,
+    "milk": 1.20,
+    "cheese": 3.40
+}
+```
+
+::: {.callout-answer}
+
+```{python}
+cart = {
+    "apple": 0.80,
+    "bread": 2.50,
+    "milk": 1.20,
+    "cheese": 3.40
+}
+
+total_cost = 0.0
+
+for item, price in cart.items():
+    print(f"{item.capitalize()}: £{price:.2f}")
+    total_cost += price
+
+print(f"Total: £{total_cost:.2f}")
+```
+
+:::
+:::
+
+::: {.callout-exercise}
+
+#### Exercise 3: Numbered Shopping List
+
+{{< level 1 >}}
+
+Given the following list of tasks, use `enumerate()` with `start=1` to print a formatted to-do list:
+
+```python
+tasks = ["Write report", "Send emails", "Review code", "Attend meeting"]
+```
+
+Expected Output:
+
+```text
+Task 1: Write report
+Task 2: Send emails
+Task 3: Review code
+Task 4: Attend meeting
+```
+
+::: {.callout-answer}
+
+```{python}
+tasks = ["Write report", "Send emails", "Review code", "Attend meeting"]
+
+for number, task in enumerate(tasks, start=1):
+    print(f"Task {number}: {task}")
+```
+
+:::
 :::
 
 ## Extra: List Comprehensions
 
-List comprehensions in python enable you to write shorter and sometimes faster code than standard loops. The syntax is:
+List comprehensions provide a concise way to create lists using `for` loops in a single line.
 
+**Syntax:**
+
+```python
 [expression for item in iterable if condition]
-
-Similar tools occur for dictionaries (Dictionary comprehension)
+```
 
 ::: {.callout-exercise}
-#### Use list Comprehensions
+
+#### Exercise 4: Use List Comprehensions
+
 {{< level 1 >}}
 
-print the animals list in upper case using list comprehensions
+Convert the list of animals to uppercase using a list comprehension:
 
+```python
+animals = ["dog", "cat", "rabbit", "elephant"]
+```
 
 ::: {.callout-answer}
 
-Answer:
-```
+```{python}
 animals = ["dog", "cat", "rabbit", "elephant"]
-print([animal.upper() for animal in animals])
+uppercase_animals = [animal.upper() for animal in animals]
+print(uppercase_animals)
 ```
-output:
+
+:::
+:::
+
+::: {.callout-exercise}
+
+#### Exercise 5: for loops in the expense calculator
+
+{{< level 2 >}}
+
+In the expense calculator, the function in the summary.py script iterates through the expenses to generate a summary. Modify `display_summary()` to use `enumerate()` to print a numbered summary and test your script in the Jupyter notebook.
+
+```python
+animals = ["dog", "cat", "rabbit", "elephant"]
 ```
-['DOG', 'CAT', 'RABBIT', 'ELEPHANT']
+
+::: {.callout-answer}
+
+```{python}
+def display_summary(expenses):
+    """Uses enumerate to iterate through the data and print a numbered report."""
+    print("\n--- Expense Summary ---")
+    for index, item in enumerate(expenses, start=1):
+        category = item[0]
+        amount = item[1]
+        print(f"{index}. Category: {category.capitalize()} | Amount: £{amount:.2f}")
+    print("-----------------------\n")
+
+# Testing the updated function
+sample_expenses = [["food", 20.50], ["transport", 10.00], ["entertainment", 90.00]]
+display_summary(sample_expenses)
 ```
 
 :::
@@ -267,9 +337,12 @@ output:
 ## Summary
 
 ::: {.callout-tip}
+
 #### Key Points
 
-- for loops can be used to repeatedly use the same logic in scripts
-- conditionls can easily be embedded within for loops
+* `for` loops iterate through elements of sequences (lists, strings, ranges, dictionaries).
+* Dictionaries iterate over keys by default; use `.values()` for values and `.items()` for key-value pairs.
+* `range()` returns an iterable range object (not a pre-built list), generating numbers on demand.
+* `enumerate()` yields `(index, item)` pairs, making indexed loops cleaner and safer.
 
 :::

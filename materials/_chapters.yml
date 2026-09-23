@@ -12,10 +12,10 @@ book:
         - materials/03_python_operators.qmd
         - materials/05_working_with_numbers_and_strings.qmd
         - materials/06_working_with_composite_data_types.qmd
-        - materials/04_python_functions.qmd
 
     - part: "Session 2: Core Programming"
       chapters:
+        - materials/04_python_functions.qmd
         - materials/05_python_conditionals.qmd
         - materials/06_python_for_loops.qmd
         - materials/07_python_while_conditional_loops.qmd
@@ -29,7 +29,7 @@ book:
 
     - part: "Session 4: Testing your ability with NumPy"
       chapters:
-        - materials/
+        #- materials/
         - materials/12_working_with_numpy.qmd
         #- materials/programming_task
     

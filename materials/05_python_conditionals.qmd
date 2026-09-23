@@ -1,32 +1,30 @@
 ---
-title: Python Conditional statements
+title: Python Conditional Statements
 ---
 
 ::: {.callout-tip}
 #### Learning Objectives
 
 - Learn about conditional statements
-- Learn how to use them and the syntax
+- Learn how to use them and their syntax
 
 :::
 
 ## Conditionals
 
-Conditional statements are important because they let a program make decisions. The program can evaluate the conditions and use them to choose what action to take. The conditiones can be based on user input or data values for example. This makes programs flexible and able to respond to different situations instead of doing the same thing every time.
+Conditional statements are important because they let a program make decisions. The program can evaluate conditions and use them to choose what action to take. Conditions can be based on user input or data values, for example. This makes programs flexible and able to respond to different situations instead of doing the same thing every time.
 
-Conditionals in Python allow you to execute different blocks of code based on conditions with boolean outputs. By boolean outputs, it means that the condition must be true or false.
+Conditionals in Python allow you to execute different blocks of code based on conditions with boolean outputs. By boolean outputs, we mean that the condition must evaluate to `True` or `False`.
 
-This is mainly done using `if`, `elif`, and `else` statements. These are read from top to bottom. You do not always need to have ```elif``` and ```else``` statements, but they are good to have and can be used to catch unexpected values.
-
+This is mainly done using `if`, `elif`, and `else` statements. These are read from top to bottom. You do not always need to have `elif` and `else` statements, but they are good to have and can be used to catch unexpected values.
 
 **`if` Statement:**
 
-The `if` statement evaluates a condition which has returned a boolean (`True` or `False`). If the condition is `True`, the block of code inside the `if` statement is executed.
+The `if` statement evaluates a condition which returns a boolean (`True` or `False`). If the condition is `True`, the block of code inside the `if` statement is executed.
 
 **`elif` Statement:**
 
-The `elif` (short for "else if") statement allows you to check multiple conditions.
-It follows an `if` statement and is executed if the previous conditions were `False` and its own condition is `True`.
+The `elif` (short for "else if") statement allows you to check multiple conditions. It follows an `if` statement and is executed if the previous conditions were `False` and its own condition is `True`.
 
 **`else` Statement:**
 
@@ -34,47 +32,65 @@ The `else` statement is used to execute a block of code if none of the preceding
 
 **Syntax**
 
-```
+```python
 if condition:
     print(x) # Code to execute if condition is True
 elif another_condition:
     print(y) # Code to execute if first condition is False and another_condition is True
 else:
     print(z) # Code to execute if all conditions are False
-
 ```
-Note the colon and indentation used in the above example
 
-- Indentation is also used to nest conditionals and loops in python, and incorrect indentation is a common cause for errors.
+Note the colon and indentation used in the above example.
 
-Here is a very simple example of using conditionals:
+- Indentation is also used to nest conditionals and loops in Python, and incorrect indentation is a common cause of errors.
 
-```
+Here are two examples of using conditionals:
+
+**Example 1: Temperature check**
+
+```{python}
 temperature = 25
 
 if temperature > 30:
     print("It's a hot day.")
-    #The program checks if the temperature is greater than 30. If it is, it prints "It's a hot day."
+    # Checks if temperature is greater than 30. If True, prints "It's a hot day."
 elif temperature < 10:
     print("It's a cold day.")
-    #If the first condition is False, it checks if the temperature is less than 10. If this condition is True, it prints "It's a cold day."
+    # If the first condition is False, checks if temperature is less than 10.
 else:
     print("It's a pleasant day.")
-    #If both conditions are False, the else block executes and prints "It's a pleasant day."
+    # If both conditions are False, the else block executes.
 ```
 
-With very simple conditions, python has a shorthand that is useful. You can do things like:
+**Example 2: Traffic light system**
 
-```
-print("it's a hotday") if temperature > 30 else (print("it's a cold day") if temperature < 10 else print("it's a pleasent day"))
-# these are known as ternary operators - there is no elif
+```{python}
+light_colour = "yellow"
+
+if light_colour == "red":
+    print("Stop!")
+elif light_colour == "yellow":
+    print("Prepare to stop or proceed with caution.")
+elif light_colour == "green":
+    print("Go!")
+else:
+    print("Signal error: unknown colour.")
 ```
 
-*Ternary expressions are best kept simple. Nesting them can reduce readability, so regular ```if/elif/else``` statements are often clearer.*
+With very simple conditions, Python has a shorthand that is useful. You can write code like:
+
+```{python}
+temperature = 25
+print("It's a hot day") if temperature > 30 else (print("It's a cold day") if temperature < 10 else print("It's a pleasant day"))
+# These are known as ternary operators – there is no elif
+```
+
+*Ternary expressions are best kept simple. Nesting them can reduce readability, so regular `if/elif/else` statements are often clearer.*
 
 **Operators**
 
-The operators are a key tool when using conditional statements in python. Remind yourself about them and their order of precedence.
+Operators are a key tool when using conditional statements in Python. Remind yourself about them and their order of precedence.
 
 ::: {.callout-exercise}
 #### Discussion: Operators with conditionals
@@ -82,14 +98,33 @@ The operators are a key tool when using conditional statements in python. Remind
 
 Which types of operators are most useful when using conditional statements in Python?
 
+::: {.callout-answer}
+The most useful operators with conditional statements are:
+
+1. **Comparison Operators**: Used to compare two values.
+   - `==` (Equal to)
+   - `!=` (Not equal to)
+   - `<` (Less than)
+   - `>` (Greater than)
+   - `<=` (Less than or equal to)
+   - `>=` (Greater than or equal to)
+
+2. **Logical Operators**: Used to combine multiple conditions.
+   - `and` (Returns `True` if both statements are true)
+   - `or` (Returns `True` if at least one statement is true)
+   - `not` (Reverses the result, returning `False` if the result is true)
+
+3. **Membership Operators**: Useful for checking if a value exists in a sequence (list, tuple, set, string).
+   - `in`
+   - `not in`
+:::
 :::
 
 ::: {.callout-exercise}
-#### Mini conditionals extercise
+#### Exercise 1: Mini conditionals check
 
-Q1.
 Look at the following code:
-```
+```python
 x = 7
 
 if x > 10:
@@ -100,104 +135,270 @@ elif x > 3:
     print("C")
 else:
     print("D")
-
 ```
 What would the output be?
 
-Rewrite the statement to check the conditions independently
+Rewrite the statement to check the conditions independently.
 
+::: {.callout-answer}
+The output would be `B`.
+- `x > 10` (7 > 10) evaluates to `False`.
+- `x > 5` (7 > 5) evaluates to `True`, so `"B"` is printed and the remaining `elif` and `else` blocks are skipped entirely.
+
+**Independent checks:**
+To check conditions independently, replace `elif` with separate `if` statements:
+
+```{python}
+x = 7
+
+if x > 10:
+    print("A")
+if x > 5:
+    print("B")
+if x > 3:
+    print("C")
+```
+
+*Note: With independent `if` statements, both `"B"` and `"C"` will be printed because both `7 > 5` and `7 > 3` evaluate to `True`.*
+:::
 :::
 
 ::: {.callout-exercise}
-#### examining conditional statements
+#### Exercise 2: Examining conditional statements
 {{< level 2 >}}
 
 - What do the following `if` statements do?
 - How can you write complex conditions and make your code legible?
 
-Some actual examples from my (not perfect) code:
-```
-if (len(x[0]) == 2) and not any(x % 10 in {0, 9} for x in x[0]):
-```
-```
-    if (
-        (coordcolumnchoice[0] == (1,1) and coordinateM[0,0] in x[0] and coordinateM[1,1] in x[0]) or
-        (coordcolumnchoice[0] == (1,1) and coordinateM[1,0] in x[0] and coordinateM[0,1] in x[0]) or
-        (coordcolumnchoice[0] == (1,0) and coordinateM[1,0] in x[0] and coordinateM[0,0] in x[0]) or
-        (coordcolumnchoice[0] == (1,0) and coordinateM[1,1] in x[0] and coordinateM[0,1] in x[0])
-      ):
-```
-How might the second example be clearer if I was writing it again?
+Some actual examples from code:
 
+1. Checking set membership and numerical properties:
+```python
+if (len(x[0]) == 2) and not any(val % 10 in {0, 9} for val in x[0]):
+    print("Valid pair selected.")
+```
+
+2. Checking chosen coordinates for a grid selection:
+```python
+selected_mode = coord_choice[0]
+
+if (
+    (selected_mode == (1, 1) and (0, 0) in grid_points and (1, 1) in grid_points) or
+    (selected_mode == (1, 1) and (1, 0) in grid_points and (0, 1) in grid_points) or
+    (selected_mode == (1, 0) and (1, 0) in grid_points and (0, 0) in grid_points) or
+    (selected_mode == (1, 0) and (1, 1) in grid_points and (0, 1) in grid_points)
+):
+    print("Valid grid configuration!")
+```
+
+How might the second example be made clearer if you were rewriting it?
+
+::: {.callout-answer}
+1. **Example 1**: Checks if the first element of `x` contains exactly 2 items, AND ensures that no item in `x[0]` leaves a remainder of 0 or 9 when divided by 10 (i.e. no numbers ending in 0 or 9).
+2. **Example 2**: Checks whether a selected coordinate mode combined with specific pairs of coordinates present in `grid_points` forms a valid configuration.
+
+**How to make Example 2 clearer:**
+The second example repeats tests for `selected_mode == (1, 1)` and `selected_mode == (1, 0)`. We can make it cleaner and more readable by:
+- Grouping logic by `selected_mode` using an `if`/`elif` structure.
+- Using set comparisons or helper boolean variables.
+
+Refactored example:
+```python
+selected_mode = coord_choice[0]
+
+# Extract presence checks into clearer variables or helper structures
+if selected_mode == (1, 1):
+    valid_pair_1 = (0, 0) in grid_points and (1, 1) in grid_points
+    valid_pair_2 = (1, 0) in grid_points and (0, 1) in grid_points
+    is_valid = valid_pair_1 or valid_pair_2
+elif selected_mode == (1, 0):
+    valid_pair_1 = (1, 0) in grid_points and (0, 0) in grid_points
+    valid_pair_2 = (1, 1) in grid_points and (0, 1) in grid_points
+    is_valid = valid_pair_1 or valid_pair_2
+else:
+    is_valid = False
+
+if is_valid:
+    print("Valid grid configuration!")
+```
 :::
-
-
-
+:::
 
 ::: {.callout-exercise}
-#### Conditionals in expense_calculator
-Look at the conditional statements in the expense calculator script.
+#### Exercise 3: Cinema ticket pricing
 
-What do they do?
+Write a Python script that calculates ticket prices for a cinema based on a customer's age:
+- Children (under 12 years old): £5
+- Adults (ages 12 to 64 inclusive): £10
+- Seniors (aged 65 and above): £7
 
-What is the different indentation doing?
+Define an age variable and write an `if`/`elif`/`else` structure to print the appropriate price message.
 
-Can you add an extra condition that you would like to your expense calculator?
-
-What are the limitations of conditional statements?
-
-<!--
 ::: {.callout-answer}
-1. What do the conditional statements do?
+```{python}
+age = 15  # Example test age
 
-In the script, the if, elif (implied by the logic flow), and else blocks act as filters and triggers:
+if age < 12:
+    price = 5
+elif age <= 64:
+    price = 10
+else:
+    price = 7
 
-Flow Control: The if category == "done": break statement monitors user input to decide exactly when to stop the loop and move to the saving phase.
-
-Validation: The line if category in thresholds and amount_str... ensures the program doesn't crash if someone types "pizza" as a category or "a lot" as an amount. It acts as a gatekeeper for clean data.
-
-Threshold Monitoring: The if current_total > thresholds[category]: block compares actual spending against set goals to trigger a specific warning message.
-
-2. What is the different indentation doing?
-
-In Python, indentation isn't just for neatness; it defines scope. It tells the computer which lines of code "belong" to a specific condition or loop.
-
-Level 1 (No indent): Code that runs globally (like setting the initial thresholds).
-
-Level 2 (One indent): Code that lives inside the while loop or the try block.
-
-Level 3 (Two indents): Code that only runs if a specific condition is met (like the code that processes an expense only if the input was validated).
-
-The "Nesting" Logic: You can only reach the "Total spent" calculation if you have already successfully passed through the "Is the input valid?" door. If that condition isn't met, the indented code is skipped entirely.
-
-3. Adding a "Savings Milestone" Condition
-
-A great addition would be an Overall Budget check. This warns the user if total spending across all categories exceeds a certain limit, even if individual categories are still under their specific thresholds.
-
-Add:
-
-```
-# Add this near the bottom of the while loop logic
-total_all_categories = sum(e[1] for e in expenses)
-overall_limit = 300.0
-
-if total_all_categories > overall_limit:
-    print(" CAUTION: You are over your budget!!!")
+print(f"Ticket price: £{price}")
 ```
 :::
--->
 :::
 
+::: {.callout-exercise}
+#### Exercise 4: Smart heating controller
+
+Write a Python script to control an automated heating system based on the current room temperature:
+- If the temperature is below 18°C, print `"Heating ON"`.
+- If the temperature is between 18°C and 22°C (inclusive), print `"Temperature optimal. Heating STANDBY"`.
+- If the temperature is above 22°C, print `"Heating OFF"`.
+
+Test your code using different temperature values.
+
+::: {.callout-answer}
+```{python}
+temperature = 19.5  # Example test temperature
+
+if temperature < 18:
+    print("Heating ON")
+elif temperature <= 22:
+    print("Temperature optimal. Heating STANDBY")
+else:
+    print("Heating OFF")
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 5: Online store delivery charges and discounts
+{{< level 3 >}}
+
+**Scenario:** You are writing the checkout calculation logic for an online UK retailer.
+
+Without using a provided starter template, create a script that calculates delivery charges and discounts according to these business rules:
+
+1. First, check if the total amount of the order is less than or equal to £0. If so, display an error message stating that the order total is invalid.
+2. For valid orders:
+   - If the customer is a VIP member, delivery is always free (£0.00). In addition, if their order total is greater than £30.00, they receive a 10% discount on their order total.
+   - If the customer is not a VIP member:
+     - Orders of £50.00 or more qualify for free delivery (£0.00).
+     - Orders under £50.00 incur a £4.99 delivery fee.
+3. Calculate and print a breakdown showing:
+   - The original order total
+   - The applied discount amount (if any)
+   - The delivery fee
+   - The final total amount to be paid
+
+::: {.callout-answer}
+```{python}
+# Test variables
+amount = 45.00
+is_vip_customer = True
+
+if amount <= 0:
+    print("Error: Invalid order total. Amount must be greater than £0.")
+else:
+    discount = 0.0
+    delivery_fee = 0.0
+
+    if is_vip_customer:
+        delivery_fee = 0.00
+        if amount > 30.00:
+            discount = amount * 0.10
+    else:
+        if amount >= 50.00:
+            delivery_fee = 0.00
+        else:
+            delivery_fee = 4.99
+
+    final_total = amount - discount + delivery_fee
+
+    print("--- Order Summary ---")
+    print(f"Original total: £{amount:.2f}")
+    print(f"Discount:       £{discount:.2f}")
+    print(f"Delivery fee:   £{delivery_fee:.2f}")
+    print(f"Final total:    £{final_total:.2f}")
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 6: Modifying the if else statement within the logic.py script of the expense calculator
+
+Functions in Python can have conditional statements within them, to configure output behaviour depending on the input values. 
+
+The `logic.py` script contains the core logic for the expense calculator.
+
+1. What does the script do?
+2. Modify the function to also print a warning if the value remaining is lower than 10. Do this in a jupyter notebook and test your function
+
+::: {.callout-answer}
+
+#### What does the script do?
+
+The check_threshold function manages budget monitoring for spending categories
+1. It looks up the spending threshold for a given category from the thresholds dictionary (defaulting to 0 if the category is not found).
+2. If current_total exceeds limit, it alerts the user that they have gone over budget for that category.
+3. If current_total is within limit, it calculates remaining = limit - current_total and prints a confirmation showing the category name, total spent, and remaining budget available.
+
+#### Modified function and test code
+
+```{python}
+
+def check_threshold(category, current_total, thresholds):
+    """Handles the conditional logic for budget warnings."""
+    limit = thresholds.get(category, 0)
+    if current_total > limit:
+        print(f"Warning: You have exceeded the {category} threshold!")
+        print(f"Total spent in {category}: {current_total}")
+    else:
+        remaining = limit - current_total
+        print(f"Added to {category}.")
+        print(f"Total spent in {category}: {current_total}")
+        print(f"Amount left for {category}: {remaining}")
+
+        # Check if the remaining amount is less than 10
+        if remaining < 10:
+            print(
+                f"Warning: Low budget! You have less than £10 remaining for {category}."
+            )
+        print()
 
 
+# --- Testing the function ---
+sample_thresholds = {"Groceries": 100, "Entertainment": 50}
+
+# Sufficient budget remaining (remaining >= 10)
+print("First test")
+check_threshold("Groceries", 50, sample_thresholds)
+
+# Low budget remaining (remaining < 10)
+print("Second test")
+check_threshold("Groceries", 95, sample_thresholds)
+
+# Exceeded budget
+print("Third test")
+check_threshold("Groceries", 110, sample_thresholds)
+
+```
+
+The function would be further improved with better docstring comments
+:::
+:::
 
 ## Summary
 
 ::: {.callout-tip}
 #### Key Points
 
-- Conditional statements allow complex decision making
-- Conditions use ```if```, ```elif``` and ```else``` statements
-- Unlike other languages python only uses indentation no curly brackets etc. when nesting conditions
-- Conditionals are evaluated linearly starting with ```if``` then the multiple ```elif``` and finally the ```else``` with the following conditions ignored once a preceding condition is met
+- Conditional statements allow complex decision making.
+- Conditions use `if`, `elif`, and `else` statements.
+- Unlike other languages, Python uses indentation (not curly brackets) to group statements into blocks.
+- Conditionals are evaluated linearly starting with `if`, followed by any `elif` statements, and finally `else`. Once a condition is met, subsequent conditions are skipped.
+
 :::

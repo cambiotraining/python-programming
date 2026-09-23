@@ -249,7 +249,7 @@ You can find more detail in the official Python documentation:
 
 Here are some worked examples of converting between data types:
 
-### 1. Converting `int` to `float`
+**Converting `int` to `float`**
 
 ```{python}
 x = 5  # integer
@@ -257,7 +257,7 @@ y = float(x)  # converting to float
 print(y)
 ```
 
-### 2. Converting `float` to `int`
+**Converting `float` to `int`**
 
 ```{python}
 x = 3.23  # float
@@ -265,7 +265,7 @@ y = int(x)  # converting to int
 print(y)
 ```
 
-### 3. Converting `int` to `str`
+**Converting `int` to `str`**
 
 ```{python}
 x = 10  # integer
@@ -273,7 +273,7 @@ y = str(x)  # converting to string
 print(y)
 ```
 
-### 4. Converting `str` to `int`
+**Converting `str` to `int`**
 
 ```{python}
 x = "123"  # string
@@ -281,7 +281,7 @@ y = int(x)  # converting to int
 print(y)
 ```
 
-### 5. Converting `str` to `float`
+**Converting `str` to `float`**
 
 ```{python}
 x = "45.67"  # string
@@ -289,7 +289,7 @@ y = float(x)  # converting to float
 print(y)
 ```
 
-### 6. Converting `list` to `tuple`
+**Converting `list` to `tuple`**
 
 ```{python}
 my_list = [1, 2, 3]  # list
@@ -297,7 +297,7 @@ my_tuple = tuple(my_list)  # converting to tuple
 print(my_tuple)
 ```
 
-### 7. Converting `tuple` to `list`
+**Converting `tuple` to `list`**
 
 ```{python}
 my_tuple2 = (4, 5, 6)  # tuple
@@ -305,7 +305,7 @@ my_list2 = list(my_tuple2)  # converting to list
 print(my_list2)
 ```
 
-### 8. Converting `int` to `bool`
+**Converting `int` to `bool`**
 
 ```{python}
 num_bool = 0  # integer
@@ -313,7 +313,7 @@ bool_value = bool(num_bool)  # converting to boolean
 print(bool_value)
 ```
 
-### 9. Converting `list` to `set`
+**Converting `list` to `set`**
 
 Converting a list to a set is a quick way to remove any duplicate values:
 
