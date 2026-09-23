@@ -6,7 +6,9 @@ book:
         - materials/00_introducing_python.qmd
         - materials/01_python_basics.qmd
         - materials/02_fear_of_breaking_things.qmd
-        - materials/02_python_data_types.qmd
+        - materials/03_python_syntax_begin.qmd
+        - materials/04_Python_Data_types.qmd
+        # - materials/02_python_data_types.qmd
         - materials/03_python_operators.qmd
         - materials/04_python_functions.qmd
 
@@ -15,10 +17,10 @@ book:
         - materials/05_python_conditionals.qmd
         - materials/06_python_for_loops.qmd
         - materials/07_python_while_conditional_loops.qmd
-        - materials/08_python_try-except.qmd
 
     - part: "Session 3: Real World Programming"
       chapters:
+        - materials/08_python_try-except.qmd
         - materials/09_importing_libraries.qmd
         - materials/10_working_with_files.qmd
         - materials/11_create_your_own_script.qmd 
@@ -29,13 +31,13 @@ book:
         - materials/12_working_with_numpy.qmd
         #- materials/programming_task
     
-    - part: "Session 5: Object oriented programming"
-      chapters:
-        - materials/15_intro_OOP.qmd
-        - materials/16_classes_and_attributes.qmd
-        - materials/17_class_methods.qmd
-        - materials/18_class_inheritance.qmd
-        - materials/19_OOP_exercise.qmd
+    # - part: "Session 5: Object oriented programming"
+    #   chapters:
+    #     - materials/15_intro_OOP.qmd
+    #     - materials/16_classes_and_attributes.qmd
+    #     - materials/17_class_methods.qmd
+    #     - materials/18_class_inheritance.qmd
+    #     - materials/19_OOP_exercise.qmd
         #-the-OOP-syntax
         #-Exercise - main exercise - create your own class
 

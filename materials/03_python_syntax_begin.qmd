@@ -1,145 +1,235 @@
 ---
-title: Python Syntax
+title: "Python Syntax"
 ---
 
 ::: {.callout-tip}
-#### Learning Objectives
-
-- Learn the basic python syntax
-- Learn how to create and name variables
-
+## Learning Objectives
+- Understand what syntax means in programming
+- Learn how to store and display text using variables and the `print()` function
+- Follow standard Python variable naming guidelines
+- Learn how Python uses indentation and whitespace
+- Write clear comments to explain your code
 :::
 
-## What is the syntax of a Programming language
+## What is the Syntax of a Programming Language?
 
-The syntax of a programming language is...
+The syntax of a programming language is the set of rules that defines how programs must be written. Just like human languages have grammar and punctuation rules so we can understand one another, programming languages have syntax rules so the computer can understand our instructions.
 
+If you break a syntax rule in Python, the computer will not try to guess what you meant—it will simply raise a `SyntaxError` and stop running.
 
-## Assigning variables
+## Assigning Variables
 
-A variable is a named reference used to store and access a value in a program.
+A variable is a named reference used to store a piece of information in a program so you can access and use it later.
 
-::: {.callout-exercise}
-#### Python variables
+In Python, creating (or initialising) a variable is straightforward:
 
-What are the variables in the ```expense_calculator.py``` script? 
+- You choose a name for your variable.
+- You use the equals sign (`=`) to assign a value to it.
+- Python automatically works out what kind of data you are storing (such as text wrapped in quotation marks, known as a string).
 
-What are they used for?
+```python
+researcher_name = "Kavi"
+project_title = "Genome Analysis"
 
-:::
+print(researcher_name)
+print(project_title)
+```
 
-In Python initialising variables is easy:
+## Variable Naming Conventions — Making Your Life Easy!
 
-- Variables are assigned using the = sign
+One of the hardest parts of reading someone else's code is dealing with variable names that make no sense to anyone except the original author.
 
-- Case sensitive
+When naming variables, follow Python's guidelines (from the official style guide known as PEP 8) for consistency and readability:
 
-- No need to declare the type explicitly (dynamic typing)
+- **Use lowercase with underscores (snake_case):** Separate words with underscores (e.g. `sample_id`, `species_name`).
+- **Case-sensitive:** `sample`, `Sample`, and `SAMPLE` are three completely different variables to Python.
+- **Do not start with numbers:** Variable names cannot begin with a digit (e.g. `1st_sample` is invalid, but `sample_1` is fine).
+- **Stick to letters, numbers, and underscores:** Do not use special characters, spaces, quotation marks, or brackets in the variable name itself.
+- **Be descriptive:** Choose clear, meaningful names (`lab_location` is helpful; `x12` is not).
+- **Avoid overly long names:** `sample_type` is ideal, whereas `the_type_of_sample_we_collected_from_the_field_today` is unnecessarily long.
+- **Do not use Python keywords:** Avoid using built-in command names like `print` as variable names, as this will overwrite the built-in function.
+
+## Indentation
+
+In Python, indentation (leading spaces at the start of a line) is used to define code blocks. We will see more of this later in this course when we look at conditional statements and loops.
+
+Because Python relies on indentation to group instructions, putting an unexpected space at the start of any line will trigger an `IndentationError`. This happens frequently across multi-line code—even when using simple `print()` statements!
+
+### Multi-Line Indentation Errors with print()
+
+Consider these two examples where multiple `print()` statements are run in sequence:
+
+```python
+print("Step 1: Sample logged")
+print("Step 2: Buffer added")
+print("Step 3: Centrifuge complete")
+```
+
+```python
+print("Step 1: Sample logged")
+ print("Step 2: Buffer added")
+print("Step 3: Centrifuge complete")
+```
+
+In the second example, an extra space at the beginning of Line 2 causes an `IndentationError` immediately.
+
+**Why does this happen?**
+
+In Python, you cannot indent a line unless it follows a specific statement that creates a new code block (like an `if` statement or a loop, which we will cover later). Because Line 1 is not starting a new block, Python does not expect Line 2 to be indented and immediately halts execution.
+
+## Printing Multiple Items and Splitting Lines
+
+You can print multiple items at once by passing them into `print()`, separated by commas. Python will automatically put a space between each item:
+
+```python
+lead_scientist = "Dr Aris Thorne"
+facility = "Central Lab"
+
+print("Project Lead:", lead_scientist, "at", facility)
+```
+
+Output:
 
 ```
-# Initialising my_height in cm 
-my_height = 176
-my_name = "Kavi"
-
+Project Lead: Dr Aris Thorne at Central Lab
 ```
-<br>
 
-### Variable Naming Conventions in Python - Making your life easy!
+If your `print()` statement becomes long, Python allows you to split it across multiple lines inside the round brackets `()`. This implicit line continuation makes your code much neater and easier to read:
 
-*One of the worst things in particular when looking at other peoples code is variable names that make no sense to anybody but the writer*
+```python
+print("Project update:", project_title, "is currently managed by", lead_scientist, "in", facility)
 
-When naming variables, it's important to follow Python's guidelines for consistency and readability. Here are some key rules to remember:
-
-* **Case-sensitive:** weight and Weight are different variables.
-
-* **Use lowercase:** Separate words with underscores, e.g., weight_kg.
-
-* **Don't start with numbers:** Variable names cannot begin with a digit.
-
-* **Stick to letters:** Use only letters, underscores, and digits (when needed). No quotation marks or brackets
-
-* **Be descriptive:** Choose clear, meaningful names (e.g., asdjks is not helpful).
-
-* **Avoid overly long names:** For example 'this_is_my_height_in_cm' is too long.
-
-* **Don't use keywords:** Avoid using Python function names, class names, or data types as variable names.
-
-For more detailed guidelines, refer to PEP 8 or the Google Python Style Guide.
-
-<br>
-
-### Indentation
-
-In python indentation is used to define code blocks. We will see more of this later in this course. 
-- Unexpected indents will result in errors.
-- indents are 4 spaces according to PEP 8 standards, however commonly also two spaces on web interfaces. Be consistent.
-- Using spaces is preferable to using tabs
-
+print(
+    "Project update:",
+    project_title,
+    "is currently managed by",
+    lead_scientist,
+    "in",
+    facility
+)
 ```
-# Initialising my_height in cm 
-my_height = 176
- my_name = "Kavi"
- 
+
+Notice how indenting the items on new lines inside the brackets keeps the code organised. Because these lines sit inside round brackets `()`, Python knows they are part of the same `print()` instruction and will not raise an indentation error!
+
+## Commenting Your Code
+
+Comments are notes written directly in your script to explain what the code is doing. Python ignores comments completely—they produce no output and exist solely to help humans read the code.
+
+```python
+# Store the active status of the ongoing trial
+experiment_stage = "Data Collection"
+
+print(experiment_stage)  # You can also place comments at the end of a code line
+
+"""
+This is a multi-line comment (using triple quotes).
+It allows you to write longer notes across several lines
+without needing a hash symbol on every single line.
+"""
 ```
-The above would produce an error
-
-## Commenting your code
-
-Commenting your code, and using lines liberally, are key to making your code easily understandable for both yourself and others.
-These comments are ignored by python and do not result in any output - check for yourself in the console!
-
-- A **```#```** (Hash) is used for single line comments 
-
-- A **```"""```** (triple quotes) is used around multiline comments or strings
-
-- A **```\```** (backslash) is used to explicitly break a line
-
-- Lines can be implicitly continued in some cases, for example when in brackets. We will see this later. 
 
 ## Exercises
 
-
 ::: {.callout-exercise}
-#### Python variable evaluation
+### Exercise 1: Evaluating Variable Names
 
-Decide whether the following are good or bad variable names. If they are bad, what might be a better name and why? 
+Look at the following list of proposed variable names. Decide whether each one is Valid & Good, Valid but Poor, or Invalid (Will Cause an Error). Explain your reasoning:
+
+```python
+2026_target = "100 samples"
+temp_celsius = "21.5"
+the_exact_temperature_of_the_water_bath_in_room_4b = "37.0"
+q = "Invasive Species Study"
+patient name = "P_042"
+print = "Final Report"
+```
 
 ::: {.callout-answer}
+Answer:
 
-
+- **Invalid:** Variable names cannot start with a digit.
+- **Valid & Good:** Clear, uses snake_case, and includes units (`_celsius`).
+- **Valid but Poor:** Too long and tedious to type or read. Something like `water_bath_temp` would be much better.
+- **Valid but Poor:** Cryptic and vague. A reviewer will not know what `q` refers to without reading the rest of the script.
+- **Invalid:** Contains a space. It should be `patient_name`.
+- **Invalid/Dangerous:** `print` is a built-in Python function. Assigning a value to it overwrites the function and prevents you from printing anything later!
 :::
-
-:::
-
-::: {.callout-exercise}
-#### Commenting code
-
-
-::: {.callout-answer}
-
-
-:::
-
 :::
 
 ::: {.callout-exercise}
-#### Indentation
+### Exercise 2: Formatting Multi-Line Print Statements
 
+Re-write the following long print statement so that it spans cleanly across multiple lines inside the brackets, keeping the code neat and easy to scan:
+
+```python
+organism = "Benson's Wild Violet"
+habitat = "Alpine Meadow"
+status = "Vulnerable"
+
+print("Species Record:", organism, "found in habitat type:", habitat, "with threat classification:", status)
+```
 
 ::: {.callout-answer}
+Answer:
 
+```python
+organism = "Benson's Wild Violet"
+habitat = "Alpine Meadow"
+status = "Vulnerable"
 
+# A neatly formatted multi-line print statement:
+print(
+    "Species Record:",
+    organism,
+    "found in habitat type:",
+    habitat,
+    "with threat classification:",
+    status
+)
+```
+:::
 :::
 
+::: {.callout-exercise}
+### Exercise 3: Fixing Multi-Line Indentation and Syntax Errors
+
+The following script contains two errors: an `IndentationError` on Line 2 and a syntax error on Line 4.
+
+Fix the script so it executes cleanly, and add a single-line comment above each variable explaining what it stores:
+
+```python
+lab_code = "LAB_NORTH_2"
+  print("Initialising run for:", lab_code)
+buffer_solution = "Phosphate Saline"
+print("Status:", lab_code "Ready")
+```
+
+::: {.callout-answer}
+Answer:
+
+```python
+# Store the facility code where the run takes place
+lab_code = "LAB_NORTH_2"
+
+# Fix 1: Removed leading spaces before print on Line 2 to resolve the IndentationError
+print("Initialising run for:", lab_code)
+
+# Record the solution used for sample dilution
+buffer_solution = "Phosphate Saline"
+
+# Fix 2: Added missing comma between lab_code and "Ready" inside print() on Line 4
+print("Status:", lab_code, "Ready")
+```
+:::
 :::
 
 ## Summary
 
 ::: {.callout-tip}
-#### Key Points
-
-- Variables are words used to reference and access a value
-- Be clear an concise following guidelines when naming variables
-- Comment your code for clarity
-
+## Key Takeaways
+- **Syntax:** The official rules of how code must be written for Python to understand it.
+- **Variables:** Stored values assigned using `=`. Use descriptive snake_case names.
+- **Indentation:** Extra spaces at the start of a line matter in Python. Unintended leading spaces across sequential statements trigger an `IndentationError`.
+- **Multiple items in print():** Separate variables and text strings with commas. Split long `print()` statements across multiple lines inside the brackets to keep code clean.
+- **Comments (`#`):** Notes ignored by Python that describe what your code is doing for human readers.
 :::

@@ -1,0 +1,479 @@
+---
+title: "Data Types in Python"
+---
+
+::: {.callout-tip}
+#### Learning Objectives
+
+- Know the main data types in Python
+- Understand that different data types have their own advantages and disadvantages
+- Be able to choose the right data type for a given task
+- Write the correct syntax for each data type, and convert between them
+- Be aware that packages and modules can give you access to even more data types and structures
+
+:::
+
+## What is a Data Type?
+
+Every piece of information in a Python program has a **type**. The type tells Python what kind of data it is dealing with, and what you are allowed to do with it. For example, Python treats the number `5` very differently to the word `"five"` — even though they might mean the same thing to us, Python needs to know which one it is looking at before it can work with it.
+
+Using data types in Python is straightforward: you assign a value to a variable, and Python automatically recognizes the type. 
+
+For example, `x = 10` creates an integer, whereas `x = 10.3` will be treated as what is called a 'float' because it has a decimal place.
+
+
+In this lesson, we will look closely at the data types you will use most often. For each one, you will see:
+
+- What it is used for
+- How to write it (its **syntax**)
+- A short, runnable example
+
+**The main data types we will go through are:**
+
+- `NoneType` — represents "no value"
+- `bool` — True or False
+- `str` — text
+- `int` and `float` — numbers
+- `list` and `tuple` — ordered collections
+- `set` — a collection of unique items
+- `dict` — key-value pairs
+
+::: {.callout-note}
+Python also has a small number of more specialised data types — `complex`, `range`, `frozenset`, and the binary types `bytes`, `bytearray`, and `memoryview`. You will meet `range` later in the course. We will only mention them briefly on this page, without going through worked examples, as you are unlikely to need them yet.
+:::
+
+It is also possible to define your own **custom data types**, and to use extra data types from external packages — for example, **NumPy arrays** and **pandas DataFrames** are extremely useful for working with data, and the **decimal module** is useful for money and other calculations that need exact rounding. We will meet these later in the course.
+
+## None Type
+
+`None` is a special value in Python that represents "nothing" or "no value at all". It is often used as a placeholder, for example when a variable exists but does not have a proper value yet.
+
+**Syntax:**
+
+```python
+x = None
+```
+
+```{python}
+x = None
+print(x)
+print(type(x))
+```
+
+
+::: {.callout-tip}
+#### the `type()` function
+
+The `type()` functions allows you to inspect the data type of an object. It can be very helpful. 
+
+:::
+
+
+## Boolean
+
+A **boolean** can only ever be one of two values: `True` or `False`. Booleans are extremely useful for making decisions in your code, and are often produced automatically when you compare two things.
+
+**Syntax:**
+
+```python
+x = True
+x = False
+```
+
+```{python}
+is_active = True
+print(is_active)
+print(type(is_active))
+```
+
+You do not always have to type `True` or `False` yourself — comparisons produce a boolean for you automatically:
+
+```{python}
+result = 10 > 5
+print(result)
+```
+
+## Text (Strings)
+
+A **string** stores text, and is written between either single quotes (`'...'`) or double quotes (`"..."`). Strings are one of the most commonly used data types, since almost every program needs to display or process some text.
+
+**Syntax:**
+
+```python
+x = "some text"
+x = 'some text'
+```
+
+```{python}
+name = "Ada"
+print(name)
+print(type(name))
+```
+
+
+## Numeric Types
+
+### Whole Numbers (int)
+
+An **integer** is a whole number, with no decimal point.
+
+**Syntax:**
+
+```python
+x = 5
+```
+
+```{python}
+age = 25
+print(age)
+print(type(age))
+```
+
+### Decimal Numbers (float)
+
+A **float** is a number with a decimal point, used whenever you need more precision than a whole number.
+
+**Syntax:**
+
+```python
+x = 5.5
+```
+
+```{python}
+height = 1.75
+print(height)
+print(type(height))
+```
+
+::: {.callout-note}
+<span style="color:#888888;">Python also has a `complex` data type for complex numbers (numbers with a real and an imaginary part). This is rarely needed outside specialist mathematical or engineering work, so we will not cover it further here.</span>
+:::
+
+## Sequence Types
+
+### Lists
+
+A **list** is an ordered collection of items that you can change after creating it — you can add, remove, or update items freely. Lists are written using square brackets `[ ]`, with each item separated by commas.
+
+**Syntax:**
+
+```python
+x = [item1, item2, item3]
+```
+
+```{python}
+fruits = ["apple", "banana", "cherry"]
+print(fruits)
+print(type(fruits))
+```
+
+Because lists can be changed, you can add a new item at any time. We will see more of this later.
+
+### Tuples
+
+A **tuple** is also an ordered collection, but unlike a list, it cannot be changed once it has been created. Tuples are written using round brackets `( )`, and are useful for data that should stay fixed, such as coordinates.
+
+**Syntax:**
+
+```python
+x = (item1, item2, item3)
+```
+
+```{python}
+coordinates = (51.5074, -0.1278)
+print(coordinates)
+print(type(coordinates))
+```
+
+::: {.callout-note}
+<span style="color:#888888;">Python also has a `range` type, which represents a sequence of numbers (often used with loops later in the course). We will not cover it in detail here.</span>
+:::
+
+## Set Types
+
+A **set** is an unordered collection that only ever keeps unique items — if you try to add a duplicate, Python simply ignores it. Sets are written using curly brackets `{ }`.
+
+**Syntax:**
+
+```python
+x = {item1, item2, item3}
+```
+
+```{python}
+unique_numbers = {1, 2, 2, 3, 3, 3}
+print(unique_numbers)
+```
+
+Notice that even though we typed `2` and `3` more than once, each number only appears once in the set. This makes sets very useful for quickly removing duplicates from a collection.
+
+::: {.callout-note}
+<span style="color:#888888;">Python also has a `frozenset` type, which behaves like a set but cannot be changed once created. We will not cover it in detail here.</span>
+:::
+
+## Mapping Type
+
+### Dictionaries
+
+A **dictionary** stores data as pairs of **keys** and **values**, so that you can look up a value using its key, rather than its position. Dictionaries are written using curly brackets `{ }`, with a colon between each key and its value, and a comma between each pair.
+
+**Syntax:**
+
+```python
+x = {"key1": value1, "key2": value2}
+```
+
+```{python}
+person = {"name": "Ada", "age": 25}
+print(person)
+print(person["name"])
+```
+
+::: {.callout-note}
+<span style="color:#888888;">Python also has three binary data types — `bytes`, `bytearray`, and `memoryview` — which are used for working directly with raw binary data, such as image or file data. These are more specialised and will not be covered in detail here.</span>
+:::
+
+## Custom Data Types
+
+As well as all of the built-in data types above, Python allows you to define your own custom data types with their own rules and behaviour. Many useful custom data types have already been created by others, so you will often be able to simply use one someone else has written, rather than building your own from scratch. Tomorrow we will briefly introduce you to NumPy, which is used to work with numerical arrays, and contains a custom data type for this.
+
+## Converting Between Data Types
+
+You will often need to convert a value from one data type to another — for example, turning a number typed in as text into an actual number you can calculate with. Every built-in data type in Python has its own function that you can use to convert a value into that type.
+
+It is not possible to convert between every pair of data types. Some conversions simply do not make sense, and others need extra information before Python can work out how to do it.
+
+You can find more detail in the official Python documentation:
+
+- <https://docs.python.org/3/library/functions.html>
+- <https://docs.python.org/3/library/stdtypes.html>
+
+Here are some worked examples of converting between data types:
+
+### 1. Converting `int` to `float`
+
+```{python}
+x = 5  # integer
+y = float(x)  # converting to float
+print(y)
+```
+
+### 2. Converting `float` to `int`
+
+```{python}
+x = 3.23  # float
+y = int(x)  # converting to int
+print(y)
+```
+
+### 3. Converting `int` to `str`
+
+```{python}
+x = 10  # integer
+y = str(x)  # converting to string
+print(y)
+```
+
+### 4. Converting `str` to `int`
+
+```{python}
+x = "123"  # string
+y = int(x)  # converting to int
+print(y)
+```
+
+### 5. Converting `str` to `float`
+
+```{python}
+x = "45.67"  # string
+y = float(x)  # converting to float
+print(y)
+```
+
+### 6. Converting `list` to `tuple`
+
+```{python}
+my_list = [1, 2, 3]  # list
+my_tuple = tuple(my_list)  # converting to tuple
+print(my_tuple)
+```
+
+### 7. Converting `tuple` to `list`
+
+```{python}
+my_tuple2 = (4, 5, 6)  # tuple
+my_list2 = list(my_tuple2)  # converting to list
+print(my_list2)
+```
+
+### 8. Converting `int` to `bool`
+
+```{python}
+num_bool = 0  # integer
+bool_value = bool(num_bool)  # converting to boolean
+print(bool_value)
+```
+
+### 9. Converting `list` to `set`
+
+Converting a list to a set is a quick way to remove any duplicate values:
+
+```{python}
+my_list3 = [1, 2, 2, 3, 3, 3]  # list with duplicates
+my_set = set(my_list3)  # converting to set
+print(my_set)
+```
+
+## Comparing Data Types
+
+Now that you have seen how each data type works, here is a summary table you can use for reference. Each data type has its own strengths and weaknesses, so it is worth thinking about which one best fits what you are trying to do. As we work with the data types in the next few sections, this will start to make more sense.
+
+
+| Category       | Type         | Common Use Case                                    | Benefits                                           | Disadvantages                                          |
+|----------------|--------------|---------------------------------------------------|---------------------------------------------------|-------------------------------------------------------|
+| **None Type**  | `NoneType`     | Represents absence of value                        | Useful for optional values and placeholders        | Can cause errors if operations expect a value         |
+| **Boolean**    | `bool`         | Represents True or False                           | Simple and efficient for control flow              | Limited to two states (True/False)                    |
+| **Text**       | `str`          | Text representation                                | Immutable, supports Unicode (multilingual text), rich manipulation methods | Inefficient for heavy modifications                    |
+| **Numeric**    | `int`          | Represents whole numbers                           | No precision issues                                | Limited to integers                                    |
+| **Numeric**    | `float`        | Represents decimal numbers                         | Supports real numbers                              | Precision issues due to storage                        |
+| **Numeric**    | <span style="color:#888888;">`complex`</span>      | <span style="color:#888888;">Represents complex numbers</span>                         | <span style="color:#888888;">Direct support for complex arithmetic</span>               | <span style="color:#888888;">Rarely needed in general programming</span>                   |
+| **Sequence**   | `list`         | Mutable sequence of items                         | Flexible, dynamic size, rich methods               | Slower resizing operations                             |
+| **Sequence**   | `tuple`        | Immutable sequence of items                       | Memory-efficient, safe                             | Cannot change values once set                          |
+| **Sequence**   | <span style="color:#888888;">`range`</span>        | <span style="color:#888888;">Sequence of numbers</span>                               | <span style="color:#888888;">Memory-efficient</span>                                   | <span style="color:#888888;">Less flexible than lists</span>                               |
+| **Mapping**    | `dict`         | Key-value pairs                                   | Fast lookups, flexible types                       | Higher memory usage due to hashing                     |
+| **Set**        | `set`          | Unordered collection of unique items              | Fast membership testing                            | Unordered in the Python specification; no indexing     |
+| **Set**        | <span style="color:#888888;">`frozenset`</span>    | <span style="color:#888888;">Immutable set</span>                                     | <span style="color:#888888;">Hashable, can be used as dictionary keys</span>          | <span style="color:#888888;">Cannot modify after creation</span>                           |
+| **Binary**     | <span style="color:#888888;">`bytes`</span>        | <span style="color:#888888;">Immutable binary data</span>                             | <span style="color:#888888;">Efficient, compact for binary data</span>                 | <span style="color:#888888;">Not human-readable, cumbersome for some operations</span>     |
+| **Binary**     | <span style="color:#888888;">`bytearray`</span>    | <span style="color:#888888;">Mutable binary data</span>                               | <span style="color:#888888;">Allows modification of binary data</span>                 | <span style="color:#888888;">Consumes more memory than bytes</span>                        |
+| **Binary**     | <span style="color:#888888;">`memoryview`</span>   | <span style="color:#888888;">Efficient access to binary data without copying</span>   | <span style="color:#888888;">No data duplication</span>                                | <span style="color:#888888;">More complex to use</span>                                    |
+
+## Exercises
+
+::: {.callout-exercise}
+#### Dictionary Syntax
+{{< level 1 >}}
+
+What is the syntax of a dictionary? Write a couple of your own dictionaries.
+
+::: {.callout-answer}
+A dictionary is written using curly brackets, with a colon between each key and its value. See the examples below:
+
+```{python}
+dictionary = {"language": "Python", "number": 2}
+print(dictionary)
+```
+
+```{python}
+dishes = {"eggs": 2,
+          "sausage": 1, 
+          "bacon": 1, 
+          "spam": 500,
+          }
+print(dishes)
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Choosing the Right Data Type
+{{< level 1 >}}
+
+State the best data type to use in Python for each of the following:
+
+1. You want to store a sequence of names that may change (e.g., adding or removing names).
+2. You need to check if certain items (e.g., unique user IDs) exist in a collection and don't care about the order.
+3. You need to store an unchanging sequence of geographic coordinates (latitude, longitude).
+4. You are counting the number of items in stock in an inventory system (whole numbers only).
+5. You are dealing with financial calculations and need decimal values for prices and quantities.
+6. You need to store data about a person (e.g., name, age, occupation) and retrieve the data by key.
+7. You are processing binary data from an image file and need to modify the data.
+8. You want to represent a logical condition (True or False) to check user login status.
+9. You want to ensure a set of elements stays constant and cannot be modified after creation.
+10. A function you are writing returns nothing (i.e., no meaningful value to return).
+11. You need to handle a collection of scientific data points with floating-point precision (e.g. temperature readings).
+12. You are working with text that may need to be split, joined, or manipulated.
+
+::: {.callout-answer}
+1. `list` — Ordered and mutable collection of names.
+2. `set` — For fast membership tests with unique elements, where order is irrelevant.
+3. `tuple` — Immutable sequence, perfect for storing fixed data like geographic coordinates.
+4. `int` — Used for counting and working with whole numbers.
+5. `float` — If precision is essential, consider `decimal.Decimal`, but `float` is fine for most cases.
+6. `dict` — For key-value pairs (e.g., storing data about a person).
+7. `bytearray` — Mutable sequence of bytes, useful for modifying binary data.
+8. `bool` — Represents binary conditions (True or False).
+9. `frozenset` — Immutable version of a set.
+10. `None` — Represents the absence of a value, useful for functions that don't return anything.
+11. `float` — Floating-point numbers are used for measurements and continuous values.
+12. `str` — For handling textual data with built-in manipulation methods.
+
+Which data type you choose affects memory usage and the speed of computations, which may matter in larger programs. For further reading, investigate why sets are generally faster than lists or tuples for finding unordered elements (membership tests).
+:::
+:::
+
+::: {.callout-exercise}
+#### Floats to Integers: What Could Go Wrong?
+{{< level 2 >}}
+
+What happens when you convert `3.5` to an integer?
+
+::: {.callout-answer}
+The integer displayed is `3` — notice that this is not rounded to the nearest whole number.
+
+```{python}
+print(int(3.5))
+print(int(3.7))
+```
+
+The output of both is `3`. This is because `int()` does not round a number — it simply cuts off (or "truncates") everything after the decimal point.
+
+If you want proper rounding instead, Python's `round()` function rounds a float to the nearest integer. However, if the decimal is exactly `0.5`, `round()` rounds to the nearest *even* number, which is Python's default behaviour and can catch beginners out. If you need more control than this, a library such as the `decimal` module is a good alternative.
+:::
+:::
+
+::: {.callout-exercise}
+#### Data types used in the expense calculator
+{{< level 1 >}}
+
+What data types are used in `expenses_calculator.py`?
+
+::: {.callout-answer}
+A `string` is used for the filename.
+A `dictionary` is used, where the dictionary contains `strings` as keys and `floats` as values.
+
+```python
+FILE_NAME = "script_outputs/expenses.csv"
+THRESHOLDS = {
+    "food": 100.0,
+    "transport": 50.0,
+    "entertainment": 80.0,
+    "other": 70.0
+}
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Extension: Dictionary Keys
+{{< level 3 >}}
+
+What data types can be used as Dictionary keys in python?
+
+::: {.callout-answer}
+
+In python an immutable data type can be used as a key for a dictionary. It must be hashable.
+This includes `string` , numerical data types, and even tuples. 
+:::
+:::
+
+## Summary
+
+There are many built-in data types in Python. We will explore several of them further in the next few sections. It is important to use the correct data type for your use case, rather than reaching for the same one every time.
+
+::: {.callout-tip}
+#### Key Points
+
+- Use the table above to remind yourself of the key facts about each data type
+- Check the Python documentation for further information on data types and built-in functions
+- It is important to use the correct data type for your use case, rather than the same data type all the time
+
+:::
