@@ -1,0 +1,993 @@
+---
+title: "Working with Numerical Data Types and Strings"
+---
+
+::: {.callout-tip}
+#### Learning Objectives
+
+- Understand the difference between operators and Python's **built-in functions**.
+- Use numeric built-in functions (`abs()`, `pow()`, `round()`, `min()`, `max()`, `sum()`) to perform numerical calculations.
+- Use built-in string functions and methods (`len()`, `.upper()`, `.lower()`, `.title()`, `.replace()`, `.strip()`, `.count()`, `.join()`) to manipulate text.
+- Learn how to use the built-in `help()` function and consult official Python documentation.
+- Solve multi-step practical problems described in plain English.
+:::
+
+## Introduction to Python Built-in Functions
+
+In the previous section, we introduced basic arithmetic operators (such as `+`, `-`, `*`, `/`, and `**`). Operators are shorthand symbols for basic actions. 
+
+However, Python also includes a rich set of **built-in functions**. Built-in functions are pre-written pieces of code always available in Python without requiring any additional modules to be imported.
+
+### How to Find Help and Documentation
+
+Python provides built-in tools and official documentation so you can discover how functions work and what arguments they accept.
+
+1. **The Official Python Documentation**: You can view the full list of built-in functions on the [Official Python Documentation for Built-in Functions](https://docs.python.org/3/library/functions.html).
+2. **The Built-in `help()` Function**: In Python, you can pass any function name into `help()` to view its description, parameters, and usage guidelines directly in your notebook or console.
+
+```{python}
+# Displaying help for the round() function
+help(round)
+```
+
+---
+
+## Working with Numerical Data Types
+
+Python handles two primary numerical data types:
+- **Integers (`int`)**: Whole numbers without decimals (e.g. `10`, `-5`, `0`).
+- **Floating-point numbers (`float`)**: Numbers with a decimal point (e.g. `200.5`, `4.0`, `-0.75`).
+
+### Useful Numeric Built-in Functions
+
+| Built-in Function | Description | Example Syntax | Result |
+| :--- | :--- | :--- | :--- |
+| `abs(x)` | Returns the absolute (positive) value of `x` | `abs(-15)` | `15` |
+| `pow(base, exp)` | Raises `base` to the power of `exp` | `pow(3, 4)` | `81` |
+| `round(x, n)` | Rounds `x` to `n` decimal places | `round(3.14159, 2)` | `3.14` |
+| `max(a, b, c...)` | Returns the largest item | `max(10, 20, 5)` | `20` |
+| `min(a, b, c...)` | Returns the smallest item | `min(10, 20, 5)` | `5` |
+| `sum(iterable)` | Returns the total of all items in a collection | `sum([10, 20, 30])` | `60` |
+
+::: {.callout-note}
+#### Why do we use square brackets `[]` with `sum()`?
+
+You might notice that we write `sum([10, 20, 30])` with square brackets `[]` instead of `sum(10, 20, 30)`. 
+
+In Python, square brackets `[]` create a **list** (a single container holding multiple items). The `sum()` function is specifically designed to take **one single argument** containing a collection of numbers (an *iterable*), rather than multiple separate arguments.
+
+If you try running `sum(10, 20, 30)`, Python will return an error because it expects a collection! Functions like `max(10, 20, 30)` and `min(10, 20, 30)`, on the other hand, accept multiple separate arguments.
+:::
+
+---
+
+## Working with Strings
+
+Strings (`str`) represent text data in Python. 
+
+- Strings are **immutable** (their individual characters cannot be changed in-place after creation).
+- Strings are **indexed** starting from `0`.
+- Python provides both general built-in functions (like `len()`) and specific **string methods** (like `.upper()`, `.lower()`, `.replace()`) to work with text.
+
+### Functions vs Methods for Strings
+
+- A **function** is standalone: `len("hello")`.
+- A **method** belongs to a specific object type and is called using dot notation (`.`): `"hello".upper()`.
+
+You can consult the [Official Python String Methods Documentation](https://docs.python.org/3/library/stdtypes.html#string-methods) or use `help(str)` in Python to see all available methods.
+
+| Built-in Function / Method | Purpose | Example | Result |
+| :--- | :--- | :--- | :--- |
+| `len(text)` | Returns the number of characters | `len("London")` | `6` |
+| `text.upper()` | Converts text to uppercase | `"hello".upper()` | `"HELLO"` |
+| `text.lower()` | Converts text to lowercase | `"HELLO".lower()` | `"hello"` |
+| `text.title()` | Converts text to title case | `"alice smith".title()` | `"Alice Smith"` |
+| `text.strip()` | Removes leading and trailing whitespace | `"  text  ".strip()` | `"text"` |
+| `text.replace(old, new)` | Replaces occurrences of a substring | `"cat".replace("c", "b")` | `"bat"` |
+| `text.count(sub)` | Counts occurrences of a substring | `"banana".count("a")` | `3` |
+| `delimiter.join(iterable)` | Joins a list of strings into one string | `", ".join(["A", "B", "C"])` | `"A, B, C"` |
+
+::: {.callout-note}
+#### Why do we use square brackets `[]` with `.join()`?
+
+Similar to `sum()`, the `.join()` string method joins multiple strings together. It expects a **single collection** of strings as its input. Square brackets `[]` create a list containing those strings:
+
+```{python}
+words = ["Learning", "Python", "is", "fun"]
+sentence = " ".join(words)
+print(sentence)  # Output: "Learning Python is fun"
+```
+:::
+
+### Demonstrating String Functions & Methods
+
+```{python}
+# Sample text
+greeting = "  welcome to python programming!  "
+
+# Cleaning whitespace with .strip()
+clean_greeting = greeting.strip()
+print("Cleaned text:", clean_greeting)
+
+# Getting length with len()
+print("Length of cleaned text:", len(clean_greeting))
+
+# Formatting text with .title()
+print("Title case:", clean_greeting.title())
+
+# Replacing text with .replace()
+print("Replaced text:", clean_greeting.replace("programming", "coding"))
+
+# Counting occurrences with .count()
+print("Count of letter 'o':", clean_greeting.count("o"))
+```
+
+### Formatted String Literals (f-strings)
+
+An **f-string** (short for formatted string literal) allows you to embed variables and Python expressions directly inside a string text.
+
+#### Syntax and Rules
+1. Prefix the string literal with the letter `f` or `F` before the opening quote.
+2. Insert variables or expressions inside **curly brackets** `{}` wherever you want their evaluated values to appear.
+
+When Python evaluates an f-string, it calculates whatever is inside `{}` and formats it as text.
+
+```{python}
+item = "woollen jumper"
+price = 45.00
+quantity = 2
+
+# Embedding variables inside an f-string
+summary = f"You ordered {quantity} x {item} at £{price:.2f} each."
+print(summary)
+```
+
+You can also run simple mathematical calculations or string operations directly inside the `{}` brackets:
+
+```{python}
+# Calculations and method calls inside f-strings
+print(f"Total payable: £{quantity * price:.2f}")
+print(f"Item name in capital letters: {item.upper()}")
+```
+
+::: {.callout-warning}
+Strings in Python are immutable, meaning they cannot be changed after they are created. When a string is modified, such as through concatenation or other operations, Python creates a new string object instead of altering the original one. Because of this, repeatedly building strings using operations like `+` in loops can be inefficient in both time and memory, since many intermediate string objects may be created. Python automatically manages memory using a process called garbage collection, which is how it reclaims memory from objects that are no longer needed. More specifically, garbage collection removes objects that are no longer reachable in the program—meaning there are no variable names or references pointing to them anymore, either because they were reassigned or deleted. In most cases, you do not need to manage this process manually. Instead, for efficiently building large strings, it is better to use tools designed for this purpose, such as `''join()` or `io.StringIO`, which reduce the number of temporary string objects created.
+:::
+
+## Exercises
+
+### Numerical Exercises
+
+::: {.callout-exercise}
+#### Exercise 1: Assigning Variables and Checking Data Types
+{{< level 1 >}}
+
+Given the following variable assignments:
+
+```python
+a = 10
+b = 200.5
+c = 15
+d = 3
+e = 4.0
+f = 0
+```
+
+Write a script to display the data type of each variable using Python's built-in `type()` function.
+
+::: {.callout-answer}
+```{python}
+a = 10
+b = 200.5
+c = 15
+d = 3
+e = 4.0
+f = 0
+
+print("a:", type(a))
+print("b:", type(b))
+print("c:", type(c))
+print("d:", type(d))
+print("e:", type(e))
+print("f:", type(f))
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 2: Using Numeric Built-in Functions
+{{< level 1 >}}
+
+Given the variables `a = 10`, `b = 200.5`, `c = 15`, `d = 3`, and `e = 4.0`, answer the following questions using **built-in functions**:
+
+1. Calculate the sum of `a`, `b`, and `c` using `sum()`.
+2. Find the maximum value among `a`, `b`, `c`, `d`, and `e` using `max()`.
+3. Find the minimum value among `a`, `b`, `c`, `d`, and `e` using `min()`.
+4. Calculate $d^e$ ($3^{4.0}$) using `pow()`.
+5. Calculate the absolute value of `-42.75` using `abs()`.
+
+::: {.callout-answer}
+```{python}
+a = 10
+b = 200.5
+c = 15
+d = 3
+e = 4.0
+
+ans_1 = sum([a, b, c])
+ans_2 = max(a, b, c, d, e)
+ans_3 = min(a, b, c, d, e)
+ans_4 = pow(d, e)
+ans_5 = abs(-42.75)
+
+print('1. Sum:', ans_1)
+print('2. Max:', ans_2)
+print('3. Min:', ans_3)
+print('4. Pow:', ans_4)
+print('5. Absolute:', ans_5)
+```
+
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 3: Temperature Statistics Calculation
+{{< level 2 >}}
+
+A weather station in Edinburgh recorded daily maximum temperatures (°C) over five days as follows: `14.2`, `16.8`, `12.5`, `18.1`, and `15.0`.
+
+Write a Python script using built-in functions to:
+1. Find the lowest recorded temperature using `min()`.
+2. Find the highest recorded temperature using `max()`.
+3. Calculate the average temperature by taking the `sum()` of the temperatures and dividing by the count (`5`).
+4. Round the average temperature to **1 decimal place** using `round()`.
+
+::: {.callout-answer}
+```{python}
+temperatures = [14.2, 16.8, 12.5, 18.1, 15.0]
+
+lowest_temp = min(temperatures)
+highest_temp = max(temperatures)
+avg_temp = sum(temperatures) / len(temperatures)
+rounded_avg = round(avg_temp, 1)
+
+print("Lowest Temperature:", lowest_temp, "°C")
+print("Highest Temperature:", highest_temp, "°C")
+print("Average Temperature (raw):", avg_temp, "°C")
+print("Average Temperature (rounded):", rounded_avg, "°C")
+```
+:::
+:::
+
+### String Exercises
+
+::: {.callout-exercise}
+#### Exercise 4: Exploring String Methods and Documentation
+{{< level 1 >}}
+
+Write a Python script to perform the following steps on the string `text = "  data science and analytics  "`:
+
+1. Use `help(str.strip)` or consult documentation to understand what `.strip()` does, then remove the leading and trailing spaces from `text`.
+2. Convert the cleaned string to uppercase using `.upper()`.
+3. Count how many times the letter `"a"` appears in the cleaned string using `.count()`.
+4. Replace `"analytics"` with `"machine learning"` using `.replace()`.
+5. Measure the final length of the modified string using `len()`.
+
+::: {.callout-answer}
+```{python}
+text = "  data science and analytics  "
+
+# Step 1: Strip whitespace
+clean_text = text.strip()
+
+# Step 2: Uppercase
+upper_text = clean_text.upper()
+
+# Step 3: Count letter 'a'
+count_a = clean_text.count("a")
+
+# Step 4: Replace word
+replaced_text = clean_text.replace("analytics", "machine learning")
+
+# Step 5: Measure length
+final_length = len(replaced_text)
+
+print("Cleaned text:", clean_text)
+print("Uppercase:", upper_text)
+print("Count of 'a':", count_a)
+print("Replaced text:", replaced_text)
+print("Final length:", final_length)
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 5: Joining Words into a Formatting Sentence
+{{< level 1 >}}
+
+1. Create a list of three word strings: `["apples", "bananas", "cherries"]`.
+2. Use the `.join()` method with `", "` as the separator to combine these words into a single comma-separated string.
+3. Convert the combined string into title case using `.title()`.
+4. Use an f-string to display: `"Shopping List: Apples, Bananas, Cherries"`.
+
+::: {.callout-answer}
+```{python}
+items = ["apples", "bananas", "cherries"]
+
+# Join list into single string
+joined_items = ", ".join(items)
+
+# Convert to title case
+formatted_items = joined_items.title()
+
+# Format with f-string
+result = f"Shopping List: {formatted_items}"
+print(result)
+```
+:::
+:::
+
+### Combined Exercises
+
+These exercises are slightly more difficult and will use all you have learnt so far in the course. In real-world applications, specifications are described in plain language. Practice converting verbal instructions into Python code using numerical functions, string methods, and f-strings.
+
+::: {.callout-exercise}
+#### Exercise 6: Shopping Basket & Loyalty Discount
+{{< level 2 >}}
+
+**Scenario:**
+A customer visits a shop in Manchester and purchases three items:
+- A winter coat priced at **£85.50**
+- A pair of leather shoes priced at **£45.00**
+- A woollen scarf priced at **£15.25**
+
+Write a Python script that carries out the following steps:
+
+1. Store the three prices in variables.
+2. Calculate the total cost of all three items using Python's built-in `sum()` function.
+3. Calculate a **15% loyalty discount** (multiply total by `0.15`) and round it to **2 decimal places** using `round()`.
+4. Calculate the final payable total by subtracting the rounded discount from the original total.
+5. Format the customer's registered name `"alexander smith"` into proper title case using `.title()`.
+6. Calculate the character count of the store name `"Manchester High Street Branch"` using `len()`.
+7. Print a receipt summary using an f-string.
+
+::: {.callout-answer}
+```{python}
+# Step 1: Prices
+coat = 85.50
+shoes = 45.00
+scarf = 15.25
+
+# Step 2: Sum using sum() with a list
+original_total = sum([coat, shoes, scarf])
+
+# Step 3: Discount calculation and rounding
+raw_discount = original_total * 0.15
+discount = round(raw_discount, 2)
+
+# Step 4: Final amount
+final_payable = original_total - discount
+
+# Step 5: Name formatting
+customer_name = "alexander smith".title()
+
+# Step 6: Store name length
+store_name = "Manchester High Street Branch"
+store_len = len(store_name)
+
+# Step 7: Formatted receipt
+receipt = (
+    f"=== RECEIPT FROM {store_name.upper()} ===\n"
+    f"Store Name Character Length: {store_len}\n"
+    f"Customer: {customer_name}\n"
+    f"----------------------------------------\n"
+    f"Original Total: £{original_total:.2f}\n"
+    f"15% Loyalty Discount: -£{discount:.2f}\n"
+    f"Final Total Payable: £{final_payable:.2f}\n"
+    f"----------------------------------------"
+)
+
+print(receipt)
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 7: Event Registration & Ticket Summary
+{{< level 2 >}}
+
+**Scenario:**
+An event manager in Oxford needs to process attendee registrations for a conference.
+
+The attendee details entered into the system are messy:
+- Name entered: `"  DR. ELEANOR VANCE  "`
+- Ticket category: `"VIP PASS"`
+- Base ticket price: **£120.00**
+- Booking fee: **£7.50**
+- Discount code applied deduction: **£15.00**
+
+Write a Python script to:
+1. Clean the attendee name by removing extra whitespace with `.strip()` and converting it to title case with `.title()`.
+2. Calculate the net ticket price by taking the base price plus booking fee minus discount.
+3. Find the lowest and highest values among the price components (base price, booking fee, discount deduction) using `min()` and `max()`.
+4. Use `len()` to count the number of characters in the cleaned attendee name.
+5. Produce a clean confirmation summary using an f-string.
+
+::: {.callout-answer}
+```{python}
+# Messy input variables
+raw_name = "  DR. ELEANOR VANCE  "
+category = "VIP PASS"
+base_price = 120.00
+booking_fee = 7.50
+discount_deduction = 15.00
+
+# Step 1: Clean name
+clean_name = raw_name.strip().title()
+
+# Step 2: Net price
+net_price = base_price + booking_fee - discount_deduction
+
+# Step 3: Min and Max values among components
+lowest_component = min(base_price, booking_fee, discount_deduction)
+highest_component = max(base_price, booking_fee, discount_deduction)
+
+# Step 4: Name character length
+name_length = len(clean_name)
+
+# Step 5: Summary print
+summary = (
+    f"=== EVENT REGISTRATION CONFIRMATION ===\n"
+    f"Attendee: {clean_name} ({name_length} characters)\n"
+    f"Category: {category}\n"
+    f"Base Price: £{base_price:.2f}\n"
+    f"Booking Fee: £{booking_fee:.2f}\n"
+    f"Discount Applied: -£{discount_deduction:.2f}\n"
+    f"----------------------------------------\n"
+    f"Total Paid: £{net_price:.2f}\n"
+    f"Component Range: Lowest = £{lowest_component:.2f}, Highest = £{highest_component:.2f}"
+)
+
+print(summary)
+```
+:::
+:::
+
+---
+
+## Summary
+
+::: {.callout-tip}
+#### Key Points
+
+- **Built-in functions** (like `abs()`, `pow()`, `round()`, `min()`, `max()`, `sum()`, and `len()`) are built directly into Python.
+- Use `help(function_name)` or check the [Python Official Documentation](https://docs.python.org/3/library/functions.html) to learn how functions work.
+- Container functions like `sum()` and string methods like `.join()` expect an **iterable** (such as a list denoted with `[]`).
+- String methods like `.upper()`, `.lower()`, `.title()`, `.strip()`, `.replace()`, and `.count()` allow for text formatting and cleaning.
+- Real-world verbal problems can be solved step-by-step by combining built-in numeric and string tools.
+:::
+
+
+
+
+<!-- ---
+title: "Working with Numerical Data Types and Strings"
+---
+
+::: {.callout-tip}
+#### Learning Objectives
+
+- Understand the difference between operators and Python's **built-in functions**.
+- Use numeric built-in functions (`abs()`, `pow()`, `round()`, `min()`, `max()`, `sum()`) to perform numerical calculations.
+- Use built-in string functions and methods (`len()`, `.upper()`, `.lower()`, `.title()`, `.replace()`, `.strip()`, `.count()`, `.join()`) to manipulate text.
+- Learn how to use the built-in `help()` function and consult official Python documentation.
+- Solve multi-step practical problems described in plain English.
+:::
+
+## Introduction to Python Built-in Functions
+
+In the previous section, we introduced basic arithmetic operators (such as `+`, `-`, `*`, `/`, and `**`). Operators are shorthand symbols for basic actions. 
+
+However, Python also includes a rich set of **built-in functions**. Built-in functions are pre-written pieces of code always available in Python without requiring any additional modules to be imported.
+
+### How to Find Help and Documentation
+
+Python provides built-in tools and official documentation so you can discover how functions work and what arguments they accept.
+
+1. **The Official Python Documentation**: You can view the full list of built-in functions on the [Official Python Documentation for Built-in Functions](https://docs.python.org/3/library/functions.html).
+2. **The Built-in `help()` Function**: In Python, you can pass any function name into `help()` to view its description, parameters, and usage guidelines directly in your notebook or console.
+
+```python
+# Displaying help for the round() function
+help(round)
+```
+
+Output:
+```text
+Help on built-in function round in module builtins:
+
+round(number, ndigits=None)
+    Round a number to a given precision in decimal digits.
+    
+    The return value is an integer if ndigits is omitted or None. Otherwise
+    the return value has the same type as the number. ndigits may be negative.
+```
+
+---
+
+## Working with Numerical Data Types
+
+Python handles two primary numerical data types:
+- **Integers (`int`)**: Whole numbers without decimals (e.g. `10`, `-5`, `0`).
+- **Floating-point numbers (`float`)**: Numbers with a decimal point (e.g. `200.5`, `4.0`, `-0.75`).
+
+### Useful Numeric Built-in Functions
+
+| Built-in Function | Description | Example Syntax | Result |
+| :--- | :--- | :--- | :--- |
+| `abs(x)` | Returns the absolute (positive) value of `x` | `abs(-15)` | `15` |
+| `pow(base, exp)` | Raises `base` to the power of `exp` | `pow(3, 4)` | `81` |
+| `round(x, n)` | Rounds `x` to `n` decimal places | `round(3.14159, 2)` | `3.14` |
+| `max(a, b, c...)` | Returns the largest item | `max(10, 20, 5)` | `20` |
+| `min(a, b, c...)` | Returns the smallest item | `min(10, 20, 5)` | `5` |
+| `sum(iterable)` | Returns the total of all items in a collection | `sum([10, 20, 30])` | `60` |
+
+::: {.callout-note}
+#### Why do we use square brackets `[]` with `sum()`?
+
+You might notice that we write `sum([10, 20, 30])` with square brackets `[]` instead of `sum(10, 20, 30)`. 
+
+In Python, square brackets `[]` create a **list** (a single container holding multiple items). The `sum()` function is specifically designed to take **one single argument** containing a collection of numbers (an *iterable*), rather than multiple separate arguments.
+
+If you try running `sum(10, 20, 30)`, Python will return an error because it expects a collection! Functions like `max(10, 20, 30)` and `min(10, 20, 30)`, on the other hand, accept multiple separate arguments.
+:::
+
+---
+
+## Working with Strings
+
+Strings (`str`) represent text data in Python. 
+
+- Strings are **immutable** (their individual characters cannot be changed in-place after creation).
+- Strings are **indexed** starting from `0`.
+- Python provides both general built-in functions (like `len()`) and specific **string methods** (like `.upper()`, `.lower()`, `.replace()`) to work with text.
+
+### Functions vs Methods for Strings
+
+- A **function** is standalone: `len("hello")`.
+- A **method** belongs to a specific object type and is called using dot notation (`.`): `"hello".upper()`.
+
+You can consult the [Official Python String Methods Documentation](https://docs.python.org/3/library/stdtypes.html#string-methods) or use `help(str)` in Python to see all available methods.
+
+| Built-in Function / Method | Purpose | Example | Result |
+| :--- | :--- | :--- | :--- |
+| `len(text)` | Returns the number of characters | `len("London")` | `6` |
+| `text.upper()` | Converts text to uppercase | `"hello".upper()` | `"HELLO"` |
+| `text.lower()` | Converts text to lowercase | `"HELLO".lower()` | `"hello"` |
+| `text.title()` | Converts text to title case | `"alice smith".title()` | `"Alice Smith"` |
+| `text.strip()` | Removes leading and trailing whitespace | `"  text  ".strip()` | `"text"` |
+| `text.replace(old, new)` | Replaces occurrences of a substring | `"cat".replace("c", "b")` | `"bat"` |
+| `text.count(sub)` | Counts occurrences of a substring | `"banana".count("a")` | `3` |
+| `delimiter.join(iterable)` | Joins a list of strings into one string | `", ".join(["A", "B", "C"])` | `"A, B, C"` |
+
+::: {.callout-note}
+#### Why do we use square brackets `[]` with `.join()`?
+
+Similar to `sum()`, the `.join()` string method joins multiple strings together. It expects a **single collection** of strings as its input. Square brackets `[]` create a list containing those strings:
+
+```python
+words = ["Learning", "Python", "is", "fun"]
+sentence = " ".join(words)
+print(sentence)  # Output: "Learning Python is fun"
+```
+:::
+
+### Demonstrating String Functions & Methods
+
+```python
+# Sample text
+greeting = "  welcome to python programming!  "
+
+# Cleaning whitespace with .strip()
+clean_greeting = greeting.strip()
+print("Cleaned text:", clean_greeting)
+
+# Getting length with len()
+print("Length of cleaned text:", len(clean_greeting))
+
+# Formatting text with .title()
+print("Title case:", clean_greeting.title())
+
+# Replacing text with .replace()
+print("Replaced text:", clean_greeting.replace("programming", "coding"))
+
+# Counting occurrences with .count()
+print("Count of letter 'o':", clean_greeting.count("o"))
+```
+
+Output:
+```text
+Cleaned text: welcome to python programming!
+Length of cleaned text: 30
+Title case: Welcome To Python Programming!
+Replaced text: welcome to python coding!
+Count of letter 'o': 4
+```
+
+## Exercises
+
+### Numerical Exercises
+
+::: {.callout-exercise}
+#### Exercise 1: Assigning Variables and Checking Data Types
+{{< level 1 >}}
+
+Given the following variable assignments:
+
+```python
+a = 10
+b = 200.5
+c = 15
+d = 3
+e = 4.0
+f = 0
+```
+
+Write a script to display the data type of each variable using Python's built-in `type()` function.
+
+::: {.callout-answer}
+```python
+a = 10
+b = 200.5
+c = 15
+d = 3
+e = 4.0
+f = 0
+
+print("a:", type(a))
+print("b:", type(b))
+print("c:", type(c))
+print("d:", type(d))
+print("e:", type(e))
+print("f:", type(f))
+```
+
+Output:
+```text
+a: <class 'int'>
+b: <class 'float'>
+c: <class 'int'>
+d: <class 'int'>
+e: <class 'float'>
+f: <class 'int'>
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 2: Using Numeric Built-in Functions
+{{< level 1 >}}
+
+Given the variables `a = 10`, `b = 200.5`, `c = 15`, `d = 3`, and `e = 4.0`, answer the following questions using **built-in functions**:
+
+1. Calculate the sum of `a`, `b`, and `c` using `sum()`.
+2. Find the maximum value among `a`, `b`, `c`, `d`, and `e` using `max()`.
+3. Find the minimum value among `a`, `b`, `c`, `d`, and `e` using `min()`.
+4. Calculate $d^e$ ($3^{4.0}$) using `pow()`.
+5. Calculate the absolute value of `-42.75` using `abs()`.
+
+::: {.callout-answer}
+```python
+a = 10
+b = 200.5
+c = 15
+d = 3
+e = 4.0
+
+ans_1 = sum([a, b, c])
+ans_2 = max(a, b, c, d, e)
+ans_3 = min(a, b, c, d, e)
+ans_4 = pow(d, e)
+ans_5 = abs(-42.75)
+
+print('1. Sum:', ans_1)
+print('2. Max:', ans_2)
+print('3. Min:', ans_3)
+print('4. Pow:', ans_4)
+print('5. Absolute:', ans_5)
+```
+
+Output:
+```text
+1. Sum: 225.5
+2. Max: 200.5
+3. Min: 3
+4. Pow: 81.0
+5. Absolute: 42.75
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 3: Temperature Statistics Calculation
+{{< level 2 >}}
+
+A weather station in Edinburgh recorded daily maximum temperatures (°C) over five days as follows: `14.2`, `16.8`, `12.5`, `18.1`, and `15.0`.
+
+Write a Python script using built-in functions to:
+1. Find the lowest recorded temperature using `min()`.
+2. Find the highest recorded temperature using `max()`.
+3. Calculate the average temperature by taking the `sum()` of the temperatures and dividing by the count (`5`).
+4. Round the average temperature to **1 decimal place** using `round()`.
+
+::: {.callout-answer}
+```python
+temperatures = [14.2, 16.8, 12.5, 18.1, 15.0]
+
+lowest_temp = min(temperatures)
+highest_temp = max(temperatures)
+avg_temp = sum(temperatures) / len(temperatures)
+rounded_avg = round(avg_temp, 1)
+
+print("Lowest Temperature:", lowest_temp, "°C")
+print("Highest Temperature:", highest_temp, "°C")
+print("Average Temperature (raw):", avg_temp, "°C")
+print("Average Temperature (rounded):", rounded_avg, "°C")
+```
+
+Output:
+```text
+Lowest Temperature: 12.5 °C
+Highest Temperature: 18.1 °C
+Average Temperature (raw): 15.32 °C
+Average Temperature (rounded): 15.3 °C
+```
+:::
+:::
+
+### String Exercises
+
+::: {.callout-exercise}
+#### Exercise 4: Exploring String Methods and Documentation
+{{< level 1 >}}
+
+Write a Python script to perform the following steps on the string `text = "  data science and analytics  "`:
+
+1. Use `help(str.strip)` or consult documentation to understand what `.strip()` does, then remove the leading and trailing spaces from `text`.
+2. Convert the cleaned string to uppercase using `.upper()`.
+3. Count how many times the letter `"a"` appears in the cleaned string using `.count()`.
+4. Replace `"analytics"` with `"machine learning"` using `.replace()`.
+5. Measure the final length of the modified string using `len()`.
+
+::: {.callout-answer}
+```python
+text = "  data science and analytics  "
+
+# Step 1: Strip whitespace
+clean_text = text.strip()
+
+# Step 2: Uppercase
+upper_text = clean_text.upper()
+
+# Step 3: Count letter 'a'
+count_a = clean_text.count("a")
+
+# Step 4: Replace word
+replaced_text = clean_text.replace("analytics", "machine learning")
+
+# Step 5: Measure length
+final_length = len(replaced_text)
+
+print("Cleaned text:", clean_text)
+print("Uppercase:", upper_text)
+print("Count of 'a':", count_a)
+print("Replaced text:", replaced_text)
+print("Final length:", final_length)
+```
+
+Output:
+```text
+Cleaned text: data science and analytics
+Uppercase: DATA SCIENCE AND ANALYTICS
+Count of 'a': 4
+Replaced text: data science and machine learning
+Final length: 33
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 5: Joining Words into a Formatting Sentence
+{{< level 1 >}}
+
+1. Create a list of three word strings: `["apples", "bananas", "cherries"]`.
+2. Use the `.join()` method with `", "` as the separator to combine these words into a single comma-separated string.
+3. Convert the combined string into title case using `.title()`.
+4. Use an f-string to display: `"Shopping List: Apples, Bananas, Cherries"`.
+
+::: {.callout-answer}
+```python
+items = ["apples", "bananas", "cherries"]
+
+# Join list into single string
+joined_items = ", ".join(items)
+
+# Convert to title case
+formatted_items = joined_items.title()
+
+# Format with f-string
+result = f"Shopping List: {formatted_items}"
+print(result)
+```
+
+Output:
+```text
+Shopping List: Apples, Bananas, Cherries
+```
+:::
+:::
+
+### Combined Exercises
+
+These exercises aer slightly more difficult and will use all you have learnt so far in the course. In real-world applications, specifications are described in plain language. Practice converting verbal instructions into Python code using numerical functions, string methods, and f-strings.
+
+::: {.callout-exercise}
+#### Exercise 6: Shopping Basket & Loyalty Discount
+{{< level 2 >}}
+
+**Scenario:**
+A customer visits a shop in Manchester and purchases three items:
+- A winter coat priced at **£85.50**
+- A pair of leather shoes priced at **£45.00**
+- A woollen scarf priced at **£15.25**
+
+Write a Python script that carries out the following steps:
+
+1. Store the three prices in variables.
+2. Calculate the total cost of all three items using Python's built-in `sum()` function.
+3. Calculate a **15% loyalty discount** (multiply total by `0.15`) and round it to **2 decimal places** using `round()`.
+4. Calculate the final payable total by subtracting the rounded discount from the original total.
+5. Format the customer's registered name `"alexander smith"` into proper title case using `.title()`.
+6. Calculate the character count of the store name `"Manchester High Street Branch"` using `len()`.
+7. Print a receipt summary using an f-string.
+
+::: {.callout-answer}
+```python
+# Step 1: Prices
+coat = 85.50
+shoes = 45.00
+scarf = 15.25
+
+# Step 2: Sum using sum() with a list
+original_total = sum([coat, shoes, scarf])
+
+# Step 3: Discount calculation and rounding
+raw_discount = original_total * 0.15
+discount = round(raw_discount, 2)
+
+# Step 4: Final amount
+final_payable = original_total - discount
+
+# Step 5: Name formatting
+customer_name = "alexander smith".title()
+
+# Step 6: Store name length
+store_name = "Manchester High Street Branch"
+store_len = len(store_name)
+
+# Step 7: Formatted receipt
+receipt = (
+    f"=== RECEIPT FROM {store_name.upper()} ===\n"
+    f"Store Name Character Length: {store_len}\n"
+    f"Customer: {customer_name}\n"
+    f"----------------------------------------\n"
+    f"Original Total: £{original_total:.2f}\n"
+    f"15% Loyalty Discount: -£{discount:.2f}\n"
+    f"Final Total Payable: £{final_payable:.2f}\n"
+    f"----------------------------------------"
+)
+
+print(receipt)
+```
+
+Output:
+```text
+=== RECEIPT FROM MANCHESTER HIGH STREET BRANCH ===
+Store Name Character Length: 29
+Customer: Alexander Smith
+----------------------------------------
+Original Total: £145.75
+15% Loyalty Discount: -£21.86
+Final Total Payable: £123.89
+----------------------------------------
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 7: Event Registration & Ticket Summary
+{{< level 2 >}}
+
+**Scenario:**
+An event manager in Oxford needs to process attendee registrations for a conference.
+
+The attendee details entered into the system are messy:
+- Name entered: `"  DR. ELEANOR VANCE  "`
+- Ticket category: `"VIP PASS"`
+- Base ticket price: **£120.00**
+- Booking fee: **£7.50**
+- Discount code applied deduction: **£15.00**
+
+Write a Python script to:
+1. Clean the attendee name by removing extra whitespace with `.strip()` and converting it to title case with `.title()`.
+2. Calculate the net ticket price by taking the base price plus booking fee minus discount.
+3. Find the lowest and highest values among the price components (base price, booking fee, discount deduction) using `min()` and `max()`.
+4. Use `len()` to count the number of characters in the cleaned attendee name.
+5. Produce a clean confirmation summary using an f-string.
+
+::: {.callout-answer}
+```python
+# Messy input variables
+raw_name = "  DR. ELEANOR VANCE  "
+category = "VIP PASS"
+base_price = 120.00
+booking_fee = 7.50
+discount_deduction = 15.00
+
+# Step 1: Clean name
+clean_name = raw_name.strip().title()
+
+# Step 2: Net price
+net_price = base_price + booking_fee - discount_deduction
+
+# Step 3: Min and Max values among components
+lowest_component = min(base_price, booking_fee, discount_deduction)
+highest_component = max(base_price, booking_fee, discount_deduction)
+
+# Step 4: Name character length
+name_length = len(clean_name)
+
+# Step 5: Summary print
+summary = (
+    f"=== EVENT REGISTRATION CONFIRMATION ===\n"
+    f"Attendee: {clean_name} ({name_length} characters)\n"
+    f"Category: {category}\n"
+    f"Base Price: £{base_price:.2f}\n"
+    f"Booking Fee: £{booking_fee:.2f}\n"
+    f"Discount Applied: -£{discount_deduction:.2f}\n"
+    f"----------------------------------------\n"
+    f"Total Paid: £{net_price:.2f}\n"
+    f"Component Range: Lowest = £{lowest_component:.2f}, Highest = £{highest_component:.2f}"
+)
+
+print(summary)
+```
+
+Output:
+```text
+=== EVENT REGISTRATION CONFIRMATION ===
+Attendee: Dr. Eleanor Vance (17 characters)
+Category: VIP PASS
+Base Price: £120.00
+Booking Fee: £7.50
+Discount Applied: -£15.00
+----------------------------------------
+Total Paid: £112.50
+Component Range: Lowest = £7.50, Highest = £120.00
+```
+:::
+:::
+
+---
+
+## Summary
+
+::: {.callout-tip}
+#### Key Points
+
+- **Built-in functions** (like `abs()`, `pow()`, `round()`, `min()`, `max()`, `sum()`, and `len()`) are built directly into Python.
+- Use `help(function_name)` or check the [Python Official Documentation](https://docs.python.org/3/library/functions.html) to learn how functions work.
+- Container functions like `sum()` and string methods like `.join()` expect an **iterable** (such as a list denoted with `[]`).
+- String methods like `.upper()`, `.lower()`, `.title()`, `.strip()`, `.replace()`, and `.count()` allow for text formatting and cleaning.
+- Real-world verbal problems can be solved step-by-step by combining built-in numeric and string tools.
+::: -->
