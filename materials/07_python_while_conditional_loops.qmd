@@ -155,11 +155,14 @@ print("Blast off!")
 ```
 
 :::
+:::
 
 
 ::: {.callout-exercise}
 #### Code Legibility
 {{< level 2 >}}
+
+Consider the following code:
 
 ```python
 import random
@@ -206,9 +209,11 @@ while infected < population:
         break
 ```
 
-What does the above code do?
-Is it legibly written?
-What can be done to improve this?
+1. What does the above code do?
+
+2. Is it legibly written?
+
+3. What can be done to improve this?
 
 ::: {.callout-answer}
 
@@ -301,91 +306,108 @@ def collect_expenses(thresholds, expenses, get_total_func, check_logic_func):
             print("Invalid input. Try again.\n")
 ```
 
-*Note: Notice how functions (`get_total_func` and `check_logic_func`) are passed into `collect_expenses` as arguments. This ensures the code remains modular and flexible.*
+
 
 **Questions:**
+
 1. What does the `while` statement in `collect_expenses` do?
+
 2. What are its limitations?
+
 3. Improve the code by addressing these limitations.
+
+*Note: Notice how functions (`get_total_func` and `check_logic_func`) are passed into `collect_expenses` as arguments. This ensures the code remains modular and flexible.*
+
+Use the following functions which are part of the expense calculator for `get_total_func`and `check_logic_func`:
+
+```python
+def get_category_total(expenses, category):
+    """Simple math logic to filter and sum expenses."""
+    return sum(amount for cat, amount in expenses if cat == category)
+
+def check_threshold(category, current_total, thresholds):
+    """Handles the conditional logic for budget warnings."""
+    limit = thresholds.get(category, 0)
+    if current_total > limit:
+        print(f"Warning: You have exceeded the {category} threshold!")
+        print(f"Total spent in {category}: {current_total}")
+    else:
+        remaining = limit - current_total
+        print(f"Added to {category}.")
+        print(f"Total spent in {category}: {current_total}")
+        print(f"Amount left for {category}: {remaining}\n")
+```
+
 
 ::: {.callout-answer}
 
 **Explanation:**
-1. The `while True:` loop creates an infinite loop that repeatedly prompts the user for a category and amount until the user explicitly enters `"done"`.
+
+1. The `while True:` loop creates an infinite loop that repeatedly prompts the user for a category and amount to add to the expenses until the user explicitly enters `"done"`.
+
 2. **Limitations:**
+
    - If the user never enters `"done"`, the program will loop indefinitely.
    - There is no upper bound on total entries or expenditure limits.
    - Incorrect input outputs a simple error message but provides no mechanism to cap maximum consecutive invalid entries.
 
 **Improved Code Implementation:**
 
-```{python}
-# Helper functions to demonstrate execution
+```python
 def get_category_total(expenses, category):
-    return sum(item[1] for item in expenses if item[0] == category)
+    """Simple math logic to filter and sum expenses."""
+    return sum(amount for cat, amount in expenses if cat == category)
 
-def check_budget_threshold(category, current_total, thresholds):
+def check_threshold(category, current_total, thresholds):
+    """Handles the conditional logic for budget warnings."""
     limit = thresholds.get(category, 0)
     if current_total > limit:
-        print(f"  [ALERT] Expenditure for '{category}' (£{current_total:.2f}) exceeds threshold (£{limit:.2f})!")
+        print(f"Warning: You have exceeded the {category} threshold!")
+        print(f"Total spent in {category}: {current_total}")
+    else:
+        remaining = limit - current_total
+        print(f"Added to {category}.")
+        print(f"Total spent in {category}: {current_total}")
+        print(f"Amount left for {category}: {remaining}\n")
 
-def collect_expenses_improved(thresholds, expenses, get_total_func, check_logic_func, simulated_inputs, max_entries=10):
-    """Improved version with entry caps and maximum iteration safety guards."""
-    print("Starting expense collection...")
+def collect_expenses(thresholds, expenses, get_total_func, check_logic_func, max_entries=10, max_invalid_in_a_row=3):
+    """Uses a while loop to interact with the user, with limits added."""
+    print("Enter your expenses. Type 'done' to finish.\n")
+
     entry_count = 0
-    input_idx = 0
-    
-    while entry_count < max_entries and input_idx < len(simulated_inputs):
-        category = simulated_inputs[input_idx].lower()
-        input_idx += 1
-        
+    invalid_count = 0
+
+    while entry_count < max_entries:
+        category = input("Category (food, transport, entertainment, other): ").lower()
         if category == "done":
-            print("User completed entry sequence.")
             break
-            
-        if input_idx >= len(simulated_inputs):
-            print("No matching amount found for category.")
-            break
-            
-        amount_str = simulated_inputs[input_idx]
-        input_idx += 1
-        
-        # Input Validation
+
+        amount_str = input("Amount: ")
+
+        # Validation
         if category in thresholds and amount_str.replace('.', '', 1).isdigit():
             amount = float(amount_str)
             expenses.append([category, amount])
             entry_count += 1
-            
-            # Execute flexible callback functions
+            invalid_count = 0  # reset on a valid entry
+
+            # Use the passed-in logic functions
             current_total = get_total_func(expenses, category)
-            print(f"Recorded £{amount:.2f} under '{category}'. Total for {category}: £{current_total:.2f}")
             check_logic_func(category, current_total, thresholds)
         else:
-            print(f"Invalid input sequence ('{category}', '{amount_str}'). Please try again.")
+            invalid_count += 1
+            print("Invalid input. Try again.\n")
+            if invalid_count >= max_invalid_in_a_row:
+                print("Too many invalid entries in a row. Stopping.")
+                break
 
     if entry_count >= max_entries:
-        print("Maximum expense entry limit reached.")
+        print("Maximum number of expense entries reached.")
 
-# Test setup
-budget_thresholds = {"food": 50.0, "transport": 30.0, "entertainment": 20.0}
-recorded_expenses = []
+# Test by running:
+thresholds = {"food": 50.0, "transport": 30.0, "entertainment": 20.0}
+collect_expenses(thresholds, expenses, get_category_total, check_threshold)
 
-# Simulated user input stream
-simulated_user_input = [
-    "food", "25.00",
-    "transport", "15.00",
-    "food", "35.00",  # Exceeds food threshold
-    "invalid_cat", "10.00",
-    "done"
-]
-
-collect_expenses_improved(
-    budget_thresholds, 
-    recorded_expenses, 
-    get_category_total, 
-    check_budget_threshold, 
-    simulated_user_input
-)
 ```
 
 :::
@@ -401,6 +423,7 @@ Either write a while loop of your own choice,
 or 
 
 Write a script that asks customers repeatedly for drinks they would like to order from a menu.
+
 - If an item is not recognised from your menu (`"tea"`, `"coffee"`, `"water"`), display an appropriate message.
 - If the customer enters `"stop"` or orders more than 10 items, complete the order.
 - Calculate and display the total cost of the order.
@@ -460,6 +483,7 @@ process_order(order_inputs)
 
 ::: {.callout-tip}
 #### Key Points
+
 - `while` loops repeat code blocks based on a boolean condition, which is ideal when the required number of iterations is unknown in advance.
 - Always modify condition variables or use explicit safety checks to avoid infinite loops.
 - `break` exits a loop immediately, whereas `continue` skips to the next iteration.

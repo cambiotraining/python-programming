@@ -1,0 +1,2 @@
+These are my notes about python.
+You can open files with the open() function.

@@ -116,8 +116,7 @@ from utils import some_function
 #### Importing functions
 {{< level 1 >}}
 
-to make your own separate function containing module, remove the functions from the expense_calculator script and put them into a separate script.
-Import them into the main script. Demonstrate the script still works
+The expense calculator has essentially done this. Have a look at the `expense_calculator_old.py`. Compare the complexity to that of the `expense_calculator.py`. Discuss the pros and cons of each approach and when you might want to use one over the other.
 
 :::
 
@@ -157,6 +156,8 @@ pip install -e .
 This registers the package with Python while keeping it linked to your local source code, so changes take effect immediately.
 
 ## Extra: Installing Packages with `conda`
+
+We will not go into installing packages with conda in this course. However the information below may be of use to you.
 
 `conda` is a package manager included with the **Anaconda** distribution, which is widely used for data science, scientific computing, and machine learning. It manages both **Python** and **non-Python dependencies**, making it a more versatile option in certain environments. 
 

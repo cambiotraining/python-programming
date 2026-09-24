@@ -5,14 +5,58 @@ title: Python try and except statements
 ::: {.callout-tip}
 #### Learning Objectives
 
-- Learn what try and except statements do and how to use them
-- Learn the syntax and add them to your repertoir of python constructs to deal with unforseen errors
+- Understand how `try` and `except` statements manage runtime errors in Python.
+- Learn how to use the `except Exception as e` idiom to catch and inspect non-named or unexpected errors.
+- Learn the full syntax and execution flow of `try`, `except`, `else`, and `finally` blocks.
+- Incorporate exception handling into your repertoire of Python programming constructs to build robust, crash-resistant applications.
 :::
 
 
 ## `try` and `except` in Python
 
-In Python, `try` and `except` blocks are used for handling exceptions, which are errors that can occur during program execution. This mechanism allows developers to anticipate potential errors, provide alternate code to handle them, and prevent the program from crashing. Here's how it works:
+In Python, `try` and `except` blocks are used for handling exceptions, which are errors that can occur during program execution. This mechanism allows developers to anticipate potential errors, provide alternate code to handle them, and prevent the program from crashing.
+
+**A Simple Example**
+
+Suppose we want to convert a text string into an integer. If the string contains non-numeric characters, Python raises a `ValueError`. We can catch this error using `try` and `except`:
+
+```{python}
+user_input = "twenty"
+
+try:
+    number = int(user_input)
+    print(f"Successfully converted number: {number}")
+except ValueError:
+    print(f"Error: '{user_input}' is not a valid integer!")
+```
+
+If `user_input` were `"20"`, the code inside the `try` block would succeed and print the result. Because `user_input` is `"twenty"`, Python skips directly to the `except ValueError` block and displays a helpful message rather than stopping execution with an unhandled exception.
+
+**Catching Unnamed Exceptions with `except Exception as e`**
+
+While catching specific errors (like `ValueError` or `ZeroDivisionError`) is recommended, you cannot always predict every error that might occur. In Python, `Exception` is the base class for almost all non-fatal errors. 
+
+The idiom **`except Exception as e`** allows you to catch any standard exception and store the exception object in a variable named `e`. This allows you to inspect, print, or log the exact error message that Python generated:
+
+```{python}
+items = [10, 20, 30]
+
+try:
+    # Attempting to perform an operation that fails
+    result = items["first"]  # Passing a string key to a list causes a TypeError
+except Exception as e:
+    print(f"An unexpected error occurred!")
+    print(f"Exception type: {type(e).__name__}")
+    print(f"Error details: {e}")
+```
+
+Key Rules for `except Exception as e`:
+
+* **Use as a Fallback:** Place general `except Exception as e` blocks *after* specific exception blocks so that known errors are handled specifically first.
+* **Debugging & Logging:** Printing `e` gives valuable insight into what went wrong without allowing the program to crash.
+
+
+## The Full Structure of Exception Handling
 
 **`try` Block:**
 
@@ -36,29 +80,27 @@ You can add an `else` block after the `except` block. This block runs if the `tr
 
 The `finally` block runs regardless of whether an exception was raised or not. It is often used for cleanup actions, like closing files or releasing resources.
 
-**Example**
+**Here is a comprehensive example demonstrating all four components:**
 
-Here’s a simple example demonstrating the use of `try` and `except`:
-
-```python
+```{python}
 try:
-    # Code that may raise an exception
     numerator = 10
     denominator = 0
     result = numerator / denominator
 except ZeroDivisionError:
-    # Handling a specific exception
+    # Handling a specific division-by-zero exception
     print("Error: You cannot divide by zero.")
 except Exception as e:
-    # Handling any other exception
-    print(f"An unexpected error occurred: {e}")
+    # Catching any other unexpected exception using the idiom
+    print(f"An unexpected error occurred ({type(e).__name__}): {e}")
 else:
-    # Executes if no exception occurred
+    # Executes only if no exception occurred
     print("The result is:", result)
 finally:
     # This block runs no matter what
     print("Execution completed.")
 ```
+
 *Explanation of the Example:*
 
 `try`:
@@ -86,27 +128,65 @@ In this case I might not use the `else` or `finally`
 - **Cleaner Code:** It allows for clearer separation of normal code and error handling.
 - **More Robust Programs:** By anticipating and handling potential errors, your programs can handle unexpected situations better.
 
+## Exercises and Solutions
+
 ::: {.callout-exercise}
-#### Count Nucleotide Occurrences
-{{< level 2 >}}
 
-Given a DNA sequence, write a loop to count the occurrences of each DNA base out of the four options (A, T, C, G).
+#### Exercise 1: Safe List Indexing (Beginner)
 
-**DNA Sequence:**
-```python
-dna_sequence = "ATCGATCGATCGATCG"
+{{< level 1 >}}
 
-```
+Write a function `get_element(data_list, index)` that returns the item at the given `index` from `data_list`. 
+Use a `try...except` block to catch out-of-bounds index errors (`IndexError`) as well as non-integer index inputs using `except Exception as e`.
 
 ::: {.callout-answer}
 
+#### Answer
+
+```{python}
+def get_element(data_list, index):
+    try:
+        value = data_list[index]
+        return f"Found value: {value}"
+    except IndexError:
+        return f"Error: Index {index} is out of range for list of length {len(data_list)}."
+    except Exception as e:
+        return f"An error occurred ({type(e).__name__}): {e}"
+
+# Testing the function
+sample_list = ["apple", "banana", "cherry"]
+
+print(get_element(sample_list, 1))       # Valid index
+print(get_element(sample_list, 10))      # Triggers IndexError
+print(get_element(sample_list, "one"))   # Triggers TypeError caught by Exception as e
 ```
-# Given DNA sequence
-dna_sequence = "ATCGATCGATCGATCG"
+
+**Explanation:**
+1. Valid indices (e.g. `1`) execute cleanly.
+2. An index beyond the length of the list (e.g. `10`) triggers `IndexError`.
+3. Passing a string as an index (e.g. `"one"`) triggers a `TypeError`, which falls through to `except Exception as e`.
+:::
+:::
+
+::: {.callout-exercise}
+
+#### Exercise 2: Count Nucleotide Occurrences
+
+{{< level 2 >}}
+
+Given a DNA sequence, count the occurrences of valid nucleotides (`A`, `T`, `C`, `G`). What exceptions might occur? Use `try` and `except` to deal with them.
+
+*Use a dictionary and `try...except` to catch errors rather than a long chain of `if-elif` statements.*
+
+::: {.callout-answer}
+
+#### Answer
+
+You might have initially been inclined to write something like the following:
 
 ```
-Initial Answer
-```
+dna_sequence = "ATCGATCGATCGATCG"
+
 # Initialize counts
 count_A = 0
 count_T = 0
@@ -127,47 +207,170 @@ for nucleotide in dna_sequence:
 print(f"A: {count_A}, T: {count_T}, C: {count_C}, G: {count_G}")
 ```
 
+However these DNA sequences might include invalid characters like X or N.
+
+When storing counts in a dictionary, attempting to access an invalid key directly raises a `KeyError`. We can catch this with `try...except`:
+
+```{python}
+dna_sequence = "ATCGATCGXATCGATCGN"  # Contains invalid bases 'X' and 'N'
+
+counts = {'A': 0, 'T': 0, 'C': 0, 'G': 0}
+invalid_counts = {}
+
+for position, nucleotide in enumerate(dna_sequence):
+    try:
+        counts[nucleotide] += 1
+    except KeyError:
+        # Catch unexpected nucleotides not present in our dictionary
+        invalid_counts[nucleotide] = invalid_counts.get(nucleotide, 0) + 1
+
+print("Valid Base Counts:", counts)
+print("Invalid Base Counts:", invalid_counts)
+```
+**Key Advantages:**
+
+- Avoids long if-elif conditional structures.
+- Safely records invalid characters without halting program execution.
+
 :::
-
-What exceptions might be generated?
-- Add an else statement to deal with other characters
-- Use try and except - what exception cases would this allow you to handle? Remember to follow the indentation pattern
-
 :::
 
 ::: {.callout-exercise}
-#### if statements vs try except
+
+#### Exercise 3: `if` Statements vs `try` / `except`
+
 {{< level 2 >}}
 
-Discussion: Can if statements statements replace try except?
+**Discussion:** Can `if` statements completely replace `try` / `except` blocks?
 
 ::: {.callout-answer}
 
-NO! - if statements can reduce the errors and deal with edge casees, but errors can arise within the code blocks that cannot be handled.
+#### Answer
 
-- Edge cases can be different to errors - the code runs without throwing errors but the output does not behave as expected
+**No!** While `if` statements and `try...except` blocks both guide program flow, they serve fundamentally distinct purposes:
 
-- You should always inspect data first and check things make sense.
+**"Look Before You Leap" (LBYL) vs "Easier to Ask for Forgiveness than Permission" (EAFP):**
+   * `if` statements check conditions *before* executing an action (LBYL).
+   * `try...except` attempts an action and handles failures *if* they occur (EAFP)
 
+**Unforeseen Failures:**
+`if` statements can only be used to deal with errors you have forseen and that can be checkes easily. They cannot be used for all eventualities and unexpected occurrences. For example:
+   * An `if` statement can check if a file exists (`if os.path.exists("file.txt"):`), but the file could still be deleted, locked, or corrupted between the check and the actual read operation.
+   * A `try...except` block safely handles `FileNotFoundError` or `PermissionError` during the operation itself.
+
+**Data Type Parsing:**
+   * Validating complex strings before numeric conversion using `if` statements often requires cumbersome regular expressions. Using `try: float(value)` is much cleaner and more reliable.
 :::
 :::
 
 ::: {.callout-exercise}
-#### improving the expense_calculator code
+
+#### Exercise 4: Improving the Expense Calculator 
+
 {{< level 2 >}}
 
-Where else might you add `try` `except` statement to the expense_calculator script?
-Have a go at adding these statements into the script.
-When might you prefer not to use `try` `except` ?
+Where might you add `try` and `except` statements in the improved `collect_expenses()` function from `input_handler.py` that we were looking at?
 
+Implement these statements in a working script, and discuss when you might prefer *not* to use `try...except`.
+
+::: {.callout-answer}
+
+#### Answer
+
+There are two separate places worth a `try...except` in `collect_expenses()`, for two different reasons:
+
+1. **Converting the amount to a number (`float(amount_str)`)** — the current code avoids a crash here using `amount_str.replace('.', '', 1).isdigit()` to check the string first, but this is a bit clunky and doesn't catch every valid numeric format (e.g. negative numbers, or a leading `+`). A `try...except ValueError` around the conversion itself is cleaner and more robust than trying to pre-validate the string.
+
+2. **Calling the passed-in functions (`get_total_func`, `check_logic_func`)** — these are parameters, not fixed implementations, so `collect_expenses()` doesn't control what runs inside them. A caller could pass in a version that does `thresholds[category]` instead of `thresholds.get(category)`, or has some other bug. That's a genuine *unexpected* runtime error crossing into code this function doesn't own — exactly the case `try...except` is for.
+
+Using both means the loop can tell the difference between "the user typed something invalid" (handled with the normal invalid-input counter) and "something went wrong inside code we don't control" (caught, reported, and the loop continues).
+
+```python
+def get_category_total(expenses, category):
+    """Simple math logic to filter and sum expenses."""
+    return sum(amount for cat, amount in expenses if cat == category)
+
+def check_threshold(category, current_total, thresholds):
+    """Handles the conditional logic for budget warnings."""
+    limit = thresholds.get(category, 0)
+    if current_total > limit:
+        print(f"Warning: You have exceeded the {category} threshold!")
+        print(f"Total spent in {category}: {current_total}")
+    else:
+        remaining = limit - current_total
+        print(f"Added to {category}.")
+        print(f"Total spent in {category}: {current_total}")
+        print(f"Amount left for {category}: {remaining}\n")
+
+def collect_expenses(thresholds, expenses, get_total_func, check_logic_func, max_entries=10, max_invalid_in_a_row=3):
+    """Uses a while loop to interact with the user, with limits and error handling added."""
+    print("Enter your expenses. Type 'done' to finish.\n")
+
+    entry_count = 0
+    invalid_count = 0
+
+    while entry_count < max_entries:
+        category = input("Category (food, transport, entertainment, other): ").lower()
+        if category == "done":
+            break
+
+        amount_str = input("Amount: ")
+
+        if category not in thresholds:
+            invalid_count += 1
+            print("Invalid category. Try again.\n")
+            if invalid_count >= max_invalid_in_a_row:
+                print("Too many invalid entries in a row. Stopping.")
+                break
+            continue
+
+        # try/except used here instead of a manual string check,
+        # since float() is the operation that can actually fail
+        try:
+            amount = float(amount_str)
+        except ValueError:
+            invalid_count += 1
+            print("Invalid amount. Please enter a number.\n")
+            if invalid_count >= max_invalid_in_a_row:
+                print("Too many invalid entries in a row. Stopping.")
+                break
+            continue
+
+        expenses.append([category, amount])
+        entry_count += 1
+        invalid_count = 0  # reset on a valid entry
+
+        # Use the passed-in logic functions — wrapped separately, since a
+        # failure here means a bug in code we don't own, not bad user input
+        try:
+            current_total = get_total_func(expenses, category)
+            check_logic_func(category, current_total, thresholds)
+        except Exception as e:
+            print(f"Unexpected error while processing '{category}': {e}\n")
+
+    if entry_count >= max_entries:
+        print("Maximum number of expense entries reached.")
+```
+
+
+#### When NOT to use `try...except`:
+* **For Syntax Errors or Logic Bugs:** Do not hide programming mistakes with `try...except`; fix the code logic instead.
+* **Overly Broad Catching Without Logging:** Avoid silent `except:` or `except Exception:` blocks that pass without action (`pass`), as this hides critical errors (like `NameError` or variable misspelling) and makes debugging difficult.
+* **Simple Predictable Control Flow:** If checking. When a certain value is expected some of the time and requires alternate processing, prefer using `if` statements rather than `try` and `except`
+:::
 :::
 
+---
 
 ## Summary
 
 ::: {.callout-tip}
+
 #### Key Points
 
-- Python try except statements catch errors and enable code to continue despite some errors
-- They are simple to add to scripts where this is important
+* `try` and `except` blocks prevent Python scripts from crashing when runtime errors occur.
+* Use `except Exception as e` to gracefully handle unexpected or unnamed exceptions and inspect the error message stored in `e`.
+* `else` blocks execute when no exceptions occur, while `finally` blocks always execute, making them ideal for cleanup operations.
+* Prefer specific exception catching (e.g. `except ValueError:`) before general fallbacks (`except Exception as e:`).
+* Combine `if` statements for standard logical branching with `try...except` for handling unpredictable data inputs and execution errors.
 :::

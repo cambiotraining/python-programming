@@ -16,6 +16,8 @@ Working with files is essential in coding because it allows programs to store, r
 
 ## Working Directory
 
+We have already introduced the idea of a working directory. To briefly recap:
+
 A **working directory** is the directory within the file system where your program will use as a default to look for and read files or output files. It easier than always defining absolute file paths and can allow code to be transferred.
 
 When running python scripts from the console, the working directory is the one where you launched the script from. 
@@ -62,9 +64,20 @@ You can open files in different modes using the `open()` function. The common mo
 - `'b'`: Binary mode (for non-text files)
 - `'x'`: Exclusive creation (fails if the file already exists)
 
-Example:
-
+```{python}
+#| include: false
+# Create the notes file so the example below works
+with open('my_notes.txt', 'w') as f:
+    f.write("These are my notes about python.\nYou can open files with the open() function.\n")
 ```
+
+If we make a file named `my_notes.txt` with the sentences:
+```
+These are my notes about python.
+You can open files with the open() function.
+```
+
+```{python}
 # Open the file in read mode
 file = open('my_notes.txt', 'r')
 
@@ -76,27 +89,28 @@ file.close()
 
 # The my_notes variable now holds the content of my_notes.txt
 print(my_notes)  # This will display the content of the file
-
 ```
 
 `file.readlines()` will return a list with each line:
 
-```
-file = open('dna_sequences.txt', 'r')
-dna_sequences = file.readlines()
+```{python}
+file = open('my_notes.txt', 'r')
+my_notes_lines = file.readlines()
 file.close()
+print(my_notes_lines)
 ```
 
 **Using `for` loops to iterate line by line:**
 
-```
-file = open('dna_sequences.txt', 'r')
-for line in file:
+```{python}
+file = open('my_notes.txt', 'r')
+for n, line in enumerate(file, start=1):
     # Strip trailing whitespace or newline characters from the end of each line
-    dna_sequence = line.strip()
-    print(dna_sequence)  # Process or print the current line
+    note_line = line.strip()
+    print(f"line number: {n}: {note_line}")  # Process or print the current line
 file.close()
 ```
+
 This method is memory-efficient, especially for large files, since it doesn't load the entire file into memory at once.
 
 Consider the problems with working with files this way:
@@ -109,7 +123,20 @@ If an exception occurs after `open()` what will happen? What have you already le
 
 ::: {.callout-answer}
 
-The file will never close properly - you could use `try` ,`except` , `finally`. The `with` statement presented in the next section is a better way to deal with this.
+The file will never close properly - you could use `try`, `except`, `finally`. The `with` statement presented in the next section is a better way to deal with this.
+
+```{python}
+try:
+    file = open('my_notes.txt', 'r')
+    my_notes = file.read()
+    print(my_notes)
+except FileNotFoundError:
+    print("The file could not be found.")
+finally:
+    file.close()
+```
+
+The `finally` block runs whether or not an exception occurred, so the file is guaranteed to close properly.
 
 :::
 :::
@@ -121,13 +148,12 @@ Using the `with` statement is a better way to work with files in Python as it en
 
 Example:
 
-```
-with open('dna_sequence.txt', 'r') as file:
+```{python}
+with open('my_notes.txt', 'r') as file:
     for line in file:
         # Strip the newline character from each line and print it
-        dna_sequence = line.strip()
-        print(dna_sequence)
-
+        note_line = line.strip()
+        print(note_line)
 ```
 
 Note it uses the same kind of syntax as for loops and conditionals
@@ -143,11 +169,10 @@ The same methods are used to write to a file:
 **Write to a new file or replace an existing file**
 
 Writing to a new file or overwriting an existing file is simple:
-```
+```{python}
 with open('names.txt', 'w') as file:
     file.write("John\n")
     file.write("Martin\n")
-
 ```
 `file.writelines():` Takes an iterable (like a list) and writes each item to the file. You can also use `for` loops.
 
@@ -161,7 +186,7 @@ This is exactly the same however you need to replace `'w'` with `'a'` for append
 Use the `'wb'` for writing binaries for example.
 
 
-::: {.callout-exercise}
+::: {.callout-note}
 #### Reading and writing files
 {{< level 2 >}}
 
@@ -175,7 +200,7 @@ Finally test your file with the expense_calculator script.
 
 The `shutil` module can be used to move files in python.
 
-```
+```python
 import shutil
 import os
 
@@ -188,15 +213,200 @@ os.makedirs(os.path.dirname(destination_file), exist_ok=True)
 
 # Move the file
 shutil.move(source_file, destination_file)
-
-
 ```
 
-The same can be used to move directories. If the main task is moving files arount - I would generally avoid using python to move around files, if you can use a bash script instead.
+The same can be used to move directories. If the main task is moving files around - I would generally avoid using python to move around files, if you can use a bash script instead.
 Generally python scripts will open, read and create files during for example data analysis.
-*Attend the training facilities unix course to learn more* 
+*Attend the training facilities unix course to learn more*
+
+## Exercises
+
+::: {.callout-exercise}
+#### Exercise 1: Finding and changing your working directory
+{{< level 1 >}}
+
+The `os` module lets you check and change your current working directory.
+
+1. Import the `os` module and use it to print your current working directory.
+2. Create a new folder called `practice_files` in your current directory (hint: look up `os.mkdir()`).
+3. Change your working directory into `practice_files` using `os.chdir()`.
+4. Print your working directory again to confirm it has changed.
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+import os
+
+# 1. Print the current working directory
+print(os.getcwd())
+
+# 2. Create a new folder
+os.mkdir('practice_files')
+
+# 3. Change into the new folder
+os.chdir('practice_files')
+
+# 4. Confirm the change
+print(os.getcwd())
+```
+
+:::
+:::
+
+
+::: {.callout-exercise}
+#### Exercise 2: Writing, reading and appending to a file
+{{< level 1 >}}
+
+1. Using `with`, create a file called `shopping_list.txt` and write three items to it, one per line.
+2. Open the file again and read its contents, printing each item on its own line.
+3. Open the file in append mode and add two more items to it.
+4. Read the file one final time to check all five items are present, this time printing each line with its line number (e.g. `1: eggs`).
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+# 1. Write the initial list
+with open('shopping_list.txt', 'w') as file:
+    file.write("eggs\n")
+    file.write("milk\n")
+    file.write("bread\n")
+
+# 2. Read and print the contents
+with open('shopping_list.txt', 'r') as file:
+    for line in file:
+        print(line.strip())
+
+# 3. Append two more items
+with open('shopping_list.txt', 'a') as file:
+    file.write("butter\n")
+    file.write("tea\n")
+
+# 4. Read again, with line numbers
+with open('shopping_list.txt', 'r') as file:
+    for n, line in enumerate(file, start=1):
+        print(f"{n}: {line.strip()}")
+```
+
+:::
+:::
+
+
+::: {.callout-exercise}
+#### Exercise 3: Organising files with `shutil` and `os`
+{{< level 2 >}}
+
+1. Create two folders called `raw_data` and `processed_data`.
+2. Create a file called `results.txt` inside `raw_data` containing a line of your choice.
+3. Use `shutil.move()` to move `results.txt` from `raw_data` into `processed_data`.
+4. Use `os.listdir()` to print the contents of both folders and confirm the file has moved.
+5. **Discussion:** for a task like this, would a bash script or a Python script be more appropriate, and why?
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+import os
+import shutil
+
+# 1. Create the folders
+os.mkdir('raw_data')
+os.mkdir('processed_data')
+
+# 2. Create a file inside raw_data
+with open('raw_data/results.txt', 'w') as file:
+    file.write("Experiment results go here.\n")
+
+# 3. Move the file
+shutil.move('raw_data/results.txt', 'processed_data/results.txt')
+
+# 4. Confirm the move
+print("raw_data contains:", os.listdir('raw_data'))
+print("processed_data contains:", os.listdir('processed_data'))
+```
+
+5. Either could work for a simple move like this, but a bash script (e.g. using `mv`) is generally preferable for straightforward file organisation tasks, since it is quicker to write and does not require starting a Python interpreter. Python is usually a better choice when the moving is only one step within a larger task, such as reading, processing or renaming files based on their contents.
+
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 4: Reopening and appending to a file
+{{< level 1 >}}
+
+1. Using `with`, create a file called `log.txt` and write a single line to it: `"Log started."`
+2. Close the file (the `with` block will do this automatically), then reopen `log.txt` in append mode and add two more lines: `"Step 1 complete."` and `"Step 2 complete."`
+3. Reopen the file once more, this time in read mode, and print out every line in the file to check all three lines are present.
+4. **Discussion:** what would happen to the contents of `log.txt` if you had accidentally used `'w'` instead of `'a'` in step 2?
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+# 1. Create the file with an initial line
+with open('log.txt', 'w') as file:
+    file.write("Log started.\n")
+
+# 2. Reopen in append mode and add more lines
+with open('log.txt', 'a') as file:
+    file.write("Step 1 complete.\n")
+    file.write("Step 2 complete.\n")
+
+# 3. Reopen in read mode and print every line
+with open('log.txt', 'r') as file:
+    for line in file:
+        print(line.strip())
+```
+
+4. Using `'w'` instead of `'a'` would overwrite the file completely, deleting the `"Log started."` line before writing the new ones — you would end up with only `"Step 1 complete."` and `"Step 2 complete."` in the file, having lost the original content.
+
+:::
+:::
+
+::: {.callout-exercise}
+#### Exercise 5: Discussion — why use both `with` and `try`/`except`?
+{{< level 2 >}}
+
+Below is a function from file_reader.py that loads expenses from a file. Read it carefully, then discuss why it uses **both** `with` and `try`/`except`, given that `with` already handles closing the file safely.
+
+```{python}
+#| eval: false
+def load_expenses(filename):
+    """Uses try-except and a for loop to load data."""
+    data = []
+    try:
+        with open(filename, "r") as file:
+            for line in file:
+                parts = line.strip().split(",")
+                if len(parts) == 2:
+                    data.append([parts[0].lower(), float(parts[1])])
+    except FileNotFoundError:
+        print("No existing records found. Starting fresh.")
+    return data
+```
+
+::: {.callout-answer}
+
+`with` and `try`/`except` are solving two different problems here, which is why both are needed:
+
+- **`with`** guarantees that the file is closed properly once the block finishes, whether it finishes normally or an exception occurs partway through. This handles the *resource management* problem discussed earlier in this section.
+- **`try`/`except`** handles the situation where `open()` itself fails, before there is even a file object for `with` to manage. If `filename` does not exist, `open()` raises a `FileNotFoundError` immediately — `with` alone cannot catch this or recover from it, so without the surrounding `try`/`except`, the program would crash instead of printing a friendly message and returning an empty list.
+
+In short: `with` looks after closing the file once it is open; `try`/`except` looks after what happens if it cannot be opened at all. Using `with` on its own would still crash on a missing file, and using `try`/`except` on its own (with plain `open()`/`file.close()`) would reintroduce the risk of the file never closing if an error occurred while reading it.
+
+This pattern — wrapping a `with` block in `try`/`except` — is very common when working with files that may or may not exist yet, such as loading data that is created the first time a program runs successfully.
+
+:::
+:::
 
 ## Summary
 
-It is important to be able to manipulate files in python. 
-Many packages come with functions to read and write specific file types. This includes for examples pandas, a package often used in data analysis.
+- Files can be opened using the `open()` function, with different modes for reading (`'r'`), writing (`'w'`), appending (`'a'`) and binary data (`'b'`)
+- Always close a file once you have finished with it, otherwise it may not save properly or could remain locked by your program
+- The `with` statement is the preferred way to work with files, as it automatically closes the file for you, even if an error occurs
+- `file.read()` returns the whole file as a single string, `file.readlines()` returns a list of lines, and iterating over a file object with a `for` loop reads it line by line — the most memory-efficient option for large files
+- Writing to a file uses the same `open()` function with `'w'` (overwrite) or `'a'` (append) modes, and remember to add `\n` manually when writing lines yourself
+- The `shutil` module can be used to move files and directories in Python, though a bash script is often a better tool for the job if file-moving is the main task
+- Many packages, such as pandas, come with their own built-in functions for reading and writing specific file types, which are often more convenient than the built-in `open()` function
