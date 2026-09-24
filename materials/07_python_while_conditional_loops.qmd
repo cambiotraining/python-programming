@@ -5,7 +5,9 @@ title: Python conditional loops with `while`
 ::: {.callout-tip}
 #### Learning Objectives
 
-- Learn about while conditionals and how they are used
+- Learn about `while` conditionals and how they are used
+- Understand loop control statements (`break` and `continue`)
+- Understand that when writing a `while` loop it is important to consider whether the conditions will enable completion and prevent unintended infinite loops
 
 :::
 
@@ -16,11 +18,11 @@ A `while` loop in Python is a control flow statement that allows code to be exec
 
 **Key Components**
 
-1. **Condition:** The loop starts with a condition that is evaluated before each iteration. If the condition is `True`, the code block within the loop is executed.
+1. **Condition:** The loop starts with a condition that is evaluated before each iteration. If the condition is `True`, the code block within the loop is run
 
 2. **Code Block:** The statements inside the loop are indented, and these will run repeatedly as long as the condition remains `True`.
 
-3. **Increment/Decrement:** It's crucial to modify the variable used in the condition within the loop; otherwise, you may create an infinite loop.
+3. **Increment/Decrement:** It's crucial to modify the variable used in the condition within the loop or otherwise ensure that the variable will change such that the condition is not always met; otherwise, you may create an infinite loop. This is often done through incrementing a counter.
 
 4. **Exit:** Once the condition evaluates to `False`, the loop stops, and the program continues with the next line of code following the loop.
 
@@ -31,17 +33,18 @@ while condition:
     # Code block to execute
     # Update condition variable
 ```
-**Example**
+**Example 1: Simple Counter**
 
 Here's a simple example to illustrate how a while loop works:
 
-```
+```{python}
 count = 0
 
 while count < 5:
     print("Count is:", count)
     count += 1  # Increment count
 ```
+
 **Explanation of the Example**
 
 - **Initialization:** The variable `count` is initialized to `0`.
@@ -54,9 +57,9 @@ while count < 5:
   
 - **Termination:** Once `count` reaches `5`, the condition becomes `False`, and the loop exits.
 
-This can be incredibly useful in simulations. Or when interacting in the environment. Here the number of iterations is not known beforehand and depend on a certain condition being met. They provide a way to repeat actions and process data dynamically within a program.
+**Example 2: Tallying Marks**
 
-**However**
+While loops can also be incredibly useful in simulations, or when interacting in the environment. The exact number of iterations may not known be beforehand and depend on a certain condition being met. Here while loops provide a way to repeat actions and process data dynamically within a program.
 
 - **Infinite Loops:** Ensure the condition will eventually evaluate to `False` to avoid infinite loops.
   
@@ -64,10 +67,105 @@ This can be incredibly useful in simulations. Or when interacting in the environ
   
 - **Continue Statement:** The `continue` statement can skip the current iteration and proceed to the next one based on a condition.
 
-An example is:
+```{python}
+# List of pre-recorded question marks (including an invalid mark)
+marks = [25, 30, -5, 40, 20]
 
+maximum_iterations = 20
+total_marks = 0
+index = 0
+
+while index < len(marks):
+
+    if index > maximum_iterations:
+        break
+
+    current_mark = marks[index]
+    index += 1
+
+    # Skip negative values
+    if current_mark < 0:
+        print(f"Skipping invalid mark: {current_mark}")
+        continue
+
+    total_marks += current_mark
+    print(f"Added {current_mark} marks. Current total: {total_marks}")
+
+    # Stop execution if total exceeds 100
+    if total_marks > 100:
+        print("Maximum score of 100 exceeded. Stopping tally.")
+        break
+
+print(f"Final score: {total_marks}")
 ```
+
+
+Here the maximum number of iterations is set and if the list is too long the loop will be exited with `break`. Negative marks are ignored with `continue`, and if the total exceeds 100 the loop is also exited with `break`. 
+
+**Example 3: Guessing game**
+
+While loops can also use multiple conditions as well as a decrement, as seen in the below example.
+
+```{python}
+secret_code = "phoenix"
+premade_guesses = ["griffin", "shadow", "phoenix", "dragon"]
+tries_left = 3
+tries_done = 0
+index = 0
+
+print("=== Dungeon Vault Unlocking Game ===")
+print(f"You have {tries_left} attempts to guess the secret passkey!\n")
+
+while tries_left > 0 and index < len(premade_guesses):
+    guess = premade_guesses[index]
+    index += 1
+    tries_done += 1
+
+    print(f"Attempt {tries_done}: Player guesses '{guess}'")
+
+    if guess == secret_code:
+        print(f"Success! The vault opens! You won in {tries_done} attempt(s).")
+        break
+    else:
+        tries_left -= 1
+        if tries_left <= 0:
+            print("No tries remaining! The vault locks forever. Game over.")
+            break
+        print(f"Incorrect passkey. Tries left: {tries_left}\n")
+```
+
+## Exercises
+
+::: {.callout-exercise}
+#### Simple Countdown
+{{< level 1 >}}
+
+Write a simple `while` loop that counts down from `5` to `1` and then prints `"Blast off!"`.
+
+::: {.callout-answer}
+
+```{python}
+countdown = 5
+
+while countdown > 0:
+    print(countdown)
+    countdown -= 1
+
+print("Blast off!")
+```
+
+:::
+
+
+::: {.callout-exercise}
+#### Code Legibility
+{{< level 2 >}}
+
+```python
 import random
+
+# Setting a fixed seed for reproducible simulation results
+random.seed(42)
 
 population = 1000
 infected = 1
@@ -106,22 +204,18 @@ while infected < population:
     if days >= max_days:
         print("The simulation has reached its time limit.")
         break
-
 ```
 
-::: {.callout-exercise}
-#### Code Legibility
-{{< level 2 >}}
-
-Discussion:
 What does the above code do?
 Is it legibly written?
 What can be done to improve this?
 
 ::: {.callout-answer}
 
-```
+The simulation models the spread of an infection in a population. 
+Adding comments would help the interpretability of the code in particular for beginners
 
+```python
 # Commenting the code appropriately is important!
 import random
 
@@ -132,10 +226,11 @@ days = 0                # Start at day 0
 infection_rate = 1.5    # Rate of infection: how many people one infected person can infect per day
 max_days = 30           # Maximum number of days to simulate
 
+#While condition checks that not everyone is infected already
 while infected < population:
     days += 1
 
-    # Simulate random events like lockdown or vaccines
+    # Simulate random events like a lockdown with a specific probability
     if random.random() > 0.9:  # 10% chance of stopping the spread for the day
         print(f"Day {days}: Lockdown in effect, no new infections today.")
         continue  # Skip the infection calculation for this day and move to the next
@@ -172,23 +267,127 @@ while infected < population:
         print("The simulation has reached its time limit.")
         break
 ```
-
 :::
 
 :::
 
 ::: {.callout-exercise}
-#### Interpreting a while loop
+#### Interpreting and improving a `while` loop from the expense calculator
 {{< level 2 >}}
 
-What does the while statement in the expense_calculator.py code do?
-What are its limitations?
-Improve the code, by adressing these limitations
+Consider the following function from `input_handler.py` which is part of the expense calculator:
+
+```python
+def collect_expenses(thresholds, expenses, get_total_func, check_logic_func):
+    """Uses a while loop to interact with the user."""
+    print("Enter your expenses. Type 'done' to finish.\n")
+    
+    while True:
+        category = input("Category (food, transport, entertainment, other): ").lower()
+        if category == "done":
+            break
+        
+        amount_str = input("Amount: ")
+        
+        # Validation
+        if category in thresholds and amount_str.replace('.', '', 1).isdigit():
+            amount = float(amount_str)
+            expenses.append([category, amount])
+            
+            # Use the passed-in logic functions
+            current_total = get_total_func(expenses, category)
+            check_logic_func(category, current_total, thresholds)
+        else:
+            print("Invalid input. Try again.\n")
+```
+
+*Note: Notice how functions (`get_total_func` and `check_logic_func`) are passed into `collect_expenses` as arguments. This ensures the code remains modular and flexible.*
+
+**Questions:**
+1. What does the `while` statement in `collect_expenses` do?
+2. What are its limitations?
+3. Improve the code by addressing these limitations.
 
 ::: {.callout-answer}
 
-Add code introducing a maximum number of iterations or a global value cap to force exit and stop an infinite loop
-You can also add an extra break statement to stop if a user has exceeded a limit
+**Explanation:**
+1. The `while True:` loop creates an infinite loop that repeatedly prompts the user for a category and amount until the user explicitly enters `"done"`.
+2. **Limitations:**
+   - If the user never enters `"done"`, the program will loop indefinitely.
+   - There is no upper bound on total entries or expenditure limits.
+   - Incorrect input outputs a simple error message but provides no mechanism to cap maximum consecutive invalid entries.
+
+**Improved Code Implementation:**
+
+```{python}
+# Helper functions to demonstrate execution
+def get_category_total(expenses, category):
+    return sum(item[1] for item in expenses if item[0] == category)
+
+def check_budget_threshold(category, current_total, thresholds):
+    limit = thresholds.get(category, 0)
+    if current_total > limit:
+        print(f"  [ALERT] Expenditure for '{category}' (£{current_total:.2f}) exceeds threshold (£{limit:.2f})!")
+
+def collect_expenses_improved(thresholds, expenses, get_total_func, check_logic_func, simulated_inputs, max_entries=10):
+    """Improved version with entry caps and maximum iteration safety guards."""
+    print("Starting expense collection...")
+    entry_count = 0
+    input_idx = 0
+    
+    while entry_count < max_entries and input_idx < len(simulated_inputs):
+        category = simulated_inputs[input_idx].lower()
+        input_idx += 1
+        
+        if category == "done":
+            print("User completed entry sequence.")
+            break
+            
+        if input_idx >= len(simulated_inputs):
+            print("No matching amount found for category.")
+            break
+            
+        amount_str = simulated_inputs[input_idx]
+        input_idx += 1
+        
+        # Input Validation
+        if category in thresholds and amount_str.replace('.', '', 1).isdigit():
+            amount = float(amount_str)
+            expenses.append([category, amount])
+            entry_count += 1
+            
+            # Execute flexible callback functions
+            current_total = get_total_func(expenses, category)
+            print(f"Recorded £{amount:.2f} under '{category}'. Total for {category}: £{current_total:.2f}")
+            check_logic_func(category, current_total, thresholds)
+        else:
+            print(f"Invalid input sequence ('{category}', '{amount_str}'). Please try again.")
+
+    if entry_count >= max_entries:
+        print("Maximum expense entry limit reached.")
+
+# Test setup
+budget_thresholds = {"food": 50.0, "transport": 30.0, "entertainment": 20.0}
+recorded_expenses = []
+
+# Simulated user input stream
+simulated_user_input = [
+    "food", "25.00",
+    "transport", "15.00",
+    "food", "35.00",  # Exceeds food threshold
+    "invalid_cat", "10.00",
+    "done"
+]
+
+collect_expenses_improved(
+    budget_thresholds, 
+    recorded_expenses, 
+    get_category_total, 
+    check_budget_threshold, 
+    simulated_user_input
+)
+```
+
 :::
 
 :::
@@ -201,37 +400,59 @@ Either write a while loop of your own choice,
 
 or 
 
-Write a script that asks customers repeatedly for the drinks they would like to order.
-If it is not recognised from a set of your choice, then respond accordingly
-If they input "stop" or order more than 10 items, complete the order.
-Tell the customer the total cost.
+Write a script that asks customers repeatedly for drinks they would like to order from a menu.
+- If an item is not recognised from your menu (`"tea"`, `"coffee"`, `"water"`), display an appropriate message.
+- If the customer enters `"stop"` or orders more than 10 items, complete the order.
+- Calculate and display the total cost of the order.
 
-<!--
 ::: {.callout-answer}
+
+```{python}
+# Menu items and prices
+menu = {
+    "tea": 2.50,
+    "coffee": 3.00,
+    "water": 1.50
+}
+
+def process_order(simulated_inputs):
+    total_cost = 0.0
+    item_count = 0
+    max_items = 10
+    input_index = 0
+
+    print("Order processing started...")
+
+    while item_count < max_items and input_index < len(simulated_inputs):
+        drink = simulated_inputs[input_index].strip().lower()
+        input_index += 1
+
+        if drink == "stop":
+            print("Customer closed order.")
+            break
+
+        if drink in menu:
+            price = menu[drink]
+            total_cost += price
+            item_count += 1
+            print(f"Added {drink.capitalize()} (£{price:.2f}). Total items: {item_count}")
+        else:
+            print(f"Unknown drink '{drink}'. Please choose tea, coffee, or water.")
+
+    if item_count >= max_items:
+        print("Maximum order limit of 10 items reached.")
+
+    print(f"\nOrder Complete! Total drinks ordered: {item_count}. Total cost: £{total_cost:.2f}")
+
+# Example execution with simulated inputs
+order_inputs = ["tea", "coffee", "juice", "tea", "water", "stop"]
+process_order(order_inputs)
 ```
-count = 0
-
-while True:
-    drink = input("Enter drink (tea / coffee / water / stop): ").strip().lower()
-
-    if drink == "stop":
-        print("Orders closed")
-        break
-
-    if drink == "tea" or drink == "coffee" or drink == "water":
-        print("Order recorded")
-        count += 1
-        continue
-
-    print("Unknown drink")
-    continue
-
-print("Total drinks ordered:", count)
-```
-:::
--->
 
 :::
+
+:::
+
 
 
 
@@ -239,9 +460,10 @@ print("Total drinks ordered:", count)
 
 ::: {.callout-tip}
 #### Key Points
-
-- while loops can be very useful for tasks that do not have a set number of loops allowing simulation and user input
-- It is important you do not get infinite loops in your code
+- `while` loops repeat code blocks based on a boolean condition, which is ideal when the required number of iterations is unknown in advance.
+- Always modify condition variables or use explicit safety checks to avoid infinite loops.
+- `break` exits a loop immediately, whereas `continue` skips to the next iteration.
+- Passing functions into custom loop routines decouples business logic from control structures, keeping your codebase clean and modular.
 
 :::
 
