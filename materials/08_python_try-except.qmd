@@ -162,9 +162,13 @@ print(get_element(sample_list, "one"))   # Triggers TypeError caught by Exceptio
 ```
 
 **Explanation:**
+
 1. Valid indices (e.g. `1`) execute cleanly.
+
 2. An index beyond the length of the list (e.g. `10`) triggers `IndexError`.
+
 3. Passing a string as an index (e.g. `"one"`) triggers a `TypeError`, which falls through to `except Exception as e`.
+
 :::
 :::
 
@@ -250,16 +254,22 @@ print("Invalid Base Counts:", invalid_counts)
 **No!** While `if` statements and `try...except` blocks both guide program flow, they serve fundamentally distinct purposes:
 
 **"Look Before You Leap" (LBYL) vs "Easier to Ask for Forgiveness than Permission" (EAFP):**
-   * `if` statements check conditions *before* executing an action (LBYL).
-   * `try...except` attempts an action and handles failures *if* they occur (EAFP)
+
+- `if` statements check conditions *before* executing an action (LBYL).
+
+- `try...except` attempts an action and handles failures *if* they occur (EAFP)
 
 **Unforeseen Failures:**
+
 `if` statements can only be used to deal with errors you have forseen and that can be checkes easily. They cannot be used for all eventualities and unexpected occurrences. For example:
-   * An `if` statement can check if a file exists (`if os.path.exists("file.txt"):`), but the file could still be deleted, locked, or corrupted between the check and the actual read operation.
-   * A `try...except` block safely handles `FileNotFoundError` or `PermissionError` during the operation itself.
+
+- An `if` statement can check if a file exists (`if os.path.exists("file.txt"):`), but the file could still be deleted, locked, or corrupted between the check and the actual read operation.
+
+- A `try...except` block safely handles `FileNotFoundError` or `PermissionError` during the operation itself.
 
 **Data Type Parsing:**
-   * Validating complex strings before numeric conversion using `if` statements often requires cumbersome regular expressions. Using `try: float(value)` is much cleaner and more reliable.
+
+- Validating complex strings before numeric conversion using `if` statements often requires cumbersome regular expressions. Using `try: float(value)` is much cleaner and more reliable.
 :::
 :::
 
@@ -354,9 +364,13 @@ def collect_expenses(thresholds, expenses, get_total_func, check_logic_func, max
 
 
 #### When NOT to use `try...except`:
-* **For Syntax Errors or Logic Bugs:** Do not hide programming mistakes with `try...except`; fix the code logic instead.
-* **Overly Broad Catching Without Logging:** Avoid silent `except:` or `except Exception:` blocks that pass without action (`pass`), as this hides critical errors (like `NameError` or variable misspelling) and makes debugging difficult.
-* **Simple Predictable Control Flow:** If checking. When a certain value is expected some of the time and requires alternate processing, prefer using `if` statements rather than `try` and `except`
+
+- **For Syntax Errors or Logic Bugs:** Do not hide programming mistakes with `try...except`; fix the code logic instead.
+
+- **Overly Broad Catching Without Logging:** Avoid silent `except:` or `except Exception:` blocks that pass without action (`pass`), as this hides critical errors (like `NameError` or variable misspelling) and makes debugging difficult.
+
+- **Simple Predictable Control Flow:** If checking. When a certain value is expected some of the time and requires alternate processing, prefer using `if` statements rather than `try` and `except`
+
 :::
 :::
 
@@ -368,9 +382,9 @@ def collect_expenses(thresholds, expenses, get_total_func, check_logic_func, max
 
 #### Key Points
 
-* `try` and `except` blocks prevent Python scripts from crashing when runtime errors occur.
-* Use `except Exception as e` to gracefully handle unexpected or unnamed exceptions and inspect the error message stored in `e`.
-* `else` blocks execute when no exceptions occur, while `finally` blocks always execute, making them ideal for cleanup operations.
-* Prefer specific exception catching (e.g. `except ValueError:`) before general fallbacks (`except Exception as e:`).
-* Combine `if` statements for standard logical branching with `try...except` for handling unpredictable data inputs and execution errors.
+- `try` and `except` blocks prevent Python scripts from crashing when runtime errors occur.
+- Use `except Exception as e` to gracefully handle unexpected or unnamed exceptions and inspect the error message stored in `e`.
+- `else` blocks execute when no exceptions occur, while `finally` blocks always execute, making them ideal for cleanup operations.
+- Prefer specific exception catching (e.g. `except ValueError:`) before general fallbacks (`except Exception as e:`).
+- Combine `if` statements for standard logical branching with `try...except` for handling unpredictable data inputs and execution errors.
 :::

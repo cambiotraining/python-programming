@@ -178,7 +178,7 @@ for index, animal in enumerate(animals, start=1):
 
 ::: {.callout-exercise}
 
-#### Exercise 1: Summing Numbers with `range()`
+#### Summing Numbers with `range()`
 
 {{< level 1 >}}
 
@@ -199,7 +199,7 @@ print(f"The sum is: {total}")  # Output: The sum is: 55
 
 ::: {.callout-exercise}
 
-#### Exercise 2: Shopping Cart Total
+#### Shopping Cart Total
 
 {{< level 1 >}}
 
@@ -238,7 +238,7 @@ print(f"Total: £{total_cost:.2f}")
 
 ::: {.callout-exercise}
 
-#### Exercise 3: Numbered Shopping List
+#### Numbered Shopping List
 
 {{< level 1 >}}
 
@@ -281,7 +281,7 @@ List comprehensions provide a concise way to create lists using `for` loops in a
 
 ::: {.callout-exercise}
 
-#### Exercise 4: Use List Comprehensions
+#### Use List Comprehensions
 
 {{< level 1 >}}
 
@@ -304,7 +304,7 @@ print(uppercase_animals)
 
 ::: {.callout-exercise}
 
-#### Exercise 5: for loops in the expense calculator
+#### `for` loops in the expense calculator
 
 {{< level 2 >}}
 

@@ -10,6 +10,377 @@ title: Create your own Scripts
 :::
 
 ::: {.callout-exercise}
+#### Exercise 6: File parsing and renaming
+{{< level 3 >}}
+
+I have given you a folder of PDF files which are science papers from different fields. Your task is to write a script that reads each file, works out what field it belongs to, and uses this to sort the files into meaningful category subfolders.
+
+To read the PDFs you will need the `PyPDF2` package. Install it with pip, then extract text from a file as follows:
+
+```{python}
+#| eval: false
+from PyPDF2 import PdfReader
+
+reader = PdfReader("example.pdf")
+for page in reader.pages:
+    text = page.extract_text()
+    print(text)
+```
+
+Remember to use the tools we have covered so far (opening/writing files, `os`, `shutil`, `try`/`except`). If you need help, talk to each other or ask an instructor. Work through the hints below one at a time if you get stuck — each one includes a worked example of just that step.
+
+::: {.callout-hint}
+#### Hint 1: List the PDF files in your folder
+
+Before reading any text, write the code that lists every file in your target folder and filters it down to just the `.pdf` files.
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+import os
+
+target_path = "./Papers"
+pdf_files = [f for f in os.listdir(target_path) if f.lower().endswith(".pdf")]
+print(pdf_files)
+```
+
+:::
+:::
+
+::: {.callout-hint}
+#### Hint 2: Extract text from a single PDF
+
+Write a small function that takes a filename and returns the text of its **first page** using `PyPDF2`. Test it on one file before doing anything else.
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+from PyPDF2 import PdfReader
+
+def get_first_page_text(pdf_path):
+    reader = PdfReader(pdf_path)
+    if not reader.pages:
+        return ""
+    return reader.pages[0].extract_text()
+
+text = get_first_page_text("./Papers/example.pdf")
+print(text[:200])  # print just the start to check it worked
+```
+
+:::
+:::
+
+::: {.callout-hint}
+#### Hint 3: Limit to the first 500 words
+
+Extend your function (or write a new one) so that instead of returning the whole page of text, it returns only the first 500 words, lower-cased so matching is easier later.
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+def get_first_500_words(text):
+    words = text.lower().split()
+    return words[:500]
+
+first_500 = get_first_500_words(text)
+print(len(first_500))
+print(first_500[:10])
+```
+
+:::
+:::
+
+::: {.callout-hint}
+#### Hint 4: Define your categories and keywords
+
+Decide on your own categories (e.g. `"biology"`, `"physics"`, `"maths"`) and, for each one, a list of keywords you would expect to see in a paper from that field. Store this as a dictionary.
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+CATEGORIES = {
+    "machine learning": ["training", "dataset", "network", "machine"],
+    "physics": ["quantum", "particle", "energy", "field", "wave", "gravity"],
+    "biology": ["cell", "dna", "gene", "protein", "organism"],
+    "maths": ["theorem", "proof", "equation", "lemma"],
+}
+print(CATEGORIES.keys())
+```
+
+:::
+:::
+
+::: {.callout-hint}
+#### Hint 5: Score a paper against your categories
+
+Write a function that takes your list of words (from Hint 3) and your `CATEGORIES` dictionary (from Hint 4), and counts how many keyword matches occur for each category. Return the category with the highest score — or `"uncategorized"` if there were no matches at all.
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+def get_best_category(words, categories):
+    scores = {cat: 0 for cat in categories}
+    for word in words:
+        clean_word = "".join(filter(str.isalpha, word))
+        for cat, keywords in categories.items():
+            if clean_word in keywords:
+                scores[cat] += 1
+    best_cat = max(scores, key=scores.get)
+    return best_cat if scores[best_cat] > 0 else "uncategorized"
+
+category = get_best_category(first_500, CATEGORIES)
+print(category)
+```
+
+:::
+:::
+
+::: {.callout-hint}
+#### Hint 6: Handle files that fail to read
+
+Not every PDF will read cleanly — some may be corrupted, password-protected, or contain no extractable text. Wrap your reading and scoring steps in a `try`/`except` block so that one bad file doesn't crash the whole script, and return `"error"` for any file that fails.
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+def get_best_category_safe(pdf_path, categories):
+    try:
+        text = get_first_page_text(pdf_path)
+        words = get_first_500_words(text)
+        return get_best_category(words, categories)
+    except Exception as e:
+        print(f"Error reading {pdf_path}: {e}")
+        return "error"
+```
+
+:::
+:::
+
+::: {.callout-hint}
+#### Hint 7: Create category folders and move the files
+
+For each PDF, use `os.makedirs()` to create a subfolder for its category if one doesn't already exist, then use `shutil.move()` to move the file into it. Skip any file categorised as `"error"`.
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+import shutil
+
+for filename in pdf_files:
+    source_path = os.path.join(target_path, filename)
+    category = get_best_category_safe(source_path, CATEGORIES)
+
+    if category == "error":
+        continue
+
+    category_dir = os.path.join(target_path, category)
+    os.makedirs(category_dir, exist_ok=True)
+
+    destination_path = os.path.join(category_dir, filename)
+    shutil.move(source_path, destination_path)
+    print(f"Moved {filename} -> {category}/")
+```
+
+:::
+:::
+
+::: {.callout-hint}
+#### Hint 8: Wrap it all into a single function
+
+Combine everything above into one function that takes a folder path, checks it exists, and sorts every PDF inside it into category subfolders. This makes your script reusable on any folder, not just the one you tested with.
+
+::: {.callout-answer}
+
+```{python}
+#| eval: false
+def organize_by_defined_categories(target_path):
+    if not os.path.exists(target_path):
+        print(f"Error: The directory '{target_path}' does not exist.")
+        return
+
+    pdf_files = [f for f in os.listdir(target_path) if f.lower().endswith(".pdf")]
+    if not pdf_files:
+        print(f"No PDF files found in '{target_path}'.")
+        return
+
+    for filename in pdf_files:
+        source_path = os.path.join(target_path, filename)
+        category = get_best_category_safe(source_path, CATEGORIES)
+        if category == "error":
+            continue
+
+        category_dir = os.path.join(target_path, category)
+        os.makedirs(category_dir, exist_ok=True)
+
+        destination_path = os.path.join(category_dir, filename)
+        shutil.move(source_path, destination_path)
+        print(f"Moved {filename} -> {category}/")
+```
+
+:::
+:::
+
+Once you've worked through the steps above, put everything together into a complete script. Two example full solutions are given below — your own does not need to match either of these, as long as it combines file reading, categorisation and moving files using the tools covered so far.
+
+::: {.callout-answer}
+#### Example answer 1: sort and rename into numbered files
+
+```{python}
+#| eval: false
+import os
+import shutil
+from PyPDF2 import PdfReader
+
+def extract_text(filename, word_limit=500):
+    """Extracts roughly the first `word_limit` words of text from a PDF."""
+    reader = PdfReader(filename)
+    text = ""
+    for page in reader.pages:
+        text += page.extract_text() or ""
+        if len(text.split()) >= word_limit:
+            break
+    return " ".join(text.split()[:word_limit])
+
+def classify_field(text):
+    """Very simple keyword-based classifier."""
+    text = text.lower()
+    if any(word in text for word in ["gene", "cell", "organism"]):
+        return "biology"
+    elif any(word in text for word in ["algorithm", "computation", "software"]):
+        return "computer_science"
+    elif any(word in text for word in ["telescope", "galaxy", "star"]):
+        return "astronomy"
+    else:
+        return "other"
+
+# Extract text from every PDF in the folder
+pdf_folder = "papers"
+extracted_text = {}
+for filename in os.listdir(pdf_folder):
+    if filename.endswith(".pdf"):
+        path = os.path.join(pdf_folder, filename)
+        extracted_text[filename] = extract_text(path)
+
+# Build a dictionary of old name -> new name
+rename_map = {}
+field_counts = {}
+for filename, text in extracted_text.items():
+    field = classify_field(text)
+    field_counts[field] = field_counts.get(field, 0) + 1
+    new_name = f"{field}_{field_counts[field]}.pdf"
+    rename_map[filename] = new_name
+
+# Move and rename files into field-specific subfolders
+for old_name, new_name in rename_map.items():
+    field_folder = new_name.split("_")[0]
+    os.makedirs(os.path.join(pdf_folder, field_folder), exist_ok=True)
+    shutil.move(
+        os.path.join(pdf_folder, old_name),
+        os.path.join(pdf_folder, field_folder, new_name)
+    )
+    print(f"Moved {old_name} -> {field_folder}/{new_name}")
+```
+
+This approach builds a dictionary of extracted text first, classifies each paper with simple substring matching, and both **sorts and renames** files into numbered filenames (e.g. `biology_1.pdf`, `biology_2.pdf`) as it moves them.
+
+:::
+
+::: {.callout-answer}
+#### Example answer 2: sort by keyword scoring, keep original filenames
+
+```{python}
+#| eval: false
+import os
+import shutil
+from PyPDF2 import PdfReader
+
+# Your specified categories and keywords
+CATEGORIES = {
+    "machine learning": ["training", "dataset", "network", "machine"],
+    "physics": ["quantum", "particle", "energy", "field", "wave", "gravity"],
+    "biology": ["cell", "dna", "gene", "protein", "organism", "neuroscience", "ecology", "microbiology", "habitat"],
+    "maths": ["theorem", "proof", "equation", "lemma"],
+}
+
+def get_best_category(pdf_path):
+    """Reads first 500 words and matches against the CATEGORIES dictionary."""
+    try:
+        reader = PdfReader(pdf_path)
+        if not reader.pages:
+            return "uncategorized"
+        # Get first page and slice first 500 words
+        text = reader.pages[0].extract_text().lower()
+        words = text.split()[:500]
+        scores = {cat: 0 for cat in CATEGORIES}
+        for word in words:
+            clean_word = "".join(filter(str.isalpha, word))
+            for cat, keywords in CATEGORIES.items():
+                if clean_word in keywords:
+                    scores[cat] += 1
+        best_cat = max(scores, key=scores.get)
+        return best_cat if scores[best_cat] > 0 else "uncategorized"
+    except Exception as e:
+        print(f"Error reading {pdf_path}: {e}")
+        return "error"
+
+def organize_by_defined_categories(target_path):
+    """
+    Organizes PDFs within the specified target_path into category subfolders.
+    """
+    # Verify the directory exists
+    if not os.path.exists(target_path):
+        print(f"Error: The directory '{target_path}' does not exist.")
+        return
+
+    # 1. Identify all PDF files specifically in the provided target_path
+    pdf_files = [f for f in os.listdir(target_path) if f.lower().endswith('.pdf')]
+    if not pdf_files:
+        print(f"No PDF files found in '{target_path}'.")
+        return
+
+    for filename in pdf_files:
+        # Create full path to the source file
+        source_file_path = os.path.join(target_path, filename)
+        print(f"Analyzing: {filename}...")
+        # 2. Determine category
+        category = get_best_category(source_file_path)
+        if category == "error":
+            continue
+
+        # 3. Create category folder inside the target path
+        category_dir = os.path.join(target_path, category)
+        if not os.path.exists(category_dir):
+            os.makedirs(category_dir)
+        # 4. Define the final destination path
+        destination_path = os.path.join(category_dir, filename)
+        # 5. Move File
+        try:
+            shutil.move(source_file_path, destination_path)
+            print(f"  -> Sorted into: {category}")
+        except Exception as e:
+            print(f"  -> Error moving {filename}: {e}")
+
+if __name__ == "__main__":
+    # Specify your path here
+    my_papers_folder = './Papers'
+    # Pass the path into the function
+    organize_by_defined_categories(my_papers_folder)
+    print("Organization complete.")
+```
+
+This approach scores keyword matches per category using a word-cleaning step (stripping punctuation with `filter(str.isalpha, word)`), wraps both the PDF-reading and the file-moving steps in their own `try`/`except` blocks, and **sorts files into folders while keeping their original filenames**.
+
+:::
+:::
+
+<!-- ::: {.callout-exercise}
 #### File Parsing and renaming Exercise
 {{< level 2 >}}
 
@@ -28,7 +399,7 @@ for page in reader.pages:
 
 Write a script to use the text to sort the pdf files in a way that makes sense to you, and rename the pdf's to meaningful file names.
 
-Remember to use all the tools we have looked at so far. If you need help you can talk to eachother and ask the instructors.
+Remember to use all the tools we have looked at so far. If you need help you can talk to eachother and ask the instructors. -->
 
 <!--
 ::: {.callout-answer}
@@ -125,9 +496,16 @@ if __name__ == "__main__":
 :::
 -->
 
-:::
+<!-- ::: -->
 
 
 ## Summary
 
-Now you should already be able to use python to automate simple tasks that you need doing!
+::: {.callout-tip}
+
+#### Key Points
+
+- Now you should already be able to use python to automate simple tasks that you need doing!
+- When you have a problem, break it into easy to solve chunks to develop a solution
+
+:::

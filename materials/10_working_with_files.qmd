@@ -115,7 +115,7 @@ This method is memory-efficient, especially for large files, since it doesn't lo
 
 Consider the problems with working with files this way:
 
-::: {.callout-exercise}
+::: {.callout-tip}
 #### Discussion: Exceptions after `open()`
 {{< level 2 >}}
 
@@ -256,7 +256,7 @@ print(os.getcwd())
 
 
 ::: {.callout-exercise}
-#### Exercise 2: Writing, reading and appending to a file
+#### Writing, reading and appending to a file
 {{< level 1 >}}
 
 1. Using `with`, create a file called `shopping_list.txt` and write three items to it, one per line.
@@ -295,7 +295,7 @@ with open('shopping_list.txt', 'r') as file:
 
 
 ::: {.callout-exercise}
-#### Exercise 3: Organising files with `shutil` and `os`
+#### Organising files with `shutil` and `os`
 {{< level 2 >}}
 
 1. Create two folders called `raw_data` and `processed_data`.
@@ -333,7 +333,7 @@ print("processed_data contains:", os.listdir('processed_data'))
 :::
 
 ::: {.callout-exercise}
-#### Exercise 4: Reopening and appending to a file
+#### Reopening and appending to a file
 {{< level 1 >}}
 
 1. Using `with`, create a file called `log.txt` and write a single line to it: `"Log started."`
@@ -366,7 +366,7 @@ with open('log.txt', 'r') as file:
 :::
 
 ::: {.callout-exercise}
-#### Exercise 5: Discussion — why use both `with` and `try`/`except`?
+#### Discussion — why use both `with` and `try`/`except`?
 {{< level 2 >}}
 
 Below is a function from file_reader.py that loads expenses from a file. Read it carefully, then discuss why it uses **both** `with` and `try`/`except`, given that `with` already handles closing the file safely.

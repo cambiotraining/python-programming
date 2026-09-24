@@ -56,6 +56,8 @@ By this we mean packages may not have the correct packages they require or wrong
 
 - **Python-only**: Pip is mainly designed for Python packages. If a package has non-Python dependencies, you may have to install them manually. Many packages used in python may actually use other languages under the hood, resulting in them requiring non-python tools to be installed.
 
+Package managers deal with some of the downsides to insalling packages with `pip`. See the extra section to learn more or attend our other courses.
+
 ::: {.callout-exercise}
 #### Install numpy
 {{< level 1 >}}
@@ -111,12 +113,13 @@ or
 ```
 from utils import some_function
 ```
+## Exercise
 
 ::: {.callout-exercise}
 #### Importing functions
 {{< level 1 >}}
 
-The expense calculator has essentially done this. Have a look at the `expense_calculator_old.py`. Compare the complexity to that of the `expense_calculator.py`. Discuss the pros and cons of each approach and when you might want to use one over the other.
+The expense calculator has essentially separated out different functions into different scripts, and then imports them into the main script. Have a look at the `expense_calculator_old.py`. Compare the complexity to that of the `expense_calculator.py`. Discuss the pros and cons of each approach and when you might want to use one over the other.
 
 :::
 
@@ -272,5 +275,14 @@ In Python, `__name__` is a special variable that indicates how a file is being u
 
 ## Summary
 
-It is important to be able to import libraries in python
-There are many libraries for different functions.
+::: {.callout-tip}
+
+#### Key Points
+
+- It is important to be able to import libraries in python
+- There are many libraries for different functions
+- The simplest way to install libraries in python is using `pip`
+- you can split your own functions into separate scripts and reuse them by importing.
+- Environments are helpful for isolating projects which require different versions of packages.
+
+:::

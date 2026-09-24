@@ -121,7 +121,7 @@ The most useful operators with conditional statements are:
 :::
 
 ::: {.callout-exercise}
-#### Exercise 1: Mini conditionals check
+#### Mini conditionals check
 
 Look at the following code:
 ```python
@@ -164,7 +164,7 @@ if x > 3:
 :::
 
 ::: {.callout-exercise}
-#### Exercise 2: Examining conditional statements
+#### Examining conditional statements
 {{< level 2 >}}
 
 - What do the following `if` statements do?
@@ -225,7 +225,7 @@ if is_valid:
 :::
 
 ::: {.callout-exercise}
-#### Exercise 3: Cinema ticket pricing
+#### Cinema ticket pricing
 
 Write a Python script that calculates ticket prices for a cinema based on a customer's age:
 - Children (under 12 years old): £5
@@ -251,7 +251,7 @@ print(f"Ticket price: £{price}")
 :::
 
 ::: {.callout-exercise}
-#### Exercise 4: Smart heating controller
+#### Smart heating controller
 
 Write a Python script to control an automated heating system based on the current room temperature:
 - If the temperature is below 18°C, print `"Heating ON"`.
@@ -275,7 +275,7 @@ else:
 :::
 
 ::: {.callout-exercise}
-#### Exercise 5: Online store delivery charges and discounts
+#### Online store delivery charges and discounts
 {{< level 3 >}}
 
 **Scenario:** You are writing the checkout calculation logic for an online UK retailer.

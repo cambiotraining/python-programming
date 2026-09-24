@@ -240,7 +240,7 @@ TypeError: 'set' object is not subscriptable
 ## Exercises
 
 :::{.callout-exercise}
-#### Exercise 1: List Indexing, Slicing, and Methods
+#### List Indexing, Slicing, and Methods
 {{< level 1 >}}
 
 1. Create a list named `attendees` containing: `"Sarah"`, `"Alex"`, `"Ravi"`, `"Elena"`, and `"Marcus"`.
@@ -278,7 +278,7 @@ print("Total Attendees:", len(attendees))
 :::
 
 :::{.callout-exercise}
-#### Exercise 2: Working with Tuples and Immutability
+#### Working with Tuples and Immutability
 {{< level 1 >}}
 
 1. Create a tuple named `screen_dimensions` containing the width `1920` and height `1080`.
@@ -299,7 +299,7 @@ print("Height [1]:", screen_dimensions[1])
 
 
 :::{.callout-exercise}
-#### Exercise 3: Dictionary Access and Key Management
+#### Dictionary Access and Key Management
 {{< level 1 >}}
 
 1. Create a dictionary named `office_supplies` with the following key-value pairs:
@@ -342,7 +342,7 @@ print("Stock Counts:", list(office_supplies.values()))
 :::
 
 :::{.callout-exercise}
-#### Exercise 4: Filtering Unique Visitor Logs with Sets
+#### Filtering Unique Visitor Logs with Sets
 {{< level 2 >}}
 
 A hotel check-in system recorded the following visitor badge numbers throughout a day (including duplicates from repeat entries):
@@ -380,7 +380,7 @@ print("Total Unique Visitors:", len(sorted_unique_badges))
 
 
 :::{.callout-exercise}
-#### Exercise 5: Inventory Update System (Word Problem)
+#### Inventory Update System (Word Problem)
 {{< level 3 >}}
 
 Write a Python script to do the following task:

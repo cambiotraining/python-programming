@@ -134,7 +134,7 @@ print(f"Average score: {final_average}")  # Output: 86.25
 ## Exercises
 
 ::: {.callout-exercise}
-#### Exercise 1: Formatting User Input
+#### Formatting User Input
 Write a function named `format_greeting` that accepts a single parameter `name`.
 1. Use `.strip()` and `.title()` to clean up extra whitespace and capitalise the name properly (e.g., `"  alex  "` becomes `"Alex"`).
 2. Return a formatted greeting string: `"Welcome, [Clean Name]!"`.
@@ -152,7 +152,7 @@ print(format_greeting("  alex  "))  # Output: Welcome, Alex!
 :::
 
 ::: {.callout-exercise}
-#### Exercise 2: Budget Checker
+#### Budget Checker
 Write a function called `is_over_budget` that takes two parameters:
 - `expenses`: A list of numbers representing spending items.
 - `budget_limit`: A single number representing the overall spending limit.
@@ -173,7 +173,7 @@ print(is_over_budget(my_expenses, 80))  # Output: True
 :::
 
 ::: {.callout-exercise}
-#### Exercise 3: Discount Calculator
+#### Discount Calculator
 Write a function called `apply_discount` that takes a list of item prices and a percentage discount (e.g., `10` for 10%).
 1. Sum all items in the list to calculate the total price.
 2. Calculate the discounted total using arithmetic operators (`*` and `/`).
@@ -195,7 +195,7 @@ print(apply_discount(items, 10))  # Output: 76.5
 :::
 
 ::: {.callout-exercise}
-#### Discussion: Function Documentation
+#### Discussion - Function Documentation
 
 Try running Python's built-in `help()` function on a custom function you have written:
 

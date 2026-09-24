@@ -159,7 +159,7 @@ Strings in Python are immutable, meaning they cannot be changed after they are c
 ### Numerical Exercises
 
 ::: {.callout-exercise}
-#### Exercise 1: Assigning Variables and Checking Data Types
+#### Assigning Variables and Checking Data Types
 {{< level 1 >}}
 
 Given the following variable assignments:
@@ -195,7 +195,7 @@ print("f:", type(f))
 :::
 
 ::: {.callout-exercise}
-#### Exercise 2: Using Numeric Built-in Functions
+#### Using Numeric Built-in Functions
 {{< level 1 >}}
 
 Given the variables `a = 10`, `b = 200.5`, `c = 15`, `d = 3`, and `e = 4.0`, answer the following questions using **built-in functions**:
@@ -231,7 +231,7 @@ print('5. Absolute:', ans_5)
 :::
 
 ::: {.callout-exercise}
-#### Exercise 3: Temperature Statistics Calculation
+#### Temperature Statistics Calculation
 {{< level 2 >}}
 
 A weather station in Cambridge recorded daily maximum temperatures (°C) over five days as follows: `14.2`, `16.8`, `12.5`, `18.1`, and `15.0`.
@@ -262,7 +262,7 @@ print("Average Temperature (rounded):", rounded_avg, "°C")
 ### String Exercises
 
 ::: {.callout-exercise}
-#### Exercise 4: Exploring String Methods and Documentation
+#### Exploring String Methods and Documentation
 {{< level 1 >}}
 
 Write a Python script to perform the following steps on the string `text = "  data science and analytics  "`:
@@ -302,7 +302,7 @@ print("Final length:", final_length)
 :::
 
 ::: {.callout-exercise}
-#### Exercise 5: Joining Words into a Formatting Sentence
+#### Joining Words into a Formatting Sentence
 {{< level 1 >}}
 
 1. Create a list of three word strings: `["apples", "bananas", "cherries"]`.
@@ -332,7 +332,7 @@ print(result)
 These exercises are slightly more difficult and will use all you have learnt so far in the course. In real-world applications, specifications are described in plain language. Practice converting verbal instructions into Python code using numerical functions, string methods, and f-strings.
 
 ::: {.callout-exercise}
-#### Exercise 6: Shopping Basket & Loyalty Discount
+#### Shopping Basket & Loyalty Discount
 {{< level 2 >}}
 
 **Scenario:**
@@ -393,7 +393,7 @@ print(receipt)
 :::
 
 ::: {.callout-exercise}
-#### Exercise 7: Event Registration & Ticket Summary
+#### Event Registration & Ticket Summary
 {{< level 2 >}}
 
 **Scenario:**
