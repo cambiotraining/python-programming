@@ -131,7 +131,7 @@ print("Alphabetically sorted:", animals)
 ```
 
 ::: {.callout-warning}
-#### Beware of aasignment and mutability in Python
+#### Beware of assignment and mutability in Python
 ```{python}
 a = [1, 2, 3]
 b = a
