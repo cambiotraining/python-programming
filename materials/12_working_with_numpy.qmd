@@ -127,7 +127,7 @@ print(independent_slice)  # Output: array([999, 30, 40])
 
 ## Common Operations
 
-### 1. Element-wise Operations & Vectorised Functions
+#### Element-wise Operations & Vectorised Functions
 
 Unlike standard Python lists, NumPy arrays allow you to perform mathematical operations on all elements simultaneously without writing explicit `for` loops.
 
@@ -160,7 +160,7 @@ print("boolean ouput")
 print(x > 2)         # array([False, False,  True,  True])
 ```
 
-### 2. Broadcasting
+#### Broadcasting
 
 Broadcasting allows NumPy to perform operations on arrays of different shapes by implicitly expanding the smaller array across the larger one.
 
@@ -183,7 +183,7 @@ print("Add row_vec to EVERY row of matrix")
 print(matrix + row_vec)
 ```
 
-### 3. Indexing, Slicing, and Boolean Masking
+#### Indexing, Slicing, and Boolean Masking
 
 ```{python}
 # 1D Indexing & Slicing
@@ -223,7 +223,7 @@ print("scores[passed]")
 print(scores[passed])# array([88, 92, 71])
 ```
 
-### 4. Reshaping and Combining Arrays
+#### Reshaping and Combining Arrays
 
 ```{python}
 print("Reshaping")
@@ -242,7 +242,7 @@ print("Horizontal stack (1D array of length 4)")
 print(np.hstack((v1, v2)))    # Horizontal stack (1D array of length 4)
 ```
 
-### 5. Aggregations
+#### Aggregations
 
 Aggregations summarise data across the entire array or along specific axes (`axis=0` for columns, `axis=1` for rows).
 
@@ -271,7 +271,7 @@ print("Argmax over axis 1")
 print(A.argmax(axis=1)) # Index of maximum value per row -> array([1, 2])
 ```
 
-### 6. Linear Algebra Operations
+#### Linear Algebra Operations
 
 NumPy supports basic matrix manipulations such as transposition and matrix multiplication:
 
@@ -290,7 +290,7 @@ print(A @ B)
 
 ## Reading and Saving Data
 
-### Reading Data
+#### Reading Data
 
 Common methods include reading numerical values from text or CSV files:
 
@@ -305,7 +305,7 @@ or reading from NumPy’s native binary format (`.npy` or `.npz`):
 data = np.load("data.npy")
 ```
 
-### Saving Data
+#### Saving Data
 
 ```python
 # Saving to a text/CSV file with formatted output
@@ -317,7 +317,6 @@ np.save("output.npy", data)
 
 NumPy is often combined with pandas, another package designed for more complex data ingestion tasks (such as handling mixed data types, missing values, and column names).
 
----
 
 ## Advantages and Disadvantages
 
@@ -328,7 +327,7 @@ NumPy is often combined with pandas, another package designed for more complex d
 | Extensive mathematical and array processing capabilities | Steeper initial learning curve than basic Python lists |
 | Seamlessly integrates with the scientific Python ecosystem | |
 
----
+
 
 ## Common Alternatives and Their Use Cases
 
@@ -344,7 +343,7 @@ Used for large-scale numerical computation and machine learning, especially with
 **Python Lists**  
 Suitable for small datasets or heterogeneous (mixed-type) data, but inefficient for large numerical computations.
 
----
+
 
 ## Documentation and Resources
 
@@ -352,7 +351,7 @@ The NumPy documentation is very thorough and readable. Practice using the offici
 
 Official Documentation: [https://numpy.org/doc/](https://numpy.org/doc/)
 
----
+
 
 ## Exercises
 

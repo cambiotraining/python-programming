@@ -130,7 +130,23 @@ animals.sort()
 print("Alphabetically sorted:", animals)
 ```
 
----
+::: {.callout-warning}
+#### Beware of aasignment and mutability in Python
+```{python}
+a = [1, 2, 3]
+b = a
+b.append(4)   # both a and b become [1, 2, 3, 4]
+print(a)
+print(b)
+```
+when b is assigned to a, with `=`, both variables point to the same object. you can use the id() function to check. When you are modifying a list, and want to preserve the original, always use the `.copy()` function. 
+
+Similarly in a list of lists, if you modify the sub-list, any object which contains a pointer to that sub-list will also be modified.
+
+While we won't go into more detail in this course. More information is available here:
+`https://github.com/bterwijn/memory_graph?tab=readme-ov-file#python-data-model`
+
+:::
 
 ## Working with Dictionaries
 
@@ -182,7 +198,6 @@ for title, quantity in book_stock.items():
     print(f"- {title}: {quantity} copies")
 ```
 
----
 
 ## Working with Tuples and Sets
 
