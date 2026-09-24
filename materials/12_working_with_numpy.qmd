@@ -5,356 +5,712 @@ title: NumPy
 ::: {.callout-tip}
 #### Learning Objectives
 
-- Be able to use numpy
-- Know what numpy is good for
-
-
+- Understand what NumPy is and when to use it
+- Create, manipulate, slice, and inspect multi-dimensional arrays (`ndarray`)
+- Understand array memory allocation, specifically the distinction between views and copies during slicing
+- Perform vectorised arithmetic, broadcasting, axis aggregations, and basic matrix operations
+- Read and write NumPy array data from and to external files
 :::
 
 ## What Is NumPy?
 
 NumPy (Numerical Python) is a foundational Python library for numerical and scientific computing. It provides efficient data structures and functions for working with large, multi-dimensional numerical datasets. NumPy is widely used in data science, machine learning, engineering, physics, and finance, and it underpins many other libraries in the Python scientific ecosystem, such as pandas, SciPy, and scikit-learn.
 
-You will likely need NumPy in many of the future python courses including in machine learning and data science courses, and therefore we introduce it here.
+You will likely need NumPy in many of your future Python courses, including machine learning and data science, which is why we introduce it here.
 
 ## Base Data Structure: The ndarray
 
-The core data structure in NumPy is the ndarray (N-dimensional array).
+The core data structure in NumPy is the `ndarray` (N-dimensional array).
 
 Key characteristics:
 
-- Stores elements of a single data type (e.g., integers, floats)
+- Stores elements of a single data type (homogeneous, e.g., all integers or all floats)
 - Supports one-dimensional (vectors), two-dimensional (matrices), and higher-dimensional arrays
-- Optimised for performance and memory efficiency
+- Optimised for high performance and memory efficiency
 
-Example:
+### Array Creation Examples
 
-```
+There are several ways to create arrays depending on your needs:
+
+```{python}
 import numpy as np
 
-a = np.array([1, 2, 3])          # 1D array
-b = np.array([[1, 2], [3, 4]])   # 2D array
+# 1. Direct creation from Python lists
+a = np.array([1, 2, 3])          # 1D array (vector)
+print(a)
+b = np.array([[1, 2], [3, 4]])   # 2D array (matrix)
+print(b)
+
+# 2. Sequential arrays
+seq = np.arange(0, 10, 2)        # array([0, 2, 4, 6, 8]) — start, stop, step
+print(seq)
+lin = np.linspace(0, 1, 5)       # 5 evenly spaced numbers from 0 to 1
+print(lin)
+
+# 3. Constant arrays
+zeros = np.zeros((2, 3))         # 2x3 matrix of 0.0
+print("zeros:")
+print(zeros)
+
+ones = np.ones((3, 2))           # 3x2 matrix of 1.0
+print("ones:")
+print(ones)
+
+filled = np.full((2, 2), 7)      # 2x2 matrix filled with 7
+print("filled:")
+print(filled)
 ```
 
-## Common Operations 
+### Inspecting Array Attributes
 
-**Element-wise Operations**
+```{python}
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+print(arr.shape)   # (2, 3) — 2 rows, 3 columns
+print(arr.ndim)    # 2      — number of dimensions
+print(arr.dtype)   # int64  — data type of elements
+print(arr.size)    # 6      — total number of elements
 ```
+
+## Array Memory: Views vs. Copies
+
+A crucial concept in NumPy is the difference between a **view** and a **copy** when slicing arrays.
+
+When you slice a standard Python list, Python creates a brand-new list containing copies of the elements. However, when you slice a NumPy `ndarray`, NumPy returns a **view** of the original array. A view shares the exact same underlying memory block as the original array.
+
+### Why Views Matter
+
+Because views share memory, **modifying a slice modifies the original array**.
+
+```{python}
+# Original array
+original = np.array([10, 20, 30, 40, 50])
+print(original)
+
+# Extract a slice (this is a VIEW)
+sub_array = original[1:4]  # array([20, 30, 40])
+print("sub_array:")
+print(sub_array)
+
+# Modify an element in the slice
+sub_array[0] = 999
+
+# The original array is altered!
+print("original is altered!")
+print(original)  # Output: array([10, 999, 30, 40, 50])
+
+
+
+```
+
+This design choice makes NumPy extremely fast and memory-efficient when working with gigabytes of data, as it avoids making unnecessary copies in memory.
+
+### Creating an Explicit Copy
+
+If you need an independent array where modifications do not affect the original dataset, you must explicitly create a **copy** using `.copy()`:
+
+```{python}
+original = np.array([10, 20, 30, 40, 50])
+
+# Create an explicit copy
+independent_slice = original[1:4].copy()
+
+# Modify the copy
+independent_slice[0] = 999
+
+# The original array remains untouched
+print(original)           # Output: array([10, 20, 30, 40, 50])
+print(independent_slice)  # Output: array([999, 30, 40])
+```
+
+---
+
+## Common Operations
+
+### 1. Element-wise Operations & Vectorised Functions
+
+Unlike standard Python lists, NumPy arrays allow you to perform mathematical operations on all elements simultaneously without writing explicit `for` loops.
+
+```{python}
+x = np.array([1, 2, 3, 4])
+y = np.array([10, 20, 30, 40])
+
+# Basic Arithmetic
+print("A")
+print(x + y)         # array([11, 22, 33, 44])
+print("B")
+print(y - x)         # array([ 9, 18, 27, 36])
+print("C")
+print(x * y)         # array([10, 40, 90, 160])
+print("D")
+print(y / x)         # array([10., 10., 10., 10.])
+print("E")
+print(x ** 2)        # array([ 1,  4,  9, 16])
+
+# Built-in Mathematical Functions
+print("sqrt")
+print(np.sqrt(x))    # Square root of each element
+print("exp")
+print(np.exp(x))     # Exponential e^x
+print("sine")
+print(np.sin(x))     # Trigonometric sine
+
+# Element-wise Comparisons (returns boolean array)
+print("boolean ouput")
+print(x > 2)         # array([False, False,  True,  True])
+```
+
+### 2. Broadcasting
+
+Broadcasting allows NumPy to perform operations on arrays of different shapes by implicitly expanding the smaller array across the larger one.
+
+```{python}
+# Scalar broadcasting
 x = np.array([1, 2, 3])
-y = np.array([4, 5, 6])
+print("x * 2")
+print(x * 2)               # array([2, 4, 6])
+print("x + 10")
+print(x + 10)              # array([11, 12, 13])
 
-x + y        # array([5, 7, 9])
-x * y        # array([4, 10, 18])
-```
+# 2D and 1D Broadcasting
 
-**Broadcasting**
+matrix = np.array([[1, 2, 3], 
+                    [4, 5, 6]])
+row_vec = np.array([10, 20, 30])
 
-```
-x * 2        # array([2, 4, 6])
-```
-
-**Indexing and Slicing**
-```
-x[0]         # 1
-x[1:]        # array([2, 3])
+# Add row_vec to EVERY row of matrix
+print("Add row_vec to EVERY row of matrix")
+print(matrix + row_vec)
 ```
 
-**Aggregations**
-```
-x.mean()     # 2.0
-x.sum()      # 6
-x.max()      # 3
+### 3. Indexing, Slicing, and Boolean Masking
+
+```{python}
+# 1D Indexing & Slicing
+x = np.array([10, 20, 30, 40, 50])
+print("x[0]")
+print(x[0])          # 10
+
+print("x[1:4]")
+print(x[1:4])        # array([20, 30, 40])
+
+print("x[-2:]")
+print(x[-2:])        # array([40, 50])
+
+# 2D Slicing [row_slice, column_slice]
+A = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+print("Element at row 0, col 1")
+print(A[0, 1])       # 2
+
+print("Entire first row")
+print(A[0, :])       # array([1, 2, 3])
+
+print("Entire last column")
+print(A[:, 2])       # array([3, 6, 9])
+
+print("2x2 Sub-array: rows 0-1, cols 1-2")
+print(A[0:2, 1:3])
+
+print("Boolean Masking (Filtering)")
+scores = np.array([45, 88, 92, 60, 71])
+passed = scores >= 70
+print("passed")
+print(passed)        # array([False,  True,  True, False,  True])
+print("scores[passed]")
+print(scores[passed])# array([88, 92, 71])
 ```
 
-**Linear Algebra**
+### 4. Reshaping and Combining Arrays
+
+```{python}
+print("Reshaping")
+arr = np.arange(6)             # array([0, 1, 2, 3, 4, 5])
+print("original", arr)
+grid = arr.reshape((2, 3))     # 2x3 matrix
+print("grid", grid)
+
+print("Stacking/Combining Arrays")
+v1 = np.array([1, 2])
+v2 = np.array([3, 4])
+
+print("Vertical stack (2x2 matrix)")
+print(np.vstack((v1, v2)))    # Vertical stack (2x2 matrix)
+print("Horizontal stack (1D array of length 4)")
+print(np.hstack((v1, v2)))    # Horizontal stack (1D array of length 4)
 ```
+
+### 5. Aggregations
+
+Aggregations summarise data across the entire array or along specific axes (`axis=0` for columns, `axis=1` for rows).
+
+```python
+A = np.array([[1, 5, 3],
+              [4, 2, 6]])
+
+# Entire Array Aggregations
+print("Sum")
+print(A.sum())       # 21
+print("Mean")
+print(A.mean())      # 3.5
+print("Max")
+print(A.max())       # 6
+print("std")
+print(A.std())       # 1.7078...
+
+# Axis-Specific Aggregations
+print("Sum over axis 0")
+print(A.sum(axis=0)) # Column sums -> array([5, 7, 9])
+
+print("Mean over axis 1")
+print(A.mean(axis=1))# Row means   -> array([3., 4.])
+
+print("Argmax over axis 1")
+print(A.argmax(axis=1)) # Index of maximum value per row -> array([1, 2])
+```
+
+### 6. Linear Algebra Operations
+
+NumPy supports basic matrix manipulations such as transposition and matrix multiplication:
+
+```{python}
 A = np.array([[1, 2], [3, 4]])
-np.linalg.det(A)
-np.linalg.inv(A)
+B = np.array([[5, 6], [7, 8]])
+
+print("Matrix Transposition")
+print(A.T)
+
+print("Matrix Multiplication") #(@ operator or np.dot)
+print(A @ B)
 ```
+
+---
 
 ## Reading and Saving Data
 
-**Reading Data**
+### Reading Data
 
-Common methods include from text or CSV files:
+Common methods include reading numerical values from text or CSV files:
 
-```data = np.loadtxt("data.csv", delimiter=",")```
-
-
-or from NumPy’s native binary format:
-
-```data = np.load("data.npy")```
-
-**Saving Data**
+```python
+# Reading from CSV (skipping header row if present)
+data = np.loadtxt("data.csv", delimiter=",", skiprows=1)
 ```
-np.savetxt("output.csv", data, delimiter=",")
+
+or reading from NumPy’s native binary format (`.npy` or `.npz`):
+
+```python
+data = np.load("data.npy")
+```
+
+### Saving Data
+
+```python
+# Saving to a text/CSV file with formatted output
+np.savetxt("output.csv", data, delimiter=",", fmt="%.2f")
+
+# Saving to NumPy's efficient binary format
 np.save("output.npy", data)
 ```
 
-NumPy is often combined with pandas another package for more complex data ingestion tasks.
+NumPy is often combined with pandas, another package designed for more complex data ingestion tasks (such as handling mixed data types, missing values, and column names).
+
+---
 
 ## Advantages and Disadvantages
 
-| Advantages                                                                 | Disadvantages                                                      |
-|----------------------------------------------------------------------------|--------------------------------------------------------------------|
-| Very fast for numerical operations due to optimized C-based implementation | Limited support for non-numeric or mixed data                      |
-| Memory-efficient compared to Python lists                                  | Less intuitive for labeled or relational data                      |
-| Extensive mathematical and linear algebra functionality                     | Steeper learning curve than basic Python lists for beginners       |
-| Integrates well with the scientific Python ecosystem                        |                                                                    |
+| Advantages | Disadvantages |
+|------------------------------------------------|------------------------------------------------|
+| Extremely fast for numerical operations due to C-based implementation | Limited support for non-numeric or mixed data types |
+| Memory-efficient compared to native Python lists | Less intuitive for labelled or relational data |
+| Extensive mathematical and array processing capabilities | Steeper initial learning curve than basic Python lists |
+| Seamlessly integrates with the scientific Python ecosystem | |
 
+---
 
 ## Common Alternatives and Their Use Cases
 
-**pandas**
-Used for labeled, tabular data (DataFrames). Builds on NumPy and adds indexing, grouping, and data-cleaning tools.
+**pandas**  
+Used for labelled, tabular data (DataFrames). Builds on top of NumPy and adds indexing, grouping, and data-cleaning tools.
 
-**SciPy**
-Extends NumPy with advanced scientific algorithms (optimization, signal processing, statistics).
+**SciPy**  
+Extends NumPy with advanced scientific algorithms (optimisation, signal processing, numerical integration, and statistics).
 
-**TensorFlow / PyTorch**
-Used for large-scale numerical computation and machine learning, especially with GPUs and automatic differentiation.
+**TensorFlow / PyTorch**  
+Used for large-scale numerical computation and machine learning, especially with GPU acceleration and automatic differentiation.
 
-**Python Lists**
-Suitable for small datasets or heterogeneous data, but inefficient for numerical computation.
+**Python Lists**  
+Suitable for small datasets or heterogeneous (mixed-type) data, but inefficient for large numerical computations.
 
+---
 
-**'NumPy' Documentation**
+## Documentation and Resources
 
-The 'NumPy' documentation is very good and the modules are very widely used!
-For this reason I have not given any more examples here. When you start coding more, you must use the resources and documentation to solve your own challenges.
-Use the both the documentation and what you have learnt so far in the following exercises.
+The NumPy documentation is very thorough and readable. Practice using the official documentation to look up functions, parameters, and methods.
 
-https://numpy.org/doc/
+Official Documentation: [https://numpy.org/doc/](https://numpy.org/doc/)
+
+---
+
+## Exercises
 
 ::: {.callout-exercise}
-#### Numpy Exercise
-{{< level 1 >}}
+#### Array Creation & Inspection
+1. Create a 1D array of integers from 0 to 9.
+2. Create a 2D array of shape (3, 3) filled with zeros.
+3. Create a 2D array of shape (2, 4) filled with ones.
+4. Print the shape, data type, and number of dimensions of each created array.
 
-1. 
+::: {.callout-hint}
+Consider using `np.arange()`, `np.zeros()`, `np.ones()`, `.shape`, `.dtype`, and `.ndim`.
+:::
 
-Create the following NumPy arrays:
+::: {.callout-answer}
+```{python}
+import numpy as np
 
-A 1D array of integers from 0 to 9.
+# 1. 1D array of integers from 0 to 9
+arr1 = np.arange(10)
+print("1D Array:", arr1)
 
-A 2D array of shape (3, 3) filled with zeros.
+# 2. 2D array of zeros (3x3)
+arr2 = np.zeros((3, 3))
+print("\n2D Zeros Array:\n", arr2)
 
-A 2D array of shape (2, 4) filled with ones.
+# 3. 2D array of ones (2x4)
+arr3 = np.ones((2, 4))
+print("\n2D Ones Array:\n", arr3)
 
-Hint: Use np.arange() and np.zeros() / np.ones().
-
-2. 
-
-a. Compute the element-wise sum of a and b given the arrays:
-
+# 4. Print attributes
+print("\nArray 1 -> Shape:", arr1.shape, "| dtype:", arr1.dtype, "| ndim:", arr1.ndim)
+print("Array 2 -> Shape:", arr2.shape, "| dtype:", arr2.dtype, "| ndim:", arr2.ndim)
+print("Array 3 -> Shape:", arr3.shape, "| dtype:", arr3.dtype, "| ndim:", arr3.ndim)
 ```
+:::
+:::
+
+::: {.callout-exercise}
+#### Reshaping and Spacing
+1. Create a 1D array containing 12 evenly spaced numbers between 0 and 5 (inclusive).
+2. Reshape this 1D array into a 2D matrix with 3 rows and 4 columns.
+3. Reshape the original array into another matrix with 2 rows and 6 columns.
+
+::: {.callout-hint}
+Consider using `np.linspace()` and `.reshape()`.
+:::
+
+::: {.callout-answer}
+```{python}
+import numpy as np
+
+# 1. 12 evenly spaced numbers from 0 to 5
+arr_1d = np.linspace(0, 5, 12)
+print("1D Array:\n", arr_1d)
+
+# 2. Reshape into (3, 4)
+matrix_3x4 = arr_1d.reshape((3, 4))
+print("\n3x4 Matrix:\n", matrix_3x4)
+
+# 3. Reshape into (2, 6)
+matrix_2x6 = arr_1d.reshape((2, 6))
+print("\n2x6 Matrix:\n", matrix_2x6)
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Slicing: Views vs. Copies
+1. Create a 1D array containing integers from 10 to 50 (inclusive), stepping by 10.
+2. Create a slice containing the middle three elements without using `.copy()`.
+3. Modify the first element of your slice to `999`.
+4. Print the original array to verify that it has changed.
+5. Repeat the process, but this time explicitly create a copy of the slice before modifying it. Verify that the original array remains unchanged.
+
+::: {.callout-hint}
+Consider using `np.arange()` and `.copy()`.
+:::
+
+::: {.callout-answer}
+```{python}
+import numpy as np
+
+# 1. Create array
+original = np.arange(10, 60, 10)
+print("Original Array:", original)
+
+# 2. Slice without copy (creates a VIEW)
+view_slice = original[1:4]
+
+# 3. Modify element in view
+view_slice[0] = 999
+
+# 4. Verify original has changed
+print("Original after modifying view:", original)
+
+# 5. Repeat using explicit copy
+original_2 = np.arange(10, 60, 10)
+copy_slice = original_2[1:4].copy()
+copy_slice[0] = 999
+
+print("Original after modifying copy:", original_2)
+print("Modified copy:", copy_slice)
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Element-wise Operations
+1. Convert the sequences `[1, 2, 3, 4]` and `[10, 20, 30, 40]` into NumPy arrays.
+2. Compute their element-wise sum.
+3. Multiply each element of the first array by 3.
+4. Compute the square of each element in the second array.
+5. Calculate the square root of each element in the second array.
+
+::: {.callout-hint}
+Consider using `np.array()` and `np.sqrt()`.
+:::
+
+::: {.callout-answer}
+```{python}
+import numpy as np
+
+# 1. Convert sequences to arrays
 a = np.array([1, 2, 3, 4])
 b = np.array([10, 20, 30, 40])
+
+# 2. Element-wise sum
+print("Element-wise sum:", a + b)
+
+# 3. Multiply array 'a' by 3
+print("Array 'a' multiplied by 3:", a * 3)
+
+# 4. Square of array 'b'
+print("Square of array 'b':", b ** 2)
+
+# 5. Square root of array 'b'
+print("Square root of array 'b':", np.sqrt(b))
 ```
-
-b. Multiply each element of a by 3.
-
-c. Compute the square of each element in b.
-
-3. 
-
-a. Extract the first row given the array:
-
-```
-arr = np.array([[1, 2, 3],
-                [4, 5, 6],
-                [7, 8, 9]])
-```
-
-b. Extract the last column.
-
-c. Extract the 2x2 subarray in the bottom-right corner.
-
-4. 
-
-a. Create a random 3x4 array of integers between 0 and 10 (inclusive). Then:
-
-b. Compute the sum of all elements.
-
-c. Compute the mean of each column.
-
-d. Find the maximum element in each row.
-
-:::{.callout-hint}
-Use np.random.randint().
 :::
-
-5. 
-
-Using NumPy’s built-in functions:
-
-a. Create a 5x5 array with random float values between 0 and 1.
-
-b. Normalize the array so that its values are between 0 and 1 using min-max normalization.
-
-c. Find the determinant of a 3x3 subarray of your choice.
-
-
-6. 
-
-a. make an array of student scores with three scores per student. save it to a csv
-
-b. Load from the csv. Print the array.
-
-c. Compute the average cost for each catagory and store it in a 1D array called avg.
-
-d. Find the student with the highest average score using Numpy
-
-e. Normalize the array so that each subject (column) has values between 0 and 1.
-
-f. Bonus: Create a boolean mask array indicating which scores are above the average for their subject.
-
 :::
 
 ::: {.callout-exercise}
-#### Using Numpy in Expense_calculator
-{{< level 2 >}}
+#### Slicing and Sub-arrays
+1. Create a 3x3 matrix containing numbers from 1 to 9.
+2. Extract the first row.
+3. Extract the last column.
+4. Extract the 2x2 sub-array located at the bottom-right corner.
 
-Modify your expense calculator or your own function to use NumPy to load and process the csv.
+::: {.callout-hint}
+Consider using `np.arange()`, `.reshape()`, and 2D indexing `[row_slice, col_slice]`.
 :::
 
+::: {.callout-answer}
+```{python}
+import numpy as np
 
-## Summary
+# 1. Create 3x3 matrix
+grid = np.arange(1, 10).reshape((3, 3))
+print("3x3 Matrix:\n", grid)
 
-Numpy is very useful for numerical calculations, that are common in many fields.
+# 2. Extract first row
+print("\nFirst Row:", grid[0, :])
 
-<!--
-1. Foundations: Why NumPy Exists
-Goals
-Understand what problems NumPy solves
-Learn to think in arrays instead of loops
-Topics
-Limitations of Python lists for numerical work
-What an ndarray is (homogeneous, fixed-type, contiguous memory)
-Vectorization vs Python loops
-When NumPy should and should not be used
-Key ideas
-NumPy is about performance and expressiveness
-Operations apply to entire arrays at once
-2. Creating Arrays
-Goals
-Learn common ways to create arrays
-Understand shape and dimensionality
-Topics
-Creating arrays from lists and tuples
-Common constructors (zeros, ones, arange, linspace)
-Data types (dtype)
-Shape, size, and number of dimensions
-Key ideas
-Shape controls how data is interpreted
-dtype matters for performance and correctness
-3. Indexing, Slicing, and Views
-Goals
-Access and modify data correctly
-Avoid common memory mistakes
-Topics
-Basic indexing and slicing
-Multidimensional indexing
-Views vs copies
-Modifying arrays in place
-Key ideas
-Slicing usually returns views, not copies
-Changes to views affect the original array
-4. Array Operations and Broadcasting
-Goals
-Replace loops with vectorized operations
-Understand broadcasting rules
-Topics
-Element-wise arithmetic
-Comparison and logical operations
-Broadcasting mechanics
-Shape compatibility rules
-Key ideas
-Broadcasting is not “magic”; it follows strict rules
-Most NumPy code should avoid explicit loops
-5. Aggregations and Statistics
-Goals
-Summarize data efficiently
-Topics
-Sum, mean, min, max, std
-Axis-based operations
-Cumulative operations
-Handling missing values (NaNs)
-Key ideas
-The axis argument is critical
-Aggregations reduce dimensions
-6. Boolean Arrays and Masking
-Goals
-Filter and conditionally modify data
-Topics
-Boolean comparisons
-Boolean indexing
-Combining conditions
-Conditional replacement
-Key ideas
-Boolean masks are arrays themselves
-Masking is faster and clearer than loops
-7. Reshaping and Manipulating Arrays
-Goals
-Change how data is structured without copying
-Topics
-reshape, ravel, flatten
-Transpose and swapping axes
-Stacking and splitting arrays
-Understanding memory layout
-Key ideas
-Reshaping does not change data, only interpretation
-Copies vs views matter for performance
-8. Linear Algebra Essentials
-Goals
-Perform core mathematical operations
-Topics
-Dot products and matrix multiplication
-Transpose and inverses
-Solving linear systems
-Eigenvalues (conceptual level)
-Key ideas
-* vs matrix multiplication
-NumPy is foundational for ML and scientific computing
-9. Random Numbers and Simulation
-Goals
-Generate reproducible random data
-Topics
-Random number generators
-Common distributions
-Seeding for reproducibility
-Monte Carlo simulation concepts
-Key ideas
-Randomness must be controlled in scientific code
-NumPy underpins simulation workflows
-10. Performance and Best Practices
-Goals
-Write fast, memory-efficient NumPy code
-Topics
-Vectorization vs loops
-In-place operations
-Avoiding unnecessary copies
-When to use NumPy vs Python vs libraries like pandas
-Key ideas
-Performance comes from how you think, not just syntax
-Clarity and correctness come before micro-optimizations
-11. NumPy in the Ecosystem
-Goals
-Understand NumPy’s role in Python’s data stack
-Topics
-Relationship to pandas, SciPy, Matplotlib
-NumPy as the foundation for ML libraries
-Interoperability with other tools
-12. Capstone / Applied Section
-Goals
-Reinforce learning through real problems
-Example projects
-Numerical simulation
-Image manipulation
-Simple data analysis pipeline
-Scientific computation example
-Key ideas
-Think in arrays
-Avoid loops
-Use the right abstraction
--->
+# 3. Extract last column
+print("Last Column:", grid[:, -1])
+
+# 4. Extract 2x2 bottom-right sub-array
+print("Bottom-Right 2x2 Sub-array:\n", grid[1:, 1:])
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Boolean Masking and Filtering
+1. Create a 1D array with values: `[12, -5, 8, 0, -3, 15, 22, -1]`.
+2. Create a boolean mask identifying which values are strictly greater than zero.
+3. Use this mask to extract only the positive numbers.
+4. Set all negative numbers in the original array to `0`.
+
+::: {.callout-hint}
+Consider using comparison operators (`>`) and boolean indexing (`arr[mask]`).
+:::
+
+::: {.callout-answer}
+```{python}
+import numpy as np
+
+# 1. Create array
+data = np.array([12, -5, 8, 0, -3, 15, 22, -1])
+
+# 2. Boolean mask for positive values
+positive_mask = data > 0
+print("Boolean Mask:", positive_mask)
+
+# 3. Filter array using mask
+positive_numbers = data[positive_mask]
+print("Positive Numbers:", positive_numbers)
+
+# 4. Replace negative numbers with 0
+data[data < 0] = 0
+print("Modified Data Array:", data)
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Combining Arrays
+1. Create two 1D arrays: `[1, 2, 3]` and `[4, 5, 6]`.
+2. Stack them vertically to form a 2x3 matrix.
+3. Stack them horizontally to form a 1D array of length 6.
+
+::: {.callout-hint}
+Consider using `np.vstack()` and `np.hstack()`.
+:::
+
+::: {.callout-answer}
+```{python}
+import numpy as np
+
+# 1. Create arrays
+v1 = np.array([1, 2, 3])
+v2 = np.array([4, 5, 6])
+
+# 2. Stack vertically
+v_stacked = np.vstack((v1, v2))
+print("Vertically Stacked:\n", v_stacked)
+
+# 3. Stack horizontally
+h_stacked = np.hstack((v1, v2))
+print("\nHorizontally Stacked:", h_stacked)
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Random Numbers and Aggregations
+1. Generate a 3x4 array of random integers between 0 and 10 (inclusive).
+2. Calculate the total sum of all elements in the array.
+3. Compute the mean score for each column (`axis=0`).
+4. Find the maximum element in each row (`axis=1`).
+
+::: {.callout-hint}
+Consider using `np.random.randint()`, `.sum()`, `.mean()`, and `.max()`.
+:::
+
+::: {.callout-answer}
+```{python}
+import numpy as np
+
+# Set random seed for reproducibility
+np.random.seed(42)
+
+# 1. Generate 3x4 random integer array (low, high, size)
+random_matrix = np.random.randint(0, 11, size=(3, 4))
+print("Random Matrix:\n", random_matrix)
+
+# 2. Total sum
+print("\nTotal Sum:", random_matrix.sum())
+
+# 3. Column means (axis=0)
+print("Column Means:", random_matrix.mean(axis=0))
+
+# 4. Row maximums (axis=1)
+print("Row Maximums:", random_matrix.max(axis=1))
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Normalisation
+1. Create a 5x5 matrix filled with random floating-point values between 0 and 1.
+2. Normalise the matrix so that all values range between 0 and 1 using Min-Max normalisation:  
+   $$\text{Normalised} = \frac{X - X_{\text{min}}}{X_{\text{max}} - X_{\text{min}}}$$
+
+::: {.callout-hint}
+Consider using `np.random.rand()`, `.min()`, and `.max()`.
+:::
+
+::: {.callout-answer}
+```{python}
+import numpy as np
+
+# Set random seed for reproducibility
+np.random.seed(10)
+
+# 1. Create 5x5 random float matrix
+rand_matrix = np.random.rand(5, 5)
+print("Original Matrix:\n", rand_matrix)
+
+# 2. Min-Max Normalisation
+min_val = rand_matrix.min()
+max_val = rand_matrix.max()
+
+normalised_matrix = (rand_matrix - min_val) / (max_val - min_val)
+print("\nNormalised Matrix:\n", normalised_matrix)
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Data Processing and Analysis Workflow
+1. Create a 2D array of student scores (4 students, 3 subjects per student). Save it to `student_scores.csv`.
+2. Load the data back from `student_scores.csv` and display it.
+3. Calculate the average score for each subject (column) and store it in a 1D array named `avg`.
+4. Identify the student index (row number) with the highest average overall score.
+5. Normalise each subject column independently so that scores in each column range between 0 and 1.
+6. **Bonus:** Create a boolean mask indicating which individual student scores are strictly above the average score for their respective subject.
+
+::: {.callout-hint}
+Consider using `np.savetxt()`, `np.loadtxt()`, `.mean(axis=0)`, `.mean(axis=1)`, `np.argmax()`, and broadcasting.
+:::
+
+::: {.callout-answer}
+```{python}
+import numpy as np
+
+# 1. Create student scores array and save to CSV
+scores = np.array([[78, 85, 90],
+                   [60, 72, 68],
+                   [95, 92, 98],
+                   [82, 80, 84]])
+
+np.savetxt("student_scores.csv", scores, delimiter=",", fmt="%d")
+
+# 2. Load from CSV
+loaded_scores = np.loadtxt("student_scores.csv", delimiter=",")
+print("Loaded Scores:\n", loaded_scores)
+
+# 3. Average score for each subject (column)
+avg = loaded_scores.mean(axis=0)
+print("\nSubject Averages (avg):", avg)
+
+# 4. Student with highest average score
+student_means = loaded_scores.mean(axis=1)
+top_student_index = np.argmax(student_means)
+print(f"Top Student Index: {top_student_index} (Average Score: {student_means[top_student_index]:.2f})")
+
+# 5. Normalise each subject column independently
+col_mins = loaded_scores.min(axis=0)
+col_maxs = loaded_scores.max(axis=0)
+normalised_scores = (loaded_scores - col_mins) / (col_maxs - col_mins)
+print("\nColumn-Normalised Scores:\n", normalised_scores)
+
+# 6. Bonus: Scores above subject average (using broadcasting)
+above_avg_mask = loaded_scores > avg
+print("\nScores Above Subject Average:\n", above_avg_mask)
+```
+:::
+:::
+
+::: {.callout-exercise}
+#### Extension: Using NumPy in Expense Calculator
+1. Modify the expense calculator to load numeric expense amounts from a CSV file using NumPy.
+2. Compute total expenses, average expense, median expense, and standard deviation.
+3. Filter out all individual expenses below a user-defined threshold using boolean masking.
+
+::: {.callout-hint}
+Consider using `np.loadtxt()`, `np.sum()`, `np.mean()`, `np.median()`, `np.std()`, and boolean masks.
+:::
+:::

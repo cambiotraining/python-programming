@@ -50,7 +50,7 @@ book:
         #-Optional activity for those who want it/extra
 
 
-    - part: "Cheat Sheets"
-      chapters:
-        - materials/python_data_types_cheat-sheet.qmd
-        - materials/python_operators_cheat-sheet.qmd
+#    - part: "Cheat Sheets"
+#      chapters:
+#        - materials/python_data_types_cheat-sheet.qmd
+#        - materials/python_operators_cheat-sheet.qmd
