@@ -26,7 +26,7 @@ The data used in these materials is provided as a zip file.
 Download and unzip the folder to your Desktop to follow along with the materials.
 
 <!-- Note for Training Developers: add the link to 'href' -->
-<a href="">
+<a href="https://github.com/cambiotraining/python-programming/blob/main/course_files.zip">
   <button class="btn"><i class="fa fa-download"></i> Download</button>
 </a>
 

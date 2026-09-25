@@ -6,7 +6,7 @@ number-sections: false
 
 ## Overview 
 
-This course is an python programming course for beginners. It introduces students to the fundamentals of python, one of the most widely used, syntactically easy, and versatile programming languages. The course is designed for learners with no prior programming experience in any language and covers coding basics principles as well as python syntax, data types, operators, control structures (if, elif, else, for, while, try, except), and simple functions. We will also briefly cover working with files, software management, object oriented programming and context managers. Do not worry if you do not know what these terms mean - you will learn in this course! The course is taught in an interactive way with exercises and working examples throughout. 
+This course is an python programming course for beginners. It introduces students to the fundamentals of python, one of the most widely used, syntactically easy, and versatile programming languages. The course is designed for learners with no prior programming experience in any language and covers coding basics principles as well as python syntax, data types, operators, control structures (if, elif, else, for, while, try, except), and simple functions. We will also briefly cover working with files, installing packages, and using the numpy package. Do not worry if you do not know what these terms mean - you will learn in this course! The course is taught in an interactive way with exercises and working examples throughout. 
 
 
 ::: {.callout-tip}
