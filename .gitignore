@@ -26,3 +26,4 @@ _site
 !.pixi/config.toml
 
 **/*.quarto_ipynb
+.DS_Store
